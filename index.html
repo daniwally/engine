@@ -1642,6 +1642,103 @@
   .compare-cell .x { color: var(--mute); opacity: 0.5; }
   .compare-cell .check { color: var(--signal); font-weight: 700; }
 
+  /* Process comparison */
+  .process-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 900px;
+    margin-bottom: 56px;
+  }
+  .process-col {
+    position: relative;
+  }
+  .process-col-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .process-col-title.trad { color: var(--mute); }
+  .process-col-title.ai { color: var(--signal); }
+  .process-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .process-step::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 24px;
+    bottom: -14px;
+    width: 1px;
+    background: var(--line);
+  }
+  .process-step:last-child::before { display: none; }
+  .step-num {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+  .process-col.trad .step-num {
+    border: 1px solid var(--mute);
+    color: var(--mute);
+  }
+  .process-col.ai .step-num {
+    background: var(--wtf-red);
+    color: #fff;
+  }
+  .step-content {
+    flex: 1;
+  }
+  .step-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--bone);
+    line-height: 1.3;
+  }
+  .process-col.trad .step-label { color: var(--mute); }
+  .step-detail {
+    font-size: 12px;
+    color: var(--mute);
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+  .process-col.ai .step-detail { color: var(--bone-dim); }
+  .process-duration {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .process-col.trad .process-duration { color: var(--mute); }
+  .process-col.ai .process-duration { color: var(--signal); font-weight: 700; }
+  .process-section-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--signal);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
   /* Pricing */
   .pricing-section-title {
     font-family: var(--mono);
@@ -3172,6 +3269,97 @@
     <div class="compare-cell label">Costo mensual estimado</div>
     <div class="compare-cell trad">USD 8.000–15.000+</div>
     <div class="compare-cell wtf"><span class="check">Desde USD 3.700</span></div>
+  </div>
+
+  <div class="process-section-title reveal delay-3">PROCESO CREATIVO</div>
+
+  <div class="process-compare reveal delay-3">
+    <div class="process-col trad">
+      <div class="process-col-title trad">PROCESO TRADICIONAL</div>
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-label">Brief del cliente</div>
+          <div class="step-detail">Reuniones, ida y vuelta, aprobaciones internas</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-label">Estrategia + concepto</div>
+          <div class="step-detail">Equipo de planners, presentaciones, revisiones</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-label">Producción de contenido</div>
+          <div class="step-detail">Fotógrafo, locación, modelos, catering, edición</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-label">Post-producción</div>
+          <div class="step-detail">Retoque, motion graphics, adaptaciones</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-label">Rondas de revisión</div>
+          <div class="step-detail">Cambios, re-edición, aprobaciones finales</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <div class="step-label">Entrega final</div>
+          <div class="step-detail">Archivos, formatos, adaptaciones extra</div>
+        </div>
+      </div>
+      <div class="process-duration">Duración total: 4–6 semanas</div>
+    </div>
+
+    <div class="process-col ai">
+      <div class="process-col-title ai">WTF AI ENGINE</div>
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-label">Brief + IA intake</div>
+          <div class="step-detail">Análisis automático de marca, audiencia y objetivos</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-label">Estrategia generativa</div>
+          <div class="step-detail">IA genera conceptos, copys y direcciones visuales</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-label">Producción AI-first</div>
+          <div class="step-detail">Imágenes, video, UGC y avatares generados en horas</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-label">Iteración en tiempo real</div>
+          <div class="step-detail">Ajustes instantáneos, variantes ilimitadas, A/B nativo</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-label">Entrega multi-plataforma</div>
+          <div class="step-detail">Contenido nativo para 5+ plataformas, listo para publicar</div>
+        </div>
+      </div>
+      <div class="process-duration">Duración total: 48–72 horas</div>
+    </div>
   </div>
 
   <div class="pricing-section-title reveal delay-3">PLANES MENSUALES</div>
