@@ -109,48 +109,234 @@
     color: var(--signal);
   }
 
-  /* ====== COMPARE TABLE ====== */
-  .compare-table {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr 1fr;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    overflow: hidden;
-    max-width: 960px;
+  /* ====== VERSUS BATTLE ROWS ====== */
+  .versus-grid {
+    max-width: 1060px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
-  .compare-header {
+  .versus-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 4px;
+  }
+  .versus-header-cell {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 14px 24px;
+  }
+  .versus-header-cell.trad {
+    color: var(--mute);
+    text-align: left;
+    background: rgba(245,240,235,0.02);
+  }
+  .versus-header-cell.wtf {
+    color: var(--signal);
+    text-align: right;
+    background: rgba(255,59,48,0.06);
+  }
+  .versus-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    position: relative;
+  }
+  .versus-side {
+    padding: 20px 24px;
+    position: relative;
+    transition: background 0.3s ease;
+  }
+  .versus-side.trad {
+    background: rgba(245,240,235,0.02);
+    text-align: left;
+  }
+  .versus-side.wtf {
+    background: rgba(255,59,48,0.06);
+    text-align: right;
+  }
+  .versus-row:hover .versus-side.trad { background: rgba(245,240,235,0.04); }
+  .versus-row:hover .versus-side.wtf { background: rgba(255,59,48,0.10); }
+  .versus-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 6px;
+  }
+  .versus-side.wtf .versus-label { color: rgba(255,59,48,0.5); }
+  .versus-value {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+  .versus-side.trad .versus-value {
+    color: var(--mute);
+  }
+  .versus-side.wtf .versus-value {
+    color: var(--bone);
+  }
+  .versus-value .num {
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .versus-side.wtf .versus-value .num {
+    color: var(--signal);
+  }
+  .versus-value .unit {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--mute);
+    margin-left: 4px;
+  }
+  .versus-bar {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+  }
+  .versus-side.trad .versus-bar {
+    right: 0;
+    left: 50%;
+    background: rgba(245,240,235,0.06);
+  }
+  .versus-side.wtf .versus-bar {
+    left: 0;
+    background: var(--signal);
+  }
+  .versus-tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    margin-top: 6px;
+  }
+  .tag-no {
+    color: var(--mute);
+    border: 1px solid rgba(245,240,235,0.08);
+  }
+  .tag-yes {
+    color: #fff;
+    background: var(--signal);
+  }
+  .versus-row-divider {
+    text-align: center;
+    padding: 6px 0;
+  }
+  .versus-row-divider span {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: rgba(245,240,235,0.12);
+    text-transform: uppercase;
+  }
+
+  /* Big cost callout */
+  .cost-callout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 2px;
+    position: relative;
+  }
+  .cost-side {
+    padding: 32px 24px;
+  }
+  .cost-side.trad {
+    background: rgba(245,240,235,0.02);
+    text-align: left;
+  }
+  .cost-side.wtf {
+    background: rgba(255,59,48,0.08);
+    text-align: right;
+  }
+  .cost-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 8px;
+  }
+  .cost-side.wtf .cost-label { color: rgba(255,59,48,0.5); }
+  .cost-num {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .cost-side.trad .cost-num {
+    color: var(--mute);
+    text-decoration: line-through;
+    text-decoration-color: rgba(245,240,235,0.15);
+  }
+  .cost-side.wtf .cost-num {
+    color: var(--signal);
+  }
+  .cost-currency {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--mute);
+  }
+  .cost-sub {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--mute);
+    margin-top: 6px;
+    text-transform: uppercase;
+  }
+  .cost-side.wtf .cost-sub { color: var(--bone-dim); }
+  /* Scroll animations */
+  .versus-row, .cost-callout {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s cubic-bezier(.2,.8,.2,1), transform 0.5s cubic-bezier(.2,.8,.2,1);
+  }
+  .versus-row.in-view, .cost-callout.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .versus-row:nth-child(2) { transition-delay: 0s; }
+  .versus-row:nth-child(3) { transition-delay: 0.06s; }
+  .versus-row:nth-child(4) { transition-delay: 0.12s; }
+  .versus-row:nth-child(5) { transition-delay: 0.18s; }
+  .versus-row:nth-child(6) { transition-delay: 0.24s; }
+  .versus-row:nth-child(7) { transition-delay: 0.30s; }
+  .versus-row:nth-child(8) { transition-delay: 0.36s; }
+  .versus-row:nth-child(9) { transition-delay: 0.42s; }
+  .versus-bar {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.8s cubic-bezier(.2,.8,.2,1) 0.3s;
+  }
+  .versus-side.wtf .versus-bar { transform-origin: right; }
+  .in-view .versus-bar { transform: scaleX(1); }
+
+  .cost-savings {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--bg-deep);
+    border: 1px solid var(--signal);
+    padding: 6px 16px;
     font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    padding: 16px 20px;
-    border-bottom: 1px solid var(--line);
-    background: rgba(20,20,26,0.6);
+    letter-spacing: 0.15em;
+    color: var(--signal);
     font-weight: 700;
-    color: var(--bone);
+    white-space: nowrap;
+    z-index: 2;
   }
-  .compare-header.trad { color: var(--mute); }
-  .compare-header.wtf { color: var(--signal); background: rgba(255,59,48,0.08); }
-  .compare-cell {
-    padding: 12px 20px;
-    font-size: 14px;
-    border-bottom: 1px solid var(--line);
-    color: var(--bone-dim);
-    line-height: 1.4;
-  }
-  .compare-cell.label {
-    font-weight: 600;
-    color: var(--bone);
-    background: rgba(20,20,26,0.3);
-    font-size: 13px;
-  }
-  .compare-cell.trad { color: var(--mute); }
-  .compare-cell.wtf {
-    background: rgba(255,59,48,0.03);
-    font-weight: 500;
-  }
-  .compare-cell .x { color: var(--mute); opacity: 0.5; }
-  .compare-cell .check { color: var(--signal); font-weight: 700; }
 
   /* ====== PROCESS COMPARISON ====== */
   .process-compare {
@@ -382,37 +568,138 @@
 <div class="section has-bg">
   <h2 class="section-tag">COMPARATIVA<br><em>DE SERVICIOS</em></h2>
   <p class="section-desc">Lo que una agencia tradicional resuelve con equipos grandes, timings largos y presupuestos fragmentados, nosotros lo resolvemos con inteligencia artificial, velocidad y un sistema integrado que no para. Mismo nivel creativo, otra velocidad.</p>
-  <div class="compare-table">
-    <div class="compare-header"></div>
-    <div class="compare-header trad">AGENCIA TRADICIONAL</div>
-    <div class="compare-header wtf">WTF AI ENGINE</div>
-    <div class="compare-cell label">Tiempo de entrega</div>
-    <div class="compare-cell trad">3-6 semanas</div>
-    <div class="compare-cell wtf"><span class="check">48-72 hs</span></div>
-    <div class="compare-cell label">Volumen mensual</div>
-    <div class="compare-cell trad">8-15 piezas</div>
-    <div class="compare-cell wtf"><span class="check">Ilimitado / 40+ piezas</span></div>
-    <div class="compare-cell label">Video cinematografico</div>
-    <div class="compare-cell trad"><span class="x">Presupuesto aparte</span></div>
-    <div class="compare-cell wtf"><span class="check">Incluido</span></div>
-    <div class="compare-cell label">UGC sintetico</div>
-    <div class="compare-cell trad"><span class="x">No disponible</span></div>
-    <div class="compare-cell wtf"><span class="check">Incluido</span></div>
-    <div class="compare-cell label">Avatares IA</div>
-    <div class="compare-cell trad"><span class="x">No disponible</span></div>
-    <div class="compare-cell wtf"><span class="check">Incluido</span></div>
-    <div class="compare-cell label">Multi-plataforma</div>
-    <div class="compare-cell trad">Adaptaciones con costo</div>
-    <div class="compare-cell wtf"><span class="check">Nativo x 5 plataformas</span></div>
-    <div class="compare-cell label">Estrategia</div>
-    <div class="compare-cell trad">Fee adicional</div>
-    <div class="compare-cell wtf"><span class="check">Integrada</span></div>
-    <div class="compare-cell label">Optimizacion continua</div>
-    <div class="compare-cell trad"><span class="x">Reportes mensuales</span></div>
-    <div class="compare-cell wtf"><span class="check">Real-time + iteracion</span></div>
-    <div class="compare-cell label">Costo mensual estimado</div>
-    <div class="compare-cell trad">USD 8.000-15.000+</div>
-    <div class="compare-cell wtf"><span class="check">Desde USD 3.700</span></div>
+
+  <div class="versus-grid">
+    <div class="versus-header">
+      <div class="versus-header-cell trad">AGENCIA TRADICIONAL</div>
+      <div class="versus-header-cell wtf">WTF AI ENGINE</div>
+    </div>
+
+    <!-- Tiempo de entrega -->
+    <div class="versus-row">
+      <div class="versus-side trad">
+        <div class="versus-label">Tiempo de entrega</div>
+        <div class="versus-value"><span class="num">3-6</span> <span class="unit">semanas</span></div>
+        <div class="versus-bar" style="width:85%"></div>
+      </div>
+      <div class="versus-side wtf">
+        <div class="versus-label">Tiempo de entrega</div>
+        <div class="versus-value"><span class="num">48-72</span> <span class="unit">horas</span></div>
+        <div class="versus-bar" style="width:15%"></div>
+      </div>
+    </div>
+
+    <!-- Volumen mensual -->
+    <div class="versus-row">
+      <div class="versus-side trad">
+        <div class="versus-label">Volumen mensual</div>
+        <div class="versus-value"><span class="num">8-15</span> <span class="unit">piezas</span></div>
+        <div class="versus-bar" style="width:30%"></div>
+      </div>
+      <div class="versus-side wtf">
+        <div class="versus-label">Volumen mensual</div>
+        <div class="versus-value"><span class="num">40+</span> <span class="unit">piezas / ilimitado</span></div>
+        <div class="versus-bar" style="width:95%"></div>
+      </div>
+    </div>
+
+    <!-- Video cinematografico -->
+    <div class="versus-row">
+      <div class="versus-side trad">
+        <div class="versus-label">Video cinematografico</div>
+        <div class="versus-value">Presupuesto aparte</div>
+        <div class="versus-tag tag-no">COSTO EXTRA</div>
+      </div>
+      <div class="versus-side wtf">
+        <div class="versus-label">Video cinematografico</div>
+        <div class="versus-value">Incluido en el plan</div>
+        <div class="versus-tag tag-yes">INCLUIDO</div>
+      </div>
+    </div>
+
+    <!-- UGC sintetico -->
+    <div class="versus-row">
+      <div class="versus-side trad">
+        <div class="versus-label">UGC sintetico</div>
+        <div class="versus-value">No disponible</div>
+        <div class="versus-tag tag-no">NO DISPONIBLE</div>
+      </div>
+      <div class="versus-side wtf">
+        <div class="versus-label">UGC sintetico</div>
+        <div class="versus-value">Avatares + voces IA</div>
+        <div class="versus-tag tag-yes">INCLUIDO</div>
+      </div>
+    </div>
+
+    <!-- Avatares IA -->
+    <div class="versus-row">
+      <div class="versus-side trad">
+        <div class="versus-label">Avatares IA</div>
+        <div class="versus-value">No disponible</div>
+        <div class="versus-tag tag-no">NO DISPONIBLE</div>
+      </div>
+      <div class="versus-side wtf">
+        <div class="versus-label">Avatares IA</div>
+        <div class="versus-value">Personajes unicos por marca</div>
+        <div class="versus-tag tag-yes">INCLUIDO</div>
+      </div>
+    </div>
+
+    <!-- Multi-plataforma -->
+    <div class="versus-row">
+      <div class="versus-side trad">
+        <div class="versus-label">Multi-plataforma</div>
+        <div class="versus-value">Adaptaciones con costo</div>
+        <div class="versus-tag tag-no">COSTO EXTRA</div>
+      </div>
+      <div class="versus-side wtf">
+        <div class="versus-label">Multi-plataforma</div>
+        <div class="versus-value"><span class="num">5+</span> <span class="unit">plataformas nativas</span></div>
+        <div class="versus-tag tag-yes">INCLUIDO</div>
+      </div>
+    </div>
+
+    <!-- Estrategia -->
+    <div class="versus-row">
+      <div class="versus-side trad">
+        <div class="versus-label">Estrategia</div>
+        <div class="versus-value">Fee adicional</div>
+        <div class="versus-tag tag-no">COSTO EXTRA</div>
+      </div>
+      <div class="versus-side wtf">
+        <div class="versus-label">Estrategia</div>
+        <div class="versus-value">Integrada al sistema</div>
+        <div class="versus-tag tag-yes">INCLUIDO</div>
+      </div>
+    </div>
+
+    <!-- Optimizacion -->
+    <div class="versus-row">
+      <div class="versus-side trad">
+        <div class="versus-label">Optimizacion</div>
+        <div class="versus-value">Reportes mensuales</div>
+      </div>
+      <div class="versus-side wtf">
+        <div class="versus-label">Optimizacion</div>
+        <div class="versus-value">Real-time + iteracion continua</div>
+        <div class="versus-tag tag-yes">REAL-TIME</div>
+      </div>
+    </div>
+
+    <!-- COST CALLOUT -->
+    <div class="cost-callout">
+      <div class="cost-side trad">
+        <div class="cost-label">Costo mensual estimado</div>
+        <div class="cost-num"><span class="cost-currency">USD </span>8.000-15.000+</div>
+        <div class="cost-sub">Fee + produccion + extras</div>
+      </div>
+      <div class="cost-side wtf">
+        <div class="cost-label">Costo mensual</div>
+        <div class="cost-num"><span class="cost-currency">USD </span>3.700</div>
+        <div class="cost-sub">Todo incluido, sin sorpresas</div>
+      </div>
+      <div class="cost-savings">AHORRA HASTA 75%</div>
+    </div>
   </div>
 </div>
 
@@ -561,5 +848,20 @@
   <div class="footer-contact"><a href="mailto:hello@wtf-agency.com">hello@wtf-agency.com</a></div>
 </div>
 
+<script>
+// Scroll-triggered reveal animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in-view');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.versus-row, .cost-callout, .process-step, .pricing-card').forEach(el => {
+  observer.observe(el);
+});
+</script>
 </body>
 </html>
