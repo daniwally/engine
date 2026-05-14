@@ -1555,6 +1555,201 @@
   }
   .closing .right a { color: var(--cyan); text-decoration: none; }
 
+  /* === S16 / PROPUESTA === */
+  .propuesta {
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255,59,48,0.05), transparent 65%),
+      linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-night) 100%);
+    padding: 60px 7vw;
+    overflow-y: auto;
+  }
+  .propuesta-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--signal);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .propuesta-title {
+    font-size: clamp(32px, 4.5vw, 64px);
+    color: var(--bone);
+    margin-bottom: 12px;
+    line-height: 0.95;
+  }
+  .propuesta-title em {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--signal);
+  }
+  .propuesta-sub {
+    font-size: 16px;
+    color: var(--bone-dim);
+    margin-bottom: 40px;
+    max-width: 700px;
+    line-height: 1.5;
+  }
+
+  /* Comparison table */
+  .compare-table {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 0;
+    margin-bottom: 50px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .compare-header {
+    background: var(--bg-mid);
+    padding: 16px 20px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--mute);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-header.trad { color: var(--mute); }
+  .compare-header.wtf { color: var(--signal); background: rgba(255,59,48,0.08); }
+  .compare-cell {
+    padding: 14px 20px;
+    font-size: 14px;
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--line-soft);
+    display: flex;
+    align-items: center;
+  }
+  .compare-cell.label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--bone);
+    text-transform: uppercase;
+    background: rgba(30,30,38,0.5);
+  }
+  .compare-cell.trad { color: var(--mute); }
+  .compare-cell.wtf {
+    color: var(--bone);
+    background: rgba(255,59,48,0.04);
+    font-weight: 500;
+  }
+  .compare-cell .x { color: var(--mute); opacity: 0.5; }
+  .compare-cell .check { color: var(--signal); font-weight: 700; }
+
+  /* Pricing */
+  .pricing-section-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--signal);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 900px;
+  }
+  .pricing-card {
+    background: rgba(30,30,38,0.6);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 36px 32px;
+    position: relative;
+    backdrop-filter: blur(12px);
+    transition: border-color 0.3s;
+  }
+  .pricing-card.featured {
+    border-color: var(--signal);
+    background: rgba(255,59,48,0.04);
+  }
+  .pricing-card.featured::before {
+    content: 'RECOMENDADO';
+    position: absolute;
+    top: -11px;
+    left: 32px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: #FFFFFF;
+    background: var(--signal);
+    padding: 3px 12px;
+    border-radius: 3px;
+  }
+  .pricing-tier {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--signal);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .pricing-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--bone);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .pricing-desc {
+    font-size: 14px;
+    color: var(--bone-dim);
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+  .pricing-price {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(36px, 3.5vw, 48px);
+    font-weight: 800;
+    color: var(--bone);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .pricing-price span {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--mute);
+  }
+  .pricing-period {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--mute);
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+  }
+  .pricing-features {
+    list-style: none;
+    padding: 0;
+  }
+  .pricing-features li {
+    font-size: 13px;
+    color: var(--bone-dim);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line-soft);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .pricing-features li::before {
+    content: '✓';
+    color: var(--signal);
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .pricing-note {
+    margin-top: 28px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--mute);
+    letter-spacing: 0.08em;
+    line-height: 1.6;
+  }
+
   /* === S17 / GRACIAS === */
   .gracias {
     background:
@@ -2373,7 +2568,7 @@
 
 <div class="deck-hud hud-counter">
   <span class="curr" id="hudCurr">01</span>
-  <span class="total">/ <span id="hudTotal">15</span></span>
+  <span class="total">/ <span id="hudTotal">16</span></span>
   <span style="margin-left: 14px; color: var(--mute);">·</span>
   <span id="hudName" style="color: var(--bone-dim);">Cover</span>
 </div>
@@ -2934,6 +3129,92 @@
   </div>
 </section>
 
+<!-- ============================== S16 / PROPUESTA ============================== -->
+<section class="propuesta">
+  <div class="slide-tag">15 · Propuesta</div>
+  <div class="propuesta-tag reveal">POR QUÉ WTF</div>
+
+  <h2 class="display propuesta-title reveal delay-1">MODELO TRADICIONAL<br>VS <em>WTF AI ENGINE</em></h2>
+  <p class="propuesta-sub reveal delay-1">La diferencia no es solo de precio. Es de velocidad, volumen y sistema.</p>
+
+  <div class="compare-table reveal delay-2">
+    <div class="compare-header"></div>
+    <div class="compare-header trad">AGENCIA TRADICIONAL</div>
+    <div class="compare-header wtf">WTF AI ENGINE</div>
+    <div class="compare-cell label">Tiempo de entrega</div>
+    <div class="compare-cell trad">3–6 semanas</div>
+    <div class="compare-cell wtf"><span class="check">48–72 hs</span></div>
+    <div class="compare-cell label">Volumen mensual</div>
+    <div class="compare-cell trad">8–15 piezas</div>
+    <div class="compare-cell wtf"><span class="check">Ilimitado / 40+ piezas</span></div>
+    <div class="compare-cell label">Video cinematográfico</div>
+    <div class="compare-cell trad"><span class="x">Presupuesto aparte</span></div>
+    <div class="compare-cell wtf"><span class="check">Incluido</span></div>
+    <div class="compare-cell label">UGC sintético</div>
+    <div class="compare-cell trad"><span class="x">No disponible</span></div>
+    <div class="compare-cell wtf"><span class="check">Incluido</span></div>
+    <div class="compare-cell label">Avatares IA</div>
+    <div class="compare-cell trad"><span class="x">No disponible</span></div>
+    <div class="compare-cell wtf"><span class="check">Incluido</span></div>
+    <div class="compare-cell label">Multi-plataforma</div>
+    <div class="compare-cell trad">Adaptaciones con costo</div>
+    <div class="compare-cell wtf"><span class="check">Nativo × 5 plataformas</span></div>
+    <div class="compare-cell label">Estrategia</div>
+    <div class="compare-cell trad">Fee adicional</div>
+    <div class="compare-cell wtf"><span class="check">Integrada</span></div>
+    <div class="compare-cell label">Optimización continua</div>
+    <div class="compare-cell trad"><span class="x">Reportes mensuales</span></div>
+    <div class="compare-cell wtf"><span class="check">Real-time + iteración</span></div>
+    <div class="compare-cell label">Costo mensual estimado</div>
+    <div class="compare-cell trad">USD 8.000–15.000+</div>
+    <div class="compare-cell wtf"><span class="check">Desde USD 3.700</span></div>
+  </div>
+
+  <div class="pricing-section-title reveal delay-3">PLANES MENSUALES</div>
+
+  <div class="pricing-grid reveal delay-3">
+    <div class="pricing-card">
+      <div class="pricing-tier">TIER 1</div>
+      <div class="pricing-name">AI CONTENT SYSTEM</div>
+      <div class="pricing-desc">Contenido estratégico con sistema IA. Ideal para marcas que necesitan presencia constante con calidad y velocidad.</div>
+      <div class="pricing-price">$3.700 <span>USD</span></div>
+      <div class="pricing-period">MENSUAL · CONTRATO TRIMESTRAL</div>
+      <ul class="pricing-features">
+        <li>Estrategia de contenido mensual</li>
+        <li>Hasta 40 piezas / mes</li>
+        <li>Video IA (hasta 8 / mes)</li>
+        <li>Adaptación multi-plataforma</li>
+        <li>Dirección de arte IA</li>
+        <li>1 ronda de revisión por pieza</li>
+        <li>Reporte mensual de performance</li>
+      </ul>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="pricing-tier">TIER 2 · FULL MODEL</div>
+      <div class="pricing-name">AI AGENCY<br>FULL MODEL</div>
+      <div class="pricing-desc">Sistema completo. Contenido ilimitado, estrategia integrada, producción always-on. Tu equipo creativo potenciado por IA.</div>
+      <div class="pricing-price">$5.600 <span>USD</span></div>
+      <div class="pricing-period">MENSUAL · CONTRATO TRIMESTRAL</div>
+      <ul class="pricing-features">
+        <li>Contenido ilimitado</li>
+        <li>Video cinematográfico ilimitado</li>
+        <li>UGC sintético + avatares IA</li>
+        <li>Estrategia + planning integrado</li>
+        <li>Multi-plataforma nativo (5+)</li>
+        <li>Revisiones ilimitadas</li>
+        <li>Community management</li>
+        <li>Performance + optimización real-time</li>
+        <li>Director de cuenta dedicado</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="pricing-note reveal delay-4">
+    * TODOS LOS PLANES INCLUYEN ACCESO AL WTF AI ENGINE OS · PRECIOS EN USD · NO INCLUYEN PAUTA PUBLICITARIA · IVA NO INCLUIDO
+  </p>
+</section>
+
 <!-- ============================== S19 / GRACIAS ============================== -->
 <section class="gracias">
   <div class="gracias-eyebrow reveal">WTF AGENCY</div>
@@ -2968,7 +3249,7 @@
     'Manifiesto', 'Clientes', '#WTFRULES', 'Quiénes somos',
     'Modelo AI First', 'WTF AI Engine',
     'Capacidades', 'Casos',
-    'Galería', 'Equipo', 'Gracias'
+    'Galería', 'Equipo', 'Propuesta', 'Gracias'
   ];
 
   const hudCurr = document.getElementById('hudCurr');
