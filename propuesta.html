@@ -123,22 +123,35 @@
     margin-bottom: 4px;
   }
   .versus-header-cell {
+    padding: 28px 24px 20px;
+  }
+  .versus-header-cell .header-label {
     font-family: var(--mono);
     font-size: 10px;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    padding: 14px 24px;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .versus-header-cell .header-name {
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    display: block;
   }
   .versus-header-cell.trad {
-    color: var(--mute);
     text-align: left;
-    background: rgba(245,240,235,0.02);
+    background: rgba(245,240,235,0.03);
   }
+  .versus-header-cell.trad .header-label { color: var(--mute); }
+  .versus-header-cell.trad .header-name { color: rgba(245,240,235,0.25); }
   .versus-header-cell.wtf {
-    color: var(--signal);
     text-align: right;
-    background: rgba(255,59,48,0.06);
+    background: rgba(255,59,48,0.08);
   }
+  .versus-header-cell.wtf .header-label { color: rgba(255,59,48,0.5); }
+  .versus-header-cell.wtf .header-name { color: var(--signal); }
   .versus-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -571,8 +584,14 @@
 
   <div class="versus-grid">
     <div class="versus-header">
-      <div class="versus-header-cell trad">AGENCIA TRADICIONAL</div>
-      <div class="versus-header-cell wtf">WTF AI ENGINE</div>
+      <div class="versus-header-cell trad">
+        <span class="header-label">VS</span>
+        <span class="header-name">AGENCIA<br>TRADICIONAL</span>
+      </div>
+      <div class="versus-header-cell wtf">
+        <span class="header-label">POWERED BY AI</span>
+        <span class="header-name">WTF AI<br>ENGINE</span>
+      </div>
     </div>
 
     <!-- Tiempo de entrega -->
