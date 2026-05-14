@@ -35,10 +35,24 @@
     flex-direction: column;
     justify-content: center;
     padding: 80px 7vw;
-    background:
-      linear-gradient(180deg, rgba(10,10,14,0.78) 0%, rgba(10,10,14,0.88) 100%),
-      url('wtf-credenciales-slides/bg-propuesta.jpg') center/cover no-repeat;
     position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,14,0.65) 0%, rgba(10,10,14,0.85) 100%);
+    z-index: 1;
+  }
+  .hero > * { position: relative; z-index: 2; }
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
   }
   .hero-tag {
     font-family: var(--mono);
@@ -571,6 +585,9 @@
 
 <!-- ====== HERO ====== -->
 <div class="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="wtf-credenciales-slides/bg-propuesta-video.mp4" type="video/mp4">
+  </video>
   <div class="hero-logo">WTF AGENCY</div>
   <div class="hero-tag">POR QUE WTF</div>
   <h1 class="hero-title">MODELO TRADICIONAL<br>VS <em>WTF AI ENGINE</em></h1>
