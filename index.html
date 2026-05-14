@@ -1560,15 +1560,19 @@
     background:
       linear-gradient(180deg, rgba(10,10,14,0.82) 0%, rgba(10,10,14,0.92) 100%),
       url('wtf-credenciales-slides/bg-propuesta.jpg') center/cover no-repeat;
-    padding: 120px 7vw 60px;
+    padding: 60px 7vw 90px;
     overflow-y: auto;
+    justify-content: flex-start;
+    scrollbar-width: none;
   }
+  .propuesta::-webkit-scrollbar { display: none; }
   .propuesta-tag {
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.22em;
     color: var(--signal);
     text-transform: uppercase;
+    margin-top: 20px;
     margin-bottom: 24px;
   }
   .propuesta-title {
