@@ -84,12 +84,17 @@
     border-top: 1px solid var(--line);
   }
   .section-tag {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.22em;
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 900;
+    color: var(--bone);
+    margin-bottom: 48px;
+    line-height: 1;
+  }
+  .section-tag em {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-weight: 400;
     color: var(--signal);
-    text-transform: uppercase;
-    margin-bottom: 40px;
   }
 
   /* ====== COMPARE TABLE ====== */
@@ -363,7 +368,7 @@
 
 <!-- ====== COMPARATIVA ====== -->
 <div class="section">
-  <div class="section-tag">COMPARATIVA DE SERVICIOS</div>
+  <h2 class="section-tag">COMPARATIVA DE <em>SERVICIOS</em></h2>
   <div class="compare-table">
     <div class="compare-header"></div>
     <div class="compare-header trad">AGENCIA TRADICIONAL</div>
@@ -400,7 +405,7 @@
 
 <!-- ====== PROCESO CREATIVO ====== -->
 <div class="section">
-  <div class="section-tag">PROCESO CREATIVO</div>
+  <h2 class="section-tag">PROCESO <em>CREATIVO</em></h2>
   <div class="process-compare">
     <div class="process-col trad">
       <div class="process-col-title trad">PROCESO TRADICIONAL</div>
@@ -493,7 +498,7 @@
 
 <!-- ====== PLANES ====== -->
 <div class="section">
-  <div class="section-tag">PLANES MENSUALES</div>
+  <h2 class="section-tag">PLANES <em>MENSUALES</em></h2>
   <div class="pricing-grid">
     <div class="pricing-card">
       <div class="pricing-tier">TIER 1</div>
