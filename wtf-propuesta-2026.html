@@ -175,8 +175,14 @@
     line-height: 0.95;
     letter-spacing: -0.02em;
   }
+  .split-head-name em {
+    font-style: italic;
+    font-weight: 200;
+  }
   .split-head.trad .split-head-name { color: var(--bone); }
+  .split-head.trad .split-head-name em { color: var(--bone); }
   .split-head.wtf .split-head-name { color: var(--signal); }
+  .split-head.wtf .split-head-name em { color: var(--bone); }
 
   /* Rows */
   .split-row {
@@ -560,11 +566,11 @@
     <div class="split-headers">
       <div class="split-head trad">
         <div class="split-head-label">El modelo de siempre</div>
-        <div class="split-head-name">AGENCIA<br>TRADICIONAL</div>
+        <div class="split-head-name">AGENCIA<br><em>TRADICIONAL</em></div>
       </div>
       <div class="split-head wtf">
         <div class="split-head-label">Nuestro sistema</div>
-        <div class="split-head-name">WTF<br>AI ENGINE</div>
+        <div class="split-head-name">WTF<br><em>AI ENGINE</em></div>
       </div>
     </div>
 
