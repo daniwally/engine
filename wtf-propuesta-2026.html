@@ -91,14 +91,13 @@
     letter-spacing: 0.01em;
   }
   .hero-logo {
-    position: absolute;
-    top: 40px;
-    right: 7vw;
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    color: var(--mute);
-    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .hero-logo img {
+    height: clamp(36px, 5vw, 56px);
+    width: auto;
+    opacity: 0.9;
+    filter: brightness(1.1);
   }
 
   /* ====== SECTIONS ====== */
@@ -503,7 +502,7 @@
   <video class="hero-video" autoplay muted loop playsinline>
     <source src="wtf-credenciales-slides/bg-propuesta-video.mp4" type="video/mp4">
   </video>
-  <div class="hero-logo">WTF AGENCY</div>
+  <div class="hero-logo"><img src="wtf-credenciales-slides/logo-wtf.png" alt="WTF Agency"></div>
   <div class="hero-tag">POR QUE WTF</div>
   <h1 class="hero-title">MODELO TRADICIONAL<br>VS <em>WTF AI ENGINE</em></h1>
   <p class="hero-lead">La diferencia no es solo de precio. Es de velocidad, volumen y sistema.</p>
