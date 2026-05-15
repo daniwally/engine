@@ -215,6 +215,26 @@
     background: rgba(0,0,0,0.90);
     box-shadow: 0 0 60px rgba(255,59,48,0.1), inset 0 0 0 1px rgba(255,59,48,0.12);
   }
+  .split-insight {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: clamp(11px, 1.1vw, 14px);
+    font-weight: 400;
+    color: var(--signal);
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    max-width: 220px;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    pointer-events: none;
+    z-index: 3;
+  }
+  .split-row:hover .split-insight {
+    opacity: 1;
+  }
   .split-row:hover .split-cell.trad .split-val .big {
     color: var(--bone);
   }
@@ -601,6 +621,7 @@
         <div class="split-metric">Tiempo de entrega</div>
         <div class="split-val"><span class="big">2-3 sem</span></div>
       </div>
+      <div class="split-insight">De semanas a dias. Sin perder calidad.</div>
       <div class="split-cell wtf">
         <div class="split-metric">Tiempo de entrega</div>
         <div class="split-val"><span class="big">2-4 dias</span></div>
@@ -613,6 +634,7 @@
         <div class="split-metric">Volumen mensual</div>
         <div class="split-val"><span class="big">8-15</span> <span class="dim">piezas/mes</span></div>
       </div>
+      <div class="split-insight">3x mas contenido con el mismo presupuesto.</div>
       <div class="split-cell wtf">
         <div class="split-metric">Volumen mensual</div>
         <div class="split-val"><span class="big">40+</span> <span class="dim">piezas/mes</span></div>
@@ -626,6 +648,7 @@
         <div class="split-val"><span class="big">Extra</span></div>
         <span class="split-tag off">Presupuesto aparte</span>
       </div>
+      <div class="split-insight">Video de alto nivel sin cotizacion extra.</div>
       <div class="split-cell wtf">
         <div class="split-metric">Video cinematografico</div>
         <div class="split-val"><span class="big">Incluido</span></div>
@@ -640,6 +663,7 @@
         <div class="split-val"><span class="big">N/A</span></div>
         <span class="split-tag off">No disponible</span>
       </div>
+      <div class="split-insight">Contenido con rostros y voces IA, listo para escalar.</div>
       <div class="split-cell wtf">
         <div class="split-metric">UGC sintetico</div>
         <div class="split-val"><span class="big">Incluido</span></div>
@@ -654,6 +678,7 @@
         <div class="split-val"><span class="big">N/A</span></div>
         <span class="split-tag off">No disponible</span>
       </div>
+      <div class="split-insight">Personajes propios de tu marca, sin casting ni produccion.</div>
       <div class="split-cell wtf">
         <div class="split-metric">Avatares IA</div>
         <div class="split-val"><span class="big">Incluido</span></div>
@@ -668,6 +693,7 @@
         <div class="split-val"><span class="big">Extra</span></div>
         <span class="split-tag off">Adaptaciones con costo</span>
       </div>
+      <div class="split-insight">Un contenido, cinco formatos nativos. Sin adaptar a mano.</div>
       <div class="split-cell wtf">
         <div class="split-metric">Multi-plataforma</div>
         <div class="split-val"><span class="big">x5</span> <span class="dim">plataformas</span></div>
@@ -682,6 +708,7 @@
         <div class="split-val"><span class="big">Extra</span></div>
         <span class="split-tag off">Fee adicional</span>
       </div>
+      <div class="split-insight">La estrategia no es un extra, es el motor del sistema.</div>
       <div class="split-cell wtf">
         <div class="split-metric">Estrategia</div>
         <div class="split-val"><span class="big">Integrada</span></div>
@@ -696,6 +723,7 @@
         <div class="split-val"><span class="big">Mensual</span></div>
         <span class="split-tag off">Reportes estaticos</span>
       </div>
+      <div class="split-insight">Datos en vivo, ajustes al instante. No esperar al informe.</div>
       <div class="split-cell wtf">
         <div class="split-metric">Optimizacion continua</div>
         <div class="split-val"><span class="big">Real-time</span></div>
