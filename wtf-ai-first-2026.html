@@ -3109,14 +3109,14 @@
     <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/template-01-headline.jpg" alt="Sancor Seguros"><div class="masonry-overlay"><span>Sancor Seguros · Headline</span></div></div>
     <!-- row 2 -->
     <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/hydrate-otono.jpg" alt="Hydrate"><div class="masonry-overlay"><span>Hydrate · Otoño</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-08.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Higgsfield</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-08.mp4" autoplay muted loop playsinline preload="auto"></video><div class="masonry-overlay"><span>AI · Higgsfield</span></div></div>
     <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-relic.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Relic</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-09.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Higgsfield</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-09.mp4" autoplay muted loop playsinline preload="auto"></video><div class="masonry-overlay"><span>AI · Higgsfield</span></div></div>
     <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/starter-video-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Starter · Video</span></div></div>
     <!-- row 2b -->
     <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/comfyui-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Generative</span></div></div>
     <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/morelli-post-13.jpg" alt="Morelli"><div class="masonry-overlay"><span>Morelli · Prego 900</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-10.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Higgsfield</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-10.mp4" autoplay muted loop playsinline preload="auto"></video><div class="masonry-overlay"><span>AI · Higgsfield</span></div></div>
     <!-- row 3 -->
     <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/sensus-abuelo.jpg" alt="Sensus"><div class="masonry-overlay"><span>Sensus · El Brindis</span></div></div>
     <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/diablo-reel-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Pisco Diablo · Reel</span></div></div>
@@ -3327,6 +3327,11 @@
     if (slide.classList.contains('dense')) {
       slide.scrollTop = 0;
     }
+
+    // Force play all videos in the active slide
+    slide.querySelectorAll('video').forEach(v => {
+      v.play().catch(() => {});
+    });
   }
 
   function goToSlide(idx) {
