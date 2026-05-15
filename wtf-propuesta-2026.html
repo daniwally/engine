@@ -134,8 +134,8 @@
   /* ====== SPLIT COMPARE ====== */
   .split {
     max-width: 1060px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     position: relative;
   }
   .split::before {
@@ -146,6 +146,12 @@
     left: 50%;
     width: 1px;
     background: linear-gradient(180deg, transparent, var(--signal) 15%, var(--signal) 85%, transparent);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .split-headers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   /* Column headers */
@@ -169,16 +175,42 @@
     line-height: 0.95;
     letter-spacing: -0.02em;
   }
-  .split-head.trad .split-head-name { color: rgba(245,240,235,0.18); }
+  .split-head.trad .split-head-name { color: var(--bone); }
   .split-head.wtf .split-head-name { color: var(--signal); }
 
   /* Rows */
   .split-row {
-    display: contents;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: 1 / -1;
+    position: relative;
+    border-radius: 6px;
+    transition: background 0.35s ease-out, box-shadow 0.35s ease-out;
+  }
+  .split-row:hover {
+    background: rgba(255,59,48,0.08);
+    box-shadow: 0 0 60px rgba(255,59,48,0.12), inset 0 0 0 1px rgba(255,59,48,0.15);
+  }
+  .split-row:hover .split-cell.trad .split-val .big {
+    color: var(--bone);
+  }
+  .split-row:hover .split-cell.trad .split-val {
+    color: rgba(245,240,235,0.7);
+  }
+  .split-row:hover .split-cell.wtf .split-val .big {
+    text-shadow: 0 0 30px rgba(255,59,48,0.4);
+  }
+  .split-row:hover .split-tag.off {
+    color: rgba(245,240,235,0.4);
+    border-color: rgba(245,240,235,0.12);
+  }
+  .split-row:hover .split-tag.on {
+    box-shadow: 0 0 12px rgba(255,59,48,0.3);
   }
   .split-cell {
     padding: 18px 32px;
     border-top: 1px solid var(--line);
+    transition: color 0.35s ease-out;
   }
   .split-cell.trad { text-align: left; }
   .split-cell.wtf { text-align: right; }
@@ -212,9 +244,11 @@
   }
   .split-cell.wtf .split-val .big {
     color: var(--signal);
+    transition: text-shadow 0.35s ease-out;
   }
   .split-cell.trad .split-val .big {
     color: rgba(245,240,235,0.35);
+    transition: color 0.35s ease-out, text-shadow 0.35s ease-out;
   }
   .split-val .dim {
     font-size: 14px;
@@ -229,6 +263,7 @@
     text-transform: uppercase;
     padding: 3px 10px;
     margin-top: 6px;
+    transition: color 0.35s ease-out, border-color 0.35s ease-out, box-shadow 0.35s ease-out;
   }
   .split-tag.off {
     color: rgba(245,240,235,0.25);
@@ -265,14 +300,14 @@
   }
 
   /* Scroll reveal */
-  .split-cell {
+  .split-row {
     opacity: 0;
     transform: translateY(12px);
-    transition: opacity 0.5s cubic-bezier(.2,.8,.2,1), transform 0.5s cubic-bezier(.2,.8,.2,1);
   }
-  .split-cell.in-view {
+  .split-row.in-view {
     opacity: 1;
     transform: translateY(0);
+    transition: opacity 0.5s cubic-bezier(.2,.8,.2,1), transform 0.5s cubic-bezier(.2,.8,.2,1), background 0.35s ease-out, box-shadow 0.35s ease-out;
   }
   .split-head {
     opacity: 0;
@@ -522,13 +557,15 @@
   <!-- Split Compare -->
   <div class="split">
     <!-- Headers -->
-    <div class="split-head trad">
-      <div class="split-head-label">El modelo de siempre</div>
-      <div class="split-head-name">AGENCIA<br>TRADICIONAL</div>
-    </div>
-    <div class="split-head wtf">
-      <div class="split-head-label">Nuestro sistema</div>
-      <div class="split-head-name">WTF<br>AI ENGINE</div>
+    <div class="split-headers">
+      <div class="split-head trad">
+        <div class="split-head-label">El modelo de siempre</div>
+        <div class="split-head-name">AGENCIA<br>TRADICIONAL</div>
+      </div>
+      <div class="split-head wtf">
+        <div class="split-head-label">Nuestro sistema</div>
+        <div class="split-head-name">WTF<br>AI ENGINE</div>
+      </div>
     </div>
 
     <!-- Row 1: Tiempo -->
@@ -810,7 +847,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 
-document.querySelectorAll('.split-head, .split-cell, .process-step, .pricing-card').forEach(el => {
+document.querySelectorAll('.split-head, .split-row, .process-step, .pricing-card').forEach(el => {
   observer.observe(el);
 });
 </script>
