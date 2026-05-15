@@ -106,9 +106,27 @@
     border-top: 1px solid var(--line);
   }
   .section.has-bg {
-    background:
-      linear-gradient(180deg, rgba(10,10,14,0.55) 0%, rgba(10,10,14,0.65) 100%),
-      url('wtf-credenciales-slides/bg-propuesta.jpg') center/cover no-repeat fixed;
+    position: relative;
+    overflow: hidden;
+  }
+  .section.has-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,14,0.60) 0%, rgba(10,10,14,0.70) 100%);
+    z-index: 1;
+  }
+  .section.has-bg > * {
+    position: relative;
+    z-index: 2;
+  }
+  .section-bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
   }
   .section-tag {
     font-size: clamp(32px, 4.5vw, 64px);
@@ -557,6 +575,9 @@
 
 <!-- ====== COMPARATIVA ====== -->
 <div class="section has-bg">
+  <video class="section-bg-video" autoplay muted loop playsinline>
+    <source src="wtf-credenciales-slides/bg-comparativa-video.mp4" type="video/mp4">
+  </video>
   <h2 class="section-tag">COMPARATIVA<br><em>DE SERVICIOS</em></h2>
   <p class="section-desc">Lo que una agencia tradicional resuelve con equipos grandes, timings largos y presupuestos fragmentados, nosotros lo resolvemos con inteligencia artificial, velocidad y un sistema integrado que no para. Mismo nivel creativo, otra velocidad.</p>
 
