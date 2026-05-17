@@ -461,9 +461,9 @@
   /* ====== PRICING ====== */
   .pricing-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 28px;
-    max-width: 960px;
+    max-width: 1200px;
   }
   .pricing-card {
     background: rgba(30,30,38,0.6);
@@ -763,6 +763,7 @@
     .cta-actions { flex-direction: column; align-items: center; }
     .proof-logos { gap: 24px 32px; }
     .proof-logos img { height: 22px; }
+    .pricing-grid { grid-template-columns: 1fr; }
   }
 
   /* ====== PRINT / PDF ====== */
@@ -1060,11 +1061,30 @@
       </ul>
     </div>
 
-    <div class="pricing-card featured">
-      <div class="pricing-tier">TIER 2 · FULL MODEL</div>
-      <div class="pricing-name">AI AGENCY<br>FULL MODEL</div>
-      <div class="pricing-desc">Sistema completo. Contenido ilimitado, estrategia integrada, produccion always-on. Tu equipo creativo potenciado por IA.</div>
+    <div class="pricing-card">
+      <div class="pricing-tier">TIER 2</div>
+      <div class="pricing-name">AI AGENCY<br>SCALE</div>
+      <div class="pricing-desc">El doble de capacidad. Estrategia integrada, video cinematografico y produccion acelerada para marcas en crecimiento.</div>
       <div class="pricing-price">$4.900.- <span>USD</span></div>
+      <div class="pricing-period">MENSUAL · CONTRATO ANUAL</div>
+      <ul class="pricing-features">
+        <li>Estrategia de contenido mensual</li>
+        <li>Hasta 80 piezas / mes</li>
+        <li>Video cinematografico IA</li>
+        <li>Influencers + avatares IA</li>
+        <li>Adaptacion multi-plataforma (5+)</li>
+        <li>Direccion de arte IA</li>
+        <li>2 rondas de revision por pieza</li>
+        <li>Estrategia + planning integrado</li>
+        <li>Reporte mensual de performance</li>
+      </ul>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="pricing-tier">TIER 3 · UNLIMITED</div>
+      <div class="pricing-name">AI AGENCY<br>FULL MODEL</div>
+      <div class="pricing-desc">Todo ilimitado. Contenido, video, estrategia, produccion always-on. Tu equipo creativo completo potenciado por IA.</div>
+      <div class="pricing-price">$8.900.- <span>USD</span></div>
       <div class="pricing-period">MENSUAL · CONTRATO ANUAL</div>
       <ul class="pricing-features">
         <li>Contenido ilimitado</li>
