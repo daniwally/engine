@@ -4,6 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WTF Agency — Propuesta AI First</title>
+
+<!-- OG / Social sharing -->
+<meta property="og:title" content="WTF Agency · AI First Model 2026">
+<meta property="og:description" content="40+ piezas/mes. Video. UGC. Estrategia integrada. Desde USD 4.000. El modelo AI-first que reemplaza a tu agencia tradicional.">
+<meta property="og:image" content="https://engine.wtf-agency.works/wtf-credenciales-slides/og-propuesta.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://engine.wtf-agency.works/wtf-propuesta-2026.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="WTF Agency · AI First Model 2026">
+<meta name="twitter:description" content="40+ piezas/mes. Video. UGC. Estrategia integrada. Desde USD 4.000.">
+<meta name="twitter:image" content="https://engine.wtf-agency.works/wtf-credenciales-slides/og-propuesta.jpg">
+<meta name="description" content="WTF Agency: sistema creativo AI-first. 40+ piezas/mes, video cinematográfico, UGC sintético, estrategia integrada. Desde USD 4.000/mes.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -91,14 +104,13 @@
     letter-spacing: 0.01em;
   }
   .hero-logo {
-    position: absolute;
-    top: 40px;
-    right: 7vw;
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    color: var(--mute);
-    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .hero-logo img {
+    height: clamp(61px, 8.5vw, 95px);
+    width: auto;
+    opacity: 0.9;
+    filter: brightness(1.1);
   }
 
   /* ====== SECTIONS ====== */
@@ -107,9 +119,27 @@
     border-top: 1px solid var(--line);
   }
   .section.has-bg {
-    background:
-      linear-gradient(180deg, rgba(10,10,14,0.55) 0%, rgba(10,10,14,0.65) 100%),
-      url('wtf-credenciales-slides/bg-propuesta.jpg') center/cover no-repeat fixed;
+    position: relative;
+    overflow: hidden;
+  }
+  .section.has-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,14,0.60) 0%, rgba(10,10,14,0.70) 100%);
+    z-index: 1;
+  }
+  .section.has-bg > *:not(.section-bg-video) {
+    position: relative;
+    z-index: 2;
+  }
+  .section-bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
   }
   .section-tag {
     font-size: clamp(32px, 4.5vw, 64px);
@@ -132,228 +162,219 @@
     color: var(--signal);
   }
 
-  /* ====== HERO METRICS — 3 big impact blocks ====== */
-  .metric-heroes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
+  /* ====== SPLIT COMPARE ====== */
+  .split {
     max-width: 1060px;
-    margin-bottom: 48px;
-    background: var(--line);
-  }
-  .metric-hero {
-    padding: 40px 28px;
-    background: var(--bg-deep);
-    position: relative;
-    overflow: hidden;
-  }
-  .metric-hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 3px;
-    background: var(--signal);
-    width: 0;
-    transition: width 1.2s cubic-bezier(.16,1,.3,1) 0.2s;
-  }
-  .metric-hero.in-view::after {
-    width: 100%;
-  }
-  .metric-old {
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--mute);
-    text-decoration: line-through;
-    text-decoration-color: rgba(245,240,235,0.15);
-    margin-bottom: 8px;
-    letter-spacing: 0.02em;
-  }
-  .metric-num {
-    font-size: clamp(48px, 6vw, 80px);
-    font-weight: 900;
-    color: var(--signal);
-    line-height: 0.9;
-    letter-spacing: -0.04em;
-  }
-  .metric-unit {
-    font-size: clamp(16px, 2vw, 22px);
-    font-weight: 300;
-    color: var(--bone);
-    letter-spacing: -0.01em;
-  }
-  .metric-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--mute);
-    margin-top: 14px;
-  }
-
-  /* ====== FEATURE GRID — capabilities comparison ====== */
-  .feat-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    max-width: 1060px;
-    margin-bottom: 48px;
-    background: var(--line);
-  }
-  .feat-card {
-    padding: 28px 24px;
-    background: var(--bg-deep);
-    position: relative;
-  }
-  .feat-card::before {
-    content: '';
-    position: absolute;
-    top: 24px;
-    left: 24px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-  }
-  .feat-card.win::before { background: var(--signal); box-shadow: 0 0 12px rgba(255,59,48,0.4); }
-  .feat-card.lose::before { background: rgba(245,240,235,0.12); }
-  .feat-name {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--mute);
-    margin-bottom: 10px;
-    padding-left: 20px;
-  }
-  .feat-trad {
-    font-size: 13px;
-    color: rgba(245,240,235,0.2);
-    text-decoration: line-through;
-    text-decoration-color: rgba(245,240,235,0.08);
-    margin-bottom: 6px;
-  }
-  .feat-wtf {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--bone);
-    line-height: 1.25;
-  }
-  .feat-card.win .feat-wtf { color: var(--signal); }
-
-  /* ====== COST BLOCK — the closer ====== */
-  .cost-block {
-    max-width: 1060px;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 0;
-    padding: 48px 0;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-  }
-  .cost-old {
-    text-align: left;
-  }
-  .cost-old-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--mute);
-    margin-bottom: 8px;
-  }
-  .cost-old-num {
-    font-size: clamp(28px, 3vw, 42px);
-    font-weight: 700;
-    color: var(--mute);
-    text-decoration: line-through;
-    text-decoration-color: rgba(245,240,235,0.12);
-    letter-spacing: -0.02em;
-  }
-  .cost-old-sub {
-    font-size: 13px;
-    color: rgba(245,240,235,0.2);
-    margin-top: 4px;
-  }
-  .cost-arrow {
-    padding: 0 clamp(20px, 3vw, 48px);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-  .cost-arrow-line {
-    width: 60px;
-    height: 1px;
-    background: var(--signal);
     position: relative;
   }
-  .cost-arrow-line::after {
+  .split::before {
     content: '';
     position: absolute;
-    right: -1px;
-    top: -4px;
-    border: 4px solid transparent;
-    border-left: 6px solid var(--signal);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, var(--signal) 15%, var(--signal) 85%, transparent);
+    z-index: 1;
+    pointer-events: none;
   }
-  .cost-savings {
+  .split-headers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Column headers */
+  .split-head {
+    padding: 0 32px 36px;
+  }
+  .split-head.trad { text-align: left; }
+  .split-head.wtf { text-align: right; }
+  .split-head-label {
     font-family: var(--mono);
     font-size: 10px;
-    letter-spacing: 0.18em;
-    color: var(--signal);
-    font-weight: 700;
-    white-space: nowrap;
-  }
-  .cost-new {
-    text-align: right;
-  }
-  .cost-new-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: rgba(255,59,48,0.5);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
-  .cost-new-num {
-    font-size: clamp(56px, 7vw, 96px);
+  .split-head.trad .split-head-label { color: var(--mute); }
+  .split-head.wtf .split-head-label { color: var(--bone); }
+  .split-head-name {
+    font-size: clamp(24px, 3.2vw, 40px);
     font-weight: 900;
-    color: var(--signal);
-    line-height: 0.85;
-    letter-spacing: -0.04em;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
   }
-  .cost-new-curr {
-    font-size: clamp(18px, 2vw, 24px);
+  .split-head-name em {
+    font-style: italic;
+    font-weight: 200;
+  }
+  .split-head.trad .split-head-name { color: var(--bone); }
+  .split-head.trad .split-head-name em { color: var(--bone); }
+  .split-head.wtf .split-head-name { color: var(--bone); }
+  .split-head.wtf .split-head-name em { color: var(--bone); }
+
+  /* Rows */
+  .split-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: 1 / -1;
+    position: relative;
+    border-radius: 6px;
+    transition: background 0.35s ease-out, box-shadow 0.35s ease-out;
+  }
+  .split-row:hover {
+    background: rgba(0,0,0,0.90);
+    box-shadow: 0 0 60px rgba(255,59,48,0.1), inset 0 0 0 1px rgba(255,59,48,0.12);
+  }
+  .split-insight {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: clamp(11px, 1.1vw, 14px);
+    font-weight: 400;
+    color: var(--signal);
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    max-width: 220px;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    pointer-events: none;
+    z-index: 3;
+  }
+  .split-row:hover .split-insight {
+    opacity: 1;
+  }
+  .split-row:hover .split-cell.trad .split-val .big {
+    color: var(--bone);
+  }
+  .split-row:hover .split-cell.trad .split-val {
+    color: rgba(245,240,235,0.7);
+  }
+  .split-row:hover .split-cell.wtf .split-val .big {
+    text-shadow: 0 0 30px rgba(255,59,48,0.4);
+  }
+  .split-row:hover .split-tag.off {
+    color: rgba(245,240,235,0.4);
+    border-color: rgba(245,240,235,0.12);
+  }
+  .split-row:hover .split-tag.on {
+    box-shadow: 0 0 12px rgba(255,59,48,0.3);
+  }
+  .split-cell {
+    padding: 18px 32px;
+    border-top: 1px solid var(--line);
+    transition: color 0.35s ease-out;
+  }
+  .split-cell.trad { text-align: left; }
+  .split-cell.wtf { text-align: right; }
+  .split-metric {
+    font-family: var(--mono);
+    font-size: clamp(11px, 1.2vw, 14px);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 6px;
+  }
+  .split-cell.wtf .split-metric { color: rgba(255,59,48,0.4); }
+  .split-val {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .split-cell.trad .split-val {
+    color: rgba(245,240,235,0.45);
+  }
+  .split-cell.wtf .split-val {
+    color: var(--bone);
+    font-weight: 700;
+  }
+  .split-val .big {
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    display: block;
+  }
+  .split-cell.wtf .split-val .big {
+    color: var(--signal);
+    transition: text-shadow 0.35s ease-out;
+  }
+  .split-cell.trad .split-val .big {
+    color: rgba(245,240,235,0.35);
+    transition: color 0.35s ease-out, text-shadow 0.35s ease-out;
+  }
+  .split-val .dim {
+    font-size: 14px;
     font-weight: 400;
     color: var(--mute);
   }
-  .cost-new-sub {
+  .split-tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    margin-top: 6px;
+    transition: color 0.35s ease-out, border-color 0.35s ease-out, box-shadow 0.35s ease-out;
+  }
+  .split-tag.off {
+    color: rgba(245,240,235,0.25);
+    border: 1px solid rgba(245,240,235,0.08);
+  }
+  .split-tag.on {
+    color: #fff;
+    background: var(--signal);
+  }
+
+  /* Cost finale row */
+  .split-cell.cost-final {
+    padding: 28px 32px;
+    border-top: 2px solid var(--line);
+  }
+  .split-cell.trad.cost-final .split-val .big {
+    text-decoration: line-through;
+    text-decoration-color: rgba(245,240,235,0.15);
+    color: rgba(245,240,235,0.25);
+  }
+  .split-cell.wtf.cost-final .split-val .big {
+    font-size: clamp(40px, 5vw, 64px);
+  }
+  .cost-savings-badge {
+    display: inline-block;
     font-family: var(--mono);
     font-size: 11px;
-    color: var(--bone-dim);
-    margin-top: 6px;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
+    color: var(--signal);
+    border: 1px solid var(--signal);
+    padding: 4px 14px;
+    margin-top: 8px;
+    font-weight: 700;
   }
 
   /* Scroll reveal */
-  .metric-hero, .feat-card, .cost-block {
+  .split-row {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s cubic-bezier(.2,.8,.2,1), transform 0.6s cubic-bezier(.2,.8,.2,1);
+    transform: translateY(12px);
   }
-  .metric-hero.in-view, .feat-card.in-view, .cost-block.in-view {
+  .split-row.in-view {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s cubic-bezier(.2,.8,.2,1), transform 0.5s cubic-bezier(.2,.8,.2,1), background 0.35s ease-out, box-shadow 0.35s ease-out;
+  }
+  .split-head {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s cubic-bezier(.2,.8,.2,1), transform 0.5s cubic-bezier(.2,.8,.2,1);
+  }
+  .split-head.in-view {
     opacity: 1;
     transform: translateY(0);
   }
-  .metric-hero:nth-child(1) { transition-delay: 0s; }
-  .metric-hero:nth-child(2) { transition-delay: 0.1s; }
-  .metric-hero:nth-child(3) { transition-delay: 0.2s; }
-  .feat-card:nth-child(1) { transition-delay: 0s; }
-  .feat-card:nth-child(2) { transition-delay: 0.06s; }
-  .feat-card:nth-child(3) { transition-delay: 0.12s; }
-  .feat-card:nth-child(4) { transition-delay: 0.18s; }
-  .feat-card:nth-child(5) { transition-delay: 0.24s; }
-  .feat-card:nth-child(6) { transition-delay: 0.30s; }
 
   /* ====== PROCESS COMPARISON ====== */
   .process-compare {
@@ -440,9 +461,9 @@
   /* ====== PRICING ====== */
   .pricing-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 28px;
-    max-width: 960px;
+    max-width: 1200px;
   }
   .pricing-card {
     background: rgba(30,30,38,0.6);
@@ -538,6 +559,157 @@
     line-height: 1.6;
   }
 
+  /* ====== STICKY CTA ====== */
+  .sticky-cta {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    pointer-events: none;
+  }
+  .sticky-cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  }
+  .cta-btn:hover {
+    transform: translateY(-2px);
+  }
+  .cta-btn.primary {
+    background: var(--signal);
+    color: #fff;
+    box-shadow: 0 4px 24px rgba(255,59,48,0.35);
+  }
+  .cta-btn.primary:hover {
+    box-shadow: 0 8px 40px rgba(255,59,48,0.5);
+  }
+  .cta-btn.secondary {
+    background: rgba(245,240,235,0.08);
+    color: var(--bone);
+    border: 1px solid rgba(245,240,235,0.12);
+    backdrop-filter: blur(12px);
+  }
+  .cta-btn.secondary:hover {
+    background: rgba(245,240,235,0.14);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .cta-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  /* ====== SOCIAL PROOF STRIP ====== */
+  .proof-strip {
+    padding: 60px 7vw;
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  .proof-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 32px;
+  }
+  .proof-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 36px 48px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .proof-logos img {
+    height: 28px;
+    width: auto;
+    opacity: 0.35;
+    filter: grayscale(1) brightness(2);
+    transition: opacity 0.3s ease-out;
+  }
+  .proof-logos img:hover {
+    opacity: 0.7;
+  }
+  .proof-stat {
+    margin-top: 32px;
+    font-size: 14px;
+    color: var(--mute);
+    letter-spacing: 0.02em;
+  }
+  .proof-stat strong {
+    color: var(--bone);
+    font-weight: 700;
+  }
+
+  /* ====== CTA SECTION ====== */
+  .cta-section {
+    padding: 100px 7vw;
+    text-align: center;
+    position: relative;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(180deg, var(--signal), transparent);
+  }
+  .cta-headline {
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 900;
+    line-height: 0.95;
+    color: var(--bone);
+    margin-bottom: 16px;
+  }
+  .cta-headline em {
+    font-style: italic;
+    font-weight: 200;
+    color: var(--signal);
+  }
+  .cta-sub {
+    font-size: 17px;
+    color: var(--bone-dim);
+    max-width: 480px;
+    margin: 0 auto 40px;
+    line-height: 1.55;
+  }
+  .cta-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .cta-actions .cta-btn {
+    padding: 18px 36px;
+    font-size: 14px;
+  }
+
   /* ====== FOOTER ====== */
   .footer {
     padding: 40px 7vw;
@@ -545,6 +717,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
   }
   .footer-brand {
     font-family: var(--mono);
@@ -553,6 +727,21 @@
     color: var(--mute);
     text-transform: uppercase;
   }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+  .footer-links a {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--signal);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+  }
+  .footer-links a:hover { opacity: 0.7; }
   .footer-contact a {
     font-family: var(--mono);
     font-size: 11px;
@@ -560,6 +749,21 @@
     color: var(--signal);
     text-decoration: none;
     text-transform: uppercase;
+  }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 700px) {
+    .sticky-cta {
+      bottom: 16px;
+      right: 16px;
+      left: 16px;
+      flex-direction: column;
+    }
+    .cta-btn { justify-content: center; }
+    .cta-actions { flex-direction: column; align-items: center; }
+    .proof-logos { gap: 24px 32px; }
+    .proof-logos img { height: 22px; }
+    .pricing-grid { grid-template-columns: 1fr; }
   }
 
   /* ====== PRINT / PDF ====== */
@@ -578,95 +782,155 @@
   <video class="hero-video" autoplay muted loop playsinline>
     <source src="wtf-credenciales-slides/bg-propuesta-video.mp4" type="video/mp4">
   </video>
-  <div class="hero-logo">WTF AGENCY</div>
-  <div class="hero-tag">POR QUE WTF</div>
+  <div class="hero-logo"><img src="wtf-credenciales-slides/logo-wtf.png" alt="WTF Agency"></div>
+  <div class="hero-tag">POR QUÉ WTF</div>
   <h1 class="hero-title">MODELO TRADICIONAL<br>VS <em>WTF AI ENGINE</em></h1>
   <p class="hero-lead">La diferencia no es solo de precio. Es de velocidad, volumen y sistema.</p>
-  <p class="hero-sub">Con 15 anos de experiencia construyendo marcas en Latinoamerica y mas de 200 campanas ejecutadas, WTF evoluciono su modelo creativo integrando inteligencia artificial en cada etapa del proceso. Mientras una agencia tradicional tarda semanas en entregar un set limitado de piezas, nuestro modelo AI-first produce contenido cinematografico, UGC sintetico y estrategia integrada en horas. La misma vision estrategica de siempre, potenciada por tecnologia que multiplica la velocidad, el volumen y la calidad.</p>
+  <p class="hero-sub">Con 15 años de experiencia construyendo marcas en Latinoamérica y más de 200 campañas ejecutadas, WTF evolucionó su modelo creativo integrando inteligencia artificial en cada etapa del proceso. Mientras una agencia tradicional tarda semanas en entregar un set limitado de piezas, nuestro modelo AI-first produce contenido cinematográfico, Influencers y estrategia integrada en horas. La misma visión estratégica de siempre, potenciada por tecnología que multiplica la velocidad, el volumen y la calidad.</p>
 </div>
 
 <!-- ====== COMPARATIVA ====== -->
 <div class="section has-bg">
+  <video class="section-bg-video" autoplay muted loop playsinline>
+    <source src="wtf-credenciales-slides/bg-comparativa-video.mp4" type="video/mp4">
+  </video>
   <h2 class="section-tag">COMPARATIVA<br><em>DE SERVICIOS</em></h2>
   <p class="section-desc">Lo que una agencia tradicional resuelve con equipos grandes, timings largos y presupuestos fragmentados, nosotros lo resolvemos con inteligencia artificial, velocidad y un sistema integrado que no para. Mismo nivel creativo, otra velocidad.</p>
 
-  <!-- 3 Hero Metrics -->
-  <div class="metric-heroes">
-    <div class="metric-hero">
-      <div class="metric-old">3-6 semanas</div>
-      <div class="metric-num">48-72</div>
-      <div class="metric-unit">horas</div>
-      <div class="metric-label">TIEMPO DE ENTREGA</div>
+  <!-- Split Compare -->
+  <div class="split">
+    <!-- Headers -->
+    <div class="split-headers">
+      <div class="split-head trad">
+        <div class="split-head-label">El modelo de siempre</div>
+        <div class="split-head-name">AGENCIA<br><em>TRADICIONAL</em></div>
+      </div>
+      <div class="split-head wtf">
+        <div class="split-head-label">Nuestro sistema</div>
+        <div class="split-head-name">WTF<br><em>AI ENGINE</em></div>
+      </div>
     </div>
-    <div class="metric-hero">
-      <div class="metric-old">8-15 piezas</div>
-      <div class="metric-num">40+</div>
-      <div class="metric-unit">piezas al mes</div>
-      <div class="metric-label">VOLUMEN MENSUAL</div>
-    </div>
-    <div class="metric-hero">
-      <div class="metric-old">USD 8.000-15.000+</div>
-      <div class="metric-num">3.700</div>
-      <div class="metric-unit"><span class="cost-new-curr">USD</span> /mes</div>
-      <div class="metric-label">COSTO TOTAL</div>
-    </div>
-  </div>
 
-  <!-- Feature Grid -->
-  <div class="feat-grid">
-    <div class="feat-card win">
-      <div class="feat-name">VIDEO</div>
-      <div class="feat-trad">Presupuesto aparte</div>
-      <div class="feat-wtf">Cinematografico incluido</div>
+    <!-- Row 1: Tiempo -->
+    <div class="split-row">
+      <div class="split-cell trad">
+        <div class="split-metric">Tiempo de entrega</div>
+        <div class="split-val"><span class="big">2-3 sem</span></div>
+      </div>
+      <div class="split-insight">De semanas a días. Sin perder calidad.</div>
+      <div class="split-cell wtf">
+        <div class="split-metric">Tiempo de entrega</div>
+        <div class="split-val"><span class="big">3-5 días</span></div>
+      </div>
     </div>
-    <div class="feat-card win">
-      <div class="feat-name">UGC SINTETICO</div>
-      <div class="feat-trad">No disponible</div>
-      <div class="feat-wtf">Avatares + voces IA</div>
-    </div>
-    <div class="feat-card win">
-      <div class="feat-name">AVATARES IA</div>
-      <div class="feat-trad">No disponible</div>
-      <div class="feat-wtf">Personajes unicos por marca</div>
-    </div>
-    <div class="feat-card win">
-      <div class="feat-name">MULTI-PLATAFORMA</div>
-      <div class="feat-trad">Adaptaciones con costo</div>
-      <div class="feat-wtf">5+ plataformas nativas</div>
-    </div>
-    <div class="feat-card win">
-      <div class="feat-name">ESTRATEGIA</div>
-      <div class="feat-trad">Fee adicional</div>
-      <div class="feat-wtf">Integrada al sistema</div>
-    </div>
-    <div class="feat-card win">
-      <div class="feat-name">OPTIMIZACION</div>
-      <div class="feat-trad">Reportes mensuales</div>
-      <div class="feat-wtf">Real-time + iteracion</div>
-    </div>
-  </div>
 
-  <!-- Cost closer -->
-  <div class="cost-block">
-    <div class="cost-old">
-      <div class="cost-old-label">AGENCIA TRADICIONAL</div>
-      <div class="cost-old-num">USD 8.000-15.000+</div>
-      <div class="cost-old-sub">Fee + produccion + extras</div>
+    <!-- Row 2: Volumen -->
+    <div class="split-row">
+      <div class="split-cell trad">
+        <div class="split-metric">Volumen mensual</div>
+        <div class="split-val"><span class="big">8-15</span> <span class="dim">piezas/mes</span></div>
+      </div>
+      <div class="split-insight">3x más contenido con el mismo presupuesto.</div>
+      <div class="split-cell wtf">
+        <div class="split-metric">Volumen mensual</div>
+        <div class="split-val"><span class="big">40+</span> <span class="dim">piezas/mes</span></div>
+      </div>
     </div>
-    <div class="cost-arrow">
-      <div class="cost-arrow-line"></div>
-      <div class="cost-savings">-75%</div>
+
+    <!-- Row 3: Video -->
+    <div class="split-row">
+      <div class="split-cell trad">
+        <div class="split-metric">Video cinematográfico</div>
+        <div class="split-val"><span class="big">Extra</span></div>
+        <span class="split-tag off">Presupuesto aparte</span>
+      </div>
+      <div class="split-insight">Video de alto nivel sin cotizacion extra.</div>
+      <div class="split-cell wtf">
+        <div class="split-metric">Video cinematográfico</div>
+        <div class="split-val"><span class="big">Incluido</span></div>
+        <span class="split-tag on">Incluido</span>
+      </div>
     </div>
-    <div class="cost-new">
-      <div class="cost-new-label">WTF AI ENGINE</div>
-      <div class="cost-new-num"><span class="cost-new-curr">USD </span>3.700</div>
-      <div class="cost-new-sub">TODO INCLUIDO</div>
+
+    <!-- Row 4: UGC -->
+    <div class="split-row">
+      <div class="split-cell trad">
+        <div class="split-metric">Influencers</div>
+        <div class="split-val"><span class="big">N/A</span></div>
+        <span class="split-tag off">No disponible</span>
+      </div>
+      <div class="split-insight">Contenido con rostros y voces IA, listo para escalar.</div>
+      <div class="split-cell wtf">
+        <div class="split-metric">Influencers</div>
+        <div class="split-val"><span class="big">Incluido</span></div>
+        <span class="split-tag on">Avatares + voces IA</span>
+      </div>
+    </div>
+
+    <!-- Row 5: Avatares -->
+    <div class="split-row">
+      <div class="split-cell trad">
+        <div class="split-metric">Avatares IA</div>
+        <div class="split-val"><span class="big">N/A</span></div>
+        <span class="split-tag off">No disponible</span>
+      </div>
+      <div class="split-insight">Personajes propios de tu marca, sin casting ni producción.</div>
+      <div class="split-cell wtf">
+        <div class="split-metric">Avatares IA</div>
+        <div class="split-val"><span class="big">Incluido</span></div>
+        <span class="split-tag on">Personajes por marca</span>
+      </div>
+    </div>
+
+    <!-- Row 6: Multi-plataforma -->
+    <div class="split-row">
+      <div class="split-cell trad">
+        <div class="split-metric">Multi-plataforma</div>
+        <div class="split-val"><span class="big">Extra</span></div>
+        <span class="split-tag off">Adaptaciones con costo</span>
+      </div>
+      <div class="split-insight">Un contenido, cinco formatos nativos. Sin adaptar a mano.</div>
+      <div class="split-cell wtf">
+        <div class="split-metric">Multi-plataforma</div>
+        <div class="split-val"><span class="big">x5</span> <span class="dim">plataformas</span></div>
+        <span class="split-tag on">Nativo</span>
+      </div>
+    </div>
+
+    <!-- Row 7: Estrategia -->
+    <div class="split-row">
+      <div class="split-cell trad">
+        <div class="split-metric">Estrategia Creativa</div>
+        <div class="split-val"><span class="big">Extra</span></div>
+        <span class="split-tag off">Fee adicional</span>
+      </div>
+      <div class="split-insight">La estrategia no es un extra, es el motor del sistema.</div>
+      <div class="split-cell wtf">
+        <div class="split-metric">Estrategia Creativa</div>
+        <div class="split-val"><span class="big">Integrada</span></div>
+        <span class="split-tag on">Incluido</span>
+      </div>
+    </div>
+
+    <!-- Row 8: Optimizacion -->
+    <div class="split-row">
+      <div class="split-cell trad">
+        <div class="split-metric">Optimización continua</div>
+        <div class="split-val"><span class="big">Mensual</span></div>
+        <span class="split-tag off">Reportes estáticos</span>
+      </div>
+      <div class="split-insight">Datos en vivo, ajustes al instante. No esperar al informe.</div>
+      <div class="split-cell wtf">
+        <div class="split-metric">Optimización continua</div>
+        <div class="split-val"><span class="big">Real-time</span></div>
+        <span class="split-tag on">Live + iteración</span>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- ====== PROCESO CREATIVO ====== -->
-<div class="section">
+<div class="section has-bg-img" style="background: linear-gradient(180deg, rgba(10,10,14,0.65) 0%, rgba(10,10,14,0.75) 100%), url('wtf-credenciales-slides/bg-proceso.jpg') center/cover no-repeat fixed;">
   <h2 class="section-tag">PROCESO<br><em>CREATIVO</em></h2>
   <div class="process-compare">
     <div class="process-col trad">
@@ -688,21 +952,21 @@
       <div class="process-step">
         <div class="step-num">3</div>
         <div class="step-content">
-          <div class="step-label">Produccion de contenido</div>
-          <div class="step-detail">Fotografo, locacion, modelos, catering, edicion</div>
+          <div class="step-label">Producción de contenido</div>
+          <div class="step-detail">Fotógrafo, locación, modelos, catering, edicion</div>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">4</div>
         <div class="step-content">
-          <div class="step-label">Post-produccion</div>
+          <div class="step-label">Post-producción</div>
           <div class="step-detail">Retoque, motion graphics, adaptaciones</div>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">5</div>
         <div class="step-content">
-          <div class="step-label">Rondas de revision</div>
+          <div class="step-label">Rondas de revisión</div>
           <div class="step-detail">Cambios, re-edicion, aprobaciones finales</div>
         </div>
       </div>
@@ -713,7 +977,7 @@
           <div class="step-detail">Archivos, formatos, adaptaciones extra</div>
         </div>
       </div>
-      <div class="process-duration">Duracion total: 4-6 semanas</div>
+      <div class="process-duration">Duración total: 4-6 semanas</div>
     </div>
 
     <div class="process-col ai">
@@ -722,7 +986,7 @@
         <div class="step-num">1</div>
         <div class="step-content">
           <div class="step-label">Brief + IA intake</div>
-          <div class="step-detail">Analisis automatico de marca, audiencia y objetivos</div>
+          <div class="step-detail">Análisis automático de marca, audiencia y objetivos</div>
         </div>
       </div>
       <div class="process-step">
@@ -735,15 +999,15 @@
       <div class="process-step">
         <div class="step-num">3</div>
         <div class="step-content">
-          <div class="step-label">Produccion AI-first</div>
+          <div class="step-label">Producción AI-first</div>
           <div class="step-detail">Imagenes, video, UGC y avatares generados en horas</div>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">4</div>
         <div class="step-content">
-          <div class="step-label">Iteracion en tiempo real</div>
-          <div class="step-detail">Ajustes instantaneos, variantes ilimitadas, A/B nativo</div>
+          <div class="step-label">Iteración en tiempo real</div>
+          <div class="step-detail">Ajustes instantáneos, variantes ilimitadas, A/B nativo</div>
         </div>
       </div>
       <div class="process-step">
@@ -753,47 +1017,85 @@
           <div class="step-detail">Contenido nativo para 5+ plataformas, listo para publicar</div>
         </div>
       </div>
-      <div class="process-duration">Duracion total: 48-72 horas</div>
+      <div class="process-duration">Duración total: 3-5 días</div>
     </div>
   </div>
 </div>
 
+<!-- ====== SOCIAL PROOF ====== -->
+<div class="proof-strip">
+  <div class="proof-label">+200 campañas ejecutadas para marcas como</div>
+  <div class="proof-logos">
+    <img src="wtf-credenciales-slides/logos/honda.png" alt="Honda">
+    <img src="wtf-credenciales-slides/logos/ford.png" alt="Ford">
+    <img src="wtf-credenciales-slides/logos/samsung.png" alt="Samsung">
+    <img src="wtf-credenciales-slides/logos/peugeot.png" alt="Peugeot">
+    <img src="wtf-credenciales-slides/logos/motorola.png" alt="Motorola">
+    <img src="wtf-credenciales-slides/logos/quilmes.png" alt="Quilmes">
+    <img src="wtf-credenciales-slides/logos/lenovo.png" alt="Lenovo">
+    <img src="wtf-credenciales-slides/logos/bayer.png" alt="Bayer">
+    <img src="wtf-credenciales-slides/logos/arcor.png" alt="Arcor">
+    <img src="wtf-credenciales-slides/logos/nestle-waters.png" alt="Nestle Waters">
+  </div>
+  <p class="proof-stat"><strong>15 años</strong> construyendo marcas en Latinoamérica y el mundo</p>
+</div>
+
 <!-- ====== PLANES ====== -->
-<div class="section">
+<div class="section" style="background: linear-gradient(180deg, rgba(10,10,14,0.70) 0%, rgba(10,10,14,0.80) 100%), url('wtf-credenciales-slides/bg-planes.jpg') center/cover no-repeat fixed;">
   <h2 class="section-tag">PLANES<br><em>MENSUALES</em></h2>
   <div class="pricing-grid">
     <div class="pricing-card">
       <div class="pricing-tier">TIER 1</div>
-      <div class="pricing-name">AI CONTENT SYSTEM</div>
-      <div class="pricing-desc">Contenido estrategico con sistema IA. Ideal para marcas que necesitan presencia constante con calidad y velocidad.</div>
-      <div class="pricing-price">$3.700 <span>USD</span></div>
-      <div class="pricing-period">MENSUAL · CONTRATO TRIMESTRAL</div>
+      <div class="pricing-name">AI CONTENT<br>SYSTEM</div>
+      <div class="pricing-desc">Contenido estratégico con sistema IA. Presencia constante con calidad y velocidad.</div>
+      <div class="pricing-price">$4.000 <span>USD</span></div>
+      <div class="pricing-period">MENSUAL · CONTRATO ANUAL</div>
       <ul class="pricing-features">
         <li>Estrategia de contenido mensual</li>
         <li>Hasta 40 piezas / mes</li>
-        <li>Video IA (hasta 8 / mes)</li>
-        <li>Adaptacion multi-plataforma</li>
-        <li>Direccion de arte IA</li>
-        <li>1 ronda de revision por pieza</li>
+        <li>Video IA (hasta 4 / mes)</li>
+        <li>Dirección de arte IA</li>
+        <li>Adaptación multi-plataforma (3)</li>
+        <li>1 ronda de revisión por pieza</li>
         <li>Reporte mensual de performance</li>
       </ul>
     </div>
 
     <div class="pricing-card featured">
-      <div class="pricing-tier">TIER 2 · FULL MODEL</div>
-      <div class="pricing-name">AI AGENCY<br>FULL MODEL</div>
-      <div class="pricing-desc">Sistema completo. Contenido ilimitado, estrategia integrada, produccion always-on. Tu equipo creativo potenciado por IA.</div>
-      <div class="pricing-price">$5.600 <span>USD</span></div>
-      <div class="pricing-period">MENSUAL · CONTRATO TRIMESTRAL</div>
+      <div class="pricing-tier">TIER 2</div>
+      <div class="pricing-name">AI AGENCY<br>SCALE</div>
+      <div class="pricing-desc">El doble de capacidad. Video cinematográfico, influencers IA y estrategia integrada para marcas en crecimiento.</div>
+      <div class="pricing-price">$5.900 <span>USD</span></div>
+      <div class="pricing-period">MENSUAL · CONTRATO ANUAL</div>
       <ul class="pricing-features">
-        <li>Contenido ilimitado</li>
-        <li>Video cinematografico ilimitado</li>
-        <li>UGC sintetico + avatares IA</li>
         <li>Estrategia + planning integrado</li>
+        <li>Hasta 80 piezas / mes</li>
+        <li>Video cinematográfico IA (hasta 8 / mes)</li>
+        <li>Influencers + avatares IA</li>
+        <li>Dirección de arte IA</li>
+        <li>Adaptación multi-plataforma (5+)</li>
+        <li>2 rondas de revisión por pieza</li>
+        <li>Reporte mensual de performance</li>
+        <li>Optimización de contenido con datos</li>
+      </ul>
+    </div>
+
+    <div class="pricing-card">
+      <div class="pricing-tier">TIER 3 · UNLIMITED</div>
+      <div class="pricing-name">AI AGENCY<br>FULL MODEL</div>
+      <div class="pricing-desc">Todo ilimitado. Contenido, video, estrategia y producción always-on. Tu equipo creativo completo potenciado por IA.</div>
+      <div class="pricing-price">$8.900 <span>USD</span></div>
+      <div class="pricing-period">MENSUAL · CONTRATO ANUAL</div>
+      <ul class="pricing-features">
+        <li>Estrategia + planning integrado</li>
+        <li>Contenido ilimitado</li>
+        <li>Video cinematográfico ilimitado</li>
+        <li>Influencers + avatares IA ilimitados</li>
+        <li>Dirección de arte IA</li>
         <li>Multi-plataforma nativo (5+)</li>
         <li>Revisiones ilimitadas</li>
         <li>Community management</li>
-        <li>Performance + optimizacion real-time</li>
+        <li>Performance + optimización real-time</li>
         <li>Director de cuenta dedicado</li>
       </ul>
     </div>
@@ -804,10 +1106,32 @@
   </p>
 </div>
 
+<!-- ====== CTA FINAL ====== -->
+<div class="cta-section">
+  <h2 class="cta-headline">LISTO PARA<br><em>ESCALAR?</em></h2>
+  <p class="cta-sub">Agendemos 30 minutos. Te mostramos el sistema en acción con casos reales de tu industria.</p>
+  <div class="cta-actions">
+    <a href="mailto:hello@wtf-agency.com?subject=Propuesta%20AI%20First%20-%20Quiero%20saber%20m%C3%A1s" class="cta-btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      Escribinos
+    </a>
+  </div>
+</div>
+
 <!-- ====== FOOTER ====== -->
 <div class="footer">
   <div class="footer-brand">WTF Agency · Buenos Aires · Since 2010</div>
-  <div class="footer-contact"><a href="mailto:hello@wtf-agency.com">hello@wtf-agency.com</a></div>
+  <div class="footer-links">
+    <a href="mailto:hello@wtf-agency.com">hello@wtf-agency.com</a>
+  </div>
+</div>
+
+<!-- ====== STICKY CTA ====== -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="mailto:hello@wtf-agency.com?subject=Propuesta%20AI%20First%20-%20Quiero%20saber%20m%C3%A1s" class="cta-btn primary">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+    Escribinos
+  </a>
 </div>
 
 <script>
@@ -821,9 +1145,46 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 
-document.querySelectorAll('.metric-hero, .feat-card, .cost-block, .process-step, .pricing-card').forEach(el => {
+document.querySelectorAll('.split-head, .split-row, .process-step, .pricing-card').forEach(el => {
   observer.observe(el);
 });
+
+// Sticky CTA: show after scrolling past hero
+const stickyCta = document.getElementById('stickyCta');
+const hero = document.querySelector('.hero');
+if (stickyCta && hero) {
+  const ctaObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) {
+        stickyCta.classList.add('visible');
+      } else {
+        stickyCta.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.3 });
+  ctaObserver.observe(hero);
+}
+
+// Proof logos stagger animation
+const proofLogos = document.querySelectorAll('.proof-logos img');
+const proofObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      proofLogos.forEach((img, i) => {
+        img.style.opacity = '0';
+        img.style.transform = 'translateY(8px)';
+        setTimeout(() => {
+          img.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out';
+          img.style.opacity = '';
+          img.style.transform = '';
+        }, 80 * i);
+      });
+      proofObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+const proofStrip = document.querySelector('.proof-strip');
+if (proofStrip) proofObs.observe(proofStrip);
 </script>
 </body>
 </html>
