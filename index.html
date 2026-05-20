@@ -712,10 +712,10 @@
   /* === S8 / ENGINE === */
   .engine {
     background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-night) 100%);
-    padding: 90px 7vw;
+    padding: 50px 7vw 40px;
     justify-content: center;
   }
-  .engine > .eyebrow { margin-top: 16px; }
+  .engine > .eyebrow { margin-top: 0; }
   .engine::after {
     content: '';
     position: absolute;
@@ -729,8 +729,8 @@
   .engine > .slide-tag { z-index: 100; }
   .engine-title {
     font-size: clamp(48px, 7vw, 110px);
-    color: var(--bone); margin-bottom: 18px;
-    margin-top: 40px;
+    color: var(--bone); margin-bottom: 12px;
+    margin-top: 10px;
   }
   .engine-title em {
     font-family: 'Inter', sans-serif; font-style: normal; color: #FFFFFF;
@@ -738,9 +738,23 @@
   }
   .engine-sub {
     font-size: 18px; color: var(--bone-dim);
-    margin-bottom: 120px; max-width: 760px; line-height: 1.6;
+    margin-bottom: 24px; max-width: 760px; line-height: 1.6;
   }
   .engine-sub strong { color: var(--bone); font-weight: 600; }
+  .engine-mod {
+    display:flex;align-items:flex-start;gap:.6rem;padding:.55rem .7rem;
+    border:1px solid rgba(255,255,255,.07);border-radius:10px;
+    background:rgba(255,255,255,.03);
+    transition: background .3s ease, border-color .3s ease, transform .2s ease;
+    cursor:default;
+  }
+  .engine-mod:hover {
+    background:rgba(0,0,0,.85);
+    border-color:rgba(255,255,255,.15);
+    transform:scale(1.02);
+  }
+  .engine-mod:hover .engine-mod-title { color:#fff; }
+  .engine-mod:hover .engine-mod-desc { opacity:.7; }
   .pipeline {
     display: grid; grid-template-columns: repeat(5, 1fr);
     gap: 0; margin-bottom: 70px; position: relative;
@@ -2722,7 +2736,6 @@
     <p class="desc">
       PENSAR. HACER. MOVER. APRENDER. CRECER.
     </p>
-    <div class="pulse"><span class="pulse-dot"></span> Sistema activo · 2026</div>
   </div>
 </section>
 
@@ -2733,7 +2746,14 @@
   <h2 class="display bd-title reveal delay-1">
     LA CREATIVIDAD<br>ENTRENADA<br>PARA<br><em>REINTERPRETAR.</em>
   </h2>
-  <p class="bd-sub reveal delay-2">BATTLE TESTED CREATIVITY · SINCE 2010</p>
+  <p class="lead reveal delay-2" style="margin-bottom:2rem;">No hacemos lo que pide el brief. Hacemos lo que la marca necesita.</p>
+  <ul class="reveal delay-2" style="list-style:none;padding:0;display:flex;flex-direction:column;gap:.6rem;font-family:var(--mono);font-size:.85rem;letter-spacing:.04em;color:var(--bone-dim);">
+    <li>· Diagnóstico antes que ejecución</li>
+    <li>· Insight antes que copy</li>
+    <li>· Sistema antes que pieza</li>
+    <li>· Velocidad sin perder criterio</li>
+  </ul>
+  <p class="bd-sub reveal delay-3">BATTLE TESTED CREATIVITY · SINCE 2010</p>
   <div class="bd-logo reveal delay-3">
     <img src="wtf-credenciales-slides/logo-wtf.png" alt="WTF Agency" class="bd-logo-img">
   </div>
@@ -2750,7 +2770,7 @@
   <div class="ctx-grid">
     <div class="stat reveal delay-2">
       <div class="stat-num"><span class="counter" data-target="4" data-decimals="0" data-suffix="%">0</span></div>
-      <p class="stat-text">Solo el 4% los ads digitales se miran más de 2 segundos. El otro 96% ni existe.</p>
+      <p class="stat-text">Solo el 4% de los ads digitales se miran más de 2 segundos. El otro 96% ni existe.</p>
       <p class="stat-source">Lumen Research · Eye-Tracking Global</p>
     </div>
     <div class="stat reveal delay-3">
@@ -2760,7 +2780,7 @@
     </div>
     <div class="stat reveal delay-4">
       <div class="stat-num"><span class="counter" data-target="40" data-decimals="0" data-suffix="%">0</span></div>
-      <p class="stat-text">De Gen Z busca en TikTok e Instagram antes que en Google. El descubrimiento cambio para siempre.</p>
+      <p class="stat-text">De Gen Z busca en TikTok e Instagram antes que en Google. El descubrimiento cambió para siempre.</p>
       <p class="stat-source">Google Internal Research 2024</p>
     </div>
   </div>
@@ -2789,7 +2809,7 @@
     <p class="reveal delay-1">El mundo cambió.<br>Hoy no gana el que tiene una gran campaña.<br><span class="highlight">Gana el que aprende más rápido.</span></p>
     <p class="reveal delay-2">Evolucionamos de agencia creativa tradicional a <span class="highlight">sistema creativo con IA como sistema operativo.</span></p>
     <p class="reveal delay-3"><span class="highlight">Estrategia que ordena. Creatividad con oficio.<br>Producción con velocidad. IA para multiplicar.</span></p>
-    <p class="reveal delay-4 mani-closer">Porque hoy una idea no alcanza.<br><strong>Hace falta un sistema.</strong></p>
+    <p class="reveal delay-4 mani-closer">Una idea no alcanza.<br><strong>Hace falta un sistema que no pare.</strong></p>
   </div>
   <div class="mani-logo reveal delay-5">
     <img src="wtf-credenciales-slides/logo-wtf.png" alt="WTF Agency" class="mani-logo-img">
@@ -2837,6 +2857,7 @@
 
 <!-- ============================== S6 / #WTFRULES ============================== -->
 <section class="wtfrules">
+  <div class="slide-tag">07 · #WTFRULES</div>
   <p class="wtfrules-text reveal">
     Es momento de plantearse todo <strong>nuevamente.</strong>
   </p>
@@ -2855,7 +2876,7 @@
     <div class="wtf-pillar reveal delay-2">
       <div class="stp">01 ·</div>
       <h4>PENSAR</h4>
-      <p>Estrategia, insight, concepto. IA para research, analisis de audiencia, territorial mapping.</p>
+      <p>Estrategia, insight, concepto. IA para research, análisis de audiencia, territorial mapping.</p>
     </div>
     <div class="wtf-pillar reveal delay-3">
       <div class="stp">02 ·</div>
@@ -2865,12 +2886,12 @@
     <div class="wtf-pillar reveal delay-4">
       <div class="stp">03 ·</div>
       <h4>MOVER</h4>
-      <p>Distribucion inteligente: plataformas, pauta, CRM, always-on, performance, community.</p>
+      <p>Distribución inteligente: plataformas, pauta, CRM, always-on, performance, community.</p>
     </div>
     <div class="wtf-pillar reveal delay-5">
       <div class="stp">04 ·</div>
       <h4>APRENDER</h4>
-      <p>Optimizacion continua. KPIs en tiempo real. A/B testing. Iteracion basada en data, no en ego.</p>
+      <p>Optimización continua. KPIs en tiempo real. A/B testing. Iteración basada en data, no en ego.</p>
     </div>
     <div class="wtf-pillar reveal delay-6">
       <div class="stp">05 ·</div>
@@ -2883,13 +2904,14 @@
 <!-- ============================== S11 / Modelo AI First ============================== -->
 <section class="modelo">
   <div class="slide-tag">09 · Modelo AI First</div>
-  <div class="modelo-tag reveal">NUESTRA FILOSOFIA</div>
+  <div class="modelo-tag reveal">NUESTRA FILOSOFÍA</div>
 
   <h2 class="display modelo-title reveal delay-1">AI FIRST<br><em>NO ES UN TOOL.</em><br>ES EL SISTEMA OPERATIVO.</h2>
+  <p class="eyebrow reveal delay-1" style="margin-top:1.5rem;">15 años multiplicados, no reemplazados.</p>
 
   <div class="modelo-grid">
     <div class="modelo-col reveal delay-2">
-      <h3>QUE SIGNIFICA <strong>AI FIRST?</strong></h3>
+      <h3>QUÉ SIGNIFICA <strong>AI FIRST?</strong></h3>
       <p><strong>IA no es algo que agregamos.</strong> Es el cimiento. Cada brief, cada producción, cada distribución, cada optimización corre a través de IA.</p>
       <p class="modelo-cierre">Creativos, planners, estrategas, diseñadores, todo el equipo WTF potenciado por nuestro sistema operativo IA. La máquina acelera. El talento decide.</p>
     </div>
@@ -2901,14 +2923,14 @@
           <p>Research, tendencias, audiencia, competencia. En horas, no semanas.</p>
         </div>
         <div class="modelo-pillar">
-          <div class="step">Produccion</div>
+          <div class="step">Producción</div>
           <h4>IA produce</h4>
           <p>Video, imagen, audio, avatares. 10x más rápido, sin sacrificar calidad.</p>
         </div>
         <div class="modelo-pillar">
-          <div class="step">Optimizacion</div>
+          <div class="step">Optimización</div>
           <h4>IA aprende</h4>
-          <p>Performance en tiempo real. Iteracion automática. A/B a escala.</p>
+          <p>Performance en tiempo real. Iteración automática. A/B a escala.</p>
         </div>
       </div>
     </div>
@@ -2921,34 +2943,116 @@
   <div class="eyebrow reveal">El sistema</div>
 
   <h2 class="display engine-title reveal delay-1">WTF<br><em>AI ENGINE</em><br>OS PLATFORM</h2>
-  <p class="engine-sub reveal delay-2">De brief a escala en un flujo continuo. <strong>Cada paso potenciado por IA, validado por humanos.</strong></p>
+  <p class="engine-sub reveal delay-2">Un motor propio que une todos los flujos y conecta más de 20 herramientas de IA. De brief a escala en un flujo continuo. <strong>Cada paso potenciado por IA, validado por humanos.</strong></p>
 
-  <div class="pipeline">
-    <svg class="pipe-line-svg" viewBox="0 0 1200 2" preserveAspectRatio="none"><path d="M0,1 L1200,1"/></svg>
-    <div class="pipe-step reveal delay-2">
-      <div class="pipe-num">01 ·</div>
-      <h5>BRIEF + STRATEGY</h5>
-      <p>Brief inteligente. IA analiza mercado, audiencia, competencia. Estrategia en 48hs.</p>
+  <!-- Stats bar -->
+  <div class="reveal delay-2" style="display:flex;justify-content:center;gap:3.5rem;margin:.8rem 0 .8rem;flex-wrap:wrap;">
+    <div style="text-align:center;">
+      <span style="font-family:var(--editorial);font-weight:700;font-size:3.5rem;color:var(--wtf-red);line-height:1;">20+</span>
+      <div style="font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;color:var(--bone);opacity:1;margin-top:.3rem;">TOOLS IA INTEGRADAS</div>
     </div>
-    <div class="pipe-step reveal delay-3">
-      <div class="pipe-num">02 ·</div>
-      <h5>AI GENERATION</h5>
-      <p>Producción AI-first: video, imagen, audio, avatares. Multi-formato nativo.</p>
+    <div style="width:1px;background:rgba(255,255,255,.1);align-self:stretch;"></div>
+    <div style="text-align:center;">
+      <span style="font-family:var(--editorial);font-weight:700;font-size:3.5rem;color:var(--wtf-red);line-height:1;">10x</span>
+      <div style="font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;color:var(--bone);opacity:1;margin-top:.3rem;">MÁS RÁPIDO</div>
     </div>
-    <div class="pipe-step reveal delay-4">
-      <div class="pipe-num">03 ·</div>
-      <h5>HUMAN CURATION</h5>
-      <p>Director creativo + equipo valida, refina, eleva. El humano es el filtro final.</p>
+    <div style="width:1px;background:rgba(255,255,255,.1);align-self:stretch;"></div>
+    <div style="text-align:center;">
+      <span style="font-family:var(--editorial);font-weight:700;font-size:3.5rem;color:var(--wtf-red);line-height:1;">48h</span>
+      <div style="font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;color:var(--bone);opacity:1;margin-top:.3rem;">A PRIMERA ENTREGA</div>
     </div>
-    <div class="pipe-step reveal delay-5">
-      <div class="pipe-num">04 ·</div>
-      <h5>DISTRIBUTION</h5>
-      <p>Multi-plataforma nativo. Pauta inteligente. CRM. Always-on. Community.</p>
+    <div style="width:1px;background:rgba(255,255,255,.1);align-self:stretch;"></div>
+    <div style="text-align:center;">
+      <span style="font-family:var(--editorial);font-weight:700;font-size:3.5rem;color:var(--wtf-red);line-height:1;">SIN</span>
+      <div style="font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;color:var(--bone);opacity:1;margin-top:.3rem;">LÍMITES CREATIVOS</div>
     </div>
-    <div class="pipe-step reveal delay-6">
-      <div class="pipe-num">05 ·</div>
-      <h5>LEARN + ITERATE</h5>
-      <p>Performance en tiempo real. A/B testing. Iteracion automática. El sistema aprende.</p>
+  </div>
+
+  <!-- Modules grid -->
+  <div class="reveal delay-3" style="display:grid;grid-template-columns:repeat(4,1fr);gap:.45rem;max-width:960px;margin:.2rem auto 0;">
+    <div class="engine-mod">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <div>
+        <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">UGC GENERATOR</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Contenido orgánico ilimitado con actores virtuales y reales</div>
+      </div>
+    </div>
+    <div class="engine-mod">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+      <div>
+        <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">VIDEO ENGINE</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Spots, reels y branded content con IA generativa</div>
+      </div>
+    </div>
+    <div class="engine-mod">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <div>
+        <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">RESEARCH LAB</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Mercado, tendencias y audiencias con deep analysis</div>
+      </div>
+    </div>
+    <div class="engine-mod">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      <div>
+        <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">ADS STUDIO</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Campañas paid con variantes A/B automáticas</div>
+      </div>
+    </div>
+    <div class="engine-mod">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+      <div>
+        <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">COPY ENGINE</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Textos, guiones y copies en tono de marca calibrado</div>
+      </div>
+    </div>
+    <div class="engine-mod">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      <div>
+        <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">ANALYTICS HUB</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Dashboards en tiempo real y optimización continua</div>
+      </div>
+    </div>
+    <div class="engine-mod">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <div>
+        <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">IMAGE STUDIO</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Key visuals, producto y adaptaciones multi-formato</div>
+      </div>
+    </div>
+    <div class="engine-mod">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      <div>
+        <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">APPROVAL FLOW</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Revisión y aprobación online con historial completo</div>
+      </div>
+    </div>
+    <div class="engine-mod">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+      <div>
+        <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">BRAND SYSTEMS</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Identidad, guidelines y sistemas de diseño escalables</div>
+      </div>
+    </div>
+    <div class="engine-mod">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+      <div>
+        <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">AI AUTOMATION</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Workflows automatizados de producción y publicación</div>
+      </div>
+    </div>
+    <div class="engine-mod">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      <div>
+        <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">PERFORMANCE</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Optimización de campañas basada en datos reales</div>
+      </div>
+    </div>
+    <div class="engine-mod">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <div>
+        <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">MULTI-MARKET</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Adaptación multi-idioma y multi-mercado instantánea</div>
+      </div>
     </div>
   </div>
 
@@ -3022,7 +3126,7 @@
       <div class="caso-metrics">
         <div class="caso-metric">
           <div class="v"><span class="counter" data-target="240" data-decimals="0" data-suffix="+">0</span></div>
-          <div class="l">Piezas/ano</div>
+          <div class="l">Piezas/año</div>
         </div>
         <div class="caso-metric">
           <div class="v"><span class="counter" data-target="5" data-decimals="0">0</span></div>
@@ -3030,7 +3134,7 @@
         </div>
         <div class="caso-metric">
           <div class="v"><span class="counter" data-target="10" data-decimals="0" data-suffix="x">0</span></div>
-          <div class="l">Mas output</div>
+          <div class="l">Más output</div>
         </div>
       </div>
     </div>
@@ -3045,7 +3149,7 @@
         </div>
         <div class="caso-metric">
           <div class="v"><span class="counter" data-target="500" data-decimals="0" data-suffix="+">0</span></div>
-          <div class="l">Piezas/ano</div>
+          <div class="l">Piezas/año</div>
         </div>
         <div class="caso-metric">
           <div class="v">MULTI</div>
@@ -3101,105 +3205,105 @@
 
   <div class="masonry">
     <!-- row 1 -->
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-lifestyle.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Lifestyle</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-trucker.jpg" alt="Starter"><div class="masonry-overlay"><span>Starter · Trucker</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-reel-01.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Reel Lanzamiento</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-tattoo.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Brand</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/template-01-headline.jpg" alt="Sancor Seguros"><div class="masonry-overlay"><span>Sancor Seguros · Headline</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-lifestyle.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Lifestyle · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-trucker.jpg" alt="Starter"><div class="masonry-overlay"><span>Starter · Trucker · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-reel-01.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Reel Lanzamiento · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-tattoo.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Brand · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/template-01-headline.jpg" alt="Sancor Seguros"><div class="masonry-overlay"><span>Sancor Seguros · Headline · 100% AI</span></div></div>
     <!-- row 2 -->
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/hydrate-otono.jpg" alt="Hydrate"><div class="masonry-overlay"><span>Hydrate · Otoño</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/comfyui-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Generative</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-relic.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Relic</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/morelli-post-13.jpg" alt="Morelli"><div class="masonry-overlay"><span>Morelli · Prego 900</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/starter-video-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Starter · Video</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/hydrate-otono.jpg" alt="Hydrate"><div class="masonry-overlay"><span>Hydrate · Otoño · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/comfyui-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Generative · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-relic.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Relic · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/morelli-post-13.jpg" alt="Morelli"><div class="masonry-overlay"><span>Morelli · Prego 900 · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/starter-video-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Starter · Video · 100% AI</span></div></div>
     <!-- row 3 -->
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/sensus-abuelo.jpg" alt="Sensus"><div class="masonry-overlay"><span>Sensus · El Brindis</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/diablo-reel-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Pisco Diablo · Reel</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-otono.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Otoño</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/template-09-negative-marketing.jpg" alt="Sancor Seguros"><div class="masonry-overlay"><span>Sancor Seguros · Negative Mkt</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-1971.jpg" alt="Starter"><div class="masonry-overlay"><span>Starter · 1971</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/sensus-abuelo.jpg" alt="Sensus"><div class="masonry-overlay"><span>Sensus · El Brindis · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/diablo-reel-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Pisco Diablo · Reel · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-otono.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Otoño · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/template-09-negative-marketing.jpg" alt="Sancor Seguros"><div class="masonry-overlay"><span>Sancor Seguros · Negative Mkt · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-1971.jpg" alt="Starter"><div class="masonry-overlay"><span>Starter · 1971 · 100% AI</span></div></div>
     <!-- row 4 -->
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-actitud.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Actitud</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-estilo.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Estilo</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-reel-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Reel 2</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/hydrate-runner.jpg" alt="Hydrate"><div class="masonry-overlay"><span>Hydrate · Runner</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-01.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Higgsfield</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-actitud.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Actitud · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-estilo.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Estilo · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-reel-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Reel 2 · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/hydrate-runner.jpg" alt="Hydrate"><div class="masonry-overlay"><span>Hydrate · Runner · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-01.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Higgsfield · 100% AI</span></div></div>
     <!-- row 5 -->
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-bluelabel.jpg" alt="Starter"><div class="masonry-overlay"><span>Starter · Blue Label</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/template-25-us-vs-them-color-split.jpg" alt="Sancor Seguros"><div class="masonry-overlay"><span>Sancor Seguros · Us vs Them</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-97.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · 97%</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-balcon.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Lifestyle</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/sensus-mirada.jpg" alt="Sensus"><div class="masonry-overlay"><span>Sensus · Mirada</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-bluelabel.jpg" alt="Starter"><div class="masonry-overlay"><span>Starter · Blue Label · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/template-25-us-vs-them-color-split.jpg" alt="Sancor Seguros"><div class="masonry-overlay"><span>Sancor Seguros · Us vs Them · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-97.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · 97% · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-balcon.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Lifestyle · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/sensus-mirada.jpg" alt="Sensus"><div class="masonry-overlay"><span>Sensus · Mirada · 100% AI</span></div></div>
     <!-- row 6 -->
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/comfyui-03.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Creative</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-pile.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Colección</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/starter-video-03.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Starter · Campaign</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/template-08-before-after-ugc.jpg" alt="Sancor Seguros"><div class="masonry-overlay"><span>Sancor Seguros · Before &amp; After</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/diablo-reel-03.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Pisco Diablo · Reel 2</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/comfyui-03.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Creative · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-pile.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Colección · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/starter-video-03.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Starter · Campaign · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/template-08-before-after-ugc.jpg" alt="Sancor Seguros"><div class="masonry-overlay"><span>Sancor Seguros · Before &amp; After · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/diablo-reel-03.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Pisco Diablo · Reel 2 · 100% AI</span></div></div>
     <!-- row 7 -->
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/hydrate-locker.jpg" alt="Hydrate"><div class="masonry-overlay"><span>Hydrate · Locker</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-radiate.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Radiate</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/sensus-brindis.jpg" alt="Sensus"><div class="masonry-overlay"><span>Sensus · Brindis</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Video</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-bridge.jpg" alt="Starter"><div class="masonry-overlay"><span>Starter · NYC</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/hydrate-locker.jpg" alt="Hydrate"><div class="masonry-overlay"><span>Hydrate · Locker · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-radiate.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Radiate · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/sensus-brindis.jpg" alt="Sensus"><div class="masonry-overlay"><span>Sensus · Brindis · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Video · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-bridge.jpg" alt="Starter"><div class="masonry-overlay"><span>Starter · NYC · 100% AI</span></div></div>
     <!-- row 8 -->
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/template-32-ugc-story-callout.jpg" alt="Sancor Seguros"><div class="masonry-overlay"><span>Sancor Seguros · UGC Story</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-sofa.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Momentos</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-reel-03.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Reel 3</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-hands.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Comunidad</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/morelli-post-17.jpg" alt="Morelli"><div class="masonry-overlay"><span>Morelli · Nacida en el Fuego</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/template-32-ugc-story-callout.jpg" alt="Sancor Seguros"><div class="masonry-overlay"><span>Sancor Seguros · UGC Story · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-sofa.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Momentos · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-reel-03.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Reel 3 · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-hands.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Comunidad · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/morelli-post-17.jpg" alt="Morelli"><div class="masonry-overlay"><span>Morelli · Nacida en el Fuego · 100% AI</span></div></div>
     <!-- row 9 -->
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/morelli-post-09.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Morelli · Video</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/comfyui-04.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Pipeline</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-motivate.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Motivate</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/template-21-bold-statement.jpg" alt="Sancor Seguros"><div class="masonry-overlay"><span>Sancor Seguros · Bold Statement</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-trucker-new.jpg" alt="Starter"><div class="masonry-overlay"><span>Starter · Trucker New</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-botella.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Sabor</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/morelli-post-09.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Morelli · Video · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/comfyui-04.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Pipeline · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-motivate.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Motivate · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/template-21-bold-statement.jpg" alt="Sancor Seguros"><div class="masonry-overlay"><span>Sancor Seguros · Bold Statement · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-trucker-new.jpg" alt="Starter"><div class="masonry-overlay"><span>Starter · Trucker New · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-botella.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Sabor · 100% AI</span></div></div>
     <!-- row 10 -->
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-reel-04.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Reel 4</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/hydrate-calor.jpg" alt="Hydrate"><div class="masonry-overlay"><span>Hydrate · Calor</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-kid.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Kids</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-03.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Motion</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-red.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Rosé</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-reel-04.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Reel 4 · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/hydrate-calor.jpg" alt="Hydrate"><div class="masonry-overlay"><span>Hydrate · Calor · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-kid.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Kids · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-03.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Motion · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-red.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Rosé · 100% AI</span></div></div>
     <!-- row 11 -->
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/template-13-stat-surround-hero.jpg" alt="Sancor Seguros"><div class="masonry-overlay"><span>Sancor Seguros · Stat Hero</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/sensus-estilos.jpg" alt="Sensus"><div class="masonry-overlay"><span>Sensus · Estilos</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/starter-video-04.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Starter · Street</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-net.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Concept</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/diablo-reel-04.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Pisco Diablo · Reel 3</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/template-13-stat-surround-hero.jpg" alt="Sancor Seguros"><div class="masonry-overlay"><span>Sancor Seguros · Stat Hero · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/sensus-estilos.jpg" alt="Sensus"><div class="masonry-overlay"><span>Sensus · Estilos · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/starter-video-04.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Starter · Street · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-net.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Concept · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/diablo-reel-04.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Pisco Diablo · Reel 3 · 100% AI</span></div></div>
     <!-- row 12 -->
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-enero.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Enero</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/hydrate-movimiento.jpg" alt="Hydrate"><div class="masonry-overlay"><span>Hydrate · Movimiento</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/comfyui-05.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · ComfyUI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-carolina.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Carolina</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-enero.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Enero · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/hydrate-movimiento.jpg" alt="Hydrate"><div class="masonry-overlay"><span>Hydrate · Movimiento · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/comfyui-05.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · ComfyUI · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-carolina.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Carolina · 100% AI</span></div></div>
 
     <!-- row 13 -->
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-04.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Character</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-runner.jpg" alt="Starter"><div class="masonry-overlay"><span>Starter · Runner</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/template-40-post-it-note-style.jpg" alt="Sancor Seguros"><div class="masonry-overlay"><span>Sancor Seguros · Post-it Style</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-shoe-green.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Radiate Green</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-reel-05.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Reel 5</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-04.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Character · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-runner.jpg" alt="Starter"><div class="masonry-overlay"><span>Starter · Runner · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/template-40-post-it-note-style.jpg" alt="Sancor Seguros"><div class="masonry-overlay"><span>Sancor Seguros · Post-it Style · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-shoe-green.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Radiate Green · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-reel-05.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Reel 5 · 100% AI</span></div></div>
     <!-- row 14 -->
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-05.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Scene</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-posture.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Posture</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/starter-video-09.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Starter · Lookbook</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-hotsale.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Hot Sale</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-06.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Production</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-05.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Scene · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-posture.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Posture · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/starter-video-09.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Starter · Lookbook · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-hotsale.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Hot Sale · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-06.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Production · 100% AI</span></div></div>
     <!-- row 15 -->
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/project-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Project</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-shoe-bw.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Radiate BW</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/comfyui-01.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · ComfyUI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-07.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Generative</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/project-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Project · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-shoe-bw.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Radiate BW · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/comfyui-01.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · ComfyUI · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-07.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Generative · 100% AI</span></div></div>
   </div>
 </section>
 
 <!-- ============================== S18 / Equipo ============================== -->
 <section class="celula dense">
   <div class="slide-tag">14 · Equipo</div>
-  <div class="eyebrow reveal">Modelo celula</div>
+  <div class="eyebrow reveal">Modelo célula</div>
 
   <h2 class="display celula-title reveal delay-1">EQUIPO<br><em>DEDICADO</em></h2>
-  <p class="celula-sub reveal delay-2">Cada cliente tiene una celula dedicada. Equipo pequeno, agil, con ownership total. No compartimos recursos entre cuentas.</p>
+  <p class="celula-sub reveal delay-2">Cada cliente tiene una célula dedicada. Equipo pequeño, ágil, con ownership total. No compartimos recursos entre cuentas.</p>
 
   <div class="roles">
     <div class="role reveal delay-3">
@@ -3215,7 +3319,7 @@
     <div class="role reveal delay-5">
       <div class="ico">03 · CREATIVE</div>
       <h4>CREATIVE DIRECTOR</h4>
-      <p>Vision creativa. Garantiza que cada pieza tenga craft, intencion y coherencia de marca. El filtro humano final.</p>
+      <p>Visión creativa. Garantiza que cada pieza tenga craft, intención y coherencia de marca. El filtro humano final.</p>
     </div>
     <div class="role reveal delay-3">
       <div class="ico">04 · AI PRODUCTION</div>
