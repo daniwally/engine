@@ -827,6 +827,25 @@
     padding: 100px 7vw;
     text-align: center;
     position: relative;
+    overflow: hidden;
+  }
+  .cta-section .cta-bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .cta-section .cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10,10,12,0.7);
+    z-index: 1;
+  }
+  .cta-section > *:not(.cta-bg-video):not(.cta-overlay) {
+    position: relative;
+    z-index: 2;
   }
   .cta-section::before {
     content: '';
@@ -1377,6 +1396,10 @@
 
 <!-- ====== CTA FINAL ====== -->
 <div class="cta-section">
+  <video class="cta-bg-video" autoplay muted loop playsinline>
+    <source src="wtf-credenciales-slides/bg-cta.mp4" type="video/mp4">
+  </video>
+  <div class="cta-overlay"></div>
   <h2 class="cta-headline">LISTO PARA<br><em>ESCALAR?</em></h2>
   <p class="cta-sub">Agendemos 30 minutos. Te mostramos el sistema en acción con casos reales de tu industria.</p>
   <div class="cta-actions">
