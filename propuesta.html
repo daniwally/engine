@@ -782,6 +782,35 @@
   .proof-logos img:hover {
     opacity: 0.7;
   }
+
+  /* ====== MARQUEE ====== */
+  .marquee-wrap {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+  }
+  .marquee-track img {
+    height: 28px;
+    width: auto;
+    opacity: 0.4;
+    filter: grayscale(1) brightness(2);
+    flex-shrink: 0;
+    transition: opacity 0.3s ease;
+  }
+  .marquee-track img:hover { opacity: 0.75; }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
   .proof-stat {
     margin-top: 32px;
     font-size: 14px;
@@ -1154,17 +1183,70 @@
 <!-- ====== SOCIAL PROOF ====== -->
 <div class="proof-strip">
   <div class="proof-label">+200 campañas ejecutadas para marcas como</div>
-  <div class="proof-logos">
-    <img src="wtf-credenciales-slides/logos/honda.png" alt="Honda">
-    <img src="wtf-credenciales-slides/logos/ford.png" alt="Ford">
-    <img src="wtf-credenciales-slides/logos/samsung.png" alt="Samsung">
-    <img src="wtf-credenciales-slides/logos/peugeot.png" alt="Peugeot">
-    <img src="wtf-credenciales-slides/logos/motorola.png" alt="Motorola">
-    <img src="wtf-credenciales-slides/logos/quilmes.png" alt="Quilmes">
-    <img src="wtf-credenciales-slides/logos/lenovo.png" alt="Lenovo">
-    <img src="wtf-credenciales-slides/logos/bayer.png" alt="Bayer">
-    <img src="wtf-credenciales-slides/logos/arcor.png" alt="Arcor">
-    <img src="wtf-credenciales-slides/logos/nestle-waters.png" alt="Nestle Waters">
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <img src="wtf-credenciales-slides/logos/honda-wing.png" alt="Honda">
+      <img src="wtf-credenciales-slides/logos/ford.png" alt="Ford">
+      <img src="wtf-credenciales-slides/logos/peugeot.png" alt="Peugeot">
+      <img src="wtf-credenciales-slides/logos/mobil-super.png" alt="Mobil Super">
+      <img src="wtf-credenciales-slides/logos/mahle.png" alt="Mahle">
+      <img src="wtf-credenciales-slides/logos/motorola.png" alt="Motorola">
+      <img src="wtf-credenciales-slides/logos/lenovo.png" alt="Lenovo">
+      <img src="wtf-credenciales-slides/logos/samsung.png" alt="Samsung">
+      <img src="wtf-credenciales-slides/logos/eco-de-los-andes.png" alt="Eco de los Andes">
+      <img src="wtf-credenciales-slides/logos/nestle-waters.png" alt="Nestlé Waters">
+      <img src="wtf-credenciales-slides/logos/bayer.png" alt="Bayer">
+      <img src="wtf-credenciales-slides/logos/absolut.png" alt="Absolut">
+      <img src="wtf-credenciales-slides/logos/beefeater.png" alt="Beefeater">
+      <img src="wtf-credenciales-slides/logos/chivas.png" alt="Chivas">
+      <img src="wtf-credenciales-slides/logos/cafayate.png" alt="Cafayate">
+      <img src="wtf-credenciales-slides/logos/havana-club.png" alt="Havana Club">
+      <img src="wtf-credenciales-slides/logos/assy.png" alt="Assy">
+      <img src="wtf-credenciales-slides/logos/quilmes.png" alt="Quilmes">
+      <img src="wtf-credenciales-slides/logos/mumm.png" alt="Mumm">
+      <img src="wtf-credenciales-slides/logos/jose-cuervo.png" alt="Jose Cuervo">
+      <img src="wtf-credenciales-slides/logos/cinzano.png" alt="Cinzano">
+      <img src="wtf-credenciales-slides/logos/fernet-buhero-negro.png" alt="Fernet Buhero Negro">
+      <img src="wtf-credenciales-slides/logos/alto-del-carmen.png" alt="Alto del Carmen">
+      <img src="wtf-credenciales-slides/logos/diablo-pisco.png" alt="Diablo Pisco">
+      <img src="wtf-credenciales-slides/logos/starter.png" alt="Starter">
+      <img src="wtf-credenciales-slides/logos/shaq.png" alt="Shaq">
+      <img src="wtf-credenciales-slides/logos/bear-beer.png" alt="Bear Beer">
+      <img src="wtf-credenciales-slides/logos/hacienda-la-torre.png" alt="Hacienda la Torre">
+      <img src="wtf-credenciales-slides/logos/arcor.png" alt="Arcor">
+      <img src="wtf-credenciales-slides/logos/honda.png" alt="Honda">
+      <!-- duplicate for seamless loop -->
+      <img src="wtf-credenciales-slides/logos/honda-wing.png" alt="Honda">
+      <img src="wtf-credenciales-slides/logos/ford.png" alt="Ford">
+      <img src="wtf-credenciales-slides/logos/peugeot.png" alt="Peugeot">
+      <img src="wtf-credenciales-slides/logos/mobil-super.png" alt="Mobil Super">
+      <img src="wtf-credenciales-slides/logos/mahle.png" alt="Mahle">
+      <img src="wtf-credenciales-slides/logos/motorola.png" alt="Motorola">
+      <img src="wtf-credenciales-slides/logos/lenovo.png" alt="Lenovo">
+      <img src="wtf-credenciales-slides/logos/samsung.png" alt="Samsung">
+      <img src="wtf-credenciales-slides/logos/eco-de-los-andes.png" alt="Eco de los Andes">
+      <img src="wtf-credenciales-slides/logos/nestle-waters.png" alt="Nestlé Waters">
+      <img src="wtf-credenciales-slides/logos/bayer.png" alt="Bayer">
+      <img src="wtf-credenciales-slides/logos/absolut.png" alt="Absolut">
+      <img src="wtf-credenciales-slides/logos/beefeater.png" alt="Beefeater">
+      <img src="wtf-credenciales-slides/logos/chivas.png" alt="Chivas">
+      <img src="wtf-credenciales-slides/logos/cafayate.png" alt="Cafayate">
+      <img src="wtf-credenciales-slides/logos/havana-club.png" alt="Havana Club">
+      <img src="wtf-credenciales-slides/logos/assy.png" alt="Assy">
+      <img src="wtf-credenciales-slides/logos/quilmes.png" alt="Quilmes">
+      <img src="wtf-credenciales-slides/logos/mumm.png" alt="Mumm">
+      <img src="wtf-credenciales-slides/logos/jose-cuervo.png" alt="Jose Cuervo">
+      <img src="wtf-credenciales-slides/logos/cinzano.png" alt="Cinzano">
+      <img src="wtf-credenciales-slides/logos/fernet-buhero-negro.png" alt="Fernet Buhero Negro">
+      <img src="wtf-credenciales-slides/logos/alto-del-carmen.png" alt="Alto del Carmen">
+      <img src="wtf-credenciales-slides/logos/diablo-pisco.png" alt="Diablo Pisco">
+      <img src="wtf-credenciales-slides/logos/starter.png" alt="Starter">
+      <img src="wtf-credenciales-slides/logos/shaq.png" alt="Shaq">
+      <img src="wtf-credenciales-slides/logos/bear-beer.png" alt="Bear Beer">
+      <img src="wtf-credenciales-slides/logos/hacienda-la-torre.png" alt="Hacienda la Torre">
+      <img src="wtf-credenciales-slides/logos/arcor.png" alt="Arcor">
+      <img src="wtf-credenciales-slides/logos/honda.png" alt="Honda">
+    </div>
   </div>
   <p class="proof-stat"><strong>15 años</strong> construyendo marcas en Latinoamérica y el mundo</p>
 </div>
@@ -1246,10 +1328,11 @@
 
   <!-- Pilot card -->
   <div style="margin-top:48px">
-    <h3 class="section-tag" style="font-size:clamp(24px,3.5vw,48px);margin-bottom:32px">PRIMER PASO<br><em>PILOT</em></h3>
+    <h3 class="section-tag" style="font-size:clamp(24px,3.5vw,48px);margin-bottom:12px">WTF <strong style="font-weight:900">AI</strong> ENGINE <em>PILOT</em></h3>
+    <p style="font-size:clamp(15px,1.8vw,19px);font-weight:300;color:rgba(245,240,235,0.55);max-width:540px;line-height:1.5;margin-bottom:36px">3 semanas para probar el sistema que cambia tu forma de comunicar. Producción de nivel global, velocidad que no creías posible. 21 piezas listas por una fracción del costo tradicional.</p>
     <div class="pricing-card featured" style="max-width:680px">
-      <div class="pricing-tier">WTF AI ENGINE PILOT</div>
-      <div class="pricing-name">PROBÁ EL<br>SISTEMA</div>
+      <div class="pricing-tier">WTF <strong style="font-weight:700">AI</strong> ENGINE PILOT</div>
+      <div class="pricing-name">PROBÁ EL SISTEMA</div>
       <div class="pricing-desc">3 semanas para experimentar el modelo AI-first con tu marca. Estrategia, producción y 21 piezas entregadas.</div>
       <div class="pricing-price">$6.000 <span>USD</span></div>
       <div class="pricing-period">PAGO ÚNICO · 3 SEMANAS</div>
@@ -1272,7 +1355,7 @@
       </ul>
       <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mute);margin:14px 0 4px">SOCIAL</div>
       <ul class="pricing-features">
-        <li>4 adaptaciones nativas (9:16, 1:1, 4:5, 16:9)</li>
+        <li>Adaptaciones nativas (9:16, 1:1, 4:5, 16:9)</li>
       </ul>
       <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mute);margin:14px 0 4px;padding-top:14px;border-top:1px solid var(--line)">CIERRE</div>
       <ul class="pricing-features">
