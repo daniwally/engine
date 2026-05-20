@@ -559,6 +559,124 @@
     border-radius: 3px;
     margin-left: 2px;
   }
+  /* ====== PILOT SECTION ====== */
+  .pilot-section { padding: 80px 7vw; border-top: 1px solid var(--line); }
+  .pilot-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--signal);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .pilot-title {
+    font-size: clamp(32px, 4.5vw, 64px);
+    font-weight: 900;
+    color: var(--bone);
+    line-height: 0.95;
+    margin-bottom: 12px;
+  }
+  .pilot-title em { font-style: italic; font-weight: 200; color: var(--signal); }
+  .pilot-subtitle {
+    font-family: var(--mono);
+    font-size: clamp(14px, 1.8vw, 18px);
+    letter-spacing: 0.08em;
+    color: var(--bone);
+    margin-bottom: 48px;
+  }
+  .pilot-subtitle strong { color: var(--signal); font-weight: 700; }
+  .pilot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    max-width: 960px;
+    margin-bottom: 48px;
+  }
+  .pilot-block-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--signal);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .pilot-block-title.white { color: var(--bone); }
+  .pilot-sub-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-top: 18px;
+    margin-bottom: 8px;
+  }
+  .pilot-list {
+    list-style: none;
+    padding: 0;
+  }
+  .pilot-list li {
+    font-size: 14px;
+    color: var(--bone-dim);
+    padding: 5px 0;
+    line-height: 1.45;
+  }
+  .pilot-list li::before {
+    content: '→';
+    color: var(--signal);
+    margin-right: 10px;
+    font-weight: 700;
+  }
+  .pilot-credit {
+    max-width: 960px;
+    background: rgba(255,59,48,0.06);
+    border: 1px solid rgba(255,59,48,0.25);
+    border-radius: 10px;
+    padding: 24px 32px;
+    margin-bottom: 36px;
+  }
+  .pilot-credit p {
+    font-size: 15px;
+    color: var(--bone);
+    line-height: 1.55;
+  }
+  .pilot-credit strong {
+    color: var(--signal);
+    font-weight: 700;
+  }
+  .pilot-cta-wrap {
+    display: flex;
+    gap: 14px;
+  }
+
+  /* ====== SCARCITY / TRIAL BADGES ====== */
+  .pricing-badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  .pricing-badge.trial {
+    color: var(--bone);
+    border: 1px solid rgba(245,240,235,0.15);
+    background: rgba(245,240,235,0.04);
+  }
+  .pricing-badge.scarcity {
+    color: var(--signal);
+    border: 1px solid rgba(255,59,48,0.2);
+    background: rgba(255,59,48,0.04);
+  }
+
+  @media (max-width: 700px) {
+    .pilot-grid { grid-template-columns: 1fr; gap: 32px; }
+    .pilot-credit { padding: 20px 24px; }
+  }
+
   .pricing-note {
     font-family: var(--mono);
     font-size: 10px;
@@ -1051,9 +1169,70 @@
   <p class="proof-stat"><strong>15 años</strong> construyendo marcas en Latinoamérica y el mundo</p>
 </div>
 
+<!-- ====== PILOT ====== -->
+<div class="pilot-section">
+  <div class="pilot-eyebrow">PRIMER PASO</div>
+  <h2 class="pilot-title">WTF AI ENGINE <em>PILOT</em></h2>
+  <div class="pilot-subtitle"><strong>USD 6.000</strong> / 3 semanas · Pago único</div>
+
+  <div class="pilot-grid">
+    <div>
+      <div class="pilot-block-title">INCLUYE</div>
+      <ul class="pilot-list">
+        <li>2 territorios estratégicos</li>
+        <li>1 concepto creativo (manifiesto + claim)</li>
+        <li>Sistema visual definido</li>
+      </ul>
+
+      <div class="pilot-sub-title" style="margin-top:28px">CIERRE</div>
+      <ul class="pilot-list">
+        <li>Engine Demo live con tu equipo</li>
+        <li>Recomendación de Tier + roadmap</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="pilot-block-title white">ASSET PACK · 21 PIEZAS PRODUCIDAS</div>
+
+      <div class="pilot-sub-title">VIDEO</div>
+      <ul class="pilot-list">
+        <li>1 video cinematográfico hero (30s + 15s)</li>
+        <li>1 video AI secundario (15s)</li>
+      </ul>
+
+      <div class="pilot-sub-title">FOTOGRAFÍA AI · 15 PIEZAS</div>
+      <ul class="pilot-list">
+        <li>6 fotos editoriales de marca</li>
+        <li>4 fotos de producto / packaging</li>
+        <li>5 fotos lifestyle / personajes</li>
+      </ul>
+
+      <div class="pilot-sub-title">SOCIAL</div>
+      <ul class="pilot-list">
+        <li>4 adaptaciones nativas (9:16, 1:1, 4:5, 16:9)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pilot-credit">
+    <p>Si avanzás a Fee anual dentro de 30 días, los <strong>USD 6.000 se acreditan 100% al primer mes.</strong></p>
+  </div>
+
+  <div class="pilot-cta-wrap">
+    <a href="mailto:hello@wtf-agency.com?subject=WTF%20AI%20Engine%20Pilot%20-%20Quiero%20arrancar" class="cta-btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Empezar el piloto
+    </a>
+  </div>
+</div>
+
 <!-- ====== PLANES ====== -->
 <div class="section" style="background: linear-gradient(180deg, rgba(10,10,14,0.70) 0%, rgba(10,10,14,0.80) 100%), url('wtf-credenciales-slides/bg-planes.jpg') center/cover no-repeat fixed;">
   <h2 class="section-tag">PLANES<br><em>MENSUALES</em></h2>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px">
+    <span class="pricing-badge trial">Trial de 90 días con opción de salida si no hay fit</span>
+    <span class="pricing-badge scarcity">Capacidad de onboarding limitada a 2 cuentas nuevas por mes</span>
+  </div>
   <div class="pricing-grid">
     <div class="pricing-card">
       <div class="pricing-tier">TIER 1</div>
@@ -1069,6 +1248,7 @@
         <li>Adaptación multi-plataforma (3)</li>
         <li>1 ronda de revisión por pieza</li>
         <li>Reporte mensual de performance</li>
+        <li>Célula compartida con anchor dedicado</li>
       </ul>
     </div>
 
@@ -1088,6 +1268,7 @@
         <li>2 rondas de revisión por pieza</li>
         <li>Reporte mensual de performance</li>
         <li>Optimización de contenido con datos</li>
+        <li>Célula compartida con anchor dedicado</li>
       </ul>
     </div>
 
@@ -1111,7 +1292,7 @@
         <li>Copywriting + guiones</li>
         <li>Performance + optimización real-time</li>
         <li>Reportes de performance en vivo</li>
-        <li>Director de cuenta dedicado</li>
+        <li>Célula full exclusiva (6 roles dedicados)</li>
       </ul>
     </div>
   </div>
