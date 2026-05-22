@@ -479,7 +479,7 @@
     background: rgba(255,59,48,0.04);
   }
   .pricing-card.featured::before {
-    content: 'RECOMENDADO';
+    content: var(--recommended-text, 'RECOMENDADO');
     position: absolute;
     top: -11px;
     left: 36px;
@@ -951,9 +951,50 @@
     .section { page-break-inside: avoid; padding: 40px 5vw; }
     .pricing-grid { page-break-inside: avoid; }
   }
+
+  /* ====== LANGUAGE SELECTOR ====== */
+  .lang-selector {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    gap: 0;
+    background: rgba(10,10,12,0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 4px;
+  }
+  .lang-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 6px 14px;
+    border: none;
+    background: transparent;
+    color: rgba(245,240,235,0.5);
+    cursor: pointer;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+  .lang-btn.active {
+    background: var(--signal);
+    color: #fff;
+  }
+  .lang-btn:hover:not(.active) {
+    color: rgba(245,240,235,0.9);
+  }
 </style>
 </head>
 <body>
+
+<!-- Language Selector -->
+<div class="lang-selector">
+  <button class="lang-btn active" data-lang="es">ES</button>
+  <button class="lang-btn" data-lang="en">EN</button>
+  <button class="lang-btn" data-lang="pt">PT</button>
+</div>
 
 <!-- ====== HERO ====== -->
 <div class="hero">
@@ -961,10 +1002,10 @@
     <source src="wtf-credenciales-slides/bg-propuesta-video.mp4" type="video/mp4">
   </video>
   <div class="hero-logo"><img src="wtf-credenciales-slides/logo-wtf.png" alt="WTF Agency"></div>
-  <div class="hero-tag">POR QUÉ WTF</div>
-  <h1 class="hero-title">MODELO TRADICIONAL<br>VS <em>WTF AI ENGINE</em></h1>
-  <p class="hero-lead">La diferencia no es solo de precio. Es de velocidad, volumen y sistema.</p>
-  <p class="hero-sub">Con 15 años de experiencia construyendo marcas en Latinoamérica y más de 200 campañas ejecutadas, WTF evolucionó su modelo creativo integrando inteligencia artificial en cada etapa del proceso. Mientras una agencia tradicional tarda semanas en entregar un set limitado de piezas, nuestro modelo AI-first produce contenido cinematográfico, Influencers y estrategia integrada en horas. La misma visión estratégica de siempre, potenciada por tecnología que multiplica la velocidad, el volumen y la calidad.</p>
+  <div class="hero-tag" data-i18n="hero_tag">POR QUÉ WTF</div>
+  <h1 class="hero-title" data-i18n="hero_title">MODELO TRADICIONAL<br>VS <em>WTF AI ENGINE</em></h1>
+  <p class="hero-lead" data-i18n="hero_lead">La diferencia no es solo de precio. Es de velocidad, volumen y sistema.</p>
+  <p class="hero-sub" data-i18n="hero_sub">Con 15 años de experiencia construyendo marcas en Latinoamérica y más de 200 campañas ejecutadas, WTF evolucionó su modelo creativo integrando inteligencia artificial en cada etapa del proceso. Mientras una agencia tradicional tarda semanas en entregar un set limitado de piezas, nuestro modelo AI-first produce contenido cinematográfico, Influencers y estrategia integrada en horas. La misma visión estratégica de siempre, potenciada por tecnología que multiplica la velocidad, el volumen y la calidad.</p>
 </div>
 
 <!-- ====== COMPARATIVA ====== -->
@@ -972,19 +1013,19 @@
   <video class="section-bg-video" autoplay muted loop playsinline>
     <source src="wtf-credenciales-slides/bg-comparativa-video.mp4" type="video/mp4">
   </video>
-  <h2 class="section-tag">COMPARATIVA<br><em>DE SERVICIOS</em></h2>
-  <p class="section-desc">Lo que una agencia tradicional resuelve con equipos grandes, timings largos y presupuestos fragmentados, nosotros lo resolvemos con inteligencia artificial, velocidad y un sistema integrado que no para. Mismo nivel creativo, otra velocidad.</p>
+  <h2 class="section-tag" data-i18n="comp_title">COMPARATIVA<br><em>DE SERVICIOS</em></h2>
+  <p class="section-desc" data-i18n="comp_desc">Lo que una agencia tradicional resuelve con equipos grandes, timings largos y presupuestos fragmentados, nosotros lo resolvemos con inteligencia artificial, velocidad y un sistema integrado que no para. Mismo nivel creativo, otra velocidad.</p>
 
   <!-- Split Compare -->
   <div class="split">
     <!-- Headers -->
     <div class="split-headers">
       <div class="split-head trad">
-        <div class="split-head-label">El modelo de siempre</div>
-        <div class="split-head-name">AGENCIA<br><em>TRADICIONAL</em></div>
+        <div class="split-head-label" data-i18n="split_label_trad">El modelo de siempre</div>
+        <div class="split-head-name" data-i18n="split_name_trad">AGENCIA<br><em>TRADICIONAL</em></div>
       </div>
       <div class="split-head wtf">
-        <div class="split-head-label">Nuestro sistema</div>
+        <div class="split-head-label" data-i18n="split_label_wtf">Nuestro sistema</div>
         <div class="split-head-name">WTF<br><em>AI ENGINE</em></div>
       </div>
     </div>
@@ -992,41 +1033,41 @@
     <!-- Row 1: Tiempo -->
     <div class="split-row">
       <div class="split-cell trad">
-        <div class="split-metric">Tiempo de entrega</div>
-        <div class="split-val"><span class="big">2-3 sem</span></div>
+        <div class="split-metric" data-i18n="r1_metric">Tiempo de entrega</div>
+        <div class="split-val"><span class="big" data-i18n="r1_trad_val">2-3 sem</span></div>
       </div>
-      <div class="split-insight">De semanas a días. Sin perder calidad.</div>
+      <div class="split-insight" data-i18n="r1_insight">De semanas a días. Sin perder calidad.</div>
       <div class="split-cell wtf">
-        <div class="split-metric">Tiempo de entrega</div>
-        <div class="split-val"><span class="big">3-5 días</span></div>
+        <div class="split-metric" data-i18n="r1_metric_w">Tiempo de entrega</div>
+        <div class="split-val"><span class="big" data-i18n="r1_wtf_val">3-5 días</span></div>
       </div>
     </div>
 
     <!-- Row 2: Volumen -->
     <div class="split-row">
       <div class="split-cell trad">
-        <div class="split-metric">Volumen mensual</div>
-        <div class="split-val"><span class="big">8-15</span> <span class="dim">piezas/mes</span></div>
+        <div class="split-metric" data-i18n="r2_metric">Volumen mensual</div>
+        <div class="split-val"><span class="big">8-15</span> <span class="dim" data-i18n="r2_trad_dim">piezas/mes</span></div>
       </div>
-      <div class="split-insight">3x más contenido con el mismo presupuesto.</div>
+      <div class="split-insight" data-i18n="r2_insight">3x más contenido con el mismo presupuesto.</div>
       <div class="split-cell wtf">
-        <div class="split-metric">Volumen mensual</div>
-        <div class="split-val"><span class="big">40+</span> <span class="dim">piezas/mes</span></div>
+        <div class="split-metric" data-i18n="r2_metric_w">Volumen mensual</div>
+        <div class="split-val"><span class="big">40+</span> <span class="dim" data-i18n="r2_wtf_dim">piezas/mes</span></div>
       </div>
     </div>
 
     <!-- Row 3: Video -->
     <div class="split-row">
       <div class="split-cell trad">
-        <div class="split-metric">Video cinematográfico</div>
-        <div class="split-val"><span class="big">Extra</span></div>
-        <span class="split-tag off">Presupuesto aparte</span>
+        <div class="split-metric" data-i18n="r3_metric">Video cinematográfico</div>
+        <div class="split-val"><span class="big" data-i18n="r3_trad_val">Extra</span></div>
+        <span class="split-tag off" data-i18n="r3_trad_tag">Presupuesto aparte</span>
       </div>
-      <div class="split-insight">Video de alto nivel sin cotizacion extra.</div>
+      <div class="split-insight" data-i18n="r3_insight">Video de alto nivel sin cotizacion extra.</div>
       <div class="split-cell wtf">
-        <div class="split-metric">Video cinematográfico</div>
-        <div class="split-val"><span class="big">Incluido</span></div>
-        <span class="split-tag on">Incluido</span>
+        <div class="split-metric" data-i18n="r3_metric_w">Video cinematográfico</div>
+        <div class="split-val"><span class="big" data-i18n="r3_wtf_val">Incluido</span></div>
+        <span class="split-tag on" data-i18n="r3_wtf_tag">Incluido</span>
       </div>
     </div>
 
@@ -1035,73 +1076,73 @@
       <div class="split-cell trad">
         <div class="split-metric">Influencers</div>
         <div class="split-val"><span class="big">N/A</span></div>
-        <span class="split-tag off">No disponible</span>
+        <span class="split-tag off" data-i18n="r4_trad_tag">No disponible</span>
       </div>
-      <div class="split-insight">Contenido con rostros y voces IA, listo para escalar.</div>
+      <div class="split-insight" data-i18n="r4_insight">Contenido con rostros y voces IA, listo para escalar.</div>
       <div class="split-cell wtf">
         <div class="split-metric">Influencers</div>
-        <div class="split-val"><span class="big">Incluido</span></div>
-        <span class="split-tag on">Avatares + voces IA</span>
+        <div class="split-val"><span class="big" data-i18n="r4_wtf_val">Incluido</span></div>
+        <span class="split-tag on" data-i18n="r4_wtf_tag">Avatares + voces IA</span>
       </div>
     </div>
 
     <!-- Row 5: Avatares -->
     <div class="split-row">
       <div class="split-cell trad">
-        <div class="split-metric">Avatares IA</div>
+        <div class="split-metric" data-i18n="r5_metric">Avatares IA</div>
         <div class="split-val"><span class="big">N/A</span></div>
-        <span class="split-tag off">No disponible</span>
+        <span class="split-tag off" data-i18n="r5_trad_tag">No disponible</span>
       </div>
-      <div class="split-insight">Personajes propios de tu marca, sin casting ni producción.</div>
+      <div class="split-insight" data-i18n="r5_insight">Personajes propios de tu marca, sin casting ni producción.</div>
       <div class="split-cell wtf">
-        <div class="split-metric">Avatares IA</div>
-        <div class="split-val"><span class="big">Incluido</span></div>
-        <span class="split-tag on">Personajes por marca</span>
+        <div class="split-metric" data-i18n="r5_metric_w">Avatares IA</div>
+        <div class="split-val"><span class="big" data-i18n="r5_wtf_val">Incluido</span></div>
+        <span class="split-tag on" data-i18n="r5_wtf_tag">Personajes por marca</span>
       </div>
     </div>
 
     <!-- Row 6: Multi-plataforma -->
     <div class="split-row">
       <div class="split-cell trad">
-        <div class="split-metric">Multi-plataforma</div>
-        <div class="split-val"><span class="big">Extra</span></div>
-        <span class="split-tag off">Adaptaciones con costo</span>
+        <div class="split-metric" data-i18n="r6_metric">Multi-plataforma</div>
+        <div class="split-val"><span class="big" data-i18n="r6_trad_val">Extra</span></div>
+        <span class="split-tag off" data-i18n="r6_trad_tag">Adaptaciones con costo</span>
       </div>
-      <div class="split-insight">Un contenido, cinco formatos nativos. Sin adaptar a mano.</div>
+      <div class="split-insight" data-i18n="r6_insight">Un contenido, cinco formatos nativos. Sin adaptar a mano.</div>
       <div class="split-cell wtf">
-        <div class="split-metric">Multi-plataforma</div>
-        <div class="split-val"><span class="big">x5</span> <span class="dim">plataformas</span></div>
-        <span class="split-tag on">Nativo</span>
+        <div class="split-metric" data-i18n="r6_metric_w">Multi-plataforma</div>
+        <div class="split-val"><span class="big">x5</span> <span class="dim" data-i18n="r6_wtf_dim">plataformas</span></div>
+        <span class="split-tag on" data-i18n="r6_wtf_tag">Nativo</span>
       </div>
     </div>
 
     <!-- Row 7: Estrategia -->
     <div class="split-row">
       <div class="split-cell trad">
-        <div class="split-metric">Estrategia Creativa</div>
-        <div class="split-val"><span class="big">Extra</span></div>
-        <span class="split-tag off">Fee adicional</span>
+        <div class="split-metric" data-i18n="r7_metric">Estrategia Creativa</div>
+        <div class="split-val"><span class="big" data-i18n="r7_trad_val">Extra</span></div>
+        <span class="split-tag off" data-i18n="r7_trad_tag">Fee adicional</span>
       </div>
-      <div class="split-insight">La estrategia no es un extra, es el motor del sistema.</div>
+      <div class="split-insight" data-i18n="r7_insight">La estrategia no es un extra, es el motor del sistema.</div>
       <div class="split-cell wtf">
-        <div class="split-metric">Estrategia Creativa</div>
-        <div class="split-val"><span class="big">Integrada</span></div>
-        <span class="split-tag on">Incluido</span>
+        <div class="split-metric" data-i18n="r7_metric_w">Estrategia Creativa</div>
+        <div class="split-val"><span class="big" data-i18n="r7_wtf_val">Integrada</span></div>
+        <span class="split-tag on" data-i18n="r7_wtf_tag">Incluido</span>
       </div>
     </div>
 
     <!-- Row 8: Optimizacion -->
     <div class="split-row">
       <div class="split-cell trad">
-        <div class="split-metric">Optimización continua</div>
-        <div class="split-val"><span class="big">Mensual</span></div>
-        <span class="split-tag off">Reportes estáticos</span>
+        <div class="split-metric" data-i18n="r8_metric">Optimización continua</div>
+        <div class="split-val"><span class="big" data-i18n="r8_trad_val">Mensual</span></div>
+        <span class="split-tag off" data-i18n="r8_trad_tag">Reportes estáticos</span>
       </div>
-      <div class="split-insight">Datos en vivo, ajustes al instante. No esperar al informe.</div>
+      <div class="split-insight" data-i18n="r8_insight">Datos en vivo, ajustes al instante. No esperar al informe.</div>
       <div class="split-cell wtf">
-        <div class="split-metric">Optimización continua</div>
+        <div class="split-metric" data-i18n="r8_metric_w">Optimización continua</div>
         <div class="split-val"><span class="big">Real-time</span></div>
-        <span class="split-tag on">Live + iteración</span>
+        <span class="split-tag on" data-i18n="r8_wtf_tag">Live + iteración</span>
       </div>
     </div>
   </div>
@@ -1109,53 +1150,53 @@
 
 <!-- ====== PROCESO CREATIVO ====== -->
 <div class="section has-bg-img" style="background: linear-gradient(180deg, rgba(10,10,14,0.65) 0%, rgba(10,10,14,0.75) 100%), url('wtf-credenciales-slides/bg-proceso.jpg') center/cover no-repeat fixed;">
-  <h2 class="section-tag">PROCESO<br><em>CREATIVO</em></h2>
+  <h2 class="section-tag" data-i18n="proc_title">PROCESO<br><em>CREATIVO</em></h2>
   <div class="process-compare">
     <div class="process-col trad">
-      <div class="process-col-title trad">PROCESO TRADICIONAL</div>
+      <div class="process-col-title trad" data-i18n="proc_trad_title">PROCESO TRADICIONAL</div>
       <div class="process-step">
         <div class="step-num">1</div>
         <div class="step-content">
-          <div class="step-label">Brief del cliente</div>
-          <div class="step-detail">Reuniones, ida y vuelta, aprobaciones internas</div>
+          <div class="step-label" data-i18n="pt1_label">Brief del cliente</div>
+          <div class="step-detail" data-i18n="pt1_detail">Reuniones, ida y vuelta, aprobaciones internas</div>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">2</div>
         <div class="step-content">
-          <div class="step-label">Estrategia + concepto</div>
-          <div class="step-detail">Equipo de planners, presentaciones, revisiones</div>
+          <div class="step-label" data-i18n="pt2_label">Estrategia + concepto</div>
+          <div class="step-detail" data-i18n="pt2_detail">Equipo de planners, presentaciones, revisiones</div>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">3</div>
         <div class="step-content">
-          <div class="step-label">Producción de contenido</div>
-          <div class="step-detail">Fotógrafo, locación, modelos, catering, edicion</div>
+          <div class="step-label" data-i18n="pt3_label">Producción de contenido</div>
+          <div class="step-detail" data-i18n="pt3_detail">Fotógrafo, locación, modelos, catering, edicion</div>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">4</div>
         <div class="step-content">
-          <div class="step-label">Post-producción</div>
-          <div class="step-detail">Retoque, motion graphics, adaptaciones</div>
+          <div class="step-label" data-i18n="pt4_label">Post-producción</div>
+          <div class="step-detail" data-i18n="pt4_detail">Retoque, motion graphics, adaptaciones</div>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">5</div>
         <div class="step-content">
-          <div class="step-label">Rondas de revisión</div>
-          <div class="step-detail">Cambios, re-edicion, aprobaciones finales</div>
+          <div class="step-label" data-i18n="pt5_label">Rondas de revisión</div>
+          <div class="step-detail" data-i18n="pt5_detail">Cambios, re-edicion, aprobaciones finales</div>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">6</div>
         <div class="step-content">
-          <div class="step-label">Entrega final</div>
-          <div class="step-detail">Archivos, formatos, adaptaciones extra</div>
+          <div class="step-label" data-i18n="pt6_label">Entrega final</div>
+          <div class="step-detail" data-i18n="pt6_detail">Archivos, formatos, adaptaciones extra</div>
         </div>
       </div>
-      <div class="process-duration">Duración total: 4-6 semanas</div>
+      <div class="process-duration" data-i18n="proc_trad_dur">Duración total: 4-6 semanas</div>
     </div>
 
     <div class="process-col ai">
@@ -1163,46 +1204,46 @@
       <div class="process-step">
         <div class="step-num">1</div>
         <div class="step-content">
-          <div class="step-label">Brief + IA intake</div>
-          <div class="step-detail">Análisis automático de marca, audiencia y objetivos</div>
+          <div class="step-label" data-i18n="pa1_label">Brief + IA intake</div>
+          <div class="step-detail" data-i18n="pa1_detail">Análisis automático de marca, audiencia y objetivos</div>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">2</div>
         <div class="step-content">
-          <div class="step-label">Estrategia generativa</div>
-          <div class="step-detail">IA genera conceptos, copys y direcciones visuales</div>
+          <div class="step-label" data-i18n="pa2_label">Estrategia generativa</div>
+          <div class="step-detail" data-i18n="pa2_detail">IA genera conceptos, copys y direcciones visuales</div>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">3</div>
         <div class="step-content">
-          <div class="step-label">Producción AI-first</div>
-          <div class="step-detail">Imagenes, video, UGC y avatares generados en horas</div>
+          <div class="step-label" data-i18n="pa3_label">Producción AI-first</div>
+          <div class="step-detail" data-i18n="pa3_detail">Imagenes, video, UGC y avatares generados en horas</div>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">4</div>
         <div class="step-content">
-          <div class="step-label">Iteración en tiempo real</div>
-          <div class="step-detail">Ajustes instantáneos, variantes ilimitadas, A/B nativo</div>
+          <div class="step-label" data-i18n="pa4_label">Iteración en tiempo real</div>
+          <div class="step-detail" data-i18n="pa4_detail">Ajustes instantáneos, variantes ilimitadas, A/B nativo</div>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">5</div>
         <div class="step-content">
-          <div class="step-label">Entrega multi-plataforma</div>
-          <div class="step-detail">Contenido nativo para 5+ plataformas, listo para publicar</div>
+          <div class="step-label" data-i18n="pa5_label">Entrega multi-plataforma</div>
+          <div class="step-detail" data-i18n="pa5_detail">Contenido nativo para 5+ plataformas, listo para publicar</div>
         </div>
       </div>
-      <div class="process-duration">Duración total: 3-5 días</div>
+      <div class="process-duration" data-i18n="proc_ai_dur">Duración total: 3-5 días</div>
     </div>
   </div>
 </div>
 
 <!-- ====== SOCIAL PROOF ====== -->
 <div class="proof-strip">
-  <div class="proof-label">+200 campañas ejecutadas para marcas como</div>
+  <div class="proof-label" data-i18n="proof_label">+200 campañas ejecutadas para marcas como</div>
   <div class="marquee-wrap">
     <div class="marquee-track">
       <img src="wtf-credenciales-slides/logos/honda-wing.png" alt="Honda">
@@ -1268,81 +1309,81 @@
       <img src="wtf-credenciales-slides/logos/honda.png" alt="Honda">
     </div>
   </div>
-  <p class="proof-stat"><strong>15 años</strong> construyendo marcas en Latinoamérica y el mundo</p>
+  <p class="proof-stat" data-i18n="proof_stat"><strong>15 años</strong> construyendo marcas en Latinoamérica y el mundo</p>
 </div>
 
 <!-- ====== PLANES ====== -->
 <div class="section" style="background: linear-gradient(180deg, rgba(10,10,14,0.70) 0%, rgba(10,10,14,0.80) 100%), url('wtf-credenciales-slides/bg-planes.jpg') center/cover no-repeat fixed;">
-  <h2 class="section-tag">PLANES<br><em>MENSUALES</em></h2>
+  <h2 class="section-tag" data-i18n="plans_title">PLANES<br><em>MENSUALES</em></h2>
   <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px">
-    <span class="pricing-badge trial">Trial de 90 días con opción de salida si no hay fit</span>
-    <span class="pricing-badge scarcity">Capacidad de onboarding limitada a 2 cuentas nuevas por mes</span>
+    <span class="pricing-badge trial" data-i18n="badge_trial">Trial de 90 días con opción de salida si no hay fit</span>
+    <span class="pricing-badge scarcity" data-i18n="badge_scarcity">Capacidad de onboarding limitada a 2 cuentas nuevas por mes</span>
   </div>
   <div class="pricing-grid">
     <div class="pricing-card">
       <div class="pricing-tier">TIER 1</div>
       <div class="pricing-name">AI CONTENT<br>SYSTEM</div>
-      <div class="pricing-desc">Contenido estratégico con sistema IA. Presencia constante con calidad y velocidad.</div>
+      <div class="pricing-desc" data-i18n="t1_desc">Contenido estratégico con sistema IA. Presencia constante con calidad y velocidad.</div>
       <div class="pricing-price">$4.900 <span>USD</span></div>
-      <div class="pricing-period">MENSUAL · CONTRATO ANUAL</div>
+      <div class="pricing-period" data-i18n="pricing_period">MENSUAL · CONTRATO ANUAL</div>
       <ul class="pricing-features">
-        <li>Estrategia de contenido mensual</li>
-        <li>Hasta 40 piezas / mes</li>
-        <li>Video IA (hasta 4 / mes)</li>
-        <li>Dirección de arte IA</li>
-        <li>Adaptación multi-plataforma (3)</li>
-        <li>1 ronda de revisión por pieza</li>
-        <li>Reporte mensual de performance</li>
-        <li>Célula compartida con anchor dedicado</li>
+        <li data-i18n="t1_f1">Estrategia de contenido mensual</li>
+        <li data-i18n="t1_f2">Hasta 40 piezas / mes</li>
+        <li data-i18n="t1_f3">Video IA (hasta 4 / mes)</li>
+        <li data-i18n="t1_f4">Dirección de arte IA</li>
+        <li data-i18n="t1_f5">Adaptación multi-plataforma (3)</li>
+        <li data-i18n="t1_f6">1 ronda de revisión por pieza</li>
+        <li data-i18n="t1_f7">Reporte mensual de performance</li>
+        <li data-i18n="t1_f8">Célula compartida con anchor dedicado</li>
       </ul>
     </div>
 
     <div class="pricing-card featured">
       <div class="pricing-tier">TIER 2</div>
       <div class="pricing-name">AI AGENCY<br>SCALE</div>
-      <div class="pricing-desc">El doble de capacidad. Video cinematográfico, influencers IA y estrategia integrada para marcas en crecimiento.</div>
+      <div class="pricing-desc" data-i18n="t2_desc">El doble de capacidad. Video cinematográfico, influencers IA y estrategia integrada para marcas en crecimiento.</div>
       <div class="pricing-price">$6.900 <span>USD</span></div>
-      <div class="pricing-period">MENSUAL · CONTRATO ANUAL</div>
+      <div class="pricing-period" data-i18n="pricing_period_2">MENSUAL · CONTRATO ANUAL</div>
       <ul class="pricing-features">
-        <li>Estrategia + planning integrado</li>
-        <li>Hasta 80 piezas / mes</li>
-        <li>Video cinematográfico IA (hasta 8 / mes)</li>
-        <li>Influencers + avatares IA</li>
-        <li>Dirección de arte IA</li>
-        <li>Adaptación multi-plataforma (5+)</li>
-        <li>2 rondas de revisión por pieza</li>
-        <li>Reporte mensual de performance</li>
-        <li>Optimización de contenido con datos</li>
-        <li>Célula compartida con anchor dedicado</li>
+        <li data-i18n="t2_f1">Estrategia + planning integrado</li>
+        <li data-i18n="t2_f2">Hasta 80 piezas / mes</li>
+        <li data-i18n="t2_f3">Video cinematográfico IA (hasta 8 / mes)</li>
+        <li data-i18n="t2_f4">Influencers + avatares IA</li>
+        <li data-i18n="t2_f5">Dirección de arte IA</li>
+        <li data-i18n="t2_f6">Adaptación multi-plataforma (5+)</li>
+        <li data-i18n="t2_f7">2 rondas de revisión por pieza</li>
+        <li data-i18n="t2_f8">Reporte mensual de performance</li>
+        <li data-i18n="t2_f9">Optimización de contenido con datos</li>
+        <li data-i18n="t2_f10">Célula compartida con anchor dedicado</li>
       </ul>
     </div>
 
     <div class="pricing-card">
       <div class="pricing-tier">TIER 3 · UNLIMITED</div>
       <div class="pricing-name">AI AGENCY<br>FULL MODEL</div>
-      <div class="pricing-desc">Todo ilimitado. Contenido, video, estrategia y producción always-on. Tu equipo creativo completo potenciado por IA.</div>
+      <div class="pricing-desc" data-i18n="t3_desc">Todo ilimitado. Contenido, video, estrategia y producción always-on. Tu equipo creativo completo potenciado por IA.</div>
       <div class="pricing-price">$8.900 <span>USD</span></div>
-      <div class="pricing-period">MENSUAL · CONTRATO ANUAL</div>
+      <div class="pricing-period" data-i18n="pricing_period_3">MENSUAL · CONTRATO ANUAL</div>
       <ul class="pricing-features">
-        <li>Estrategia + planning integrado</li>
-        <li>Contenido <span class="unlimited">ILIMITADO</span></li>
-        <li>Video cinematográfico <span class="unlimited">ILIMITADO</span></li>
-        <li>Influencers + avatares IA <span class="unlimited">ILIMITADOS</span></li>
-        <li>Dirección de arte IA</li>
-        <li>Multi-plataforma nativo (5+)</li>
-        <li>Revisiones <span class="unlimited">ILIMITADAS</span></li>
-        <li>Rondas de cambios <span class="unlimited">ILIMITADAS</span></li>
-        <li>Community management</li>
-        <li>Estrategia de contenido mensual</li>
-        <li>Copywriting + guiones</li>
-        <li>Performance + optimización real-time</li>
-        <li>Reportes de performance en vivo</li>
-        <li>Célula full exclusiva (6 roles dedicados)</li>
+        <li data-i18n="t3_f1">Estrategia + planning integrado</li>
+        <li data-i18n="t3_f2">Contenido <span class="unlimited">ILIMITADO</span></li>
+        <li data-i18n="t3_f3">Video cinematográfico <span class="unlimited">ILIMITADO</span></li>
+        <li data-i18n="t3_f4">Influencers + avatares IA <span class="unlimited">ILIMITADOS</span></li>
+        <li data-i18n="t3_f5">Dirección de arte IA</li>
+        <li data-i18n="t3_f6">Multi-plataforma nativo (5+)</li>
+        <li data-i18n="t3_f7">Revisiones <span class="unlimited">ILIMITADAS</span></li>
+        <li data-i18n="t3_f8">Rondas de cambios <span class="unlimited">ILIMITADAS</span></li>
+        <li data-i18n="t3_f9">Community management</li>
+        <li data-i18n="t3_f10">Estrategia de contenido mensual</li>
+        <li data-i18n="t3_f11">Copywriting + guiones</li>
+        <li data-i18n="t3_f12">Performance + optimización real-time</li>
+        <li data-i18n="t3_f13">Reportes de performance en vivo</li>
+        <li data-i18n="t3_f14">Célula full exclusiva (6 roles dedicados)</li>
       </ul>
     </div>
   </div>
 
-  <p class="pricing-note">
+  <p class="pricing-note" data-i18n="pricing_note">
     * Todos los planes incluyen acceso al WTF AI Engine OS · Precios en USD · No incluyen pauta publicitaria · IVA no incluido
   </p>
 
@@ -1350,46 +1391,46 @@
   <div style="margin-top:90px">
     <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:16px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
     <h3 class="section-tag" style="font-size:clamp(24px,3.5vw,48px);margin-bottom:12px">WTF <strong style="font-weight:900">AI</strong> ENGINE <em>PILOT</em></h3>
-    <p style="font-size:clamp(15px,1.8vw,19px);font-weight:300;color:rgba(245,240,235,0.55);max-width:680px;line-height:1.5;margin-bottom:36px">3 semanas para probar el sistema que cambia tu forma de comunicar. Producción de nivel global, velocidad que no creías posible. 21 piezas listas por una fracción del costo tradicional.</p>
+    <p style="font-size:clamp(15px,1.8vw,19px);font-weight:300;color:rgba(245,240,235,0.55);max-width:680px;line-height:1.5;margin-bottom:36px" data-i18n="pilot_intro">3 semanas para probar el sistema que cambia tu forma de comunicar. Producción de nivel global, velocidad que no creías posible. 21 piezas listas por una fracción del costo tradicional.</p>
     <div class="pricing-card featured" style="max-width:680px">
       <div class="pricing-tier">WTF <strong style="font-weight:700">AI</strong> ENGINE PILOT</div>
-      <div class="pricing-name">PROBÁ EL SISTEMA</div>
-      <div class="pricing-desc">Una campaña completa en 3 semanas para experimentar el modelo AI-first con tu marca. Estrategia, dirección de arte, producción con calidad de nivel internacional y 21 piezas entregadas listas para publicar.</div>
+      <div class="pricing-name" data-i18n="pilot_name">PROBÁ EL SISTEMA</div>
+      <div class="pricing-desc" data-i18n="pilot_desc">Una campaña completa en 3 semanas para experimentar el modelo AI-first con tu marca. Estrategia, dirección de arte, producción con calidad de nivel internacional y 21 piezas entregadas listas para publicar.</div>
       <div class="pricing-price">$5.400 <span>USD</span></div>
-      <div class="pricing-period">PAGO ÚNICO · 3 SEMANAS</div>
+      <div class="pricing-period" data-i18n="pilot_period">PAGO ÚNICO · 3 SEMANAS</div>
       <ul class="pricing-features">
-        <li>2 territorios estratégicos</li>
-        <li>1 concepto creativo (manifiesto + claim)</li>
-        <li>Sistema visual definido</li>
+        <li data-i18n="pi_f1">2 territorios estratégicos</li>
+        <li data-i18n="pi_f2">1 concepto creativo (manifiesto + claim)</li>
+        <li data-i18n="pi_f3">Sistema visual definido</li>
       </ul>
-      <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--signal);margin:20px 0 8px;padding-top:14px;border-top:1px solid var(--line)">ASSET PACK · 21 PIEZAS PRODUCIDAS</div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--signal);margin:20px 0 8px;padding-top:14px;border-top:1px solid var(--line)" data-i18n="pi_asset_title">ASSET PACK · 21 PIEZAS PRODUCIDAS</div>
       <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mute);margin:14px 0 4px">VIDEO</div>
       <ul class="pricing-features">
-        <li>1 video cinematográfico hero (30s + 15s)</li>
-        <li>1 video AI secundario (15s)</li>
+        <li data-i18n="pi_v1">1 video cinematográfico hero (30s + 15s)</li>
+        <li data-i18n="pi_v2">1 video AI secundario (15s)</li>
       </ul>
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mute);margin:14px 0 4px">FOTOGRAFÍA AI · 15 PIEZAS</div>
+      <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mute);margin:14px 0 4px" data-i18n="pi_photo_title">FOTOGRAFÍA AI · 15 PIEZAS</div>
       <ul class="pricing-features">
-        <li>6 fotos editoriales de marca</li>
-        <li>4 fotos de producto / packaging</li>
-        <li>5 fotos lifestyle / personajes</li>
+        <li data-i18n="pi_p1">6 fotos editoriales de marca</li>
+        <li data-i18n="pi_p2">4 fotos de producto / packaging</li>
+        <li data-i18n="pi_p3">5 fotos lifestyle / personajes</li>
       </ul>
       <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mute);margin:14px 0 4px">SOCIAL</div>
       <ul class="pricing-features">
-        <li>Adaptaciones nativas (9:16, 1:1, 4:5, 16:9)</li>
+        <li data-i18n="pi_s1">Adaptaciones nativas (9:16, 1:1, 4:5, 16:9)</li>
       </ul>
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mute);margin:14px 0 4px;padding-top:14px;border-top:1px solid var(--line)">CIERRE</div>
+      <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mute);margin:14px 0 4px;padding-top:14px;border-top:1px solid var(--line)" data-i18n="pi_close_title">CIERRE</div>
       <ul class="pricing-features">
-        <li>Engine Demo live con tu equipo</li>
-        <li>Recomendación de Tier + roadmap</li>
+        <li data-i18n="pi_c1">Engine Demo live con tu equipo</li>
+        <li data-i18n="pi_c2">Recomendación de Tier + roadmap</li>
       </ul>
-      <div style="background:rgba(255,59,48,0.08);border:1px solid rgba(255,59,48,0.25);border-radius:8px;padding:16px 20px;margin-top:24px;font-size:14px;color:var(--bone);line-height:1.5">
+      <div style="background:rgba(255,59,48,0.08);border:1px solid rgba(255,59,48,0.25);border-radius:8px;padding:16px 20px;margin-top:24px;font-size:14px;color:var(--bone);line-height:1.5" data-i18n="pilot_credit">
         Si avanzás a Fee anual dentro de 30 días, los <strong style="color:var(--signal)">USD 6.000 se acreditan 100% al primer mes.</strong>
       </div>
       <div style="margin-top:24px">
         <a href="mailto:hello@wtf-agency.com?subject=WTF%20AI%20Engine%20Pilot%20-%20Quiero%20arrancar" class="cta-btn primary" style="display:inline-flex">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Empezar el piloto
+          <span data-i18n="pilot_cta">Empezar el piloto</span>
         </a>
       </div>
     </div>
@@ -1402,19 +1443,19 @@
     <source src="wtf-credenciales-slides/bg-cta.mp4" type="video/mp4">
   </video>
   <div class="cta-overlay"></div>
-  <h2 class="cta-headline">LISTO PARA<br><em>ESCALAR?</em></h2>
-  <p class="cta-sub">Agendemos 30 minutos. Te mostramos el sistema en acción con casos reales de tu industria.</p>
+  <h2 class="cta-headline" data-i18n="cta_headline">LISTO PARA<br><em>ESCALAR?</em></h2>
+  <p class="cta-sub" data-i18n="cta_sub">Agendemos 30 minutos. Te mostramos el sistema en acción con casos reales de tu industria.</p>
   <div class="cta-actions">
     <a href="mailto:hello@wtf-agency.com?subject=Propuesta%20AI%20First%20-%20Quiero%20saber%20m%C3%A1s" class="cta-btn primary">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-      Escribinos
+      <span data-i18n="cta_btn_text">Escribinos</span>
     </a>
   </div>
 </div>
 
 <!-- ====== FOOTER ====== -->
 <div class="footer">
-  <div class="footer-brand">WTF Agency · Buenos Aires · Since 2010</div>
+  <div class="footer-brand" data-i18n="footer_brand">WTF Agency · Buenos Aires · Since 2010</div>
   <div class="footer-links">
     <a href="mailto:hello@wtf-agency.com">hello@wtf-agency.com</a>
   </div>
@@ -1424,7 +1465,7 @@
 <div class="sticky-cta" id="stickyCta">
   <a href="mailto:hello@wtf-agency.com?subject=Propuesta%20AI%20First%20-%20Quiero%20saber%20m%C3%A1s" class="cta-btn primary">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-    Escribinos
+    <span data-i18n="sticky_cta">Escribinos</span>
   </a>
 </div>
 
@@ -1479,6 +1520,340 @@ const proofObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 const proofStrip = document.querySelector('.proof-strip');
 if (proofStrip) proofObs.observe(proofStrip);
+
+// ====== i18n LANGUAGE SWITCHER ======
+(function() {
+  const translations = {
+    es: {
+      hero_tag: 'POR QUÉ WTF',
+      hero_title: 'MODELO TRADICIONAL<br>VS <em>WTF AI ENGINE</em>',
+      hero_lead: 'La diferencia no es solo de precio. Es de velocidad, volumen y sistema.',
+      hero_sub: 'Con 15 años de experiencia construyendo marcas en Latinoamérica y más de 200 campañas ejecutadas, WTF evolucionó su modelo creativo integrando inteligencia artificial en cada etapa del proceso. Mientras una agencia tradicional tarda semanas en entregar un set limitado de piezas, nuestro modelo AI-first produce contenido cinematográfico, Influencers y estrategia integrada en horas. La misma visión estratégica de siempre, potenciada por tecnología que multiplica la velocidad, el volumen y la calidad.',
+      comp_title: 'COMPARATIVA<br><em>DE SERVICIOS</em>',
+      comp_desc: 'Lo que una agencia tradicional resuelve con equipos grandes, timings largos y presupuestos fragmentados, nosotros lo resolvemos con inteligencia artificial, velocidad y un sistema integrado que no para. Mismo nivel creativo, otra velocidad.',
+      split_label_trad: 'El modelo de siempre',
+      split_name_trad: 'AGENCIA<br><em>TRADICIONAL</em>',
+      split_label_wtf: 'Nuestro sistema',
+      r1_metric: 'Tiempo de entrega', r1_metric_w: 'Tiempo de entrega',
+      r1_trad_val: '2-3 sem', r1_wtf_val: '3-5 días',
+      r1_insight: 'De semanas a días. Sin perder calidad.',
+      r2_metric: 'Volumen mensual', r2_metric_w: 'Volumen mensual',
+      r2_trad_dim: 'piezas/mes', r2_wtf_dim: 'piezas/mes',
+      r2_insight: '3x más contenido con el mismo presupuesto.',
+      r3_metric: 'Video cinematográfico', r3_metric_w: 'Video cinematográfico',
+      r3_trad_val: 'Extra', r3_wtf_val: 'Incluido',
+      r3_trad_tag: 'Presupuesto aparte', r3_wtf_tag: 'Incluido',
+      r3_insight: 'Video de alto nivel sin cotizacion extra.',
+      r4_trad_tag: 'No disponible', r4_wtf_val: 'Incluido', r4_wtf_tag: 'Avatares + voces IA',
+      r4_insight: 'Contenido con rostros y voces IA, listo para escalar.',
+      r5_metric: 'Avatares IA', r5_metric_w: 'Avatares IA',
+      r5_trad_tag: 'No disponible', r5_wtf_val: 'Incluido', r5_wtf_tag: 'Personajes por marca',
+      r5_insight: 'Personajes propios de tu marca, sin casting ni producción.',
+      r6_metric: 'Multi-plataforma', r6_metric_w: 'Multi-plataforma',
+      r6_trad_val: 'Extra', r6_trad_tag: 'Adaptaciones con costo',
+      r6_wtf_dim: 'plataformas', r6_wtf_tag: 'Nativo',
+      r6_insight: 'Un contenido, cinco formatos nativos. Sin adaptar a mano.',
+      r7_metric: 'Estrategia Creativa', r7_metric_w: 'Estrategia Creativa',
+      r7_trad_val: 'Extra', r7_trad_tag: 'Fee adicional',
+      r7_wtf_val: 'Integrada', r7_wtf_tag: 'Incluido',
+      r7_insight: 'La estrategia no es un extra, es el motor del sistema.',
+      r8_metric: 'Optimización continua', r8_metric_w: 'Optimización continua',
+      r8_trad_val: 'Mensual', r8_trad_tag: 'Reportes estáticos',
+      r8_wtf_tag: 'Live + iteración',
+      r8_insight: 'Datos en vivo, ajustes al instante. No esperar al informe.',
+      proc_title: 'PROCESO<br><em>CREATIVO</em>',
+      proc_trad_title: 'PROCESO TRADICIONAL',
+      pt1_label: 'Brief del cliente', pt1_detail: 'Reuniones, ida y vuelta, aprobaciones internas',
+      pt2_label: 'Estrategia + concepto', pt2_detail: 'Equipo de planners, presentaciones, revisiones',
+      pt3_label: 'Producción de contenido', pt3_detail: 'Fotógrafo, locación, modelos, catering, edicion',
+      pt4_label: 'Post-producción', pt4_detail: 'Retoque, motion graphics, adaptaciones',
+      pt5_label: 'Rondas de revisión', pt5_detail: 'Cambios, re-edicion, aprobaciones finales',
+      pt6_label: 'Entrega final', pt6_detail: 'Archivos, formatos, adaptaciones extra',
+      proc_trad_dur: 'Duración total: 4-6 semanas',
+      pa1_label: 'Brief + IA intake', pa1_detail: 'Análisis automático de marca, audiencia y objetivos',
+      pa2_label: 'Estrategia generativa', pa2_detail: 'IA genera conceptos, copys y direcciones visuales',
+      pa3_label: 'Producción AI-first', pa3_detail: 'Imagenes, video, UGC y avatares generados en horas',
+      pa4_label: 'Iteración en tiempo real', pa4_detail: 'Ajustes instantáneos, variantes ilimitadas, A/B nativo',
+      pa5_label: 'Entrega multi-plataforma', pa5_detail: 'Contenido nativo para 5+ plataformas, listo para publicar',
+      proc_ai_dur: 'Duración total: 3-5 días',
+      proof_label: '+200 campañas ejecutadas para marcas como',
+      proof_stat: '<strong>15 años</strong> construyendo marcas en Latinoamérica y el mundo',
+      plans_title: 'PLANES<br><em>MENSUALES</em>',
+      badge_trial: 'Trial de 90 días con opción de salida si no hay fit',
+      badge_scarcity: 'Capacidad de onboarding limitada a 2 cuentas nuevas por mes',
+      t1_desc: 'Contenido estratégico con sistema IA. Presencia constante con calidad y velocidad.',
+      pricing_period: 'MENSUAL · CONTRATO ANUAL', pricing_period_2: 'MENSUAL · CONTRATO ANUAL', pricing_period_3: 'MENSUAL · CONTRATO ANUAL',
+      t1_f1: 'Estrategia de contenido mensual', t1_f2: 'Hasta 40 piezas / mes', t1_f3: 'Video IA (hasta 4 / mes)',
+      t1_f4: 'Dirección de arte IA', t1_f5: 'Adaptación multi-plataforma (3)', t1_f6: '1 ronda de revisión por pieza',
+      t1_f7: 'Reporte mensual de performance', t1_f8: 'Célula compartida con anchor dedicado',
+      t2_desc: 'El doble de capacidad. Video cinematográfico, influencers IA y estrategia integrada para marcas en crecimiento.',
+      t2_f1: 'Estrategia + planning integrado', t2_f2: 'Hasta 80 piezas / mes', t2_f3: 'Video cinematográfico IA (hasta 8 / mes)',
+      t2_f4: 'Influencers + avatares IA', t2_f5: 'Dirección de arte IA', t2_f6: 'Adaptación multi-plataforma (5+)',
+      t2_f7: '2 rondas de revisión por pieza', t2_f8: 'Reporte mensual de performance', t2_f9: 'Optimización de contenido con datos',
+      t2_f10: 'Célula compartida con anchor dedicado',
+      t3_desc: 'Todo ilimitado. Contenido, video, estrategia y producción always-on. Tu equipo creativo completo potenciado por IA.',
+      t3_f1: 'Estrategia + planning integrado', t3_f2: 'Contenido <span class="unlimited">ILIMITADO</span>',
+      t3_f3: 'Video cinematográfico <span class="unlimited">ILIMITADO</span>', t3_f4: 'Influencers + avatares IA <span class="unlimited">ILIMITADOS</span>',
+      t3_f5: 'Dirección de arte IA', t3_f6: 'Multi-plataforma nativo (5+)',
+      t3_f7: 'Revisiones <span class="unlimited">ILIMITADAS</span>', t3_f8: 'Rondas de cambios <span class="unlimited">ILIMITADAS</span>',
+      t3_f9: 'Community management', t3_f10: 'Estrategia de contenido mensual', t3_f11: 'Copywriting + guiones',
+      t3_f12: 'Performance + optimización real-time', t3_f13: 'Reportes de performance en vivo',
+      t3_f14: 'Célula full exclusiva (6 roles dedicados)',
+      pricing_note: '* Todos los planes incluyen acceso al WTF AI Engine OS · Precios en USD · No incluyen pauta publicitaria · IVA no incluido',
+      pilot_intro: '3 semanas para probar el sistema que cambia tu forma de comunicar. Producción de nivel global, velocidad que no creías posible. 21 piezas listas por una fracción del costo tradicional.',
+      pilot_name: 'PROBÁ EL SISTEMA',
+      pilot_desc: 'Una campaña completa en 3 semanas para experimentar el modelo AI-first con tu marca. Estrategia, dirección de arte, producción con calidad de nivel internacional y 21 piezas entregadas listas para publicar.',
+      pilot_period: 'PAGO ÚNICO · 3 SEMANAS',
+      pi_f1: '2 territorios estratégicos', pi_f2: '1 concepto creativo (manifiesto + claim)', pi_f3: 'Sistema visual definido',
+      pi_asset_title: 'ASSET PACK · 21 PIEZAS PRODUCIDAS',
+      pi_v1: '1 video cinematográfico hero (30s + 15s)', pi_v2: '1 video AI secundario (15s)',
+      pi_photo_title: 'FOTOGRAFÍA AI · 15 PIEZAS',
+      pi_p1: '6 fotos editoriales de marca', pi_p2: '4 fotos de producto / packaging', pi_p3: '5 fotos lifestyle / personajes',
+      pi_s1: 'Adaptaciones nativas (9:16, 1:1, 4:5, 16:9)',
+      pi_close_title: 'CIERRE',
+      pi_c1: 'Engine Demo live con tu equipo', pi_c2: 'Recomendación de Tier + roadmap',
+      pilot_credit: 'Si avanzás a Fee anual dentro de 30 días, los <strong style="color:var(--signal)">USD 6.000 se acreditan 100% al primer mes.</strong>',
+      pilot_cta: 'Empezar el piloto',
+      cta_headline: 'LISTO PARA<br><em>ESCALAR?</em>',
+      cta_sub: 'Agendemos 30 minutos. Te mostramos el sistema en acción con casos reales de tu industria.',
+      cta_btn_text: 'Escribinos',
+      sticky_cta: 'Escribinos',
+      footer_brand: 'WTF Agency · Buenos Aires · Since 2010',
+      _recommended: 'RECOMENDADO',
+    },
+    en: {
+      hero_tag: 'WHY WTF',
+      hero_title: 'TRADITIONAL MODEL<br>VS <em>WTF AI ENGINE</em>',
+      hero_lead: 'The difference isn\'t just price. It\'s speed, volume, and system.',
+      hero_sub: 'With 15 years of experience building brands in Latin America and over 200 campaigns executed, WTF evolved its creative model by integrating artificial intelligence into every stage of the process. While a traditional agency takes weeks to deliver a limited set of pieces, our AI-first model produces cinematic content, Influencers and integrated strategy in hours. The same strategic vision as always, powered by technology that multiplies speed, volume, and quality.',
+      comp_title: 'SERVICE<br><em>COMPARISON</em>',
+      comp_desc: 'What a traditional agency solves with large teams, long timelines and fragmented budgets, we solve with artificial intelligence, speed and an integrated system that never stops. Same creative level, different speed.',
+      split_label_trad: 'The old model',
+      split_name_trad: 'TRADITIONAL<br><em>AGENCY</em>',
+      split_label_wtf: 'Our system',
+      r1_metric: 'Delivery time', r1_metric_w: 'Delivery time',
+      r1_trad_val: '2-3 weeks', r1_wtf_val: '3-5 days',
+      r1_insight: 'From weeks to days. Without losing quality.',
+      r2_metric: 'Monthly volume', r2_metric_w: 'Monthly volume',
+      r2_trad_dim: 'pieces/month', r2_wtf_dim: 'pieces/month',
+      r2_insight: '3x more content with the same budget.',
+      r3_metric: 'Cinematic video', r3_metric_w: 'Cinematic video',
+      r3_trad_val: 'Extra', r3_wtf_val: 'Included',
+      r3_trad_tag: 'Separate budget', r3_wtf_tag: 'Included',
+      r3_insight: 'High-level video without extra quotes.',
+      r4_trad_tag: 'Not available', r4_wtf_val: 'Included', r4_wtf_tag: 'Avatars + AI voices',
+      r4_insight: 'Content with AI faces and voices, ready to scale.',
+      r5_metric: 'AI Avatars', r5_metric_w: 'AI Avatars',
+      r5_trad_tag: 'Not available', r5_wtf_val: 'Included', r5_wtf_tag: 'Characters per brand',
+      r5_insight: 'Your own brand characters, no casting or production.',
+      r6_metric: 'Multi-platform', r6_metric_w: 'Multi-platform',
+      r6_trad_val: 'Extra', r6_trad_tag: 'Adaptations at cost',
+      r6_wtf_dim: 'platforms', r6_wtf_tag: 'Native',
+      r6_insight: 'One content, five native formats. No manual adaptation.',
+      r7_metric: 'Creative Strategy', r7_metric_w: 'Creative Strategy',
+      r7_trad_val: 'Extra', r7_trad_tag: 'Additional fee',
+      r7_wtf_val: 'Integrated', r7_wtf_tag: 'Included',
+      r7_insight: 'Strategy isn\'t an extra, it\'s the engine of the system.',
+      r8_metric: 'Continuous optimization', r8_metric_w: 'Continuous optimization',
+      r8_trad_val: 'Monthly', r8_trad_tag: 'Static reports',
+      r8_wtf_tag: 'Live + iteration',
+      r8_insight: 'Live data, instant adjustments. No waiting for the report.',
+      proc_title: 'CREATIVE<br><em>PROCESS</em>',
+      proc_trad_title: 'TRADITIONAL PROCESS',
+      pt1_label: 'Client brief', pt1_detail: 'Meetings, back and forth, internal approvals',
+      pt2_label: 'Strategy + concept', pt2_detail: 'Planning team, presentations, reviews',
+      pt3_label: 'Content production', pt3_detail: 'Photographer, location, models, catering, editing',
+      pt4_label: 'Post-production', pt4_detail: 'Retouching, motion graphics, adaptations',
+      pt5_label: 'Review rounds', pt5_detail: 'Changes, re-editing, final approvals',
+      pt6_label: 'Final delivery', pt6_detail: 'Files, formats, extra adaptations',
+      proc_trad_dur: 'Total duration: 4-6 weeks',
+      pa1_label: 'Brief + AI intake', pa1_detail: 'Automatic brand, audience and objectives analysis',
+      pa2_label: 'Generative strategy', pa2_detail: 'AI generates concepts, copy and visual directions',
+      pa3_label: 'AI-first production', pa3_detail: 'Images, video, UGC and avatars generated in hours',
+      pa4_label: 'Real-time iteration', pa4_detail: 'Instant adjustments, unlimited variants, native A/B',
+      pa5_label: 'Multi-platform delivery', pa5_detail: 'Native content for 5+ platforms, ready to publish',
+      proc_ai_dur: 'Total duration: 3-5 days',
+      proof_label: '+200 campaigns executed for brands like',
+      proof_stat: '<strong>15 years</strong> building brands in Latin America and the world',
+      plans_title: 'MONTHLY<br><em>PLANS</em>',
+      badge_trial: '90-day trial with exit option if there\'s no fit',
+      badge_scarcity: 'Onboarding capacity limited to 2 new accounts per month',
+      t1_desc: 'Strategic content with AI system. Constant presence with quality and speed.',
+      pricing_period: 'MONTHLY · ANNUAL CONTRACT', pricing_period_2: 'MONTHLY · ANNUAL CONTRACT', pricing_period_3: 'MONTHLY · ANNUAL CONTRACT',
+      t1_f1: 'Monthly content strategy', t1_f2: 'Up to 40 pieces / month', t1_f3: 'AI Video (up to 4 / month)',
+      t1_f4: 'AI art direction', t1_f5: 'Multi-platform adaptation (3)', t1_f6: '1 review round per piece',
+      t1_f7: 'Monthly performance report', t1_f8: 'Shared cell with dedicated anchor',
+      t2_desc: 'Double the capacity. Cinematic video, AI influencers and integrated strategy for growing brands.',
+      t2_f1: 'Strategy + integrated planning', t2_f2: 'Up to 80 pieces / month', t2_f3: 'AI cinematic video (up to 8 / month)',
+      t2_f4: 'Influencers + AI avatars', t2_f5: 'AI art direction', t2_f6: 'Multi-platform adaptation (5+)',
+      t2_f7: '2 review rounds per piece', t2_f8: 'Monthly performance report', t2_f9: 'Data-driven content optimization',
+      t2_f10: 'Shared cell with dedicated anchor',
+      t3_desc: 'Everything unlimited. Content, video, strategy and always-on production. Your complete creative team powered by AI.',
+      t3_f1: 'Strategy + integrated planning', t3_f2: 'Content <span class="unlimited">UNLIMITED</span>',
+      t3_f3: 'Cinematic video <span class="unlimited">UNLIMITED</span>', t3_f4: 'Influencers + AI avatars <span class="unlimited">UNLIMITED</span>',
+      t3_f5: 'AI art direction', t3_f6: 'Native multi-platform (5+)',
+      t3_f7: 'Reviews <span class="unlimited">UNLIMITED</span>', t3_f8: 'Change rounds <span class="unlimited">UNLIMITED</span>',
+      t3_f9: 'Community management', t3_f10: 'Monthly content strategy', t3_f11: 'Copywriting + scripts',
+      t3_f12: 'Performance + real-time optimization', t3_f13: 'Live performance reports',
+      t3_f14: 'Full exclusive cell (6 dedicated roles)',
+      pricing_note: '* All plans include access to WTF AI Engine OS · Prices in USD · Ad spend not included · Tax not included',
+      pilot_intro: '3 weeks to test the system that changes the way you communicate. World-class production, speed you didn\'t think was possible. 21 pieces ready for a fraction of the traditional cost.',
+      pilot_name: 'TRY THE SYSTEM',
+      pilot_desc: 'A complete campaign in 3 weeks to experience the AI-first model with your brand. Strategy, art direction, production with international-level quality and 21 pieces delivered ready to publish.',
+      pilot_period: 'ONE-TIME PAYMENT · 3 WEEKS',
+      pi_f1: '2 strategic territories', pi_f2: '1 creative concept (manifesto + claim)', pi_f3: 'Defined visual system',
+      pi_asset_title: 'ASSET PACK · 21 PIECES PRODUCED',
+      pi_v1: '1 cinematic hero video (30s + 15s)', pi_v2: '1 secondary AI video (15s)',
+      pi_photo_title: 'AI PHOTOGRAPHY · 15 PIECES',
+      pi_p1: '6 brand editorial photos', pi_p2: '4 product / packaging photos', pi_p3: '5 lifestyle / character photos',
+      pi_s1: 'Native adaptations (9:16, 1:1, 4:5, 16:9)',
+      pi_close_title: 'CLOSING',
+      pi_c1: 'Live Engine Demo with your team', pi_c2: 'Tier recommendation + roadmap',
+      pilot_credit: 'If you move to an annual Fee within 30 days, the <strong style="color:var(--signal)">USD 6,000 is credited 100% to the first month.</strong>',
+      pilot_cta: 'Start the pilot',
+      cta_headline: 'READY TO<br><em>SCALE?</em>',
+      cta_sub: 'Let\'s schedule 30 minutes. We\'ll show you the system in action with real cases from your industry.',
+      cta_btn_text: 'Contact us',
+      sticky_cta: 'Contact us',
+      footer_brand: 'WTF Agency · Buenos Aires · Since 2010',
+      _recommended: 'RECOMMENDED',
+    },
+    pt: {
+      hero_tag: 'POR QUE WTF',
+      hero_title: 'MODELO TRADICIONAL<br>VS <em>WTF AI ENGINE</em>',
+      hero_lead: 'A diferença não é só de preço. É de velocidade, volume e sistema.',
+      hero_sub: 'Com 15 anos de experiência construindo marcas na América Latina e mais de 200 campanhas executadas, a WTF evoluiu seu modelo criativo integrando inteligência artificial em cada etapa do processo. Enquanto uma agência tradicional leva semanas para entregar um conjunto limitado de peças, nosso modelo AI-first produz conteúdo cinematográfico, Influencers e estratégia integrada em horas. A mesma visão estratégica de sempre, potencializada por tecnologia que multiplica a velocidade, o volume e a qualidade.',
+      comp_title: 'COMPARATIVO<br><em>DE SERVIÇOS</em>',
+      comp_desc: 'O que uma agência tradicional resolve com equipes grandes, prazos longos e orçamentos fragmentados, nós resolvemos com inteligência artificial, velocidade e um sistema integrado que não para. Mesmo nível criativo, outra velocidade.',
+      split_label_trad: 'O modelo de sempre',
+      split_name_trad: 'AGÊNCIA<br><em>TRADICIONAL</em>',
+      split_label_wtf: 'Nosso sistema',
+      r1_metric: 'Tempo de entrega', r1_metric_w: 'Tempo de entrega',
+      r1_trad_val: '2-3 sem', r1_wtf_val: '3-5 dias',
+      r1_insight: 'De semanas a dias. Sem perder qualidade.',
+      r2_metric: 'Volume mensal', r2_metric_w: 'Volume mensal',
+      r2_trad_dim: 'peças/mês', r2_wtf_dim: 'peças/mês',
+      r2_insight: '3x mais conteúdo com o mesmo orçamento.',
+      r3_metric: 'Vídeo cinematográfico', r3_metric_w: 'Vídeo cinematográfico',
+      r3_trad_val: 'Extra', r3_wtf_val: 'Incluído',
+      r3_trad_tag: 'Orçamento separado', r3_wtf_tag: 'Incluído',
+      r3_insight: 'Vídeo de alto nível sem orçamento extra.',
+      r4_trad_tag: 'Não disponível', r4_wtf_val: 'Incluído', r4_wtf_tag: 'Avatares + vozes IA',
+      r4_insight: 'Conteúdo com rostos e vozes IA, pronto para escalar.',
+      r5_metric: 'Avatares IA', r5_metric_w: 'Avatares IA',
+      r5_trad_tag: 'Não disponível', r5_wtf_val: 'Incluído', r5_wtf_tag: 'Personagens por marca',
+      r5_insight: 'Personagens próprios da sua marca, sem casting nem produção.',
+      r6_metric: 'Multi-plataforma', r6_metric_w: 'Multi-plataforma',
+      r6_trad_val: 'Extra', r6_trad_tag: 'Adaptações com custo',
+      r6_wtf_dim: 'plataformas', r6_wtf_tag: 'Nativo',
+      r6_insight: 'Um conteúdo, cinco formatos nativos. Sem adaptar manualmente.',
+      r7_metric: 'Estratégia Criativa', r7_metric_w: 'Estratégia Criativa',
+      r7_trad_val: 'Extra', r7_trad_tag: 'Fee adicional',
+      r7_wtf_val: 'Integrada', r7_wtf_tag: 'Incluído',
+      r7_insight: 'A estratégia não é um extra, é o motor do sistema.',
+      r8_metric: 'Otimização contínua', r8_metric_w: 'Otimização contínua',
+      r8_trad_val: 'Mensal', r8_trad_tag: 'Relatórios estáticos',
+      r8_wtf_tag: 'Live + iteração',
+      r8_insight: 'Dados ao vivo, ajustes instantâneos. Sem esperar pelo relatório.',
+      proc_title: 'PROCESSO<br><em>CRIATIVO</em>',
+      proc_trad_title: 'PROCESSO TRADICIONAL',
+      pt1_label: 'Brief do cliente', pt1_detail: 'Reuniões, idas e vindas, aprovações internas',
+      pt2_label: 'Estratégia + conceito', pt2_detail: 'Equipe de planners, apresentações, revisões',
+      pt3_label: 'Produção de conteúdo', pt3_detail: 'Fotógrafo, locação, modelos, catering, edição',
+      pt4_label: 'Pós-produção', pt4_detail: 'Retoque, motion graphics, adaptações',
+      pt5_label: 'Rodadas de revisão', pt5_detail: 'Mudanças, re-edição, aprovações finais',
+      pt6_label: 'Entrega final', pt6_detail: 'Arquivos, formatos, adaptações extras',
+      proc_trad_dur: 'Duração total: 4-6 semanas',
+      pa1_label: 'Brief + IA intake', pa1_detail: 'Análise automática de marca, audiência e objetivos',
+      pa2_label: 'Estratégia generativa', pa2_detail: 'IA gera conceitos, copys e direções visuais',
+      pa3_label: 'Produção AI-first', pa3_detail: 'Imagens, vídeo, UGC e avatares gerados em horas',
+      pa4_label: 'Iteração em tempo real', pa4_detail: 'Ajustes instantâneos, variantes ilimitadas, A/B nativo',
+      pa5_label: 'Entrega multi-plataforma', pa5_detail: 'Conteúdo nativo para 5+ plataformas, pronto para publicar',
+      proc_ai_dur: 'Duração total: 3-5 dias',
+      proof_label: '+200 campanhas executadas para marcas como',
+      proof_stat: '<strong>15 anos</strong> construindo marcas na América Latina e no mundo',
+      plans_title: 'PLANOS<br><em>MENSAIS</em>',
+      badge_trial: 'Trial de 90 dias com opção de saída se não houver fit',
+      badge_scarcity: 'Capacidade de onboarding limitada a 2 contas novas por mês',
+      t1_desc: 'Conteúdo estratégico com sistema IA. Presença constante com qualidade e velocidade.',
+      pricing_period: 'MENSAL · CONTRATO ANUAL', pricing_period_2: 'MENSAL · CONTRATO ANUAL', pricing_period_3: 'MENSAL · CONTRATO ANUAL',
+      t1_f1: 'Estratégia de conteúdo mensal', t1_f2: 'Até 40 peças / mês', t1_f3: 'Vídeo IA (até 4 / mês)',
+      t1_f4: 'Direção de arte IA', t1_f5: 'Adaptação multi-plataforma (3)', t1_f6: '1 rodada de revisão por peça',
+      t1_f7: 'Relatório mensal de performance', t1_f8: 'Célula compartilhada com anchor dedicado',
+      t2_desc: 'O dobro de capacidade. Vídeo cinematográfico, influencers IA e estratégia integrada para marcas em crescimento.',
+      t2_f1: 'Estratégia + planning integrado', t2_f2: 'Até 80 peças / mês', t2_f3: 'Vídeo cinematográfico IA (até 8 / mês)',
+      t2_f4: 'Influencers + avatares IA', t2_f5: 'Direção de arte IA', t2_f6: 'Adaptação multi-plataforma (5+)',
+      t2_f7: '2 rodadas de revisão por peça', t2_f8: 'Relatório mensal de performance', t2_f9: 'Otimização de conteúdo com dados',
+      t2_f10: 'Célula compartilhada com anchor dedicado',
+      t3_desc: 'Tudo ilimitado. Conteúdo, vídeo, estratégia e produção always-on. Sua equipe criativa completa potencializada por IA.',
+      t3_f1: 'Estratégia + planning integrado', t3_f2: 'Conteúdo <span class="unlimited">ILIMITADO</span>',
+      t3_f3: 'Vídeo cinematográfico <span class="unlimited">ILIMITADO</span>', t3_f4: 'Influencers + avatares IA <span class="unlimited">ILIMITADOS</span>',
+      t3_f5: 'Direção de arte IA', t3_f6: 'Multi-plataforma nativo (5+)',
+      t3_f7: 'Revisões <span class="unlimited">ILIMITADAS</span>', t3_f8: 'Rodadas de mudanças <span class="unlimited">ILIMITADAS</span>',
+      t3_f9: 'Community management', t3_f10: 'Estratégia de conteúdo mensal', t3_f11: 'Copywriting + roteiros',
+      t3_f12: 'Performance + otimização real-time', t3_f13: 'Relatórios de performance ao vivo',
+      t3_f14: 'Célula full exclusiva (6 roles dedicados)',
+      pricing_note: '* Todos os planos incluem acesso ao WTF AI Engine OS · Preços em USD · Não incluem mídia paga · Impostos não incluídos',
+      pilot_intro: '3 semanas para testar o sistema que muda sua forma de comunicar. Produção de nível global, velocidade que você não achava possível. 21 peças prontas por uma fração do custo tradicional.',
+      pilot_name: 'TESTE O SISTEMA',
+      pilot_desc: 'Uma campanha completa em 3 semanas para experimentar o modelo AI-first com sua marca. Estratégia, direção de arte, produção com qualidade de nível internacional e 21 peças entregues prontas para publicar.',
+      pilot_period: 'PAGAMENTO ÚNICO · 3 SEMANAS',
+      pi_f1: '2 territórios estratégicos', pi_f2: '1 conceito criativo (manifesto + claim)', pi_f3: 'Sistema visual definido',
+      pi_asset_title: 'ASSET PACK · 21 PEÇAS PRODUZIDAS',
+      pi_v1: '1 vídeo cinematográfico hero (30s + 15s)', pi_v2: '1 vídeo AI secundário (15s)',
+      pi_photo_title: 'FOTOGRAFIA AI · 15 PEÇAS',
+      pi_p1: '6 fotos editoriais de marca', pi_p2: '4 fotos de produto / packaging', pi_p3: '5 fotos lifestyle / personagens',
+      pi_s1: 'Adaptações nativas (9:16, 1:1, 4:5, 16:9)',
+      pi_close_title: 'FECHAMENTO',
+      pi_c1: 'Engine Demo ao vivo com sua equipe', pi_c2: 'Recomendação de Tier + roadmap',
+      pilot_credit: 'Se avançar para Fee anual dentro de 30 dias, os <strong style="color:var(--signal)">USD 6.000 são creditados 100% ao primeiro mês.</strong>',
+      pilot_cta: 'Começar o piloto',
+      cta_headline: 'PRONTO PARA<br><em>ESCALAR?</em>',
+      cta_sub: 'Vamos agendar 30 minutos. Mostramos o sistema em ação com casos reais da sua indústria.',
+      cta_btn_text: 'Fale conosco',
+      sticky_cta: 'Fale conosco',
+      footer_brand: 'WTF Agency · Buenos Aires · Since 2010',
+      _recommended: 'RECOMENDADO',
+    }
+  };
+
+  let currentLang = 'es';
+
+  function setLang(lang) {
+    currentLang = lang;
+    const dict = translations[lang];
+    if (!dict) return;
+
+    // Update all data-i18n elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) {
+        el.innerHTML = dict[key];
+      }
+    });
+
+    // Update the RECOMENDADO pseudo-element via CSS custom property
+    const featuredCard = document.querySelector('.pricing-card.featured');
+    if (featuredCard) {
+      featuredCard.style.setProperty('--recommended-text', '"' + dict._recommended + '"');
+    }
+
+    // Update active button state
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+
+    // Update html lang attribute
+    document.documentElement.lang = lang;
+  }
+
+  // Bind click events
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLang(btn.getAttribute('data-lang'));
+    });
+  });
+})();
 </script>
 </body>
 </html>
