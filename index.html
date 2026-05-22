@@ -2577,6 +2577,41 @@
   }
   .hud-hint.faded { opacity: 0; }
 
+  /* === LANGUAGE SELECTOR === */
+  .lang-selector {
+    position: fixed;
+    top: 28px;
+    right: 220px;
+    z-index: 9999;
+    display: flex;
+    gap: 0;
+    background: rgba(10,10,12,0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 4px;
+  }
+  .lang-btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 6px 14px;
+    border: none;
+    background: transparent;
+    color: rgba(245,240,235,0.5);
+    cursor: pointer;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+  .lang-btn.active {
+    background: var(--wtf-red);
+    color: #fff;
+  }
+  .lang-btn:hover:not(.active) {
+    color: rgba(245,240,235,0.9);
+  }
+
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1 !important; transform: none !important; }
@@ -2693,6 +2728,12 @@
 </head>
 <body>
 
+<div class="lang-selector">
+  <button class="lang-btn active" data-lang="es">ES</button>
+  <button class="lang-btn" data-lang="en">EN</button>
+  <button class="lang-btn" data-lang="pt">PT</button>
+</div>
+
 <div class="progress"><div class="progress-bar" id="pbar"></div></div>
 
 <div class="deck-hud hud-counter">
@@ -2730,19 +2771,19 @@
   <div class="timecode" id="tc">00:00:01:12</div>
 
   <div class="cover-meta reveal">
-    <div class="left">WTF AGENCY<br>BATTLE TESTED CREATIVITY · SINCE 2010</div>
-    <div class="right">CREDENTIALS 2026<br>BUENOS AIRES, MAYO</div>
+    <div class="left" data-i18n="cover_left">WTF AGENCY<br>BATTLE TESTED CREATIVITY · SINCE 2010</div>
+    <div class="right" data-i18n="cover_right">CREDENTIALS 2026<br>BUENOS AIRES, MAYO</div>
   </div>
 
   <h1 class="display cover-title reveal delay-1">
     WTF<span class="ampersand"> </span>AGENCY
   </h1>
-  <p class="cover-claim reveal delay-2">
+  <p class="cover-claim reveal delay-2" data-i18n="cover_claim">
     La IA no reemplaza 15 años de experiencia internacional. Los multiplica.<br><em>AI FIRST. HUMAN ALWAYS.</em>
   </p>
 
   <div class="cover-footer reveal delay-3">
-    <p class="desc">
+    <p class="desc" data-i18n="cover_footer">
       PENSAR. HACER. MOVER. APRENDER. CRECER.
     </p>
   </div>
@@ -2751,18 +2792,18 @@
 <!-- ============================== S2 / Brief Destroyers ============================== -->
 <section class="brief-destroyers">
   <div class="slide-tag">02 · Brief Destroyers</div>
-  <div class="bd-eyebrow reveal">WTF Agency · Filosofía</div>
-  <h2 class="display bd-title reveal delay-1">
+  <div class="bd-eyebrow reveal" data-i18n="bd_eyebrow">WTF Agency · Filosofía</div>
+  <h2 class="display bd-title reveal delay-1" data-i18n="bd_title">
     LA CREATIVIDAD<br>ENTRENADA<br>PARA<br><em>REINTERPRETAR.</em>
   </h2>
-  <p class="lead reveal delay-2" style="margin-bottom:2rem;">No hacemos lo que pide el brief. Hacemos lo que la marca necesita.</p>
-  <ul class="reveal delay-2" style="list-style:none;padding:0;display:flex;flex-direction:column;gap:.6rem;font-family:var(--mono);font-size:.85rem;letter-spacing:.04em;color:var(--bone-dim);">
+  <p class="lead reveal delay-2" style="margin-bottom:2rem;" data-i18n="bd_lead">No hacemos lo que pide el brief. Hacemos lo que la marca necesita.</p>
+  <ul class="reveal delay-2" style="list-style:none;padding:0;display:flex;flex-direction:column;gap:.6rem;font-family:var(--mono);font-size:.85rem;letter-spacing:.04em;color:var(--bone-dim);" data-i18n="bd_list">
     <li>· Diagnóstico antes que ejecución</li>
     <li>· Insight antes que copy</li>
     <li>· Sistema antes que pieza</li>
     <li>· Velocidad sin perder criterio</li>
   </ul>
-  <p class="bd-sub reveal delay-3">BATTLE TESTED CREATIVITY · SINCE 2010</p>
+  <p class="bd-sub reveal delay-3" data-i18n="bd_sub">BATTLE TESTED CREATIVITY · SINCE 2010</p>
   <div class="bd-logo reveal delay-3">
     <img src="wtf-credenciales-slides/logo-wtf.png" alt="WTF Agency" class="bd-logo-img">
   </div>
@@ -2771,25 +2812,25 @@
 <!-- ============================== S3 / Contexto ============================== -->
 <section class="ctx dense">
   <div class="slide-tag">03 · Contexto</div>
-  <div class="eyebrow reveal">La nueva economia de la atención</div>
+  <div class="eyebrow reveal" data-i18n="ctx_eyebrow">La nueva economia de la atención</div>
 
-  <h2 class="display ctx-title reveal delay-1">La atención<br><em>es finita.</em></h2>
-  <p class="ctx-sub reveal delay-1">El mundo produce más contenido del que cualquier persona puede consumir. Y tu marca compite contra todo.</p>
+  <h2 class="display ctx-title reveal delay-1" data-i18n="ctx_title">La atención<br><em>es finita.</em></h2>
+  <p class="ctx-sub reveal delay-1" data-i18n="ctx_sub">El mundo produce más contenido del que cualquier persona puede consumir. Y tu marca compite contra todo.</p>
 
   <div class="ctx-grid">
     <div class="stat reveal delay-2">
       <div class="stat-num"><span class="counter" data-target="4" data-decimals="0" data-suffix="%">0</span></div>
-      <p class="stat-text">Solo el 4% de los ads digitales se miran más de 2 segundos. El otro 96% ni existe.</p>
+      <p class="stat-text" data-i18n="ctx_stat1">Solo el 4% de los ads digitales se miran más de 2 segundos. El otro 96% ni existe.</p>
       <p class="stat-source">Lumen Research · Eye-Tracking Global</p>
     </div>
     <div class="stat reveal delay-3">
       <div class="stat-num"><span class="counter" data-target="6.8" data-decimals="1">0</span></div>
-      <p class="stat-text">Plataformas sociales que cada persona usa por mes. La marca compite en todas a la vez.</p>
+      <p class="stat-text" data-i18n="ctx_stat2">Plataformas sociales que cada persona usa por mes. La marca compite en todas a la vez.</p>
       <p class="stat-source">GWI / DataReportal 2025</p>
     </div>
     <div class="stat reveal delay-4">
       <div class="stat-num"><span class="counter" data-target="40" data-decimals="0" data-suffix="%">0</span></div>
-      <p class="stat-text">De Gen Z busca en TikTok e Instagram antes que en Google. El descubrimiento cambió para siempre.</p>
+      <p class="stat-text" data-i18n="ctx_stat3">De Gen Z busca en TikTok e Instagram antes que en Google. El descubrimiento cambió para siempre.</p>
       <p class="stat-source">Google Internal Research 2024</p>
     </div>
   </div>
@@ -2800,8 +2841,8 @@
   <div class="slide-tag">04 · El problema</div>
 
   <div class="problema-left">
-    <h2 class="display reveal">EL GAP<br><em>CREATIVO</em></h2>
-    <p class="reveal delay-1">Las agencias tradicionales siguen vendiendo campañas. El mundo se movió a contenido always-on, multi-plataforma, creator-driven. El gap no es creativo. Es de <strong>producción a escala con estrategia y calidad de marca.</strong></p>
+    <h2 class="display reveal" data-i18n="prob_title">EL GAP<br><em>CREATIVO</em></h2>
+    <p class="reveal delay-1" data-i18n="prob_body">Las agencias tradicionales siguen vendiendo campañas. El mundo se movió a contenido always-on, multi-plataforma, creator-driven. El gap no es creativo. Es de <strong>producción a escala con estrategia y calidad de marca.</strong></p>
   </div>
 
 </section>
@@ -2810,15 +2851,15 @@
 <!-- ============================== S5 / Manifiesto ============================== -->
 <section class="manifiesto">
   <div class="slide-tag">05 · Manifiesto</div>
-  <h2 class="mani-title reveal">
+  <h2 class="mani-title reveal" data-i18n="mani_title">
     No hacemos lo correcto. Hacemos<br>
     <strong>LO QUE FUNCIONA.</strong>
   </h2>
   <div class="mani-body">
-    <p class="reveal delay-1">El mundo cambió.<br>Hoy no gana el que tiene una gran campaña.<br><span class="highlight">Gana el que aprende más rápido.</span></p>
-    <p class="reveal delay-2">Evolucionamos de agencia creativa tradicional a <span class="highlight">sistema creativo con IA como sistema operativo.</span></p>
-    <p class="reveal delay-3"><span class="highlight">Estrategia que ordena. Creatividad con oficio.<br>Producción con velocidad. IA para multiplicar.</span></p>
-    <p class="reveal delay-4 mani-closer">Una idea no alcanza.<br><strong>Hace falta un sistema que no pare.</strong></p>
+    <p class="reveal delay-1" data-i18n="mani_p1">El mundo cambió.<br>Hoy no gana el que tiene una gran campaña.<br><span class="highlight">Gana el que aprende más rápido.</span></p>
+    <p class="reveal delay-2" data-i18n="mani_p2">Evolucionamos de agencia creativa tradicional a <span class="highlight">sistema creativo con IA como sistema operativo.</span></p>
+    <p class="reveal delay-3" data-i18n="mani_p3"><span class="highlight">Estrategia que ordena. Creatividad con oficio.<br>Producción con velocidad. IA para multiplicar.</span></p>
+    <p class="reveal delay-4 mani-closer" data-i18n="mani_closer">Una idea no alcanza.<br><strong>Hace falta un sistema que no pare.</strong></p>
   </div>
   <div class="mani-logo reveal delay-5">
     <img src="wtf-credenciales-slides/logo-wtf.png" alt="WTF Agency" class="mani-logo-img">
@@ -2828,8 +2869,8 @@
 <!-- ============================== S8 / Clientes ============================== -->
 <section class="clientes dense">
   <div class="slide-tag">06 · Clientes</div>
-  <h2 class="display clientes-title reveal">NUESTROS<br><em>CLIENTES.</em></h2>
-  <p class="clientes-sub reveal delay-1">Los que entendieron que no alcanza con una idea.</p>
+  <h2 class="display clientes-title reveal" data-i18n="clientes_title">NUESTROS<br><em>CLIENTES.</em></h2>
+  <p class="clientes-sub reveal delay-1" data-i18n="clientes_sub">Los que entendieron que no alcanza con una idea.</p>
   <div class="logos-grid">
     <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/honda-wing.png" alt="Honda"></div>
     <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/honda.png" alt="Honda"></div>
@@ -2867,7 +2908,7 @@
 <!-- ============================== S6 / #WTFRULES ============================== -->
 <section class="wtfrules">
   <div class="slide-tag">07 · #WTFRULES</div>
-  <p class="wtfrules-text reveal">
+  <p class="wtfrules-text reveal" data-i18n="wtfrules_text">
     Es momento de plantearse todo <strong>nuevamente.</strong>
   </p>
   <p class="wtfrules-hash reveal delay-1">#WTFRULES</p>
@@ -2878,34 +2919,34 @@
   <div class="slide-tag">08 · Quiénes somos</div>
   <div class="quienes-tag reveal">WTF AGENCY PLATFORM</div>
 
-  <h2 class="display quienes-h reveal delay-1"><span>NO HACEMOS<br>CAMPAÑAS.<br><em>HACEMOS<br>SISTEMAS.</em></span></h2>
-  <p class="quienes-sub reveal delay-1">Construimos nuestro propio sistema operativo de IA. 15 años de calle, estrategia y craft creativo corriendo dentro de una máquina que no para. No automatizamos la creatividad, la armamos para escalar.</p>
+  <h2 class="display quienes-h reveal delay-1" data-i18n="quienes_title"><span>NO HACEMOS<br>CAMPAÑAS.<br><em>HACEMOS<br>SISTEMAS.</em></span></h2>
+  <p class="quienes-sub reveal delay-1" data-i18n="quienes_sub">Construimos nuestro propio sistema operativo de IA. 15 años de calle, estrategia y craft creativo corriendo dentro de una máquina que no para. No automatizamos la creatividad, la armamos para escalar.</p>
 
   <div class="wtf-pillars">
     <div class="wtf-pillar reveal delay-2">
       <div class="stp">01 ·</div>
-      <h4>PENSAR</h4>
-      <p>Estrategia, insight, concepto. IA para research, análisis de audiencia, territorial mapping.</p>
+      <h4 data-i18n="pillar_1_title">PENSAR</h4>
+      <p data-i18n="pillar_1_desc">Estrategia, insight, concepto. IA para research, análisis de audiencia, territorial mapping.</p>
     </div>
     <div class="wtf-pillar reveal delay-3">
       <div class="stp">02 ·</div>
-      <h4>HACER</h4>
-      <p>Producción AI-first: video cinematográfico, UGC sintético, avatares, brand systems, multi-formato.</p>
+      <h4 data-i18n="pillar_2_title">HACER</h4>
+      <p data-i18n="pillar_2_desc">Producción AI-first: video cinematográfico, UGC sintético, avatares, brand systems, multi-formato.</p>
     </div>
     <div class="wtf-pillar reveal delay-4">
       <div class="stp">03 ·</div>
-      <h4>MOVER</h4>
-      <p>Distribución inteligente: plataformas, pauta, CRM, always-on, performance, community.</p>
+      <h4 data-i18n="pillar_3_title">MOVER</h4>
+      <p data-i18n="pillar_3_desc">Distribución inteligente: plataformas, pauta, CRM, always-on, performance, community.</p>
     </div>
     <div class="wtf-pillar reveal delay-5">
       <div class="stp">04 ·</div>
-      <h4>APRENDER</h4>
-      <p>Optimización continua. KPIs en tiempo real. A/B testing. Iteración basada en data, no en ego.</p>
+      <h4 data-i18n="pillar_4_title">APRENDER</h4>
+      <p data-i18n="pillar_4_desc">Optimización continua. KPIs en tiempo real. A/B testing. Iteración basada en data, no en ego.</p>
     </div>
     <div class="wtf-pillar reveal delay-6">
       <div class="stp">05 ·</div>
-      <h4>CRECER</h4>
-      <p>Escala sin perder alma. Multi-marca, multi-mercado, multi-formato. El sistema crece con vos.</p>
+      <h4 data-i18n="pillar_5_title">CRECER</h4>
+      <p data-i18n="pillar_5_desc">Escala sin perder alma. Multi-marca, multi-mercado, multi-formato. El sistema crece con vos.</p>
     </div>
   </div>
 </section>
@@ -2913,33 +2954,33 @@
 <!-- ============================== S11 / Modelo AI First ============================== -->
 <section class="modelo">
   <div class="slide-tag">09 · Modelo AI First</div>
-  <div class="modelo-tag reveal">NUESTRA FILOSOFÍA</div>
+  <div class="modelo-tag reveal" data-i18n="modelo_tag">NUESTRA FILOSOFÍA</div>
 
-  <h2 class="display modelo-title reveal delay-1">AI FIRST<br><em>NO ES UN TOOL.</em><br>ES EL SISTEMA OPERATIVO.</h2>
-  <p class="eyebrow reveal delay-1" style="margin-top:1.5rem;">15 años multiplicados, no reemplazados.</p>
+  <h2 class="display modelo-title reveal delay-1" data-i18n="modelo_title">AI FIRST<br><em>NO ES UN TOOL.</em><br>ES EL SISTEMA OPERATIVO.</h2>
+  <p class="eyebrow reveal delay-1" style="margin-top:1.5rem;" data-i18n="modelo_eyebrow">15 años multiplicados, no reemplazados.</p>
 
   <div class="modelo-grid">
     <div class="modelo-col reveal delay-2">
-      <h3>QUÉ SIGNIFICA <strong>AI FIRST?</strong></h3>
-      <p><strong>IA no es algo que agregamos.</strong> Es el cimiento. Cada brief, cada producción, cada distribución, cada optimización corre a través de IA.</p>
-      <p class="modelo-cierre">Creativos, planners, estrategas, diseñadores, todo el equipo WTF potenciado por nuestro sistema operativo IA. La máquina acelera. El talento decide.</p>
+      <h3 data-i18n="modelo_q">QUÉ SIGNIFICA <strong>AI FIRST?</strong></h3>
+      <p data-i18n="modelo_p1"><strong>IA no es algo que agregamos.</strong> Es el cimiento. Cada brief, cada producción, cada distribución, cada optimización corre a través de IA.</p>
+      <p class="modelo-cierre" data-i18n="modelo_cierre">Creativos, planners, estrategas, diseñadores, todo el equipo WTF potenciado por nuestro sistema operativo IA. La máquina acelera. El talento decide.</p>
     </div>
     <div class="modelo-col reveal delay-3">
       <div class="modelo-pillars">
         <div class="modelo-pillar">
-          <div class="step">Estrategia</div>
-          <h4>IA analiza</h4>
-          <p>Research, tendencias, audiencia, competencia. En horas, no semanas.</p>
+          <div class="step" data-i18n="mp_step1">Estrategia</div>
+          <h4 data-i18n="mp_h1">IA analiza</h4>
+          <p data-i18n="mp_p1">Research, tendencias, audiencia, competencia. En horas, no semanas.</p>
         </div>
         <div class="modelo-pillar">
-          <div class="step">Producción</div>
-          <h4>IA produce</h4>
-          <p>Video, imagen, audio, avatares. 10x más rápido, sin sacrificar calidad.</p>
+          <div class="step" data-i18n="mp_step2">Producción</div>
+          <h4 data-i18n="mp_h2">IA produce</h4>
+          <p data-i18n="mp_p2">Video, imagen, audio, avatares. 10x más rápido, sin sacrificar calidad.</p>
         </div>
         <div class="modelo-pillar">
-          <div class="step">Optimización</div>
-          <h4>IA aprende</h4>
-          <p>Performance en tiempo real. Iteración automática. A/B a escala.</p>
+          <div class="step" data-i18n="mp_step3">Optimización</div>
+          <h4 data-i18n="mp_h3">IA aprende</h4>
+          <p data-i18n="mp_p3">Performance en tiempo real. Iteración automática. A/B a escala.</p>
         </div>
       </div>
     </div>
@@ -2949,31 +2990,31 @@
 <!-- ============================== S12 / WTF AI Engine ============================== -->
 <section class="engine">
   <div class="slide-tag">10 · WTF AI Engine</div>
-  <div class="eyebrow reveal">El sistema</div>
+  <div class="eyebrow reveal" data-i18n="engine_eyebrow">El sistema</div>
 
   <h2 class="display engine-title reveal delay-1">WTF<br><em>AI ENGINE</em><br>OS PLATFORM</h2>
-  <p class="engine-sub reveal delay-2">Un motor propio que une todos los flujos y conecta más de 20 herramientas de IA. De brief a escala en un flujo continuo. <strong>Cada paso potenciado por IA, validado por humanos.</strong></p>
+  <p class="engine-sub reveal delay-2" data-i18n="engine_sub">Un motor propio que une todos los flujos y conecta más de 20 herramientas de IA. De brief a escala en un flujo continuo. <strong>Cada paso potenciado por IA, validado por humanos.</strong></p>
 
   <!-- Stats bar -->
   <div class="reveal delay-2" style="display:flex;justify-content:center;gap:3.5rem;margin:.8rem 0 .8rem;flex-wrap:wrap;">
     <div style="text-align:center;">
       <span style="font-family:var(--editorial);font-weight:700;font-size:3.5rem;color:var(--wtf-red);line-height:1;">20+</span>
-      <div style="font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;color:var(--bone);opacity:1;margin-top:.3rem;">TOOLS IA INTEGRADAS</div>
+      <div style="font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;color:var(--bone);opacity:1;margin-top:.3rem;" data-i18n="eng_stat1">TOOLS IA INTEGRADAS</div>
     </div>
     <div style="width:1px;background:rgba(255,255,255,.1);align-self:stretch;"></div>
     <div style="text-align:center;">
       <span style="font-family:var(--editorial);font-weight:700;font-size:3.5rem;color:var(--wtf-red);line-height:1;">10x</span>
-      <div style="font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;color:var(--bone);opacity:1;margin-top:.3rem;">MÁS RÁPIDO</div>
+      <div style="font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;color:var(--bone);opacity:1;margin-top:.3rem;" data-i18n="eng_stat2">MÁS RÁPIDO</div>
     </div>
     <div style="width:1px;background:rgba(255,255,255,.1);align-self:stretch;"></div>
     <div style="text-align:center;">
       <span style="font-family:var(--editorial);font-weight:700;font-size:3.5rem;color:var(--wtf-red);line-height:1;">48h</span>
-      <div style="font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;color:var(--bone);opacity:1;margin-top:.3rem;">A PRIMERA ENTREGA</div>
+      <div style="font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;color:var(--bone);opacity:1;margin-top:.3rem;" data-i18n="eng_stat3">A PRIMERA ENTREGA</div>
     </div>
     <div style="width:1px;background:rgba(255,255,255,.1);align-self:stretch;"></div>
     <div style="text-align:center;">
-      <span style="font-family:var(--editorial);font-weight:700;font-size:3.5rem;color:var(--wtf-red);line-height:1;">SIN</span>
-      <div style="font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;color:var(--bone);opacity:1;margin-top:.3rem;">LÍMITES CREATIVOS</div>
+      <span style="font-family:var(--editorial);font-weight:700;font-size:3.5rem;color:var(--wtf-red);line-height:1;" data-i18n="eng_stat4_num">SIN</span>
+      <div style="font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;color:var(--bone);opacity:1;margin-top:.3rem;" data-i18n="eng_stat4">LÍMITES CREATIVOS</div>
     </div>
   </div>
 
@@ -2983,84 +3024,84 @@
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       <div>
         <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">UGC GENERATOR</div>
-        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Contenido orgánico ilimitado con actores virtuales y reales</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;" data-i18n="mod_ugc">Contenido orgánico ilimitado con actores virtuales y reales</div>
       </div>
     </div>
     <div class="engine-mod">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
       <div>
         <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">VIDEO ENGINE</div>
-        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Spots, reels y branded content con IA generativa</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;" data-i18n="mod_video">Spots, reels y branded content con IA generativa</div>
       </div>
     </div>
     <div class="engine-mod">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       <div>
         <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">RESEARCH LAB</div>
-        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Mercado, tendencias y audiencias con deep analysis</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;" data-i18n="mod_research">Mercado, tendencias y audiencias con deep analysis</div>
       </div>
     </div>
     <div class="engine-mod">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
       <div>
         <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">ADS STUDIO</div>
-        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Campañas paid con variantes A/B automáticas</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;" data-i18n="mod_ads">Campañas paid con variantes A/B automáticas</div>
       </div>
     </div>
     <div class="engine-mod">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
       <div>
         <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">COPY ENGINE</div>
-        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Textos, guiones y copies en tono de marca calibrado</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;" data-i18n="mod_copy">Textos, guiones y copies en tono de marca calibrado</div>
       </div>
     </div>
     <div class="engine-mod">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
       <div>
         <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">ANALYTICS HUB</div>
-        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Dashboards en tiempo real y optimización continua</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;" data-i18n="mod_analytics">Dashboards en tiempo real y optimización continua</div>
       </div>
     </div>
     <div class="engine-mod">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
       <div>
         <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">IMAGE STUDIO</div>
-        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Key visuals, producto y adaptaciones multi-formato</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;" data-i18n="mod_image">Key visuals, producto y adaptaciones multi-formato</div>
       </div>
     </div>
     <div class="engine-mod">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
       <div>
         <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">APPROVAL FLOW</div>
-        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Revisión y aprobación online con historial completo</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;" data-i18n="mod_approval">Revisión y aprobación online con historial completo</div>
       </div>
     </div>
     <div class="engine-mod">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
       <div>
         <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">BRAND SYSTEMS</div>
-        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Identidad, guidelines y sistemas de diseño escalables</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;" data-i18n="mod_brand">Identidad, guidelines y sistemas de diseño escalables</div>
       </div>
     </div>
     <div class="engine-mod">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
       <div>
         <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">AI AUTOMATION</div>
-        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Workflows automatizados de producción y publicación</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;" data-i18n="mod_auto">Workflows automatizados de producción y publicación</div>
       </div>
     </div>
     <div class="engine-mod">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
       <div>
         <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">PERFORMANCE</div>
-        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Optimización de campañas basada en datos reales</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;" data-i18n="mod_perf">Optimización de campañas basada en datos reales</div>
       </div>
     </div>
     <div class="engine-mod">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       <div>
         <div class="engine-mod-title" style="font-family:var(--editorial);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--bone);transition:color .3s ease;">MULTI-MARKET</div>
-        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;">Adaptación multi-idioma y multi-mercado instantánea</div>
+        <div class="engine-mod-desc" style="font-family:var(--mono);font-size:.55rem;color:var(--bone);opacity:.45;line-height:1.4;margin-top:.15rem;transition:opacity .3s ease;" data-i18n="mod_multi">Adaptación multi-idioma y multi-mercado instantánea</div>
       </div>
     </div>
   </div>
@@ -3075,46 +3116,46 @@
     <source src="wtf-credenciales-slides/bg-capacidades.mp4" type="video/mp4">
   </video>
   <div class="slide-tag">11 · Capacidades</div>
-  <div class="eyebrow reveal">De la estrategia al contenido</div>
+  <div class="eyebrow reveal" data-i18n="cap_eyebrow">De la estrategia al contenido</div>
 
-  <h2 class="display stack-title reveal delay-1">UNA ESTRATEGIA,<br>UNA IDEA.<br><em>ILIMITADOS CONTENIDOS.</em></h2>
-  <p class="stack-sub reveal delay-1">Cada formato nace del mismo concepto estratégico y se conecta con los demás. No son piezas sueltas, es un ecosistema donde todo se retroalimenta.</p>
+  <h2 class="display stack-title reveal delay-1" data-i18n="cap_title">UNA ESTRATEGIA,<br>UNA IDEA.<br><em>ILIMITADOS CONTENIDOS.</em></h2>
+  <p class="stack-sub reveal delay-1" data-i18n="cap_sub">Cada formato nace del mismo concepto estratégico y se conecta con los demás. No son piezas sueltas, es un ecosistema donde todo se retroalimenta.</p>
 
   <div class="cap-grid">
     <div class="cap-card reveal delay-2">
       <div class="cap-num">01 ·</div>
       <h4>BRAND SYSTEMS</h4>
-      <p>Sistemas de diseño vivos que escalan. Multi-marca, multi-mercado. La identidad crece con el negocio.</p>
+      <p data-i18n="cap_1">Sistemas de diseño vivos que escalan. Multi-marca, multi-mercado. La identidad crece con el negocio.</p>
     </div>
     <div class="cap-card reveal delay-2">
       <div class="cap-num">02 ·</div>
-      <h4>CAMPAÑAS CREATIVAS 360</h4>
-      <p>Spots, branded content, narrativa multi-shot. Video cinematográfico con calidad de producción premium a velocidad IA.</p>
+      <h4 data-i18n="cap_2_title">CAMPAÑAS CREATIVAS 360</h4>
+      <p data-i18n="cap_2">Spots, branded content, narrativa multi-shot. Video cinematográfico con calidad de producción premium a velocidad IA.</p>
     </div>
     <div class="cap-card reveal delay-3">
       <div class="cap-num">03 ·</div>
-      <h4>IMAGEN + KEY VISUALS</h4>
-      <p>Identidad visual, campañas gráficas, social assets, packaging. Consistencia de marca en cada pieza.</p>
+      <h4 data-i18n="cap_3_title">IMAGEN + KEY VISUALS</h4>
+      <p data-i18n="cap_3">Identidad visual, campañas gráficas, social assets, packaging. Consistencia de marca en cada pieza.</p>
     </div>
     <div class="cap-connect reveal delay-3">
       <div class="cap-connect-line"></div>
-      <span>TODO CONECTADO · UN SISTEMA · UNA MARCA</span>
+      <span data-i18n="cap_connect">TODO CONECTADO · UN SISTEMA · UNA MARCA</span>
       <div class="cap-connect-line"></div>
     </div>
     <div class="cap-card reveal delay-3">
       <div class="cap-num">04 ·</div>
-      <h4>CONTENIDOS ILIMITADOS</h4>
-      <p>UGC, talking heads, avatares, adaptaciones multi-formato. Producción a escala sin perder calidad ni voz de marca.</p>
+      <h4 data-i18n="cap_4_title">CONTENIDOS ILIMITADOS</h4>
+      <p data-i18n="cap_4">UGC, talking heads, avatares, adaptaciones multi-formato. Producción a escala sin perder calidad ni voz de marca.</p>
     </div>
     <div class="cap-card reveal delay-4">
       <div class="cap-num">05 ·</div>
-      <h4>PERFORMANCE CREATIVO</h4>
-      <p>Variantes para A/B testing. Iteración basada en data. El contenido que mejor performa se multiplica.</p>
+      <h4 data-i18n="cap_5_title">PERFORMANCE CREATIVO</h4>
+      <p data-i18n="cap_5">Variantes para A/B testing. Iteración basada en data. El contenido que mejor performa se multiplica.</p>
     </div>
     <div class="cap-card reveal delay-4">
       <div class="cap-num">06 ·</div>
       <h4>SOCIAL FIRST</h4>
-      <p>Contenido pensado para cada plataforma. TikTok, Reels, YouTube, Stories. No es resize, es reinvención.</p>
+      <p data-i18n="cap_6">Contenido pensado para cada plataforma. TikTok, Reels, YouTube, Stories. No es resize, es reinvención.</p>
     </div>
   </div>
 </section>
@@ -3122,43 +3163,43 @@
 <!-- ============================== S16 / Casos ============================== -->
 <section class="casos dense">
   <div class="slide-tag">12 · Casos</div>
-  <div class="eyebrow reveal">Portfolio activo</div>
+  <div class="eyebrow reveal" data-i18n="casos_eyebrow">Portfolio activo</div>
 
-  <h2 class="display casos-title reveal delay-1">CASOS<br><em>EN PRODUCCIÓN</em></h2>
-  <p class="casos-sub reveal delay-2">No hablamos de lo que podemos hacer. Mostramos lo que ya estamos haciendo.</p>
+  <h2 class="display casos-title reveal delay-1" data-i18n="casos_title">CASOS<br><em>EN PRODUCCIÓN</em></h2>
+  <p class="casos-sub reveal delay-2" data-i18n="casos_sub">No hablamos de lo que podemos hacer. Mostramos lo que ya estamos haciendo.</p>
 
   <div class="caso-grid">
     <div class="caso-card reveal delay-3">
       <div class="caso-tag">Seguros · Argentina</div>
       <h3>SANCOR SEGUROS</h3>
-      <div class="caso-desc">Sistema de contenido IA-first para el seguro automotor argentino. Producción always-on de video, UGC sintético, avatares y brand content en 5 plataformas simultáneas.</div>
+      <div class="caso-desc" data-i18n="caso_sancor">Sistema de contenido IA-first para el seguro automotor argentino. Producción always-on de video, UGC sintético, avatares y brand content en 5 plataformas simultáneas.</div>
       <div class="caso-metrics">
         <div class="caso-metric">
           <div class="v"><span class="counter" data-target="240" data-decimals="0" data-suffix="+">0</span></div>
-          <div class="l">Piezas/año</div>
+          <div class="l" data-i18n="cm_piezas">Piezas/año</div>
         </div>
         <div class="caso-metric">
           <div class="v"><span class="counter" data-target="5" data-decimals="0">0</span></div>
-          <div class="l">Plataformas</div>
+          <div class="l" data-i18n="cm_plat">Plataformas</div>
         </div>
         <div class="caso-metric">
           <div class="v"><span class="counter" data-target="10" data-decimals="0" data-suffix="x">0</span></div>
-          <div class="l">Más output</div>
+          <div class="l" data-i18n="cm_output">Más output</div>
         </div>
       </div>
     </div>
     <div class="caso-card reveal delay-4">
       <div class="caso-tag">Automotriz · Paraguay</div>
       <h3>GRUPO GARDEN</h3>
-      <div class="caso-desc">Sistema multi-marca para el dealer automotriz más grande de Paraguay. 12+ marcas (Toyota, Hyundai, Kia, Suzuki, Fuso, etc.) con contenido a escala manteniendo identidad individual.</div>
+      <div class="caso-desc" data-i18n="caso_garden">Sistema multi-marca para el dealer automotriz más grande de Paraguay. 12+ marcas (Toyota, Hyundai, Kia, Suzuki, Fuso, etc.) con contenido a escala manteniendo identidad individual.</div>
       <div class="caso-metrics">
         <div class="caso-metric">
           <div class="v"><span class="counter" data-target="12" data-decimals="0" data-suffix="+">0</span></div>
-          <div class="l">Marcas</div>
+          <div class="l" data-i18n="cm_marcas">Marcas</div>
         </div>
         <div class="caso-metric">
           <div class="v"><span class="counter" data-target="500" data-decimals="0" data-suffix="+">0</span></div>
-          <div class="l">Piezas/año</div>
+          <div class="l" data-i18n="cm_piezas2">Piezas/año</div>
         </div>
         <div class="caso-metric">
           <div class="v">MULTI</div>
@@ -3169,37 +3210,37 @@
     <div class="caso-card reveal delay-5">
       <div class="caso-tag">Sport · Global</div>
       <h3>SHAQ</h3>
-      <div class="caso-desc">Contenido de marca para la línea de Shaquille O'Neal. Video, social content y brand assets generados con IA manteniendo la personalidad del ícono.</div>
+      <div class="caso-desc" data-i18n="caso_shaq">Contenido de marca para la línea de Shaquille O'Neal. Video, social content y brand assets generados con IA manteniendo la personalidad del ícono.</div>
     </div>
     <div class="caso-card reveal delay-5">
       <div class="caso-tag">Sport · Global</div>
       <h3>STARTER</h3>
-      <div class="caso-desc">Reactivación de marca icónica con sistema de contenido AI-first. Campañas, key visuals y social content para el relanzamiento en nuevos mercados.</div>
+      <div class="caso-desc" data-i18n="caso_starter">Reactivación de marca icónica con sistema de contenido AI-first. Campañas, key visuals y social content para el relanzamiento en nuevos mercados.</div>
     </div>
     <div class="caso-card reveal delay-5">
       <div class="caso-tag">Wellness · Latam</div>
       <h3>SENSUS</h3>
-      <div class="caso-desc">Estrategia creativa y producción de contenido para la marca de bienestar. Sistema visual, video y social content con producción IA a escala.</div>
+      <div class="caso-desc" data-i18n="caso_sensus">Estrategia creativa y producción de contenido para la marca de bienestar. Sistema visual, video y social content con producción IA a escala.</div>
     </div>
     <div class="caso-card reveal delay-5">
       <div class="caso-tag">Spirits · Chile</div>
       <h3>PISCO DIABLO</h3>
-      <div class="caso-desc">Sistema de contenido disruptivo para la marca de pisco. Brand content, video cinematográfico y campañas sociales con producción AI-augmented.</div>
+      <div class="caso-desc" data-i18n="caso_diablo">Sistema de contenido disruptivo para la marca de pisco. Brand content, video cinematográfico y campañas sociales con producción AI-augmented.</div>
     </div>
     <div class="caso-card reveal delay-5">
       <div class="caso-tag">Gastronomía · Argentina</div>
       <h3>MORELLI</h3>
-      <div class="caso-desc">Contenido premium para la marca gastronómica. Fotografía de producto, video y social content con calidad de estudio generado con IA.</div>
+      <div class="caso-desc" data-i18n="caso_morelli">Contenido premium para la marca gastronómica. Fotografía de producto, video y social content con calidad de estudio generado con IA.</div>
     </div>
     <div class="caso-card reveal delay-5">
       <div class="caso-tag">Lifestyle · Argentina</div>
       <h3>HYDRATE</h3>
-      <div class="caso-desc">Sistema de contenido para la marca de botellas térmicas. Campañas estacionales, lifestyle content y social media con producción IA a escala.</div>
+      <div class="caso-desc" data-i18n="caso_hydrate">Sistema de contenido para la marca de botellas térmicas. Campañas estacionales, lifestyle content y social media con producción IA a escala.</div>
     </div>
     <div class="caso-card reveal delay-5">
       <div class="caso-tag">Sport · Global</div>
       <h3>ASOCIACIÓN MUNDIAL DE SKATE</h3>
-      <div class="caso-desc">Sistema de contenido para la federación internacional. Video de competencias, brand content y social media con producción IA para alcance global.</div>
+      <div class="caso-desc" data-i18n="caso_skate">Sistema de contenido para la federación internacional. Video de competencias, brand content y social media con producción IA para alcance global.</div>
     </div>
   </div>
 </section>
@@ -3208,8 +3249,8 @@
 <section class="galeria dense">
   <div class="slide-tag">13 · Galería</div>
   <div class="galeria-header">
-    <h2 class="display galeria-title reveal">WTF AI ENGINE<br><em>EN ACCIÓN</em></h2>
-    <p class="galeria-sub reveal delay-1">Esto es lo que produce nuestro sistema operativo IA. Sin stock. Sin excusas. Contenido real generado para marcas reales.</p>
+    <h2 class="display galeria-title reveal" data-i18n="gal_title">WTF AI ENGINE<br><em>EN ACCIÓN</em></h2>
+    <p class="galeria-sub reveal delay-1" data-i18n="gal_sub">Esto es lo que produce nuestro sistema operativo IA. Sin stock. Sin excusas. Contenido real generado para marcas reales.</p>
   </div>
 
   <div class="masonry">
@@ -3309,41 +3350,41 @@
 <!-- ============================== S18 / Equipo ============================== -->
 <section class="celula dense">
   <div class="slide-tag">14 · Equipo</div>
-  <div class="eyebrow reveal">Modelo célula</div>
+  <div class="eyebrow reveal" data-i18n="equipo_eyebrow">Modelo célula</div>
 
-  <h2 class="display celula-title reveal delay-1">EQUIPO<br><em>DEDICADO</em></h2>
-  <p class="celula-sub reveal delay-2">Cada cliente tiene una célula dedicada. Equipo pequeño, ágil, con ownership total. No compartimos recursos entre cuentas.</p>
+  <h2 class="display celula-title reveal delay-1" data-i18n="equipo_title">EQUIPO<br><em>DEDICADO</em></h2>
+  <p class="celula-sub reveal delay-2" data-i18n="equipo_sub">Cada cliente tiene una célula dedicada. Equipo pequeño, ágil, con ownership total. No compartimos recursos entre cuentas.</p>
 
   <div class="roles">
     <div class="role reveal delay-3">
-      <div class="ico">01 · LIDERAZGO</div>
+      <div class="ico" data-i18n="role_1_ico">01 · LIDERAZGO</div>
       <h4>DIRECTOR</h4>
-      <p>Responsable de la relacion. Guardiana de la marca. Primer filtro de cada pieza. Ownership total del resultado.</p>
+      <p data-i18n="role_1">Responsable de la relacion. Guardiana de la marca. Primer filtro de cada pieza. Ownership total del resultado.</p>
     </div>
     <div class="role reveal delay-4">
-      <div class="ico">02 · ESTRATEGIA</div>
+      <div class="ico" data-i18n="role_2_ico">02 · ESTRATEGIA</div>
       <h4>STRATEGIST</h4>
-      <p>Research, insight, concepto. Define el "que" y el "por que" de cada pieza. IA-augmented para velocidad.</p>
+      <p data-i18n="role_2">Research, insight, concepto. Define el "que" y el "por que" de cada pieza. IA-augmented para velocidad.</p>
     </div>
     <div class="role reveal delay-5">
       <div class="ico">03 · CREATIVE</div>
       <h4>CREATIVE DIRECTOR</h4>
-      <p>Visión creativa. Garantiza que cada pieza tenga craft, intención y coherencia de marca. El filtro humano final.</p>
+      <p data-i18n="role_3">Visión creativa. Garantiza que cada pieza tenga craft, intención y coherencia de marca. El filtro humano final.</p>
     </div>
     <div class="role reveal delay-3">
       <div class="ico">04 · AI PRODUCTION</div>
       <h4>AI PRODUCTION LEAD</h4>
-      <p>Domina el stack de herramientas IA. Seedance, Kling, Higgsfield, Flux. Produce a velocidad de maquina con ojo humano.</p>
+      <p data-i18n="role_4">Domina el stack de herramientas IA. Seedance, Kling, Higgsfield, Flux. Produce a velocidad de maquina con ojo humano.</p>
     </div>
     <div class="role reveal delay-4">
       <div class="ico">05 · MOTION</div>
       <h4>MOTION DESIGNER</h4>
-      <p>Post-producción, animación, compositing. Eleva el output de IA a calidad broadcast. Sonic branding.</p>
+      <p data-i18n="role_5">Post-producción, animación, compositing. Eleva el output de IA a calidad broadcast. Sonic branding.</p>
     </div>
     <div class="role reveal delay-5">
       <div class="ico">06 · PERFORMANCE</div>
       <h4>PERFORMANCE + COMMUNITY</h4>
-      <p>Pauta inteligente, A/B testing, analytics en tiempo real. Community management. El sistema que aprende.</p>
+      <p data-i18n="role_6">Pauta inteligente, A/B testing, analytics en tiempo real. Community management. El sistema que aprende.</p>
     </div>
   </div>
 </section>
@@ -3354,11 +3395,11 @@
 
   <h2 class="gracias-display reveal delay-1">GRAC<em>IA</em>S.</h2>
 
-  <p class="gracias-sub reveal delay-2">
+  <p class="gracias-sub reveal delay-2" data-i18n="gracias_sub">
     Battle tested creativity. AI first. Human always.
   </p>
 
-  <div class="gracias-sign reveal delay-3">
+  <div class="gracias-sign reveal delay-3" data-i18n="gracias_sign">
     WTF AGENCY · BUENOS AIRES<br>
     <a href="mailto:hello@wtf-agency.com">HELLO@WTF-AGENCY.COM</a><br>
     BATTLE TESTED CREATIVITY · SINCE 2010
@@ -3655,6 +3696,445 @@
 
   // Auto-fade hint after 6 seconds
   setTimeout(() => { if (hudHint) hudHint.classList.add('faded'); }, 6000);
+
+  /* =========================================================== */
+  /* === LANGUAGE SELECTOR — ES / EN / PT ====================== */
+  /* =========================================================== */
+  (function() {
+    const translations = {
+      es: {
+        // S1 — Cover
+        cover_left: 'WTF AGENCY<br>BATTLE TESTED CREATIVITY · SINCE 2010',
+        cover_right: 'CREDENTIALS 2026<br>BUENOS AIRES, MAYO',
+        cover_claim: 'La IA no reemplaza 15 años de experiencia internacional. Los multiplica.<br><em>AI FIRST. HUMAN ALWAYS.</em>',
+        cover_footer: 'PENSAR. HACER. MOVER. APRENDER. CRECER.',
+        // S2 — Brief Destroyers
+        bd_eyebrow: 'WTF Agency · Filosofía',
+        bd_title: 'LA CREATIVIDAD<br>ENTRENADA<br>PARA<br><em>REINTERPRETAR.</em>',
+        bd_lead: 'No hacemos lo que pide el brief. Hacemos lo que la marca necesita.',
+        bd_list: '<li>· Diagnóstico antes que ejecución</li><li>· Insight antes que copy</li><li>· Sistema antes que pieza</li><li>· Velocidad sin perder criterio</li>',
+        bd_sub: 'BATTLE TESTED CREATIVITY · SINCE 2010',
+        // S3 — Contexto
+        ctx_eyebrow: 'La nueva economia de la atención',
+        ctx_title: 'La atención<br><em>es finita.</em>',
+        ctx_sub: 'El mundo produce más contenido del que cualquier persona puede consumir. Y tu marca compite contra todo.',
+        ctx_stat1: 'Solo el 4% de los ads digitales se miran más de 2 segundos. El otro 96% ni existe.',
+        ctx_stat2: 'Plataformas sociales que cada persona usa por mes. La marca compite en todas a la vez.',
+        ctx_stat3: 'De Gen Z busca en TikTok e Instagram antes que en Google. El descubrimiento cambió para siempre.',
+        // S4 — El problema
+        prob_title: 'EL GAP<br><em>CREATIVO</em>',
+        prob_body: 'Las agencias tradicionales siguen vendiendo campañas. El mundo se movió a contenido always-on, multi-plataforma, creator-driven. El gap no es creativo. Es de <strong>producción a escala con estrategia y calidad de marca.</strong>',
+        // S5 — Manifiesto
+        mani_title: 'No hacemos lo correcto. Hacemos<br><strong>LO QUE FUNCIONA.</strong>',
+        mani_p1: 'El mundo cambió.<br>Hoy no gana el que tiene una gran campaña.<br><span class="highlight">Gana el que aprende más rápido.</span>',
+        mani_p2: 'Evolucionamos de agencia creativa tradicional a <span class="highlight">sistema creativo con IA como sistema operativo.</span>',
+        mani_p3: '<span class="highlight">Estrategia que ordena. Creatividad con oficio.<br>Producción con velocidad. IA para multiplicar.</span>',
+        mani_closer: 'Una idea no alcanza.<br><strong>Hace falta un sistema que no pare.</strong>',
+        // S6 — Clientes
+        clientes_title: 'NUESTROS<br><em>CLIENTES.</em>',
+        clientes_sub: 'Los que entendieron que no alcanza con una idea.',
+        // S7 — #WTFRULES
+        wtfrules_text: 'Es momento de plantearse todo <strong>nuevamente.</strong>',
+        // S8 — Quiénes somos
+        quienes_title: '<span>NO HACEMOS<br>CAMPAÑAS.<br><em>HACEMOS<br>SISTEMAS.</em></span>',
+        quienes_sub: 'Construimos nuestro propio sistema operativo de IA. 15 años de calle, estrategia y craft creativo corriendo dentro de una máquina que no para. No automatizamos la creatividad, la armamos para escalar.',
+        pillar_1_title: 'PENSAR',
+        pillar_1_desc: 'Estrategia, insight, concepto. IA para research, análisis de audiencia, territorial mapping.',
+        pillar_2_title: 'HACER',
+        pillar_2_desc: 'Producción AI-first: video cinematográfico, UGC sintético, avatares, brand systems, multi-formato.',
+        pillar_3_title: 'MOVER',
+        pillar_3_desc: 'Distribución inteligente: plataformas, pauta, CRM, always-on, performance, community.',
+        pillar_4_title: 'APRENDER',
+        pillar_4_desc: 'Optimización continua. KPIs en tiempo real. A/B testing. Iteración basada en data, no en ego.',
+        pillar_5_title: 'CRECER',
+        pillar_5_desc: 'Escala sin perder alma. Multi-marca, multi-mercado, multi-formato. El sistema crece con vos.',
+        // S9 — Modelo AI First
+        modelo_tag: 'NUESTRA FILOSOFÍA',
+        modelo_title: 'AI FIRST<br><em>NO ES UN TOOL.</em><br>ES EL SISTEMA OPERATIVO.',
+        modelo_eyebrow: '15 años multiplicados, no reemplazados.',
+        modelo_q: 'QUÉ SIGNIFICA <strong>AI FIRST?</strong>',
+        modelo_p1: '<strong>IA no es algo que agregamos.</strong> Es el cimiento. Cada brief, cada producción, cada distribución, cada optimización corre a través de IA.',
+        modelo_cierre: 'Creativos, planners, estrategas, diseñadores, todo el equipo WTF potenciado por nuestro sistema operativo IA. La máquina acelera. El talento decide.',
+        mp_step1: 'Estrategia',
+        mp_h1: 'IA analiza',
+        mp_p1: 'Research, tendencias, audiencia, competencia. En horas, no semanas.',
+        mp_step2: 'Producción',
+        mp_h2: 'IA produce',
+        mp_p2: 'Video, imagen, audio, avatares. 10x más rápido, sin sacrificar calidad.',
+        mp_step3: 'Optimización',
+        mp_h3: 'IA aprende',
+        mp_p3: 'Performance en tiempo real. Iteración automática. A/B a escala.',
+        // S10 — WTF AI Engine
+        engine_eyebrow: 'El sistema',
+        engine_sub: 'Un motor propio que une todos los flujos y conecta más de 20 herramientas de IA. De brief a escala en un flujo continuo. <strong>Cada paso potenciado por IA, validado por humanos.</strong>',
+        eng_stat1: 'TOOLS IA INTEGRADAS',
+        eng_stat2: 'MÁS RÁPIDO',
+        eng_stat3: 'A PRIMERA ENTREGA',
+        eng_stat4_num: 'SIN',
+        eng_stat4: 'LÍMITES CREATIVOS',
+        mod_ugc: 'Contenido orgánico ilimitado con actores virtuales y reales',
+        mod_video: 'Spots, reels y branded content con IA generativa',
+        mod_research: 'Mercado, tendencias y audiencias con deep analysis',
+        mod_ads: 'Campañas paid con variantes A/B automáticas',
+        mod_copy: 'Textos, guiones y copies en tono de marca calibrado',
+        mod_analytics: 'Dashboards en tiempo real y optimización continua',
+        mod_image: 'Key visuals, producto y adaptaciones multi-formato',
+        mod_approval: 'Revisión y aprobación online con historial completo',
+        mod_brand: 'Identidad, guidelines y sistemas de diseño escalables',
+        mod_auto: 'Workflows automatizados de producción y publicación',
+        mod_perf: 'Optimización de campañas basada en datos reales',
+        mod_multi: 'Adaptación multi-idioma y multi-mercado instantánea',
+        // S11 — Capacidades
+        cap_eyebrow: 'De la estrategia al contenido',
+        cap_title: 'UNA ESTRATEGIA,<br>UNA IDEA.<br><em>ILIMITADOS CONTENIDOS.</em>',
+        cap_sub: 'Cada formato nace del mismo concepto estratégico y se conecta con los demás. No son piezas sueltas, es un ecosistema donde todo se retroalimenta.',
+        cap_1: 'Sistemas de diseño vivos que escalan. Multi-marca, multi-mercado. La identidad crece con el negocio.',
+        cap_2_title: 'CAMPAÑAS CREATIVAS 360',
+        cap_2: 'Spots, branded content, narrativa multi-shot. Video cinematográfico con calidad de producción premium a velocidad IA.',
+        cap_3_title: 'IMAGEN + KEY VISUALS',
+        cap_3: 'Identidad visual, campañas gráficas, social assets, packaging. Consistencia de marca en cada pieza.',
+        cap_connect: 'TODO CONECTADO · UN SISTEMA · UNA MARCA',
+        cap_4_title: 'CONTENIDOS ILIMITADOS',
+        cap_4: 'UGC, talking heads, avatares, adaptaciones multi-formato. Producción a escala sin perder calidad ni voz de marca.',
+        cap_5_title: 'PERFORMANCE CREATIVO',
+        cap_5: 'Variantes para A/B testing. Iteración basada en data. El contenido que mejor performa se multiplica.',
+        cap_6: 'Contenido pensado para cada plataforma. TikTok, Reels, YouTube, Stories. No es resize, es reinvención.',
+        // S12 — Casos
+        casos_eyebrow: 'Portfolio activo',
+        casos_title: 'CASOS<br><em>EN PRODUCCIÓN</em>',
+        casos_sub: 'No hablamos de lo que podemos hacer. Mostramos lo que ya estamos haciendo.',
+        caso_sancor: 'Sistema de contenido IA-first para el seguro automotor argentino. Producción always-on de video, UGC sintético, avatares y brand content en 5 plataformas simultáneas.',
+        caso_garden: 'Sistema multi-marca para el dealer automotriz más grande de Paraguay. 12+ marcas (Toyota, Hyundai, Kia, Suzuki, Fuso, etc.) con contenido a escala manteniendo identidad individual.',
+        caso_shaq: 'Contenido de marca para la línea de Shaquille O\'Neal. Video, social content y brand assets generados con IA manteniendo la personalidad del ícono.',
+        caso_starter: 'Reactivación de marca icónica con sistema de contenido AI-first. Campañas, key visuals y social content para el relanzamiento en nuevos mercados.',
+        caso_sensus: 'Estrategia creativa y producción de contenido para la marca de bienestar. Sistema visual, video y social content con producción IA a escala.',
+        caso_diablo: 'Sistema de contenido disruptivo para la marca de pisco. Brand content, video cinematográfico y campañas sociales con producción AI-augmented.',
+        caso_morelli: 'Contenido premium para la marca gastronómica. Fotografía de producto, video y social content con calidad de estudio generado con IA.',
+        caso_hydrate: 'Sistema de contenido para la marca de botellas térmicas. Campañas estacionales, lifestyle content y social media con producción IA a escala.',
+        caso_skate: 'Sistema de contenido para la federación internacional. Video de competencias, brand content y social media con producción IA para alcance global.',
+        cm_piezas: 'Piezas/año',
+        cm_plat: 'Plataformas',
+        cm_output: 'Más output',
+        cm_marcas: 'Marcas',
+        cm_piezas2: 'Piezas/año',
+        // S13 — Galería
+        gal_title: 'WTF AI ENGINE<br><em>EN ACCIÓN</em>',
+        gal_sub: 'Esto es lo que produce nuestro sistema operativo IA. Sin stock. Sin excusas. Contenido real generado para marcas reales.',
+        // S14 — Equipo
+        equipo_eyebrow: 'Modelo célula',
+        equipo_title: 'EQUIPO<br><em>DEDICADO</em>',
+        equipo_sub: 'Cada cliente tiene una célula dedicada. Equipo pequeño, ágil, con ownership total. No compartimos recursos entre cuentas.',
+        role_1_ico: '01 · LIDERAZGO',
+        role_1: 'Responsable de la relacion. Guardiana de la marca. Primer filtro de cada pieza. Ownership total del resultado.',
+        role_2_ico: '02 · ESTRATEGIA',
+        role_2: 'Research, insight, concepto. Define el "que" y el "por que" de cada pieza. IA-augmented para velocidad.',
+        role_3: 'Visión creativa. Garantiza que cada pieza tenga craft, intención y coherencia de marca. El filtro humano final.',
+        role_4: 'Domina el stack de herramientas IA. Seedance, Kling, Higgsfield, Flux. Produce a velocidad de maquina con ojo humano.',
+        role_5: 'Post-producción, animación, compositing. Eleva el output de IA a calidad broadcast. Sonic branding.',
+        role_6: 'Pauta inteligente, A/B testing, analytics en tiempo real. Community management. El sistema que aprende.',
+        // S15 — Gracias
+        gracias_sub: 'Battle tested creativity. AI first. Human always.',
+        gracias_sign: 'WTF AGENCY · BUENOS AIRES<br><a href="mailto:hello@wtf-agency.com">HELLO@WTF-AGENCY.COM</a><br>BATTLE TESTED CREATIVITY · SINCE 2010',
+      },
+
+      en: {
+        // S1 — Cover
+        cover_left: 'WTF AGENCY<br>BATTLE TESTED CREATIVITY · SINCE 2010',
+        cover_right: 'CREDENTIALS 2026<br>BUENOS AIRES, MAY',
+        cover_claim: 'AI doesn\'t replace 15 years of international experience. It multiplies them.<br><em>AI FIRST. HUMAN ALWAYS.</em>',
+        cover_footer: 'THINK. CREATE. DISTRIBUTE. LEARN. GROW.',
+        // S2 — Brief Destroyers
+        bd_eyebrow: 'WTF Agency · Philosophy',
+        bd_title: 'CREATIVITY<br>TRAINED<br>TO<br><em>REINTERPRET.</em>',
+        bd_lead: 'We don\'t do what the brief asks. We do what the brand needs.',
+        bd_list: '<li>· Diagnosis before execution</li><li>· Insight before copy</li><li>· System before piece</li><li>· Speed without losing judgment</li>',
+        bd_sub: 'BATTLE TESTED CREATIVITY · SINCE 2010',
+        // S3 — Context
+        ctx_eyebrow: 'The new attention economy',
+        ctx_title: 'Attention<br><em>is finite.</em>',
+        ctx_sub: 'The world produces more content than anyone can consume. And your brand competes against everything.',
+        ctx_stat1: 'Only 4% of digital ads are viewed for more than 2 seconds. The other 96% might as well not exist.',
+        ctx_stat2: 'Social platforms each person uses per month. Your brand competes on all of them at once.',
+        ctx_stat3: 'Of Gen Z searches on TikTok and Instagram before Google. Discovery has changed forever.',
+        // S4 — The Problem
+        prob_title: 'THE CREATIVE<br><em>GAP</em>',
+        prob_body: 'Traditional agencies keep selling campaigns. The world has moved to always-on, multi-platform, creator-driven content. The gap isn\'t creative. It\'s about <strong>production at scale with strategy and brand quality.</strong>',
+        // S5 — Manifesto
+        mani_title: 'We don\'t do what\'s right. We do<br><strong>WHAT WORKS.</strong>',
+        mani_p1: 'The world changed.<br>Today the winner isn\'t the one with a great campaign.<br><span class="highlight">It\'s the one who learns fastest.</span>',
+        mani_p2: 'We evolved from a traditional creative agency to a <span class="highlight">creative system with AI as the operating system.</span>',
+        mani_p3: '<span class="highlight">Strategy that organizes. Creativity with craft.<br>Production with speed. AI to multiply.</span>',
+        mani_closer: 'One idea isn\'t enough.<br><strong>You need a system that never stops.</strong>',
+        // S6 — Clients
+        clientes_title: 'OUR<br><em>CLIENTS.</em>',
+        clientes_sub: 'The ones who understood that one idea isn\'t enough.',
+        // S7 — #WTFRULES
+        wtfrules_text: 'It\'s time to rethink <strong>everything.</strong>',
+        // S8 — Who We Are
+        quienes_title: '<span>WE DON\'T MAKE<br>CAMPAIGNS.<br><em>WE BUILD<br>SYSTEMS.</em></span>',
+        quienes_sub: 'We built our own AI operating system. 15 years of street smarts, strategy, and creative craft running inside a machine that never stops. We don\'t automate creativity — we build it to scale.',
+        pillar_1_title: 'THINK',
+        pillar_1_desc: 'Strategy, insight, concept. AI for research, audience analysis, territorial mapping.',
+        pillar_2_title: 'CREATE',
+        pillar_2_desc: 'AI-first production: cinematic video, synthetic UGC, avatars, brand systems, multi-format.',
+        pillar_3_title: 'DISTRIBUTE',
+        pillar_3_desc: 'Smart distribution: platforms, paid media, CRM, always-on, performance, community.',
+        pillar_4_title: 'LEARN',
+        pillar_4_desc: 'Continuous optimization. Real-time KPIs. A/B testing. Data-driven iteration, not ego-driven.',
+        pillar_5_title: 'GROW',
+        pillar_5_desc: 'Scale without losing soul. Multi-brand, multi-market, multi-format. The system grows with you.',
+        // S9 — AI First Model
+        modelo_tag: 'OUR PHILOSOPHY',
+        modelo_title: 'AI FIRST<br><em>IS NOT A TOOL.</em><br>IT\'S THE OPERATING SYSTEM.',
+        modelo_eyebrow: '15 years multiplied, not replaced.',
+        modelo_q: 'WHAT DOES <strong>AI FIRST</strong> MEAN?',
+        modelo_p1: '<strong>AI is not something we added.</strong> It\'s the foundation. Every brief, every production, every distribution, every optimization runs through AI.',
+        modelo_cierre: 'Creatives, planners, strategists, designers — the entire WTF team powered by our AI operating system. The machine accelerates. Talent decides.',
+        mp_step1: 'Strategy',
+        mp_h1: 'AI analyzes',
+        mp_p1: 'Research, trends, audience, competition. In hours, not weeks.',
+        mp_step2: 'Production',
+        mp_h2: 'AI produces',
+        mp_p2: 'Video, image, audio, avatars. 10x faster, without sacrificing quality.',
+        mp_step3: 'Optimization',
+        mp_h3: 'AI learns',
+        mp_p3: 'Real-time performance. Automatic iteration. A/B at scale.',
+        // S10 — WTF AI Engine
+        engine_eyebrow: 'The system',
+        engine_sub: 'A proprietary engine that unifies all workflows and connects 20+ AI tools. From brief to scale in a continuous flow. <strong>Every step powered by AI, validated by humans.</strong>',
+        eng_stat1: 'AI TOOLS INTEGRATED',
+        eng_stat2: 'FASTER',
+        eng_stat3: 'TO FIRST DELIVERY',
+        eng_stat4_num: 'NO',
+        eng_stat4: 'CREATIVE LIMITS',
+        mod_ugc: 'Unlimited organic content with virtual and real actors',
+        mod_video: 'Spots, reels and branded content with generative AI',
+        mod_research: 'Market, trends and audiences with deep analysis',
+        mod_ads: 'Paid campaigns with automatic A/B variants',
+        mod_copy: 'Copy, scripts and texts in calibrated brand voice',
+        mod_analytics: 'Real-time dashboards and continuous optimization',
+        mod_image: 'Key visuals, product shots and multi-format adaptations',
+        mod_approval: 'Online review and approval with full history',
+        mod_brand: 'Identity, guidelines and scalable design systems',
+        mod_auto: 'Automated production and publishing workflows',
+        mod_perf: 'Campaign optimization based on real data',
+        mod_multi: 'Instant multi-language and multi-market adaptation',
+        // S11 — Capabilities
+        cap_eyebrow: 'From strategy to content',
+        cap_title: 'ONE STRATEGY,<br>ONE IDEA.<br><em>UNLIMITED CONTENT.</em>',
+        cap_sub: 'Every format is born from the same strategic concept and connects with the rest. Not loose pieces — an ecosystem where everything feeds back.',
+        cap_1: 'Living design systems that scale. Multi-brand, multi-market. Identity grows with the business.',
+        cap_2_title: 'CREATIVE CAMPAIGNS 360',
+        cap_2: 'Spots, branded content, multi-shot narrative. Cinematic video with premium production quality at AI speed.',
+        cap_3_title: 'IMAGE + KEY VISUALS',
+        cap_3: 'Visual identity, graphic campaigns, social assets, packaging. Brand consistency in every piece.',
+        cap_connect: 'ALL CONNECTED · ONE SYSTEM · ONE BRAND',
+        cap_4_title: 'UNLIMITED CONTENT',
+        cap_4: 'UGC, talking heads, avatars, multi-format adaptations. Production at scale without losing quality or brand voice.',
+        cap_5_title: 'CREATIVE PERFORMANCE',
+        cap_5: 'Variants for A/B testing. Data-driven iteration. The best-performing content gets multiplied.',
+        cap_6: 'Content designed for each platform. TikTok, Reels, YouTube, Stories. Not resizing — reinvention.',
+        // S12 — Cases
+        casos_eyebrow: 'Active portfolio',
+        casos_title: 'CASES<br><em>IN PRODUCTION</em>',
+        casos_sub: 'We don\'t talk about what we can do. We show what we\'re already doing.',
+        caso_sancor: 'AI-first content system for Argentina\'s automotive insurance leader. Always-on production of video, synthetic UGC, avatars and brand content across 5 simultaneous platforms.',
+        caso_garden: 'Multi-brand system for Paraguay\'s largest automotive dealer. 12+ brands (Toyota, Hyundai, Kia, Suzuki, Fuso, etc.) with content at scale while maintaining individual identity.',
+        caso_shaq: 'Brand content for Shaquille O\'Neal\'s product line. Video, social content and brand assets generated with AI while preserving the icon\'s personality.',
+        caso_starter: 'Iconic brand reactivation with AI-first content system. Campaigns, key visuals and social content for the relaunch in new markets.',
+        caso_sensus: 'Creative strategy and content production for the wellness brand. Visual system, video and social content with AI production at scale.',
+        caso_diablo: 'Disruptive content system for the pisco brand. Brand content, cinematic video and social campaigns with AI-augmented production.',
+        caso_morelli: 'Premium content for the gastronomy brand. Product photography, video and social content with studio-quality AI generation.',
+        caso_hydrate: 'Content system for the thermal bottle brand. Seasonal campaigns, lifestyle content and social media with AI production at scale.',
+        caso_skate: 'Content system for the international federation. Competition video, brand content and social media with AI production for global reach.',
+        cm_piezas: 'Pieces/year',
+        cm_plat: 'Platforms',
+        cm_output: 'More output',
+        cm_marcas: 'Brands',
+        cm_piezas2: 'Pieces/year',
+        // S13 — Gallery
+        gal_title: 'WTF AI ENGINE<br><em>IN ACTION</em>',
+        gal_sub: 'This is what our AI operating system produces. No stock. No excuses. Real content generated for real brands.',
+        // S14 — Team
+        equipo_eyebrow: 'Cell model',
+        equipo_title: 'DEDICATED<br><em>TEAM</em>',
+        equipo_sub: 'Each client has a dedicated cell. Small, agile team with total ownership. We don\'t share resources between accounts.',
+        role_1_ico: '01 · LEADERSHIP',
+        role_1: 'Responsible for the relationship. Brand guardian. First filter on every piece. Total ownership of the result.',
+        role_2_ico: '02 · STRATEGY',
+        role_2: 'Research, insight, concept. Defines the "what" and the "why" of each piece. AI-augmented for speed.',
+        role_3: 'Creative vision. Ensures every piece has craft, intention and brand coherence. The final human filter.',
+        role_4: 'Masters the AI tool stack. Seedance, Kling, Higgsfield, Flux. Produces at machine speed with human judgment.',
+        role_5: 'Post-production, animation, compositing. Elevates AI output to broadcast quality. Sonic branding.',
+        role_6: 'Smart media buying, A/B testing, real-time analytics. Community management. The system that learns.',
+        // S15 — Thanks
+        gracias_sub: 'Battle tested creativity. AI first. Human always.',
+        gracias_sign: 'WTF AGENCY · BUENOS AIRES<br><a href="mailto:hello@wtf-agency.com">HELLO@WTF-AGENCY.COM</a><br>BATTLE TESTED CREATIVITY · SINCE 2010',
+      },
+
+      pt: {
+        // S1 — Cover
+        cover_left: 'WTF AGENCY<br>CRIATIVIDADE TESTADA EM BATALHA · DESDE 2010',
+        cover_right: 'CREDENTIALS 2026<br>BUENOS AIRES, MAIO',
+        cover_claim: 'A IA não substitui 15 anos de experiência internacional. Ela os multiplica.<br><em>AI FIRST. HUMAN ALWAYS.</em>',
+        cover_footer: 'PENSAR. CRIAR. DISTRIBUIR. APRENDER. CRESCER.',
+        // S2 — Brief Destroyers
+        bd_eyebrow: 'WTF Agency · Filosofia',
+        bd_title: 'A CRIATIVIDADE<br>TREINADA<br>PARA<br><em>REINTERPRETAR.</em>',
+        bd_lead: 'Não fazemos o que o brief pede. Fazemos o que a marca precisa.',
+        bd_list: '<li>· Diagnóstico antes da execução</li><li>· Insight antes do copy</li><li>· Sistema antes da peça</li><li>· Velocidade sem perder critério</li>',
+        bd_sub: 'CRIATIVIDADE TESTADA EM BATALHA · DESDE 2010',
+        // S3 — Contexto
+        ctx_eyebrow: 'A nova economia da atenção',
+        ctx_title: 'A atenção<br><em>é finita.</em>',
+        ctx_sub: 'O mundo produz mais conteúdo do que qualquer pessoa consegue consumir. E sua marca compete contra tudo.',
+        ctx_stat1: 'Apenas 4% dos anúncios digitais são vistos por mais de 2 segundos. Os outros 96% simplesmente não existem.',
+        ctx_stat2: 'Plataformas sociais que cada pessoa usa por mês. Sua marca compete em todas ao mesmo tempo.',
+        ctx_stat3: 'Da Gen Z busca no TikTok e Instagram antes do Google. A descoberta mudou para sempre.',
+        // S4 — O problema
+        prob_title: 'O GAP<br><em>CRIATIVO</em>',
+        prob_body: 'As agências tradicionais continuam vendendo campanhas. O mundo migrou para conteúdo always-on, multi-plataforma, creator-driven. O gap não é criativo. É de <strong>produção em escala com estratégia e qualidade de marca.</strong>',
+        // S5 — Manifesto
+        mani_title: 'Não fazemos o certo. Fazemos<br><strong>O QUE FUNCIONA.</strong>',
+        mani_p1: 'O mundo mudou.<br>Hoje não ganha quem tem uma grande campanha.<br><span class="highlight">Ganha quem aprende mais rápido.</span>',
+        mani_p2: 'Evoluímos de agência criativa tradicional para <span class="highlight">sistema criativo com IA como sistema operacional.</span>',
+        mani_p3: '<span class="highlight">Estratégia que organiza. Criatividade com ofício.<br>Produção com velocidade. IA para multiplicar.</span>',
+        mani_closer: 'Uma ideia não basta.<br><strong>É preciso um sistema que não pare.</strong>',
+        // S6 — Clientes
+        clientes_title: 'NOSSOS<br><em>CLIENTES.</em>',
+        clientes_sub: 'Os que entenderam que uma ideia não basta.',
+        // S7 — #WTFRULES
+        wtfrules_text: 'É hora de repensar <strong>tudo.</strong>',
+        // S8 — Quem somos
+        quienes_title: '<span>NÃO FAZEMOS<br>CAMPANHAS.<br><em>CONSTRUÍMOS<br>SISTEMAS.</em></span>',
+        quienes_sub: 'Construímos nosso próprio sistema operacional de IA. 15 anos de rua, estratégia e craft criativo rodando dentro de uma máquina que não para. Não automatizamos a criatividade, a preparamos para escalar.',
+        pillar_1_title: 'PENSAR',
+        pillar_1_desc: 'Estratégia, insight, conceito. IA para pesquisa, análise de audiência, mapeamento territorial.',
+        pillar_2_title: 'CRIAR',
+        pillar_2_desc: 'Produção AI-first: vídeo cinematográfico, UGC sintético, avatares, brand systems, multi-formato.',
+        pillar_3_title: 'DISTRIBUIR',
+        pillar_3_desc: 'Distribuição inteligente: plataformas, mídia paga, CRM, always-on, performance, comunidade.',
+        pillar_4_title: 'APRENDER',
+        pillar_4_desc: 'Otimização contínua. KPIs em tempo real. A/B testing. Iteração baseada em dados, não em ego.',
+        pillar_5_title: 'CRESCER',
+        pillar_5_desc: 'Escalar sem perder alma. Multi-marca, multi-mercado, multi-formato. O sistema cresce com você.',
+        // S9 — Modelo AI First
+        modelo_tag: 'NOSSA FILOSOFIA',
+        modelo_title: 'AI FIRST<br><em>NÃO É UMA FERRAMENTA.</em><br>É O SISTEMA OPERACIONAL.',
+        modelo_eyebrow: '15 anos multiplicados, não substituídos.',
+        modelo_q: 'O QUE SIGNIFICA <strong>AI FIRST?</strong>',
+        modelo_p1: '<strong>IA não é algo que adicionamos.</strong> É a base. Cada brief, cada produção, cada distribuição, cada otimização passa pela IA.',
+        modelo_cierre: 'Criativos, planners, estrategistas, designers — toda a equipe WTF potencializada pelo nosso sistema operacional IA. A máquina acelera. O talento decide.',
+        mp_step1: 'Estratégia',
+        mp_h1: 'IA analisa',
+        mp_p1: 'Pesquisa, tendências, audiência, concorrência. Em horas, não semanas.',
+        mp_step2: 'Produção',
+        mp_h2: 'IA produz',
+        mp_p2: 'Vídeo, imagem, áudio, avatares. 10x mais rápido, sem sacrificar qualidade.',
+        mp_step3: 'Otimização',
+        mp_h3: 'IA aprende',
+        mp_p3: 'Performance em tempo real. Iteração automática. A/B em escala.',
+        // S10 — WTF AI Engine
+        engine_eyebrow: 'O sistema',
+        engine_sub: 'Um motor próprio que une todos os fluxos e conecta mais de 20 ferramentas de IA. Do brief à escala em um fluxo contínuo. <strong>Cada etapa potencializada por IA, validada por humanos.</strong>',
+        eng_stat1: 'FERRAMENTAS IA INTEGRADAS',
+        eng_stat2: 'MAIS RÁPIDO',
+        eng_stat3: 'ATÉ PRIMEIRA ENTREGA',
+        eng_stat4_num: 'SEM',
+        eng_stat4: 'LIMITES CRIATIVOS',
+        mod_ugc: 'Conteúdo orgânico ilimitado com atores virtuais e reais',
+        mod_video: 'Spots, reels e branded content com IA generativa',
+        mod_research: 'Mercado, tendências e audiências com análise profunda',
+        mod_ads: 'Campanhas pagas com variantes A/B automáticas',
+        mod_copy: 'Textos, roteiros e copies em tom de marca calibrado',
+        mod_analytics: 'Dashboards em tempo real e otimização contínua',
+        mod_image: 'Key visuals, produto e adaptações multi-formato',
+        mod_approval: 'Revisão e aprovação online com histórico completo',
+        mod_brand: 'Identidade, guidelines e sistemas de design escaláveis',
+        mod_auto: 'Workflows automatizados de produção e publicação',
+        mod_perf: 'Otimização de campanhas baseada em dados reais',
+        mod_multi: 'Adaptação multi-idioma e multi-mercado instantânea',
+        // S11 — Capacidades
+        cap_eyebrow: 'Da estratégia ao conteúdo',
+        cap_title: 'UMA ESTRATÉGIA,<br>UMA IDEIA.<br><em>CONTEÚDOS ILIMITADOS.</em>',
+        cap_sub: 'Cada formato nasce do mesmo conceito estratégico e se conecta com os demais. Não são peças soltas, é um ecossistema onde tudo se retroalimenta.',
+        cap_1: 'Sistemas de design vivos que escalam. Multi-marca, multi-mercado. A identidade cresce com o negócio.',
+        cap_2_title: 'CAMPANHAS CRIATIVAS 360',
+        cap_2: 'Spots, branded content, narrativa multi-shot. Vídeo cinematográfico com qualidade de produção premium na velocidade da IA.',
+        cap_3_title: 'IMAGEM + KEY VISUALS',
+        cap_3: 'Identidade visual, campanhas gráficas, social assets, embalagens. Consistência de marca em cada peça.',
+        cap_connect: 'TUDO CONECTADO · UM SISTEMA · UMA MARCA',
+        cap_4_title: 'CONTEÚDOS ILIMITADOS',
+        cap_4: 'UGC, talking heads, avatares, adaptações multi-formato. Produção em escala sem perder qualidade nem voz de marca.',
+        cap_5_title: 'PERFORMANCE CRIATIVO',
+        cap_5: 'Variantes para A/B testing. Iteração baseada em dados. O conteúdo com melhor performance se multiplica.',
+        cap_6: 'Conteúdo pensado para cada plataforma. TikTok, Reels, YouTube, Stories. Não é resize, é reinvenção.',
+        // S12 — Casos
+        casos_eyebrow: 'Portfólio ativo',
+        casos_title: 'CASOS<br><em>EM PRODUÇÃO</em>',
+        casos_sub: 'Não falamos do que podemos fazer. Mostramos o que já estamos fazendo.',
+        caso_sancor: 'Sistema de conteúdo IA-first para a seguradora automotiva argentina. Produção always-on de vídeo, UGC sintético, avatares e brand content em 5 plataformas simultâneas.',
+        caso_garden: 'Sistema multi-marca para o maior dealer automotivo do Paraguai. 12+ marcas (Toyota, Hyundai, Kia, Suzuki, Fuso, etc.) com conteúdo em escala mantendo identidade individual.',
+        caso_shaq: 'Conteúdo de marca para a linha de Shaquille O\'Neal. Vídeo, social content e brand assets gerados com IA mantendo a personalidade do ícone.',
+        caso_starter: 'Reativação de marca icônica com sistema de conteúdo AI-first. Campanhas, key visuals e social content para o relançamento em novos mercados.',
+        caso_sensus: 'Estratégia criativa e produção de conteúdo para a marca de bem-estar. Sistema visual, vídeo e social content com produção IA em escala.',
+        caso_diablo: 'Sistema de conteúdo disruptivo para a marca de pisco. Brand content, vídeo cinematográfico e campanhas sociais com produção AI-augmented.',
+        caso_morelli: 'Conteúdo premium para a marca gastronômica. Fotografia de produto, vídeo e social content com qualidade de estúdio gerado com IA.',
+        caso_hydrate: 'Sistema de conteúdo para a marca de garrafas térmicas. Campanhas sazonais, lifestyle content e mídias sociais com produção IA em escala.',
+        caso_skate: 'Sistema de conteúdo para a federação internacional. Vídeo de competições, brand content e mídias sociais com produção IA para alcance global.',
+        cm_piezas: 'Peças/ano',
+        cm_plat: 'Plataformas',
+        cm_output: 'Mais output',
+        cm_marcas: 'Marcas',
+        cm_piezas2: 'Peças/ano',
+        // S13 — Galeria
+        gal_title: 'WTF AI ENGINE<br><em>EM AÇÃO</em>',
+        gal_sub: 'Isso é o que nosso sistema operacional IA produz. Sem banco de imagens. Sem desculpas. Conteúdo real gerado para marcas reais.',
+        // S14 — Equipe
+        equipo_eyebrow: 'Modelo célula',
+        equipo_title: 'EQUIPE<br><em>DEDICADA</em>',
+        equipo_sub: 'Cada cliente tem uma célula dedicada. Equipe pequena, ágil, com ownership total. Não compartilhamos recursos entre contas.',
+        role_1_ico: '01 · LIDERANÇA',
+        role_1: 'Responsável pela relação. Guardião da marca. Primeiro filtro de cada peça. Ownership total do resultado.',
+        role_2_ico: '02 · ESTRATÉGIA',
+        role_2: 'Pesquisa, insight, conceito. Define o "quê" e o "porquê" de cada peça. IA-augmented para velocidade.',
+        role_3: 'Visão criativa. Garante que cada peça tenha craft, intenção e coerência de marca. O filtro humano final.',
+        role_4: 'Domina o stack de ferramentas IA. Seedance, Kling, Higgsfield, Flux. Produz na velocidade da máquina com olhar humano.',
+        role_5: 'Pós-produção, animação, compositing. Eleva o output de IA à qualidade broadcast. Sonic branding.',
+        role_6: 'Mídia paga inteligente, A/B testing, analytics em tempo real. Community management. O sistema que aprende.',
+        // S15 — Obrigado
+        gracias_sub: 'Battle tested creativity. AI first. Human always.',
+        gracias_sign: 'WTF AGENCY · BUENOS AIRES<br><a href="mailto:hello@wtf-agency.com">HELLO@WTF-AGENCY.COM</a><br>CRIATIVIDADE TESTADA EM BATALHA · DESDE 2010',
+      }
+    };
+
+    let currentLang = 'es';
+
+    function setLang(lang) {
+      currentLang = lang;
+      const dict = translations[lang];
+      if (!dict) return;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+
+      document.documentElement.lang = lang;
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setLang(btn.getAttribute('data-lang'));
+      });
+    });
+  })();
 </script>
 
 </body>
