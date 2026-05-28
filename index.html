@@ -2724,6 +2724,21 @@
       url('wtf-credenciales-slides/hero/slide_06_1456x816.jpeg') center/cover no-repeat;
   }
 
+  /* === Netflix Originals === */
+  .nfx-hero-slide { transition: opacity 1s ease; }
+  .nfx-hero-slide.active { opacity: 1; z-index: 2; }
+  .nfx-rail::-webkit-scrollbar { display: none; }
+  .nfx-rail { -ms-overflow-style: none; scrollbar-width: none; }
+  .nfx-s1::-webkit-scrollbar { display: none; }
+  .nfx-s1 { -ms-overflow-style: none; scrollbar-width: none; }
+  .nfx-card:hover img,
+  .nfx-card:hover video { transform: scale(1.08); }
+  .nfx-card:hover .nfx-card-overlay { opacity: 1 !important; }
+  .nfx-card { transition: transform .3s ease; }
+  .nfx-card:hover { transform: scale(1.05); z-index: 5; }
+  .nfx-lightbox { display: none; }
+  .nfx-lightbox.open { display: flex !important; }
+
 </style>
 </head>
 <body>
@@ -3452,47 +3467,129 @@
   </div>
 </section>
 
-<!-- ============================== S18 / Equipo ============================== -->
-<section class="celula dense">
-  <div class="slide-tag">14 · Equipo</div>
-  <div class="eyebrow reveal" data-i18n="equipo_eyebrow">Modelo célula</div>
+<!-- ============================== SLIDE 13a / Portfolio Hero ============================== -->
+<section class="nfx-s1" style="padding:40px 7vw 20px;background:linear-gradient(180deg,rgba(10,10,12,0.55) 0%,rgba(10,10,12,0.65) 100%),url('wtf-credenciales-slides/hero/bg-portfolio-door.jpg') center/cover no-repeat;overflow:hidden;justify-content:center;">
+  <div class="slide-tag">13 · Portfolio</div>
+  <h2 class="display reveal delay-1" style="font-size:clamp(2.5rem,5vw,4rem);color:var(--bone);margin:0;line-height:1;">OUR <em>WORKS</em></h2>
+  <p class="reveal delay-1" style="font-size:.85rem;color:var(--bone-dim);max-width:550px;line-height:1.5;margin:.4rem 0 .8rem;">Cada trabajo es parte de un sistema: estrategia, ejecución y aprendizaje conectados para generar crecimiento.</p>
 
-  <h2 class="display celula-title reveal delay-1" data-i18n="equipo_title">EQUIPO<br><em>DEDICADO</em></h2>
-  <p class="celula-sub reveal delay-2" data-i18n="equipo_sub">Cada cliente tiene una célula dedicada. Equipo pequeño, ágil, con ownership total. No compartimos recursos entre cuentas.</p>
+  <!-- Featured row -->
+  <div style="display:flex;gap:.8rem;height:52vh;margin-bottom:.8rem;width:100%;">
+    <div class="nfx-card" style="flex:0 0 50%;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;">
+      <video src="wtf-credenciales-slides/galeria/sensus-reel-01.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+      <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.85) 0%,rgba(0,0,0,.05) 50%);"></div>
+      <div style="position:absolute;bottom:1rem;left:1rem;z-index:3;">
+        <div style="font-family:var(--mono);font-size:.5rem;letter-spacing:.12em;color:var(--wtf-red);margin-bottom:.2rem;">WELLNESS · LATAM</div>
+        <h3 style="font-family:var(--editorial);font-size:1.6rem;font-weight:800;color:#fff;line-height:.95;">SENSUS</h3>
+        <p style="font-size:.7rem;color:rgba(255,255,255,.55);margin-top:.3rem;max-width:280px;">Estrategia creativa y producción always-on. Video, lifestyle y brand content con IA.</p>
+        <div style="display:flex;gap:1rem;margin-top:.4rem;">
+          <div><span style="font-family:var(--editorial);font-weight:700;font-size:1rem;color:var(--wtf-red);">35+</span><span style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-left:.2rem;">PIEZAS/MES</span></div>
+          <div><span style="font-family:var(--editorial);font-weight:700;font-size:1rem;color:var(--wtf-red);">3</span><span style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-left:.2rem;">VIDEOS</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="flex:1;display:flex;gap:.6rem;overflow-x:auto;" class="nfx-rail">
+      <div class="nfx-card" style="flex:0 0 155px;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;">
+        <img src="wtf-credenciales-slides/galeria/starter-bridge.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;">
+        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,transparent 40%);"></div>
+        <div style="position:absolute;bottom:.6rem;left:.6rem;z-index:3;"><div style="font-family:var(--editorial);font-weight:700;font-size:.75rem;color:#fff;">STARTER</div><div style="font-family:var(--mono);font-size:.45rem;color:var(--wtf-red);">Sport · Global</div></div>
+      </div>
+      <div class="nfx-card" style="flex:0 0 155px;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;">
+        <img src="wtf-credenciales-slides/galeria/diablo-actitud.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;">
+        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,transparent 40%);"></div>
+        <div style="position:absolute;bottom:.6rem;left:.6rem;z-index:3;"><div style="font-family:var(--editorial);font-weight:700;font-size:.75rem;color:#fff;">PISCO DIABLO</div><div style="font-family:var(--mono);font-size:.45rem;color:var(--wtf-red);">Spirits · Chile</div></div>
+      </div>
+      <div class="nfx-card" style="flex:0 0 155px;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;">
+        <img src="wtf-credenciales-slides/galeria/shaq-lifestyle.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;">
+        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,transparent 40%);"></div>
+        <div style="position:absolute;bottom:.6rem;left:.6rem;z-index:3;"><div style="font-family:var(--editorial);font-weight:700;font-size:.75rem;color:#fff;">SHAQ</div><div style="font-family:var(--mono);font-size:.45rem;color:var(--wtf-red);">Sport · Global</div></div>
+      </div>
+      <div class="nfx-card" style="flex:0 0 155px;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;">
+        <img src="wtf-credenciales-slides/galeria/morelli-kitchen-01.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;">
+        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,transparent 40%);"></div>
+        <div style="position:absolute;bottom:.6rem;left:.6rem;z-index:3;"><div style="font-family:var(--editorial);font-weight:700;font-size:.75rem;color:#fff;">MORELLI</div><div style="font-family:var(--mono);font-size:.45rem;color:var(--wtf-red);">Gastro · Argentina</div></div>
+      </div>
+    </div>
+  </div>
 
-  <div class="roles">
-    <div class="role reveal delay-3">
-      <div class="ico" data-i18n="role_1_ico">01 · LIDERAZGO</div>
-      <h4>DIRECTOR</h4>
-      <p data-i18n="role_1">Responsable de la relacion. Guardiana de la marca. Primer filtro de cada pieza. Ownership total del resultado.</p>
-    </div>
-    <div class="role reveal delay-4">
-      <div class="ico" data-i18n="role_2_ico">02 · ESTRATEGIA</div>
-      <h4>STRATEGIST</h4>
-      <p data-i18n="role_2">Research, insight, concepto. Define el "que" y el "por que" de cada pieza. IA-augmented para velocidad.</p>
-    </div>
-    <div class="role reveal delay-5">
-      <div class="ico">03 · CREATIVE</div>
-      <h4>CREATIVE DIRECTOR</h4>
-      <p data-i18n="role_3">Visión creativa. Garantiza que cada pieza tenga craft, intención y coherencia de marca. El filtro humano final.</p>
-    </div>
-    <div class="role reveal delay-3">
-      <div class="ico">04 · AI PRODUCTION</div>
-      <h4>AI PRODUCTION LEAD</h4>
-      <p data-i18n="role_4">Domina el stack de herramientas IA. Seedance, Kling, Higgsfield, Flux. Produce a velocidad de maquina con ojo humano.</p>
-    </div>
-    <div class="role reveal delay-4">
-      <div class="ico">05 · MOTION</div>
-      <h4>MOTION DESIGNER</h4>
-      <p data-i18n="role_5">Post-producción, animación, compositing. Eleva el output de IA a calidad broadcast. Sonic branding.</p>
-    </div>
-    <div class="role reveal delay-5">
-      <div class="ico">06 · PERFORMANCE</div>
-      <h4>PERFORMANCE + COMMUNITY</h4>
-      <p data-i18n="role_6">Pauta inteligente, A/B testing, analytics en tiempo real. Community management. El sistema que aprende.</p>
+  <!-- Portfolio legacy rail -->
+  <div style="flex-shrink:0;width:100%;">
+    <h3 style="font-family:var(--editorial);font-weight:700;font-size:.85rem;letter-spacing:.06em;color:var(--bone);margin-bottom:.5rem;">PORTFOLIO · 15 AÑOS DE TRABAJO</h3>
+    <div class="nfx-rail" style="display:flex;gap:.6rem;overflow-x:auto;">
+      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
+        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
+          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">MOTOROLA</div>
+          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">Power to Empower · 21 países</div>
+        </div>
+      </div>
+      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
+        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
+          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">ABSOLUT VODKA</div>
+          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">Buenos Aires Bottle · Ciudad #14</div>
+        </div>
+      </div>
+      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
+        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
+          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">FORD F-150 LOBO</div>
+          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">USA + México · Sci-fi cinematográfico</div>
+        </div>
+      </div>
+      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
+        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
+          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">HONDA HRV</div>
+          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">Lanzamiento regional · 8 países</div>
+        </div>
+      </div>
+      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
+        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
+          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">PISCO DIABLO</div>
+          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">Rebranding total · +8pts share</div>
+        </div>
+      </div>
+      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
+        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
+          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">HAVANA CLUB</div>
+          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">NFC Dock · Desconectar para conectar</div>
+        </div>
+      </div>
+      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
+        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
+          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">MOTOROLA RAZR</div>
+          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">Flip & Move · Campaña 360° Latam</div>
+        </div>
+      </div>
+      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
+        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
+          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">ABSOLUT NOTHING</div>
+          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">Seguridad vial · Brief imposible</div>
+        </div>
+      </div>
+      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
+        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
+          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">HONDA XR300</div>
+          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">Campaña extrema · Latam</div>
+        </div>
+      </div>
+      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
+        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
+          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">VINOS DE ALTURA</div>
+          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">Cafayate · Campaña 360</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
 
 <!-- ============================== S16 / GRACIAS ============================== -->
 <section class="gracias">
@@ -4239,6 +4336,49 @@
         setLang(btn.getAttribute('data-lang'));
       });
     });
+  })();
+
+  /* === Drag-to-scroll for Netflix rails === */
+  (function(){
+    document.querySelectorAll('.nfx-rail').forEach(rail => {
+      let isDown = false, startX, scrollLeft;
+      rail.addEventListener('mousedown', e => {
+        isDown = true; rail.style.cursor = 'grabbing';
+        startX = e.pageX - rail.offsetLeft;
+        scrollLeft = rail.scrollLeft;
+      });
+      rail.addEventListener('mouseleave', () => { isDown = false; rail.style.cursor = 'grab'; });
+      rail.addEventListener('mouseup', () => { isDown = false; rail.style.cursor = 'grab'; });
+      rail.addEventListener('mousemove', e => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - rail.offsetLeft;
+        rail.scrollLeft = scrollLeft - (x - startX) * 1.5;
+      });
+      rail.style.cursor = 'grab';
+    });
+  })();
+
+  /* === Netflix Lightbox === */
+  (function(){
+    const lb = document.querySelector('.nfx-lightbox');
+    if(!lb) return;
+    const lbImg = lb.querySelector('.nfx-lb-img');
+    const lbVid = lb.querySelector('.nfx-lb-vid');
+    const closeBtn = lb.querySelector('button');
+    document.querySelectorAll('.nfx-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const img = card.querySelector('img');
+        const vid = card.querySelector('video');
+        if(img) { lbImg.src = img.src; lbImg.style.display='block'; lbVid.style.display='none'; lbVid.pause(); }
+        if(vid) { lbVid.src = vid.src; lbVid.style.display='block'; lbImg.style.display='none'; lbVid.play(); }
+        lb.classList.add('open');
+      });
+    });
+    function close(){ lb.classList.remove('open'); lbVid.pause(); lbVid.src=''; }
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', e => { if(e.target === lb) close(); });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') close(); });
   })();
 </script>
 
