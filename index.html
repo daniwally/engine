@@ -15,7 +15,7 @@
 <meta name="twitter:description" content="Somos la primera agencia AI-first de la región. Estrategia, contenido y producción sin límites.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
     /* Backgrounds */
@@ -2731,6 +2731,10 @@
   .nfx-rail { -ms-overflow-style: none; scrollbar-width: none; }
   .nfx-s1::-webkit-scrollbar { display: none; }
   .nfx-s1 { -ms-overflow-style: none; scrollbar-width: none; }
+  .port-prev:hover, .port-next:hover { background: rgba(0,0,0,.8) !important; }
+  .project-modal.open { display: block !important; }
+  .project-modal::-webkit-scrollbar { display: none; }
+  .project-modal { -ms-overflow-style: none; scrollbar-width: none; }
   .nfx-card:hover img,
   .nfx-card:hover video { transform: scale(1.08); }
   .nfx-card:hover .nfx-card-overlay { opacity: 1 !important; }
@@ -3467,129 +3471,206 @@
   </div>
 </section>
 
-<!-- ============================== SLIDE 13a / Portfolio Hero ============================== -->
-<section class="nfx-s1" style="padding:40px 7vw 20px;background:linear-gradient(180deg,rgba(10,10,12,0.55) 0%,rgba(10,10,12,0.65) 100%),url('wtf-credenciales-slides/hero/bg-portfolio-door.jpg') center/cover no-repeat;overflow:hidden;justify-content:center;">
+<!-- ============================== SLIDE 13a / Portfolio ============================== -->
+<section class="nfx-s1 dense" style="padding:30px 4.5vw 40px;background:var(--bg-deep);overflow-y:auto;overflow-x:hidden;justify-content:flex-start;">
   <div class="slide-tag">13 · Portfolio</div>
-  <h2 class="display reveal delay-1" style="font-size:clamp(2.5rem,5vw,4rem);color:var(--bone);margin:0;line-height:1;">OUR <em>WORKS</em></h2>
-  <p class="reveal delay-1" style="font-size:.85rem;color:var(--bone-dim);max-width:550px;line-height:1.5;margin:.4rem 0 .8rem;">Cada trabajo es parte de un sistema: estrategia, ejecución y aprendizaje conectados para generar crecimiento.</p>
 
-  <!-- Featured row -->
-  <div style="display:flex;gap:.8rem;height:52vh;margin-bottom:.8rem;width:100%;">
-    <div class="nfx-card" style="flex:0 0 50%;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;">
-      <video src="wtf-credenciales-slides/galeria/sensus-reel-01.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
-      <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.85) 0%,rgba(0,0,0,.05) 50%);"></div>
-      <div style="position:absolute;bottom:1rem;left:1rem;z-index:3;">
-        <div style="font-family:var(--mono);font-size:.5rem;letter-spacing:.12em;color:var(--wtf-red);margin-bottom:.2rem;">WELLNESS · LATAM</div>
-        <h3 style="font-family:var(--editorial);font-size:1.6rem;font-weight:800;color:#fff;line-height:.95;">SENSUS</h3>
-        <p style="font-size:.7rem;color:rgba(255,255,255,.55);margin-top:.3rem;max-width:280px;">Estrategia creativa y producción always-on. Video, lifestyle y brand content con IA.</p>
-        <div style="display:flex;gap:1rem;margin-top:.4rem;">
-          <div><span style="font-family:var(--editorial);font-weight:700;font-size:1rem;color:var(--wtf-red);">35+</span><span style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-left:.2rem;">PIEZAS/MES</span></div>
-          <div><span style="font-family:var(--editorial);font-weight:700;font-size:1rem;color:var(--wtf-red);">3</span><span style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-left:.2rem;">VIDEOS</span></div>
-        </div>
+  <div class="eyebrow reveal" style="margin-top:1rem;">Brief Destroyers</div>
+  <h2 class="display casos-title reveal delay-1" style="margin-bottom:8px;font-size:clamp(40px,6vw,94px);">NUESTROS<br><em>TRABAJOS</em></h2>
+  <p class="casos-sub reveal delay-2" style="margin-bottom:1rem;">No hablamos de lo que podemos hacer. Mostramos 15 años destruyendo briefs y construyendo marcas.</p>
+
+  <!-- Hero slider -->
+  <div style="position:relative;width:100%;height:50vh;border-radius:20px;overflow:hidden;flex-shrink:0;margin-bottom:.5rem;">
+    <div class="port-slide active" data-i="0" style="position:absolute;inset:0;transition:opacity 1s ease;">
+      <video src="wtf-credenciales-slides/galeria/hero-diablo.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,12,0.75) 0%,rgba(10,10,12,0.1) 50%,transparent 100%);"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,12,0.7) 0%,transparent 30%);"></div>
+      <div style="position:absolute;bottom:1.5rem;left:1.5rem;z-index:3;max-width:400px;">
+        <div style="font-family:var(--mono);font-size:.5rem;letter-spacing:.12em;color:var(--wtf-red);margin-bottom:.2rem;">SPIRITS · CHILE · REBRANDING</div>
+        <h2 style="font-family:var(--editorial);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#fff;line-height:.92;margin-bottom:.3rem;">PISCO DIABLO</h2>
+        <p style="font-size:.75rem;color:rgba(245,240,235,0.6);line-height:1.4;">Rebranding integral. +1500 puntos de contacto, +8 puntos de share.</p>
       </div>
     </div>
-    <div style="flex:1;display:flex;gap:.6rem;overflow-x:auto;" class="nfx-rail">
-      <div class="nfx-card" style="flex:0 0 155px;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;">
-        <img src="wtf-credenciales-slides/galeria/starter-bridge.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;">
-        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,transparent 40%);"></div>
-        <div style="position:absolute;bottom:.6rem;left:.6rem;z-index:3;"><div style="font-family:var(--editorial);font-weight:700;font-size:.75rem;color:#fff;">STARTER</div><div style="font-family:var(--mono);font-size:.45rem;color:var(--wtf-red);">Sport · Global</div></div>
+    <div class="port-slide" data-i="1" style="position:absolute;inset:0;opacity:0;transition:opacity 1s ease;">
+      <video src="wtf-credenciales-slides/galeria/hero-razr.mp4" muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,12,0.75) 0%,rgba(10,10,12,0.1) 50%,transparent 100%);"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,12,0.7) 0%,transparent 30%);"></div>
+      <div style="position:absolute;bottom:1.5rem;left:1.5rem;z-index:3;max-width:400px;">
+        <div style="font-family:var(--mono);font-size:.5rem;letter-spacing:.12em;color:var(--wtf-red);margin-bottom:.2rem;">TECH · LATAM · CAMPAÑA 360°</div>
+        <h2 style="font-family:var(--editorial);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#fff;line-height:.92;margin-bottom:.3rem;">MOTOROLA RAZR</h2>
+        <p style="font-size:.75rem;color:rgba(245,240,235,0.6);line-height:1.4;">Campaña regional 360°. TV, TikTok, IG, YouTube, influencers y vía pública.</p>
       </div>
-      <div class="nfx-card" style="flex:0 0 155px;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;">
-        <img src="wtf-credenciales-slides/galeria/diablo-actitud.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;">
-        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,transparent 40%);"></div>
-        <div style="position:absolute;bottom:.6rem;left:.6rem;z-index:3;"><div style="font-family:var(--editorial);font-weight:700;font-size:.75rem;color:#fff;">PISCO DIABLO</div><div style="font-family:var(--mono);font-size:.45rem;color:var(--wtf-red);">Spirits · Chile</div></div>
+    </div>
+    <div class="port-slide" data-i="2" style="position:absolute;inset:0;opacity:0;transition:opacity 1s ease;">
+      <video src="wtf-credenciales-slides/galeria/hero-ford.mp4" muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,12,0.75) 0%,rgba(10,10,12,0.1) 50%,transparent 100%);"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,12,0.7) 0%,transparent 30%);"></div>
+      <div style="position:absolute;bottom:1.5rem;left:1.5rem;z-index:3;max-width:400px;">
+        <div style="font-family:var(--mono);font-size:.5rem;letter-spacing:.12em;color:var(--wtf-red);margin-bottom:.2rem;">AUTO · USA + MÉXICO</div>
+        <h2 style="font-family:var(--editorial);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#fff;line-height:.92;margin-bottom:.3rem;">FORD F-150 LOBO</h2>
+        <p style="font-size:.75rem;color:rgba(245,240,235,0.6);line-height:1.4;">Superproducción sci-fi. Las leyendas nunca se detienen.</p>
       </div>
-      <div class="nfx-card" style="flex:0 0 155px;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;">
-        <img src="wtf-credenciales-slides/galeria/shaq-lifestyle.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;">
-        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,transparent 40%);"></div>
-        <div style="position:absolute;bottom:.6rem;left:.6rem;z-index:3;"><div style="font-family:var(--editorial);font-weight:700;font-size:.75rem;color:#fff;">SHAQ</div><div style="font-family:var(--mono);font-size:.45rem;color:var(--wtf-red);">Sport · Global</div></div>
+    </div>
+    <div class="port-slide" data-i="3" style="position:absolute;inset:0;opacity:0;transition:opacity 1s ease;">
+      <video src="wtf-credenciales-slides/galeria/hero-absolut.mp4" muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,12,0.75) 0%,rgba(10,10,12,0.1) 50%,transparent 100%);"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,12,0.7) 0%,transparent 30%);"></div>
+      <div style="position:absolute;bottom:1.5rem;left:1.5rem;z-index:3;max-width:400px;">
+        <div style="font-family:var(--mono);font-size:.5rem;letter-spacing:.12em;color:var(--wtf-red);margin-bottom:.2rem;">SPIRITS · ARGENTINA · EDICIÓN LIMITADA</div>
+        <h2 style="font-family:var(--editorial);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#fff;line-height:.92;margin-bottom:.3rem;">ABSOLUT BUENOS AIRES</h2>
+        <p style="font-size:.75rem;color:rgba(245,240,235,0.6);line-height:1.4;">Ciudad #14 del mundo con botella edición limitada. Campaña 360° con artistas y músicos.</p>
       </div>
-      <div class="nfx-card" style="flex:0 0 155px;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;">
-        <img src="wtf-credenciales-slides/galeria/morelli-kitchen-01.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;">
-        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,transparent 40%);"></div>
-        <div style="position:absolute;bottom:.6rem;left:.6rem;z-index:3;"><div style="font-family:var(--editorial);font-weight:700;font-size:.75rem;color:#fff;">MORELLI</div><div style="font-family:var(--mono);font-size:.45rem;color:var(--wtf-red);">Gastro · Argentina</div></div>
-      </div>
+    </div>
+    <button class="port-prev" style="position:absolute;left:1rem;top:50%;transform:translateY(-50%);z-index:5;width:40px;height:40px;border-radius:50%;border:none;background:rgba(0,0,0,.5);color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:background .3s;">&#8249;</button>
+    <button class="port-next" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);z-index:5;width:40px;height:40px;border-radius:50%;border:none;background:rgba(0,0,0,.5);color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:background .3s;">&#8250;</button>
+  </div>
+  <div style="display:flex;gap:6px;justify-content:center;margin-bottom:.8rem;flex-shrink:0;">
+    <button class="port-dot active" data-i="0" style="width:10px;height:4px;border-radius:2px;border:none;background:#fff;cursor:pointer;transition:all .3s;"></button>
+    <button class="port-dot" data-i="1" style="width:4px;height:4px;border-radius:2px;border:none;background:rgba(255,255,255,.3);cursor:pointer;transition:all .3s;"></button>
+    <button class="port-dot" data-i="2" style="width:4px;height:4px;border-radius:2px;border:none;background:rgba(255,255,255,.3);cursor:pointer;transition:all .3s;"></button>
+    <button class="port-dot" data-i="3" style="width:4px;height:4px;border-radius:2px;border:none;background:rgba(255,255,255,.3);cursor:pointer;transition:all .3s;"></button>
+  </div>
+
+
+  <div style="font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;color:var(--wtf-red);margin:1rem 0 .8rem;flex-shrink:0;">15 AÑOS · 200+ CAMPAÑAS · 10+ PAÍSES</div>
+
+  <!-- Projects vertical grid -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-flow:row dense;gap:1.5rem 1rem;width:100%;flex-shrink:0;">
+    <div style="cursor:pointer;" data-project="absolut-ba">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-absolut-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">ABSOLUT BUENOS AIRES</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Ciudad #14 del mundo con botella edición limitada. Campaña 360° con artistas y músicos.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="absolut-nothing">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-absolut-nothing-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">ABSOLUT NOTHING</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">La primera botella de vodka sin vodka. Seguridad vial. El brief imposible.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="absolut-grapefruit">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-absgrapefruit-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">ABSOLUT GRAPEFRUIT</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Lanzamiento de un nuevo sabor. Hecho con grapefruit natural, sin azúcar añadida.</div></div>
+    </div>
+    <div style="cursor:pointer;grid-column:span 2;" data-project="ford-lobo">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:32/10;"><img src="wtf-credenciales-slides/galeria/legacy-ford-lobo-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;color:var(--bone);">FORD F-150 LOBO</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">USA + México. Superproducción sci-fi. Las leyendas nunca se detienen.</div></div>
+    </div>
+    <div style="cursor:pointer;grid-column:span 2;" data-project="motorola">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:32/10;"><img src="wtf-credenciales-slides/galeria/legacy-motorola-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;color:var(--bone);">MOTOROLA</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Power to Empower. 21 países. 18 nacionalidades. Plataforma global.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="moto-razr">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-motorola-razr-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">MOTOROLA RAZR</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Flip & Move. Campaña 360° regional. TV, TikTok, IG, influencers.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="kross">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-kross-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">CERVEZA KROSS</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Manifiesto de marca de la cerveza craft pionera de Chile. Original y auténtica.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="diablo">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-diablo-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">PISCO DIABLO</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Rebranding total. +1500 touchpoints. +8 puntos de share en categoría.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="honda-hrv">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-honda-hrv-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">HONDA HRV</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Lanzamiento simultáneo en 8 países. Concepto emocional que movilizó audiencias.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="honda-hrv-moviliza">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-hondahrvmoviliza-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">HONDA HR-V</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">No te mueve, te moviliza. Campaña lifestyle joven.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="honda-xr">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-honda-xr-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">HONDA XR300</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Campaña extrema en Latinoamérica. Producción in house.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="honda-fit">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-honda-fit-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">HONDA FIT</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">El cambio más radical. 2 días de aventura en la tercera generación.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="honda-accord">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-honda-accord-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">HONDA ACCORD</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Sistema variable de cilindros. La analogía perfecta.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="honda-crv">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-honda-crv-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">HONDA CR-V</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Vive la evolución. Nueva generación de emociones.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="honda-despiece">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-hondadespiece-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">HONDA · DESPIECE</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Un problema convertido en la activación más exitosa de la expo.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="honda-cb190r">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-cb190r-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">HONDA CB190R</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Naked urbana. Riding nocturno cinematográfico. Sé rápido.</div></div>
+    </div>
+    <div style="cursor:pointer;grid-column:span 2;grid-row:span 2;display:flex;flex-direction:column;" data-project="ridgeline">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;flex:1;"><img src="wtf-credenciales-slides/galeria/legacy-ridgeline-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;flex-shrink:0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:1.1rem;text-transform:uppercase;color:var(--bone);">HONDA RIDGELINE</div><div style="font-size:.8rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Grande en cualquier territorio. Versatilidad y potencia.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="pecador">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-capel-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">PECADOR</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Marca disruptiva de Capel. Skate, calle y actitud para un nuevo target.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="hacienda">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-hacienda-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">HACIENDA LA TORRE</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Marca premium creada integralmente. 16% del total de ventas.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="starter">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/starter-detail-2.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">STARTER</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Catálogo 100% AI. Estrategia, posicionamiento y sistema creativo.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="cinzano">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-cinzano-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">CINZANO</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Masterpiece. Campaña premium para el vermouth icónico.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="montefraile">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-montefraile-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">MONTE FRAILE</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Virtual set. La cordillera de los Andes como escenario.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="samsung">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-samsung-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">SAMSUNG</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Mambo viral. Una conexión que rompió récords.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="quilmes">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-quilmes-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">QUILMES</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Guía para padres e hijos. Consumo responsable con impacto.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="bayer-empecid">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-bayerempecid-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">BAYER · EMPECID</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Un problema de salud íntima que decidimos no ocultar. #CuídateSinTabú.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="alto-del-carmen">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-altodelcarmen-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">ALTO DEL CARMEN</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Cambiamos la marca más importante de pisco. +8 puntos de share.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="acblanca">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-acblanca-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">ALTO DEL CARMEN BLANCA</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Virtual set. Recreamos la cordillera para lanzar la nueva etiqueta.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="cafayate">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-cafayate-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">VINOS DE ALTURA</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Cafayate. Campaña 360° para mostrar los vinos de altura.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="sensus">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-sensus-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">SENSUS</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Comercial premium de la idea a la publicación en solo 7 días.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="havana">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-havana-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">HAVANA CLUB</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">NFC Dock. Desconectar para conectar. Tecnología al servicio de lo auténtico.</div></div>
+    </div>
+    <div style="cursor:pointer;" data-project="havana-cubalibre">
+      <div class="nfx-card" style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:16/10;"><img src="wtf-credenciales-slides/galeria/legacy-havanacola-thumb.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="padding:.5rem .1rem 0;"><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--bone);">HAVANA CLUB</div><div style="font-size:.75rem;color:var(--bone-dim);line-height:1.5;margin-top:.2rem;">Comercial para invitar a probar el clásico Cuba Libre.</div></div>
     </div>
   </div>
 
-  <!-- Portfolio legacy rail -->
-  <div style="flex-shrink:0;width:100%;">
-    <h3 style="font-family:var(--editorial);font-weight:700;font-size:.85rem;letter-spacing:.06em;color:var(--bone);margin-bottom:.5rem;">PORTFOLIO · 15 AÑOS DE TRABAJO</h3>
-    <div class="nfx-rail" style="display:flex;gap:.6rem;overflow-x:auto;">
-      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
-        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
-          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">MOTOROLA</div>
-          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">Power to Empower · 21 países</div>
-        </div>
-      </div>
-      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
-        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
-          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">ABSOLUT VODKA</div>
-          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">Buenos Aires Bottle · Ciudad #14</div>
-        </div>
-      </div>
-      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
-        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
-          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">FORD F-150 LOBO</div>
-          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">USA + México · Sci-fi cinematográfico</div>
-        </div>
-      </div>
-      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
-        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
-          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">HONDA HRV</div>
-          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">Lanzamiento regional · 8 países</div>
-        </div>
-      </div>
-      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
-        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
-          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">PISCO DIABLO</div>
-          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">Rebranding total · +8pts share</div>
-        </div>
-      </div>
-      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
-        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
-          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">HAVANA CLUB</div>
-          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">NFC Dock · Desconectar para conectar</div>
-        </div>
-      </div>
-      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
-        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
-          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">MOTOROLA RAZR</div>
-          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">Flip & Move · Campaña 360° Latam</div>
-        </div>
-      </div>
-      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
-        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
-          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">ABSOLUT NOTHING</div>
-          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">Seguridad vial · Brief imposible</div>
-        </div>
-      </div>
-      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
-        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
-          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">HONDA XR300</div>
-          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">Campaña extrema · Latam</div>
-        </div>
-      </div>
-      <div class="nfx-card" style="flex:0 0 200px;border-radius:8px;overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;background:var(--bg-mid);">
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,48,0.15) 0%,rgba(10,10,12,0.95) 100%);"></div>
-        <div style="position:absolute;bottom:.7rem;left:.7rem;right:.7rem;z-index:3;">
-          <div style="font-family:var(--editorial);font-weight:700;font-size:.7rem;color:#fff;line-height:1.2;">VINOS DE ALTURA</div>
-          <div style="font-family:var(--mono);font-size:.45rem;color:var(--bone);opacity:.5;margin-top:.15rem;">Cafayate · Campaña 360</div>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
+
+
+<!-- Project Detail Modal -->
+<div class="project-modal" style="display:none;position:fixed;inset:0;z-index:10000;background:linear-gradient(180deg,rgba(10,10,12,0.05) 0%,rgba(10,10,12,0.2) 50%,rgba(10,10,12,0.55) 100%),url('wtf-credenciales-slides/hero/bg-portfolio-wall.jpg') center top/cover no-repeat;overflow-y:auto;overflow-x:hidden;">
+  <button class="project-modal-close" style="position:fixed;top:20px;right:24px;background:rgba(0,0,0,.4);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.1);border-radius:50%;width:40px;height:40px;color:#fff;font-size:1.2rem;cursor:pointer;z-index:10001;display:flex;align-items:center;justify-content:center;">&#10005;</button>
+  <div class="project-modal-content" style="max-width:1100px;margin:0 auto;padding:60px 5vw 80px;"></div>
+</div>
 
 <!-- ============================== S16 / GRACIAS ============================== -->
 <section class="gracias">
@@ -3812,6 +3893,7 @@
   document.addEventListener('wheel', (e) => {
     const active = slides[currentSlide];
     if (active && active.classList.contains('dense')) {
+      if (active.classList.contains('nfx-s1')) return;
       const atTop = active.scrollTop === 0;
       const atBottom = active.scrollHeight - active.clientHeight - active.scrollTop < 4;
       if (e.deltaY > 0 && !atBottom) return;
@@ -4336,6 +4418,478 @@
         setLang(btn.getAttribute('data-lang'));
       });
     });
+  })();
+
+  /* === Portfolio Hero Slider === */
+  (function(){
+    const slides = document.querySelectorAll('.port-slide');
+    const dots = document.querySelectorAll('.port-dot');
+    if(!slides.length) return;
+    let cur = 0;
+    function go(i){
+      slides[cur].style.opacity='0'; const v0=slides[cur].querySelector('video'); if(v0) v0.pause();
+      dots[cur].style.background='rgba(255,255,255,.3)'; dots[cur].style.width='4px';
+      cur = i;
+      slides[cur].style.opacity='1'; const v1=slides[cur].querySelector('video'); if(v1) v1.play();
+      dots[cur].style.background='#fff'; dots[cur].style.width='10px';
+    }
+    dots.forEach(d => d.addEventListener('click', () => go(+d.dataset.i)));
+    const prevBtn = document.querySelector('.port-prev');
+    const nextBtn = document.querySelector('.port-next');
+    if(prevBtn) prevBtn.addEventListener('click', () => go((cur - 1 + slides.length) % slides.length));
+    if(nextBtn) nextBtn.addEventListener('click', () => go((cur + 1) % slides.length));
+    setInterval(() => go((cur+1) % slides.length), 7000);
+  })();
+
+  /* === Project Detail Modal === */
+  (function(){
+    const projects = {
+      motorola: {
+        tag: 'TECH · GLOBAL · 21 PAÍSES',
+        logo: 'wtf-credenciales-slides/logos/motorola.png',
+        title: '<span style="font-weight:100;opacity:.7;">CONSTRUIMOS PARTE DEL</span> <em style="font-weight:900;font-style:normal;">ADN GLOBAL DE MOTOROLA</em>',
+        desc: 'Creamos <strong>Power to Empower</strong>, la plataforma para marca Motorola que busca empoderar a la próxima generación de pensadores, innovadores y generadores de cambios. Construimos un mensaje fuerte que utilizamos como plataforma a nivel global para conectar con el target y creamos una campaña que incluyó 18 nacionalidades en 21 países.',
+        video: 'wtf-credenciales-slides/galeria/modal-motorola.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/moto-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/moto-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/moto-detail-3.jpg'
+        ],
+      },
+      'moto-razr': {
+        tag: 'TECH · LATAM · CAMPAÑA 360°',
+        logo: 'wtf-credenciales-slides/logos/motorola.png',
+        title: '<span style="font-weight:100;opacity:.7;">LANZAMOS UN</span> <em style="font-weight:900;font-style:normal;">PLEGABLE INCREÍBLE EN LATAM</em>',
+        desc: 'Creamos una campaña regional, con un concepto que desafió el mismo principio de equipo, para mover a las personas, hacerlas ir por más y dejar claro todo el potencial de los equipos plegables. Una campaña 360° que incluye comerciales de TV, contenidos especiales para TikTok, IG, y YouTube, influencer, direct marketing y vía pública.',
+        video: 'wtf-credenciales-slides/galeria/modal-razr.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/razr-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/razr-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/razr-detail-3.jpg'
+        ]
+      },
+      'absolut-ba': {
+        tag: 'SPIRITS · ARGENTINA · EDICIÓN LIMITADA',
+        logo: 'wtf-credenciales-slides/logos/absolut.png',
+        title: '<span style="font-weight:100;opacity:.7;">CREAMOS UNA BOTELLA ÚNICA PARA</span> <em style="font-weight:900;font-style:normal;">ABSOLUT VODKA</em>',
+        desc: 'Pensamos, creamos, diseñamos y lanzamos integralmente la primera botella de Absolut Vodka que le rindió homenaje a Buenos Aires. Junto a un fuerte concepto lanzamos la ciudad número 14 en el mundo en tener una botella edición limitada, un privilegio para pocos. Una campaña que incluyó artistas, diseñadores, arquitectos, bartenders, músicos y se desarrolló en 360 grados.',
+        video: 'wtf-credenciales-slides/galeria/modal-absba.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/absba-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/absba-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/absba-detail-3.jpg',
+          'wtf-credenciales-slides/galeria/absba-detail-4.jpg'
+        ]
+      },
+      'absolut-nothing': {
+        tag: 'SPIRITS · SEGURIDAD VIAL · BRIEF IMPOSIBLE',
+        logo: 'wtf-credenciales-slides/logos/absolut.png',
+        title: '<span style="font-weight:100;opacity:.7;">RESOLVIMOS UN BRIEF</span> <em style="font-weight:900;font-style:normal;">LITERALMENTE IMPOSIBLE</em>',
+        desc: 'En un mundo donde la seguridad vial no admite excusas, rompimos el molde y creamos la primera botella de vodka sin vodka. Porque si vas a conducir, no hay espacio para el alcohol. "Absolut Nothing". Repartimos estas botellas disruptivas a periodistas, celebridades y líderes de opinión, entregándolas en bolsas confeccionadas con airbags reciclados, material que, literalmente, había salvado vidas.',
+        video: 'wtf-credenciales-slides/galeria/modal-nothing.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/nothing-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/nothing-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/nothing-detail-3.jpg',
+          'wtf-credenciales-slides/galeria/nothing-detail-4.jpg'
+        ]
+      },
+      'absolut-grapefruit': {
+        tag: 'VODKA · LANZAMIENTO',
+        logo: 'wtf-credenciales-slides/logos/absolut.png',
+        title: '<span style="font-weight:100;opacity:.7;">UN NUEVO SABOR</span> <em style="font-weight:900;font-style:normal;">PARA DESCUBRIR</em>',
+        desc: 'Acompañamos el lanzamiento de Absolut Grapefruit con una pieza de marca que celebra el nuevo sabor: hecho con grapefruit natural, naturalmente dulce y sin azúcar añadida. Una invitación vibrante a descubrir un Absolut fresco, perfecto para la coctelería, con la calidad y el carácter de siempre.',
+        video: 'wtf-credenciales-slides/galeria/modal-absgrapefruit.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/absgrapefruit-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/absgrapefruit-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/absgrapefruit-detail-3.jpg',
+          'wtf-credenciales-slides/galeria/absgrapefruit-detail-4.jpg',
+          'wtf-credenciales-slides/galeria/absgrapefruit-detail-5.jpg'
+        ]
+      },
+      'diablo': {
+        tag: 'SPIRITS · CHILE · REBRANDING',
+        logo: 'wtf-credenciales-slides/logos/diablo-pisco.png',
+        title: '<span style="font-weight:100;opacity:.7;">RENOVAMOS SU PRESENCIA.</span> <em style="font-weight:900;font-style:normal;">REFORZAMOS SU LEGADO</em>',
+        desc: 'En un planeta donde los espíritus guardan mitos, creamos una campaña que desafía la categoría y reescribe una leyenda. Bajo el concepto "El alma cambia, el carácter permanece", desarrollamos una narrativa visual de alto impacto que devuelve al Diablo su identidad intensa y moderna. Una campaña integral con piezas cinematográficas, contenido digital y activaciones que no solo muestran un cambio de imagen, sino un renacer.',
+        video: 'wtf-credenciales-slides/galeria/modal-diablo.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/diablo-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/diablo-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/diablo-detail-3.jpg'
+        ]
+      },
+      'alto-del-carmen': {
+        tag: 'SPIRITS · CHILE · +8 PTS SHARE',
+        logo: 'wtf-credenciales-slides/logos/alto-del-carmen.png',
+        title: '<span style="font-weight:100;opacity:.7;">CAMBIAMOS LA</span> <em style="font-weight:900;font-style:normal;">MARCA MÁS IMPORTANTE DE PISCO</em>',
+        desc: 'Una de las marcas con mayor relevancia de Chile necesitaba volver a ganar awareness y mercado. Rompimos el brief y generamos un cambio profundo, con una estrategia disruptiva que incluyó un nuevo isologo, tone of voice y manera de relacionarse con el target, hasta nuevos formatos de producto. Cambiamos más de 1500 puntos de contacto, modificamos matrices y hasta sus botellas para generar impacto. Ganamos el primer lugar en la categoría sumando 8 puntos de share adicionales.',
+        video: 'wtf-credenciales-slides/galeria/modal-altocarmen.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/altocarmen-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/altocarmen-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/altocarmen-detail-3.jpg',
+          'wtf-credenciales-slides/galeria/altocarmen-detail-4.jpg',
+          'wtf-credenciales-slides/galeria/altocarmen-detail-5.jpg'
+        ]
+      },
+      'havana': {
+        tag: 'SPIRITS · ACTIVACIÓN · NFC DOCK',
+        logo: 'wtf-credenciales-slides/logos/havana-club.png',
+        title: '<span style="font-weight:100;opacity:.7;">DESCONECTAMOS PARA</span> <em style="font-weight:900;font-style:normal;">LOGRAR MOMENTOS ÚNICOS</em>',
+        desc: 'Menos uso del teléfono, más momentos compartidos con amigos y más beneficios de Havana Club. Buscando romper con la "des-comunicación" que genera el uso de smartphones, desarrollamos el primer dock para móviles que permitía pasar más tiempo con amigos. ¿Cómo? Muy fácil, gracias a la tecnología NFC y el poder de lo auténtico.',
+        video: 'wtf-credenciales-slides/galeria/modal-havana.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/havana-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/havana-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/havana-detail-3.jpg',
+          'wtf-credenciales-slides/galeria/havana-detail-4.jpg'
+        ]
+      },
+      'havana-cubalibre': {
+        tag: 'RON · COMERCIAL',
+        logo: 'wtf-credenciales-slides/logos/havana-club.png',
+        title: '<span style="font-weight:100;opacity:.7;">UN COMERCIAL PARA INVITAR</span> <em style="font-weight:900;font-style:normal;">AL CLÁSICO CUBA LIBRE</em>',
+        desc: 'Realzamos el ritual del trago más icónico de Havana Club: ron, cola, hielo y lima. Una pieza apetitosa y sensorial que celebra el sabor auténtico cubano e invita a redescubrir el clásico Cuba Libre, con la calidez y el carácter de la marca.',
+        video: 'wtf-credenciales-slides/galeria/modal-havanacola.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/havanacola-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/havanacola-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/havanacola-detail-3.jpg',
+          'wtf-credenciales-slides/galeria/havanacola-detail-4.jpg',
+          'wtf-credenciales-slides/galeria/havanacola-detail-5.jpg'
+        ]
+      },
+      'honda-xr': {
+        tag: 'AUTOMOTRIZ · LATAM · CAMPAÑA EXTREMA',
+        logo: 'wtf-credenciales-slides/logos/honda.png',
+        title: '<span style="font-weight:100;opacity:.7;">DEMOSTRAMOS UNA</span> <em style="font-weight:900;font-style:normal;">EVOLUCIÓN RADICAL</em>',
+        desc: 'Creamos una campaña extrema para demostrar todo el potencial de la Honda XR300e en toda Latinoamérica. Un lanzamiento único y diferente, inaugurando para la marca un nuevo camino en su forma de comunicar en la región y con producción in house.',
+        video: 'wtf-credenciales-slides/galeria/modal-hondaxr.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/hondaxr-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/hondaxr-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/hondaxr-detail-3.jpg'
+        ]
+      },
+      'hacienda': {
+        tag: 'SPIRITS · CHILE · MARCA PREMIUM',
+        logo: 'wtf-credenciales-slides/logos/hacienda-la-torre.png',
+        title: '<span style="font-weight:100;opacity:.7;">CREAMOS Y POSICIONAMOS</span> <em style="font-weight:900;font-style:normal;">UNA MARCA PREMIUM</em>',
+        desc: 'Creamos integralmente un producto del segmento premium, para capitalizar nuevos targets que necesitaban sentir exclusividad, historia y que valoran las cosas artesanalmente elaboradas. Construimos una estrategia 360 que incluyó desde análisis detallado del target para el posicionamiento, el diseño del producto, packaging, tone of voice y materiales de comunicación. Un pisco único que capturó el 16% del total de las ventas de la compañía.',
+        video: 'wtf-credenciales-slides/galeria/modal-hacienda.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/hacienda-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/hacienda-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/hacienda-detail-3.jpg',
+          'wtf-credenciales-slides/galeria/hacienda-detail-4.jpg'
+        ]
+      },
+      'cafayate': {
+        tag: 'VINOS · ARGENTINA · CAMPAÑA 360',
+        logo: 'wtf-credenciales-slides/logos/cafayate.png',
+        title: '<span style="font-weight:100;opacity:.7;">MOSTRAMOS EL VALOR DE LOS</span> <em style="font-weight:900;font-style:normal;">VINOS DE ALTURA</em>',
+        desc: 'Con el objetivo de mostrar las diferencias estructurales de los vinos de altura de Cafayate, creamos una campaña 360 para presentar el line up completo de la marca, mostrar su origen y sus valores. La campaña tuvo touch points en digital, TV, vía pública, marketing directo y activaciones en punto de venta.',
+        video: 'wtf-credenciales-slides/galeria/modal-cafayate.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/cafayate-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/cafayate-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/cafayate-detail-3.jpg'
+        ]
+      },
+      'sensus': {
+        tag: 'ESPUMANTE · COMERCIAL · 7 DÍAS',
+        logo: 'wtf-credenciales-slides/logos/sensus.png',
+        title: '<span style="font-weight:100;opacity:.7;">DE LA IDEA A LA PUBLICACIÓN</span> <em style="font-weight:900;font-style:normal;">EN SOLO 7 DÍAS</em>',
+        desc: 'Un comercial premium de punta a punta en solo 7 días, de la idea a la publicación. Con una estética en blanco y negro y acentos en amarillo, capturamos el espíritu celebratorio de Sensus —el espumante para disfrutar a tu manera—, demostrando velocidad de producción sin resignar calidad cinematográfica.',
+        video: 'wtf-credenciales-slides/galeria/modal-sensus.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/sensus-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/sensus-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/sensus-detail-3.jpg',
+          'wtf-credenciales-slides/galeria/sensus-detail-4.jpg',
+          'wtf-credenciales-slides/galeria/sensus-detail-5.jpg'
+        ]
+      },
+      'honda-fit': {
+        tag: 'AUTOMOTRIZ · LANZAMIENTO',
+        logo: 'wtf-credenciales-slides/logos/honda.png',
+        title: '<span style="font-weight:100;opacity:.7;">LANZAMOS EL CAMBIO MÁS</span> <em style="font-weight:900;font-style:normal;">RADICAL DEL HONDA FIT</em>',
+        desc: 'Reinventamos el Honda Fit, reinventamos emociones. "2 días en la vida" de aventura en el nuevo Honda Fit tercera generación. Una campaña que conecta con lo más emocional de la familia, mostrando todo el potencial del modelo a través de una narrativa cercana y aspiracional.',
+        video: 'wtf-credenciales-slides/galeria/modal-hondafit.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/hondafit-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/hondafit-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/hondafit-detail-3.jpg',
+          'wtf-credenciales-slides/galeria/hondafit-detail-4.jpg'
+        ]
+      },
+      'honda-hrv': {
+        tag: 'AUTOMOTRIZ · 8 PAÍSES · LATAM',
+        logo: 'wtf-credenciales-slides/logos/honda.png',
+        title: '<span style="font-weight:100;opacity:.7;">LANZAMOS LA HONDA HRV</span> <em style="font-weight:900;font-style:normal;">EN TODO LATINOAMÉRICA</em>',
+        desc: 'Participamos en todo el proyecto de este modelo, actualmente el más exitoso de la marca, para su lanzamiento en toda la región. Planificamos, creamos, producimos e implementamos un lanzamiento en 8 países de manera simultánea: Argentina, Chile, Uruguay, Perú, Colombia, Panamá, Costa Rica y Caribe. Desarrollamos un concepto que movilizó la audiencia y logró captar la atención conectando la marca y el producto de manera emocional.',
+        video: 'wtf-credenciales-slides/galeria/modal-hondahrv.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/hondahrv-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/hondahrv-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/hondahrv-detail-3.jpg'
+        ]
+      },
+      'honda-hrv-moviliza': {
+        tag: 'HONDA · HR-V · LIFESTYLE',
+        logo: 'wtf-credenciales-slides/logos/honda.png',
+        title: '<span style="font-weight:100;opacity:.7;">NO TE MUEVE.</span> <em style="font-weight:900;font-style:normal;">TE MOVILIZA</em>',
+        desc: 'Una campaña lifestyle para la Honda HR-V que conecta con una generación en movimiento. Bajo el concepto "No te mueve. Te moviliza.", construimos una pieza emocional y vibrante —ciudad, amigos, color y libertad— que posiciona al SUV como el compañero de quienes no se quedan quietos.',
+        video: 'wtf-credenciales-slides/galeria/modal-hondahrvmoviliza.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/hondahrvmoviliza-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/hondahrvmoviliza-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/hondahrvmoviliza-detail-3.jpg',
+          'wtf-credenciales-slides/galeria/hondahrvmoviliza-detail-4.jpg',
+          'wtf-credenciales-slides/galeria/hondahrvmoviliza-detail-5.jpg'
+        ]
+      },
+      'honda-crv': {
+        tag: 'AUTOMOTRIZ · NUEVA GENERACIÓN',
+        logo: 'wtf-credenciales-slides/logos/honda.png',
+        title: '<span style="font-weight:100;opacity:.7;">VIVE UNA NUEVA</span> <em style="font-weight:900;font-style:normal;">GENERACIÓN DE EMOCIONES</em>',
+        desc: 'All New CR-V, vive la evolución. Llegó la generación más deportiva, tecnológica y segura de su historia. Una nueva generación de emociones que conecta con lo más emocional de la familia, presentando el modelo más exitoso de la marca con una narrativa cercana y aspiracional.',
+        video: 'wtf-credenciales-slides/galeria/modal-hondacrv.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/hondacrv-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/hondacrv-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/hondacrv-detail-3.jpg'
+        ]
+      },
+      'honda-despiece': {
+        tag: 'HONDA · ACTIVACIÓN · EXPO',
+        logo: 'wtf-credenciales-slides/logos/honda.png',
+        title: '<span style="font-weight:100;opacity:.7;">UN PROBLEMA QUE TERMINA EN</span> <em style="font-weight:900;font-style:normal;">LA ACTIVACIÓN MÁS EXITOSA</em>',
+        desc: 'Convertimos un problema —el despiece de una moto— en la activación más exitosa de la expo. Suspendimos una Honda completamente desarmada en una instalación cinematográfica con iluminación dramática, transformando cada pieza en una obra. El resultado: una experiencia inmersiva que atrajo multitudes y se volvió el centro del evento.',
+        video: 'wtf-credenciales-slides/galeria/modal-hondadespiece.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/hondadespiece-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/hondadespiece-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/hondadespiece-detail-3.jpg',
+          'wtf-credenciales-slides/galeria/hondadespiece-detail-4.jpg',
+          'wtf-credenciales-slides/galeria/hondadespiece-detail-5.jpg'
+        ]
+      },
+      'honda-cb190r': {
+        tag: 'HONDA · MOTOS · CB190R',
+        logo: 'wtf-credenciales-slides/logos/honda.png',
+        title: '<span style="font-weight:100;opacity:.7;">SÉ RÁPIDO.</span> <em style="font-weight:900;font-style:normal;">NO SOLO LO APARENTES</em>',
+        desc: 'El lanzamiento de la Honda CB190R, una naked urbana con actitud. Una pieza cinematográfica de riding nocturno por la ciudad que captura su carácter ágil y potente. "Sé rápido. No solo lo aparentes": una moto para los que viven la calle de verdad, no para aparentar.',
+        video: 'wtf-credenciales-slides/galeria/modal-cb190r.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/cb190r-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/cb190r-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/cb190r-detail-3.jpg',
+          'wtf-credenciales-slides/galeria/cb190r-detail-4.jpg',
+          'wtf-credenciales-slides/galeria/cb190r-detail-5.jpg'
+        ]
+      },
+      'honda-accord': {
+        tag: 'AUTOMOTRIZ · SISTEMA VARIABLE',
+        logo: 'wtf-credenciales-slides/logos/honda.png',
+        title: '<span style="font-weight:100;opacity:.7;">DEMOSTRAMOS UN</span> <em style="font-weight:900;font-style:normal;">SISTEMA VARIABLE DE CILINDROS</em>',
+        desc: 'Creamos una campaña, con foco en el Honda Accord, para demostrar la eficacia y poder del sistema variable de cilindros patentado por Honda. Un sistema increíble pero muy difícil de explicar para los consumidores. Rompimos el brief, despejamos lo técnico y buscamos la analogía perfecta para contarlo. Con dirección de Juan Solanas, creamos un comercial compacto y poderoso.',
+        video: 'wtf-credenciales-slides/galeria/modal-hondaaccord.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/hondaaccord-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/hondaaccord-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/hondaaccord-detail-3.jpg'
+        ]
+      },
+      'ford-lobo': {
+        tag: 'AUTOMOTRIZ · USA + MÉXICO · SUPERPRODUCCIÓN',
+        logo: 'wtf-credenciales-slides/logos/ford.png',
+        title: '<span style="font-weight:100;opacity:.7;">LANZAMOS LA FORD F-150 LOBO</span> <em style="font-weight:900;font-style:normal;">EN USA Y MÉXICO</em>',
+        desc: 'En un mundo donde las leyendas trascienden, para el renovado Ford F-150 Lobo creamos una campaña que rompe esquemas en el mercado mexicano y americano de habla hispana. Con el concepto "Las leyendas nunca se detienen", desarrollamos una superproducción rodada en México, que incluyó dos piezas cinematográficas de 60 segundos con un estilo de ciencia ficción, redefiniendo el futuro de la potencia y la aventura.',
+        video: 'wtf-credenciales-slides/galeria/modal-fordlobo.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/fordlobo-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/fordlobo-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/fordlobo-detail-3.jpg',
+          'wtf-credenciales-slides/galeria/fordlobo-detail-4.jpg',
+          'wtf-credenciales-slides/galeria/fordlobo-detail-5.jpg'
+        ]
+      },
+      'starter': {
+        tag: 'SPORT · GLOBAL · 100% AI',
+        logo: 'wtf-credenciales-slides/logos/starter.png',
+        title: '<span style="font-weight:100;opacity:.7;">CUANDO LA ESTRATEGIA ES SISTEMA,</span> <em style="font-weight:900;font-style:normal;">LA IA EJECUTA</em>',
+        desc: 'Desarrollamos una estrategia integral para redefinir la presencia de Starter, combinando análisis de target, posicionamiento y sistema creativo. Esa visión se tradujo en un catálogo completo producido 100% con IA, donde la tecnología fue parte del método, no solo de la ejecución. El resultado: velocidad, consistencia y escala, con contenido alineado al ADN de la marca y a su vínculo con la cultura.',
+        videos: [
+          'wtf-credenciales-slides/galeria/modal-starter-1.mp4',
+          'wtf-credenciales-slides/galeria/modal-starter-2.mp4',
+          'wtf-credenciales-slides/galeria/modal-starter-3.mp4'
+        ],
+        images: [
+          'wtf-credenciales-slides/galeria/starter-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/starter-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/starter-detail-3.jpg',
+          'wtf-credenciales-slides/galeria/starter-detail-4.jpg',
+          'wtf-credenciales-slides/galeria/starter-detail-5.jpg'
+        ]
+      },
+      'kross': {
+        tag: 'CERVEZA CRAFT · CHILE',
+        logo: 'wtf-credenciales-slides/logos/kross.png',
+        title: '<span style="font-weight:100;opacity:.7;">CELEBRAMOS LO ORIGINAL</span> <em style="font-weight:900;font-style:normal;">Y LO AUTÉNTICO</em>',
+        desc: 'Kross es la cerveza craft pionera de Chile. Construimos un manifiesto de marca que celebra lo original y lo auténtico: desde su origen en la Patagonia y sus premios internacionales, hasta su carácter inconfundible. Una pieza de marca que reafirma su lugar como la cerveza artesanal de referencia, con orgullo de raíz y actitud propia.',
+        video: 'wtf-credenciales-slides/galeria/modal-kross.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/kross-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/kross-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/kross-detail-3.jpg',
+          'wtf-credenciales-slides/galeria/kross-detail-4.jpg',
+          'wtf-credenciales-slides/galeria/kross-detail-5.jpg'
+        ]
+      },
+      'ridgeline': {
+        tag: 'AUTOMOTRIZ · LANZAMIENTO',
+        logo: 'wtf-credenciales-slides/logos/honda.png',
+        title: '<span style="font-weight:100;opacity:.7;">CAMBIAMOS EL ENFOQUE</span> <em style="font-weight:900;font-style:normal;">PARA LLEGAR MÁS LEJOS</em>',
+        desc: '"Gran en cualquier territorio", una campaña potente para demostrar la versatilidad de la Honda Ridgeline. A veces hay que redefinir todo para posicionar un potente producto y generar consideración en las audiencias.',
+        video: 'wtf-credenciales-slides/galeria/modal-ridgeline.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/ridgeline-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/ridgeline-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/ridgeline-detail-3.jpg'
+        ]
+      },
+      'cinzano': {
+        tag: 'SPIRITS · VERMOUTH · MASTERPIECE',
+        logo: 'wtf-credenciales-slides/logos/cinzano.png',
+        title: '<span style="font-weight:100;opacity:.7;">UN VERMOUTH</span> <em style="font-weight:900;font-style:normal;">QUE ES UNA OBRA MAESTRA</em>',
+        desc: 'Masterpiece. Campaña premium para Cinzano Segundo, el vermouth icónico. Una pieza de alto impacto visual que reposiciona la marca con un tono contemporáneo y aspiracional, conectando la tradición del producto con nuevos rituales de consumo.',
+        video: 'wtf-credenciales-slides/galeria/modal-cinzano.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/cinzano-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/cinzano-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/cinzano-detail-3.jpg'
+        ]
+      },
+      'montefraile': {
+        tag: 'SPIRITS · PISCO SUPER PREMIUM',
+        logo: '',
+        title: '<span style="font-weight:100;opacity:.7;">HAY EXPERIENCIAS QUE</span> <em style="font-weight:900;font-style:normal;">NO SE PUEDEN EXPRESAR</em>',
+        desc: 'Hay experiencias que no se pueden expresar, hay que probarlas, como este pisco super premium. Una campaña de alto impacto sensorial que invita a descubrir un producto excepcional a través de una narrativa visual que apela a lo que las palabras no alcanzan a describir.',
+        video: 'wtf-credenciales-slides/galeria/modal-montefraile.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/montefraile-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/montefraile-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/montefraile-detail-3.jpg'
+        ]
+      },
+      'samsung': {
+        tag: 'TECH · VIRAL · RÉCORD',
+        logo: 'wtf-credenciales-slides/logos/samsung.png',
+        title: '<span style="font-weight:100;opacity:.7;">UNA CONEXIÓN QUE</span> <em style="font-weight:900;font-style:normal;">ROMPIÓ RÉCORDS</em>',
+        desc: 'Mambo viral. Una conexión que rompió récords. Para Samsung desarrollamos una pieza de contenido que logró una viralización masiva, conectando con la audiencia a través del humor y la cultura pop, generando un alcance orgánico sin precedentes para la marca.',
+        video: 'wtf-credenciales-slides/galeria/modal-samsung.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/samsung-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/samsung-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/samsung-detail-3.jpg'
+        ]
+      },
+      'quilmes': {
+        tag: 'BEBIDAS · CONSUMO RESPONSABLE',
+        logo: 'wtf-credenciales-slides/logos/quilmes.png',
+        title: '<span style="font-weight:100;opacity:.7;">ENTRE PADRES E HIJOS,</span> <em style="font-weight:900;font-style:normal;">UNA MEJOR COMUNICACIÓN</em>',
+        desc: 'Guía para padres e hijos. Una forma de poder enseñar a mejorar la comunicación entre padres e hijos adolescentes y el consumo responsable de alcohol. Una campaña con propósito que aborda un tema sensible con cercanía y honestidad.',
+        video: 'wtf-credenciales-slides/galeria/modal-quilmes.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/quilmes-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/quilmes-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/quilmes-detail-3.jpg'
+        ]
+      },
+      'bayer-empecid': {
+        tag: 'BAYER · SALUD · #CUÍDATESINTABÚ',
+        logo: 'wtf-credenciales-slides/logos/bayer.png',
+        title: '<span style="font-weight:100;opacity:.7;">UN PROBLEMA QUE DECIDIMOS</span> <em style="font-weight:900;font-style:normal;">NO OCULTAR</em>',
+        desc: 'Empecid Gyno, de Bayer: hablamos sin tabú de un problema de salud íntima que muchas mujeres callan. Un manifiesto animado que rompe el silencio alrededor de la candidiasis vaginal, con un tono cercano, claro y empático, invitando a cuidarse sin vergüenza. #CuídateSinTabú.',
+        video: 'wtf-credenciales-slides/galeria/modal-bayerempecid.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/bayerempecid-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/bayerempecid-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/bayerempecid-detail-3.jpg',
+          'wtf-credenciales-slides/galeria/bayerempecid-detail-4.jpg',
+          'wtf-credenciales-slides/galeria/bayerempecid-detail-5.jpg'
+        ]
+      },
+      'pecador': {
+        tag: 'SPIRITS · CAPEL · DISRUPTIVO',
+        logo: '',
+        title: '<span style="font-weight:100;opacity:.7;">UNA MARCA DISRUPTIVA</span> <em style="font-weight:900;font-style:normal;">CON ACTITUD DE CALLE</em>',
+        desc: 'Pecador (PKDOR), la marca disruptiva de Capel. Skate, calle y actitud para conectar con un nuevo target. Desarrollamos un sistema de contenido fresco y descarado que rompe con los códigos tradicionales de la categoría, hablándole a una generación que valora la autenticidad.',
+        video: 'wtf-credenciales-slides/galeria/modal-pecador.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/pecador-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/pecador-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/pecador-detail-3.jpg'
+        ]
+      },
+      'acblanca': {
+        tag: 'SPIRITS · CHILE · VIRTUAL SET',
+        logo: 'wtf-credenciales-slides/logos/alto-del-carmen.png',
+        title: '<span style="font-weight:100;opacity:.7;">USAMOS TECNOLOGÍA DE</span> <em style="font-weight:900;font-style:normal;">VIRTUAL SET</em>',
+        desc: 'Si nosotros no vamos a la montaña, la montaña vino a nosotros. Utilizando tecnología de vanguardia de escenografía virtual, recreamos parte de la cordillera para realizar contenidos increíbles que sirvieron para la construcción de la campaña de lanzamiento de Alto del Carmen Etiqueta Blanca, una nueva etiqueta que también diseñamos.',
+        video: 'wtf-credenciales-slides/galeria/modal-acblanca.mp4',
+        images: [
+          'wtf-credenciales-slides/galeria/acblanca-detail-1.jpg',
+          'wtf-credenciales-slides/galeria/acblanca-detail-2.jpg',
+          'wtf-credenciales-slides/galeria/acblanca-detail-3.jpg',
+          'wtf-credenciales-slides/galeria/acblanca-detail-4.jpg',
+          'wtf-credenciales-slides/galeria/acblanca-detail-5.jpg'
+        ]
+      }
+    };
+    const modal = document.querySelector('.project-modal');
+    const content = document.querySelector('.project-modal-content');
+    const closeBtn = document.querySelector('.project-modal-close');
+    if(!modal) return;
+
+    document.querySelectorAll('[data-project]').forEach(el => {
+      el.addEventListener('click', () => {
+        const p = projects[el.dataset.project];
+        if(!p) return;
+        content.innerHTML =
+          '<div style="background:rgba(255,255,255,0.07);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:2.5rem 3rem;margin-bottom:2rem;">'+
+            '<div style="display:flex;align-items:center;gap:2.5rem;margin-bottom:2rem;">'+
+              '<div style="flex-shrink:0;width:100px;"><img src="'+(p.logo||'')+'" style="width:100%;filter:brightness(10);" onerror="this.style.display=\'none\'"></div>'+
+              '<div style="flex:1;">'+
+                '<h2 style="font-family:\'Roboto\',sans-serif;font-size:clamp(1.6rem,3vw,2.5rem);font-weight:300;color:#fff;line-height:1.1;margin-bottom:.8rem;">'+p.title+'</h2>'+
+                '<p style="font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.7;max-width:650px;">'+p.desc+'</p>'+
+              '</div>'+
+            '</div>'+
+            '<div style="background:rgba(240,238,230,0.95);border-radius:12px;padding:1rem;">'+
+              '<div style="display:grid;grid-template-columns:3fr 2fr;gap:.8rem;margin-bottom:.8rem;">'+
+                '<div style="border-radius:8px;overflow:hidden;"><img src="'+(p.images[0]||'')+'" style="width:100%;height:100%;object-fit:cover;display:block;"></div>'+
+                '<div style="display:grid;grid-template-rows:1fr 1fr;gap:.6rem;">'+
+                  '<div style="border-radius:8px;overflow:hidden;"><img src="'+(p.images[1]||'')+'" style="width:100%;height:100%;object-fit:cover;display:block;"></div>'+
+                  '<div style="border-radius:8px;overflow:hidden;"><img src="'+(p.images[2]||'')+'" style="width:100%;height:100%;object-fit:cover;display:block;"></div>'+
+                '</div>'+
+              '</div>'+
+              (p.video ? '<div style="border-radius:8px;overflow:hidden;"><video src="'+p.video+'" poster="'+p.video.replace(/\.mp4$/,'-poster.jpg')+'" preload="metadata" loop controls playsinline style="width:100%;display:block;background:#000;"></video></div>' : '')+
+              ((p.videos && p.videos.length) ? '<div style="display:grid;grid-template-columns:repeat('+p.videos.length+',1fr);gap:.8rem;">'+p.videos.map(v=>'<div style="border-radius:8px;overflow:hidden;"><video src="'+v+'" poster="'+v.replace(/\.mp4$/,'-poster.jpg')+'" preload="metadata" loop controls playsinline style="width:100%;display:block;background:#000;"></video></div>').join('')+'</div>' : '')+
+              ((p.images && p.images.length > 3) ? '<div style="display:grid;grid-template-columns:repeat('+(p.images.length-3)+',1fr);gap:.8rem;margin-top:.8rem;">'+p.images.slice(3).map(src=>'<div style="border-radius:8px;overflow:hidden;"><img src="'+src+'" style="width:100%;height:100%;object-fit:cover;display:block;"></div>').join('')+'</div>' : '')+
+            '</div>'+
+          '</div>';
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeModal(){ modal.classList.remove('open'); document.body.style.overflow=''; content.querySelectorAll('video').forEach(v=>v.pause()); }
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
   })();
 
   /* === Drag-to-scroll for Netflix rails === */
