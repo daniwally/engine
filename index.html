@@ -2267,9 +2267,11 @@
     .closing .right { text-align: left; }
     .matrix-row { grid-template-columns: 1fr; }
     .matrix-cell { border-right: none; border-bottom: 1px solid var(--line); }
-    section { padding: 80px 6vw; }
-    /* allow tall sections to scroll on mobile instead of clipping */
-    .quienes { overflow-y: auto; justify-content: flex-start; -webkit-overflow-scrolling: touch; }
+    /* On mobile every slide scrolls (was fixed 100vh overflow:hidden -> content clipped) */
+    section { padding: 64px 6vw; overflow-y: auto !important; -webkit-overflow-scrolling: touch; justify-content: flex-start !important; }
+    section::-webkit-scrollbar { display: none; }
+    section { scrollbar-width: none; }
+    /* heading flows naturally so it doesn't consume vertical space */
     .quienes-h { flex: none; display: block; align-items: initial; margin: 18px 0; }
   }
 
