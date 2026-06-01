@@ -2266,6 +2266,9 @@
     .matrix-row { grid-template-columns: 1fr; }
     .matrix-cell { border-right: none; border-bottom: 1px solid var(--line); }
     section { padding: 80px 6vw; }
+    /* allow tall sections to scroll on mobile instead of clipping */
+    .quienes { overflow-y: auto; justify-content: flex-start; -webkit-overflow-scrolling: touch; }
+    .quienes-h { flex: none; display: block; align-items: initial; margin: 18px 0; }
   }
 
   /* MOTION LAYER */
