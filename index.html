@@ -2256,9 +2256,12 @@
     .pipeline, .stack-table, .stack-grid, .compare, .target,
     .inv-grid, .ugc-flow, .ugc-creators, .ugc-c-right,
     .caso-grid, .modelo-grid, .modelo-pillars,
-    .chispa-grid, .logos-grid {
+    .chispa-grid, .cap-grid {
       grid-template-columns: 1fr !important;
     }
+    /* logo wall: compact 3-col grid on mobile instead of one long column */
+    .logos-grid { grid-template-columns: repeat(3, 1fr) !important; }
+    .logo-cell { padding: 16px 10px; min-height: 56px; }
     .problema, .wtf-pillars, .wtf-rules { grid-template-columns: 1fr; gap: 30px; }
     .wtf-pillars > * { margin-right: 0; margin-bottom: -1px; }
     .target { grid-template-columns: 1fr; }
