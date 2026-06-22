@@ -491,6 +491,7 @@
     padding: 3px 12px;
     border-radius: 4px;
   }
+  .pricing-card.featured.no-badge::before { display: none; }
   .pricing-tier {
     font-family: var(--mono);
     font-size: 11px;
@@ -1014,7 +1015,7 @@
     <source src="wtf-credenciales-slides/bg-comparativa-video.mp4" type="video/mp4">
   </video>
   <h2 class="section-tag" data-i18n="comp_title">COMPARATIVA<br><em>DE SERVICIOS</em></h2>
-  <p class="section-desc" data-i18n="comp_desc">Lo que una agencia tradicional resuelve con equipos grandes, timings largos y presupuestos fragmentados, nosotros lo resolvemos con inteligencia artificial, velocidad y un sistema integrado que no para. Mismo nivel creativo, otra velocidad.</p>
+  <p class="section-desc" data-i18n="comp_desc">Lo que una agencia tradicional resuelve con equipos grandes, timings largos y presupuestos fragmentados, nosotros lo resolvemos con un equipo compacto, inteligencia artificial, calidad, velocidad y un sistema integrado que no para. Mismo nivel creativo, otra velocidad.</p>
 
   <!-- Split Compare -->
   <div class="split">
@@ -1314,127 +1315,46 @@
 
 <!-- ====== PLANES ====== -->
 <div class="section" style="background: linear-gradient(180deg, rgba(10,10,14,0.70) 0%, rgba(10,10,14,0.80) 100%), url('wtf-credenciales-slides/bg-planes.jpg') center/cover no-repeat fixed;">
-  <h2 class="section-tag" data-i18n="plans_title">PLANES<br><em>MENSUALES</em></h2>
-  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px">
-    <span class="pricing-badge trial" data-i18n="badge_trial">Trial de 90 días con opción de salida si no hay fit</span>
-    <span class="pricing-badge scarcity" data-i18n="badge_scarcity">Capacidad de onboarding limitada a 2 cuentas nuevas por mes</span>
-  </div>
-  <div class="pricing-grid">
-    <div class="pricing-card">
-      <div class="pricing-tier">TIER 1</div>
+  <h2 class="section-tag">PRESUPUESTO<br><em>MENSUAL</em></h2>
+  <p style="font-family:var(--mono);font-size:clamp(11px,1.3vw,14px);letter-spacing:0.14em;text-transform:uppercase;color:rgba(245,240,235,0.6);margin:14px 0 30px;">WTF Agency + WTF AI Content System</p>
+  <p class="section-desc" style="max-width:820px;margin:0 0 40px;"><strong style="display:block;color:var(--bone);font-weight:300;font-size:clamp(20px,2.2vw,28px);line-height:1.2;text-transform:uppercase;margin-bottom:14px;">ESTRATEGIA Y EQUIPO CREATIVO. POTENCIADOS POR NUESTRO SISTEMA OPERATIVO IA. CAMPAÑAS SIN LÍMITES.</strong>Nuestro equipo creativo define la estrategia y dirige el motor de IA para que tus marcas estén siempre en la conversación, no esperando el próximo ciclo de producción. Conceptos, guiones, dirección de arte, video, community management y hasta 40 piezas mensuales, adaptadas a cada plataforma, mercado y lenguaje. Más volumen, más consistencia y más velocidad, con el mismo nivel creativo de siempre y sin agrandar tu equipo ni tu presupuesto. De la idea a la pieza terminada en horas, no en semanas.</p>
+  <div style="font-size:clamp(40px,5vw,64px);font-weight:900;color:var(--bone);line-height:1.02;text-align:center;margin:56px 0 28px;">Buhero Negro<br>+<br>Ramazzotti</div>
+  <div class="pricing-grid" style="grid-template-columns:1fr;max-width:700px;margin:0 auto;">
+    <div class="pricing-card featured no-badge">
+      <div class="pricing-tier">WTF AGENCY + AI CONTENT SYSTEM</div>
       <div class="pricing-name">AI CONTENT<br>SYSTEM</div>
-      <div class="pricing-desc" data-i18n="t1_desc">Contenido estratégico con sistema IA. Presencia constante con calidad y velocidad.</div>
-      <div class="pricing-price">$4.900 <span>USD</span></div>
-      <div class="pricing-period" data-i18n="pricing_period">MENSUAL · CONTRATO ANUAL</div>
-      <ul class="pricing-features">
-        <li data-i18n="t1_f1">Estrategia de contenido mensual</li>
-        <li data-i18n="t1_f2">Hasta 40 piezas / mes</li>
-        <li data-i18n="t1_f3">Video IA (hasta 4 / mes)</li>
-        <li data-i18n="t1_f4">Dirección de arte IA</li>
-        <li data-i18n="t1_f5">Adaptación multi-plataforma (3)</li>
-        <li data-i18n="t1_f6">1 ronda de revisión por pieza</li>
-        <li data-i18n="t1_f7">Reporte mensual de performance</li>
-        <li data-i18n="t1_f8">Célula compartida con anchor dedicado</li>
-      </ul>
-    </div>
+      <div class="pricing-desc">Contenido estratégico con sistema IA para Buhero Negro en Argentina y Ramazzotti en Argentina y Chile. Presencia constante, con calidad y velocidad, y con sus adaptaciones a los diferentes formatos y lenguajes.</div>
+      <div class="pricing-price">$6.600 <span>USD</span></div>
+      <div class="pricing-period">MENSUAL · CONTRATO ANUAL</div>
 
-    <div class="pricing-card featured">
-      <div class="pricing-tier">TIER 2</div>
-      <div class="pricing-name">AI AGENCY<br>SCALE</div>
-      <div class="pricing-desc" data-i18n="t2_desc">El doble de capacidad. Video cinematográfico, influencers IA y estrategia integrada para marcas en crecimiento.</div>
-      <div class="pricing-price">$6.900 <span>USD</span></div>
-      <div class="pricing-period" data-i18n="pricing_period_2">MENSUAL · CONTRATO ANUAL</div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--signal);margin:24px 0 10px;padding-top:16px;border-top:1px solid var(--line)">ALCANCE</div>
       <ul class="pricing-features">
-        <li data-i18n="t2_f1">Estrategia + planning integrado</li>
-        <li data-i18n="t2_f2">Hasta 80 piezas / mes</li>
-        <li data-i18n="t2_f3">Video cinematográfico IA (hasta 8 / mes)</li>
-        <li data-i18n="t2_f4">Influencers + avatares IA</li>
-        <li data-i18n="t2_f5">Dirección de arte IA</li>
-        <li data-i18n="t2_f6">Adaptación multi-plataforma (5+)</li>
-        <li data-i18n="t2_f7">2 rondas de revisión por pieza</li>
-        <li data-i18n="t2_f8">Reporte mensual de performance</li>
-        <li data-i18n="t2_f9">Optimización de contenido con datos</li>
-        <li data-i18n="t2_f10">Célula compartida con anchor dedicado</li>
+        <li>Marcas: Buhero Negro · Ramazzotti</li>
+        <li>Mercados: Argentina · Chile</li>
       </ul>
-    </div>
 
-    <div class="pricing-card">
-      <div class="pricing-tier">TIER 3 · UNLIMITED</div>
-      <div class="pricing-name">AI AGENCY<br>FULL MODEL</div>
-      <div class="pricing-desc" data-i18n="t3_desc">Todo ilimitado. Contenido, video, estrategia y producción always-on. Tu equipo creativo completo potenciado por IA.</div>
-      <div class="pricing-price">$8.900 <span>USD</span></div>
-      <div class="pricing-period" data-i18n="pricing_period_3">MENSUAL · CONTRATO ANUAL</div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--signal);margin:24px 0 10px;padding-top:16px;border-top:1px solid var(--line)">INCLUYE</div>
       <ul class="pricing-features">
-        <li data-i18n="t3_f1">Estrategia + planning integrado</li>
-        <li data-i18n="t3_f2">Contenido <span class="unlimited">ILIMITADO</span></li>
-        <li data-i18n="t3_f3">Video cinematográfico <span class="unlimited">ILIMITADO</span></li>
-        <li data-i18n="t3_f4">Influencers + avatares IA <span class="unlimited">ILIMITADOS</span></li>
-        <li data-i18n="t3_f5">Dirección de arte IA</li>
-        <li data-i18n="t3_f6">Multi-plataforma nativo (5+)</li>
-        <li data-i18n="t3_f7">Revisiones <span class="unlimited">ILIMITADAS</span></li>
-        <li data-i18n="t3_f8">Rondas de cambios <span class="unlimited">ILIMITADAS</span></li>
-        <li data-i18n="t3_f9">Community management</li>
-        <li data-i18n="t3_f10">Estrategia de contenido mensual</li>
-        <li data-i18n="t3_f11">Copywriting + guiones</li>
-        <li data-i18n="t3_f12">Performance + optimización real-time</li>
-        <li data-i18n="t3_f13">Reportes de performance en vivo</li>
-        <li data-i18n="t3_f14">Célula full exclusiva (6 roles dedicados)</li>
+        <li>Estrategia de contenido mensual</li>
+        <li>Hasta 40 piezas / mes</li>
+        <li>Video IA (hasta 4 / mes)</li>
+        <li>Dirección de arte IA</li>
+        <li>Adaptación multi-plataforma (3)</li>
+        <li>3 rondas de revisión por pieza</li>
+        <li>Copywriting + guiones</li>
+        <li>Community management y moderación</li>
+        <li>Calendario editorial + planificación de contenido</li>
+        <li>Publicación y gestión nativa en cada red</li>
+        <li>Performance + optimización</li>
+        <li>Reporting</li>
+        <li>Célula creativa WTF Agency con anchor dedicado</li>
       </ul>
     </div>
   </div>
 
-  <p class="pricing-note" data-i18n="pricing_note">
-    * Todos los planes incluyen acceso al WTF AI Engine OS · Precios en USD · No incluyen pauta publicitaria · IVA no incluido
+  <p class="pricing-note" style="text-align:center;font-size:13px;margin-left:auto;margin-right:auto;">
+    * Incluye acceso al WTF AI Engine OS · Precios en USD · No incluye pauta publicitaria · IVA no incluido
   </p>
-
-  <!-- Pilot card -->
-  <div style="margin-top:90px">
-    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:16px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-    <h3 class="section-tag" style="font-size:clamp(24px,3.5vw,48px);margin-bottom:12px">WTF <strong style="font-weight:900">AI</strong> ENGINE <em>PILOT</em></h3>
-    <p style="font-size:clamp(15px,1.8vw,19px);font-weight:300;color:rgba(245,240,235,0.55);max-width:680px;line-height:1.5;margin-bottom:36px" data-i18n="pilot_intro">3 semanas para probar el sistema que cambia tu forma de comunicar. Producción de nivel global, velocidad que no creías posible. 21 piezas listas por una fracción del costo tradicional.</p>
-    <div class="pricing-card featured" style="max-width:680px">
-      <div class="pricing-tier">WTF <strong style="font-weight:700">AI</strong> ENGINE PILOT</div>
-      <div class="pricing-name" data-i18n="pilot_name">PROBÁ EL SISTEMA</div>
-      <div class="pricing-desc" data-i18n="pilot_desc">Una campaña completa en 3 semanas para experimentar el modelo AI-first con tu marca. Estrategia, dirección de arte, producción con calidad de nivel internacional y 21 piezas entregadas listas para publicar.</div>
-      <div class="pricing-price">$5.400 <span>USD</span></div>
-      <div class="pricing-period" data-i18n="pilot_period">PAGO ÚNICO · 3 SEMANAS</div>
-      <ul class="pricing-features">
-        <li data-i18n="pi_f1">2 territorios estratégicos</li>
-        <li data-i18n="pi_f2">1 concepto creativo (manifiesto + claim)</li>
-        <li data-i18n="pi_f3">Sistema visual definido</li>
-      </ul>
-      <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--signal);margin:20px 0 8px;padding-top:14px;border-top:1px solid var(--line)" data-i18n="pi_asset_title">ASSET PACK · 21 PIEZAS PRODUCIDAS</div>
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mute);margin:14px 0 4px">VIDEO</div>
-      <ul class="pricing-features">
-        <li data-i18n="pi_v1">1 video cinematográfico hero (30s + 15s)</li>
-        <li data-i18n="pi_v2">1 video AI secundario (15s)</li>
-      </ul>
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mute);margin:14px 0 4px" data-i18n="pi_photo_title">FOTOGRAFÍA AI · 15 PIEZAS</div>
-      <ul class="pricing-features">
-        <li data-i18n="pi_p1">6 fotos editoriales de marca</li>
-        <li data-i18n="pi_p2">4 fotos de producto / packaging</li>
-        <li data-i18n="pi_p3">5 fotos lifestyle / personajes</li>
-      </ul>
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mute);margin:14px 0 4px">SOCIAL</div>
-      <ul class="pricing-features">
-        <li data-i18n="pi_s1">Adaptaciones nativas (9:16, 1:1, 4:5, 16:9)</li>
-      </ul>
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mute);margin:14px 0 4px;padding-top:14px;border-top:1px solid var(--line)" data-i18n="pi_close_title">CIERRE</div>
-      <ul class="pricing-features">
-        <li data-i18n="pi_c1">Engine Demo live con tu equipo</li>
-        <li data-i18n="pi_c2">Recomendación de Tier + roadmap</li>
-      </ul>
-      <div style="background:rgba(255,59,48,0.08);border:1px solid rgba(255,59,48,0.25);border-radius:8px;padding:16px 20px;margin-top:24px;font-size:14px;color:var(--bone);line-height:1.5" data-i18n="pilot_credit">
-        Si avanzás a Fee anual dentro de 30 días, los <strong style="color:var(--signal)">USD 6.000 se acreditan 100% al primer mes.</strong>
-      </div>
-      <div style="margin-top:24px">
-        <a href="mailto:hello@wtf-agency.com?subject=WTF%20AI%20Engine%20Pilot%20-%20Quiero%20arrancar" class="cta-btn primary" style="display:inline-flex">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <span data-i18n="pilot_cta">Empezar el piloto</span>
-        </a>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- ====== CTA FINAL ====== -->
@@ -1530,7 +1450,7 @@ if (proofStrip) proofObs.observe(proofStrip);
       hero_lead: 'La diferencia no es solo de precio. Es de velocidad, volumen y sistema.',
       hero_sub: 'Con 15 años de experiencia construyendo marcas en Latinoamérica y más de 200 campañas ejecutadas, WTF evolucionó su modelo creativo integrando inteligencia artificial en cada etapa del proceso. Mientras una agencia tradicional tarda semanas en entregar un set limitado de piezas, nuestro modelo AI-first produce contenido cinematográfico, Influencers y estrategia integrada en horas. La misma visión estratégica de siempre, potenciada por tecnología que multiplica la velocidad, el volumen y la calidad.',
       comp_title: 'COMPARATIVA<br><em>DE SERVICIOS</em>',
-      comp_desc: 'Lo que una agencia tradicional resuelve con equipos grandes, timings largos y presupuestos fragmentados, nosotros lo resolvemos con inteligencia artificial, velocidad y un sistema integrado que no para. Mismo nivel creativo, otra velocidad.',
+      comp_desc: 'Lo que una agencia tradicional resuelve con equipos grandes, timings largos y presupuestos fragmentados, nosotros lo resolvemos con un equipo compacto, inteligencia artificial, calidad, velocidad y un sistema integrado que no para. Mismo nivel creativo, otra velocidad.',
       split_label_trad: 'El modelo de siempre',
       split_name_trad: 'AGENCIA<br><em>TRADICIONAL</em>',
       split_label_wtf: 'Nuestro sistema',
@@ -1627,7 +1547,7 @@ if (proofStrip) proofObs.observe(proofStrip);
       hero_lead: 'The difference isn\'t just price. It\'s speed, volume, and system.',
       hero_sub: 'With 15 years of experience building brands in Latin America and over 200 campaigns executed, WTF evolved its creative model by integrating artificial intelligence into every stage of the process. While a traditional agency takes weeks to deliver a limited set of pieces, our AI-first model produces cinematic content, Influencers and integrated strategy in hours. The same strategic vision as always, powered by technology that multiplies speed, volume, and quality.',
       comp_title: 'SERVICE<br><em>COMPARISON</em>',
-      comp_desc: 'What a traditional agency solves with large teams, long timelines and fragmented budgets, we solve with artificial intelligence, speed and an integrated system that never stops. Same creative level, different speed.',
+      comp_desc: 'What a traditional agency solves with large teams, long timelines and fragmented budgets, we solve with a compact team, artificial intelligence, quality, speed and an integrated system that never stops. Same creative level, different speed.',
       split_label_trad: 'The old model',
       split_name_trad: 'TRADITIONAL<br><em>AGENCY</em>',
       split_label_wtf: 'Our system',
@@ -1724,7 +1644,7 @@ if (proofStrip) proofObs.observe(proofStrip);
       hero_lead: 'A diferença não é só de preço. É de velocidade, volume e sistema.',
       hero_sub: 'Com 15 anos de experiência construindo marcas na América Latina e mais de 200 campanhas executadas, a WTF evoluiu seu modelo criativo integrando inteligência artificial em cada etapa do processo. Enquanto uma agência tradicional leva semanas para entregar um conjunto limitado de peças, nosso modelo AI-first produz conteúdo cinematográfico, Influencers e estratégia integrada em horas. A mesma visão estratégica de sempre, potencializada por tecnologia que multiplica a velocidade, o volume e a qualidade.',
       comp_title: 'COMPARATIVO<br><em>DE SERVIÇOS</em>',
-      comp_desc: 'O que uma agência tradicional resolve com equipes grandes, prazos longos e orçamentos fragmentados, nós resolvemos com inteligência artificial, velocidade e um sistema integrado que não para. Mesmo nível criativo, outra velocidade.',
+      comp_desc: 'O que uma agência tradicional resolve com equipes grandes, prazos longos e orçamentos fragmentados, nós resolvemos com uma equipe compacta, inteligência artificial, qualidade, velocidade e um sistema integrado que não para. Mesmo nível criativo, outra velocidade.',
       split_label_trad: 'O modelo de sempre',
       split_name_trad: 'AGÊNCIA<br><em>TRADICIONAL</em>',
       split_label_wtf: 'Nosso sistema',
