@@ -366,8 +366,8 @@
   /* === S4 / PROBLEMA === */
   .problema {
     background: var(--bg-night);
-    display: grid; grid-template-columns: 1.42fr 1fr;
-    gap: 4px; padding: 90px 3.5vw 90px 7vw; align-items: center;
+    display: grid; grid-template-columns: 1fr;
+    padding: 90px 7vw; align-items: center;
   }
   .problema::after {
     content: '';
@@ -380,7 +380,7 @@
   .problema > * { position: relative; z-index: 2; }
   .problema > .slide-tag { z-index: 100; }
   .problema-left h2 {
-    font-size: clamp(48px, 6.5vw, 100px);
+    font-size: clamp(34px, 4.6vw, 72px);
     color: var(--bone); line-height: 0.92; margin-bottom: 32px;
   }
   .problema-left h2 em {
@@ -388,13 +388,13 @@
     font-weight: 700;
   }
   /* el remate en negrita necesita mas aire entre sus dos lineas */
-  .problema-right p strong {
+  .problema-left p strong {
     display: inline-block;
     margin-top: 12px;
     line-height: 1.75;
   }
   /* el cuerpo vive del otro lado de la puerta, 10% mas chico */
-  .problema-right p {
+  .problema-left p {
     color: #FFFFFF; font-size: clamp(12px, 1.08vw, 17px);
     line-height: 1.5; max-width: 560px;
   }
@@ -2909,8 +2909,11 @@
   }
 
   /* S4 / Problema — video de fondo */
-  .problema { background: #0A0A0C; }
-  /* video limpio, sin velo */
+  .problema {
+    background:
+      linear-gradient(180deg, rgba(10,10,12,0.20) 0%, rgba(10,10,12,0.10) 45%, rgba(10,10,12,0.26) 100%),
+      url('wtf-credenciales-slides/hero/gap-puerta.jpg') center/cover no-repeat;
+  }
   .problema::after { background: none !important; z-index: 1 !important; }
   .problema > *:not(.section-bg-video) { position: relative; z-index: 2; }
   /* baja el bloque; .problema.dense para ganarle a section.dense */
@@ -3085,7 +3088,7 @@
     </div>
     <div class="stat reveal delay-5">
       <div class="stat-num"><span class="counter" data-target="59" data-decimals="0" data-suffix="%">0</span></div>
-      <p class="stat-text" data-i18n="ctx_stat4">De la Gen Z descubre en video corto y después mira la versión larga. No es formato contra formato: es un mismo viaje.</p>
+      <p class="stat-text" data-i18n="ctx_stat4">La Gen Z descubre en video corto y después mira la versión larga. No es formato vs. formato: es un mismo viaje.</p>
       <p class="stat-source">YouTube / Ipsos · 13 países</p>
     </div>
   </div>
@@ -3093,18 +3096,13 @@
 
 <!-- ============================== S4 / El problema ============================== -->
 <section class="problema dense">
-  <video class="section-bg-video" autoplay muted loop playsinline>
-    <source src="wtf-credenciales-slides/bg-gap.mp4" type="video/mp4">
-  </video>
   <div class="slide-tag">04 · El problema</div>
 
   <div class="problema-left">
     <h2 class="display reveal" data-i18n="prob_title">EL GAP<br><em>CREATIVO</em></h2>
+    <p class="reveal delay-1" data-i18n="prob_body">La pieza 40 merece lo mismo que la 1. Esa es la vara.<br>La vara no se negocia.<br>Las horas no se estiran.<br>Las plataformas no esperan.<br>Nunca fue falta de ideas. Fue falta de manos.<br><strong>Ese techo duró quince años. Ya no.</strong></p>
   </div>
 
-  <div class="problema-right">
-    <p class="reveal delay-1" data-i18n="prob_body">La pieza 40 merece lo mismo que la 1.<br>Esa fue siempre la vara.<br>Pero la vara no se negocia, las horas no se estiran, y las plataformas piden contenido nuevo todos los días.<br>Ahí se rompe todo: no por falta de ideas, por falta de manos.<br><strong>Ese fue el techo durante quince años.<br>Ya no lo es.</strong></p>
-  </div>
 
 </section>
 </section>
@@ -4288,10 +4286,10 @@
         ctx_stat1: 'Solo el 4% de los ads digitales se miran más de 2 segundos. El otro 96% ni existe.',
         ctx_stat2: 'Plataformas sociales que cada persona usa por mes. La marca compite en todas a la vez.',
         ctx_stat3: 'Descubre marcas nuevas en redes. Buscadores 32,4% y TV 31,2%: ya no hay un canal que gane.',
-        ctx_stat4: 'De la Gen Z descubre en video corto y después mira la versión larga. No es formato contra formato: es un mismo viaje.',
+        ctx_stat4: 'La Gen Z descubre en video corto y después mira la versión larga. No es formato vs. formato: es un mismo viaje.',
         // S4 — El problema
         prob_title: 'EL GAP<br><em>CREATIVO</em>',
-        prob_body: 'La pieza 40 merece lo mismo que la 1.<br>Esa fue siempre la vara.<br>Pero la vara no se negocia, las horas no se estiran, y las plataformas piden contenido nuevo todos los días.<br>Ahí se rompe todo: no por falta de ideas, por falta de manos.<br><strong>Ese fue el techo durante quince años.<br>Ya no lo es.</strong>',
+        prob_body: 'La pieza 40 merece lo mismo que la 1. Esa es la vara.<br>La vara no se negocia.<br>Las horas no se estiran.<br>Las plataformas no esperan.<br>Nunca fue falta de ideas. Fue falta de manos.<br><strong>Ese techo duró quince años. Ya no.</strong>',
         // S5 — Manifiesto
         mani_eyebrow: 'EL MANIFIESTO',
         mani_left: 'Una idea<br><strong>NO ALCANZA.</strong>',
@@ -4466,7 +4464,7 @@
         ctx_stat4: 'Of Gen Z discover on short video and then watch the long version. Not format versus format: one journey.',
         // S4 — The Problem
         prob_title: 'THE<br><em>CREATIVE GAP</em>',
-        prob_body: 'Piece 40 deserves what piece 1 got.<br>That was always the bar.<br>But the bar is not negotiable, hours do not stretch, and the platforms want new content every day.<br>That is where it breaks. Not for lack of ideas. For lack of hands.<br><strong>That was the ceiling for fifteen years.<br>Not anymore.</strong>',
+        prob_body: 'Piece 40 deserves what piece 1 got. That is the bar.<br>The bar is not negotiable.<br>Hours do not stretch.<br>Platforms do not wait.<br>It was never a shortage of ideas. It was a shortage of hands.<br><strong>That ceiling held for fifteen years. Not anymore.</strong>',
         // S5 — Manifesto
         mani_eyebrow: 'THE MANIFESTO',
         mani_left: 'One idea<br><strong>IS NOT ENOUGH.</strong>',
@@ -4641,7 +4639,7 @@
         ctx_stat4: 'Da Gen Z descobre em vídeo curto e depois vê a versão longa. Não é formato contra formato: é uma mesma jornada.',
         // S4 — O problema
         prob_title: 'O GAP<br><em>CRIATIVO</em>',
-        prob_body: 'A peça 40 merece o mesmo que a 1.<br>Essa sempre foi a régua.<br>Mas a régua não se negocia, as horas não se esticam, e as plataformas pedem conteúdo novo todos os dias.<br>É aí que quebra: não por falta de ideias, por falta de mãos.<br><strong>Esse foi o teto durante quinze anos.<br>Já não é.</strong>',
+        prob_body: 'A peça 40 merece o mesmo que a 1. Essa é a régua.<br>A régua não se negocia.<br>As horas não se esticam.<br>As plataformas não esperam.<br>Nunca foi falta de ideias. Foi falta de mãos.<br><strong>Esse teto durou quinze anos. Já não.</strong>',
         // S5 — Manifesto
         mani_eyebrow: 'O MANIFESTO',
         mani_left: 'Uma ideia<br><strong>NÃO BASTA.</strong>',
