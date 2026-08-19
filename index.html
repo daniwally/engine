@@ -315,7 +315,7 @@
   .ctx > * { position: relative; z-index: 2; }
   .ctx > .slide-tag { z-index: 100; }
   .ctx-title {
-    font-size: clamp(40px, 6.4vw, 104px);
+    font-size: clamp(30px, 4.8vw, 78px);
     line-height: 1.15;
     color: var(--bone); margin-bottom: 20px; max-width: 1200px;
   }
@@ -337,7 +337,7 @@
   }
   /* sin card ni blur: los datos flotan sobre la foto */
   .ctx-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
+    display: grid; grid-template-columns: repeat(4, 1fr);
     background: transparent; border: 0;
     position: relative;
   }
@@ -858,41 +858,44 @@
   .compare-side .what { font-size: 14px; color: var(--bone-dim); line-height: 1.5; }
 
   /* === S9 / CAPACIDADES === */
-  .stack { background: var(--bg-deep); padding: 90px 7vw; padding-top: 70px; position: relative; overflow: hidden; }
-  .stack > .eyebrow { margin-top: 20px; }
-  .stack-bg-video {
-    position: absolute !important;
-    top: 0; left: 0; right: 0; bottom: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    z-index: 0 !important;
-    opacity: 0.25;
-    pointer-events: none;
+  .stack {
+    background:
+      linear-gradient(180deg, rgba(10,10,12,0.62) 0%, rgba(10,10,12,0.42) 40%, rgba(10,10,12,0.70) 100%),
+      url('wtf-credenciales-slides/hero/cap-turbina.jpg') center/cover no-repeat;
+    padding: 50px 7vw 40px; position: relative; overflow: hidden;
   }
+  .stack > .eyebrow { margin-top: 20px; }
   .stack::after {
     content: '';
     position: absolute;
     inset: 0;
-    background:
-      radial-gradient(ellipse 50% 50% at 70% 50%, rgba(255,59,48,0.04), transparent 65%);
+    background: none;
     z-index: 0;
     pointer-events: none;
   }
-  .stack > *:not(.stack-bg-video) { position: relative; z-index: 2; }
+  .stack > * { position: relative; z-index: 2; }
   .stack > .slide-tag { z-index: 100; }
   .stack-sub {
     font-size: clamp(14px, 1.1vw, 18px);
     color: var(--bone-dim); max-width: 600px;
     line-height: 1.6; margin-bottom: 5vh;
   }
+
+  /* el conector ocupa toda la fila debajo de las 6 cards */
+  .cap-grid > .cap-connect { grid-column: 1 / -1; margin-bottom: 10px; }
   .cap-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    /* baja el bloque al piso de la slide */
+    margin-top: auto;
   }
+
+  /* iconos de las cards de Capacidades */
+  .cap-ico { display: block; margin-bottom: 8px; opacity: .95; }
   .cap-card {
     border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px;
-    padding: 30px 26px 26px;
+    border-radius: 12px;
+    padding: 18px 20px 16px;
     background: linear-gradient(160deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -947,8 +950,11 @@
     color: var(--accent); white-space: nowrap;
     opacity: 0.7;
   }
+  /* mismo tamaño que .engine-title, .modelo-title y .quienes-h */
   .stack-title {
-    font-size: clamp(34px, 4.7vw, 72px);
+    /* auto arriba + padding: arranca a la misma altura que .engine-title */
+    margin-top: auto; padding-top: 50px;
+    font-size: clamp(22px, 3.7vw, 64px);
     color: var(--bone); margin-bottom: 12px; max-width: 1100px;
   }
   .stack-title em {
@@ -1967,9 +1973,14 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
     letter-spacing: 0.28em;
-    color: var(--mute);
+    color: rgba(255,255,255,0.9);
     text-transform: uppercase;
     line-height: 1.9;
+  }
+  /* gana a .gracias > *, que fuerza position: relative */
+  .gracias > .gracias-sign {
+    position: absolute; left: 0; right: 0; bottom: 56px;
+    text-align: center; z-index: 2;
   }
   .gracias-sign a {
     color: #FFFFFF;
@@ -2271,22 +2282,24 @@
   .clientes::before {
     content: '';
     position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(10,10,12,0.7) 0%, rgba(10,10,12,0.55) 40%, rgba(10,10,12,0.75) 100%);
+    background: linear-gradient(180deg, rgba(10,10,12,0.22) 0%, rgba(10,10,12,0.10) 45%, rgba(10,10,12,0.30) 100%);
     z-index: 1; pointer-events: none;
   }
   .clientes::after {
     content: '';
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse 50% 50% at 30% 50%, rgba(255,59,48,0.06), transparent 60%);
+    background: none;
     z-index: 1; pointer-events: none;
   }
   .clientes > * { position: relative; z-index: 2; }
   .clientes > .slide-tag { z-index: 100; }
   .clientes-title {
     font-family: 'Inter', sans-serif; text-transform: uppercase;
-    font-size: clamp(36px, 5.25vw, 82px);
+    font-size: clamp(22px, 3.7vw, 64px);
     line-height: 1.1; color: var(--bone);
-    margin-top: 36px; margin-bottom: 12px;
+    /* baja el bloque, alineado a la izquierda */
+    margin-top: auto; margin-bottom: 12px; padding-top: 120px;
+    text-align: left;
   }
   .clientes-title em {
     font-family: 'Inter', sans-serif; font-style: normal; color: #FFFFFF;
@@ -2295,6 +2308,7 @@
     font-family: 'Inter', sans-serif; font-style: normal; color: #FFFFFF;
     font-size: 20px; color: var(--bone-dim);
     margin-bottom: 50px; max-width: 550px; line-height: 1.5;
+    text-align: left; margin-left: 0; margin-right: auto;
   }
   .logos-grid {
     display: grid;
@@ -2599,6 +2613,78 @@
   }
   .eng-slot .engine-mod.on { opacity: 1; pointer-events: auto; }
 
+
+
+
+  /* Clientes: una sola linea de logos pasando en horizontal */
+
+  .clientes-manifiesto {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(13px, 1.05vw, 16px);
+    line-height: 1.7; color: rgba(245,240,235,0.55);
+    max-width: 460px; margin: 0 0 30px;
+  }
+  .clientes-manifiesto strong { color: #FFFFFF; font-weight: 600; }
+
+  /* Clientes: los 30 logos estaticos ocupando el bloque inferior */
+  .logos-static {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 20px 24px;
+    align-items: center;
+    margin-top: auto;
+    width: 100%;
+  }
+
+  /* los logos entran uno tras otro, tipo contador */
+  .logos-static .logo-cell {
+    opacity: 0; transform: translateY(8px);
+    transition: opacity .45s ease, transform .45s ease;
+  }
+  .logos-static.in .logo-cell { opacity: 1; transform: none; }
+  .logos-static .logo-cell {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 44px;
+  }
+  .logos-static img {
+    max-height: 36px; max-width: 100%; width: auto;
+    object-fit: contain;
+    opacity: 0.7;
+    filter: brightness(0) invert(1);
+    transition: opacity .3s ease;
+  }
+  .logos-static img:hover { opacity: 1; }
+  .logos-marquee {
+    margin-top: auto; margin-bottom: auto;
+    overflow: hidden;
+    padding: 34px 0;
+    /* se desvanece en los bordes en vez de cortar seco */
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .logos-track {
+    display: flex; align-items: center; gap: 72px;
+    width: max-content;
+    animation: logos-scroll 60s linear infinite;
+  }
+  .logos-track img {
+    height: 28px; width: auto; flex-shrink: 0;
+    object-fit: contain;
+    opacity: 0.75;
+    filter: brightness(0) invert(1);
+    transition: opacity .3s ease;
+  }
+  .logos-track img:hover { opacity: 1; }
+  @keyframes logos-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* dos filas: la de abajo corre al reves */
+  .logos-marquee .logos-track + .logos-track { margin-top: 26px; }
+  .logos-track.row-b { animation-direction: reverse; animation-duration: 52s; }
+  section:not(.active) .logos-track { animation-play-state: paused; }
+
   .hud-scrim {
     position: fixed; top: 0; left: 0; right: 0; height: 130px;
     background: linear-gradient(180deg, rgba(10,10,12,0.75) 0%, rgba(10,10,12,0.45) 45%, transparent 100%);
@@ -2866,12 +2952,14 @@
   }
 
   /* S16 / Gracias — skater halfpipe */
-  .gracias {
-    background:
-      radial-gradient(ellipse 70% 60% at 50% 50%, rgba(255,59,48,0.08), transparent 70%),
-      linear-gradient(180deg, rgba(10,10,12,0.60) 0%, rgba(10,10,12,0.45) 40%, rgba(10,10,12,0.65) 100%),
-      url('wtf-credenciales-slides/hero/slide_06_1456x816.jpeg') center/cover no-repeat;
+  .gracias { background: #0A0A0C; }
+  /* velo sobre el video: el video pinta arriba del background */
+  .gracias::before {
+    content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: linear-gradient(180deg, rgba(10,10,12,0.50) 0%, rgba(10,10,12,0.30) 40%, rgba(10,10,12,0.60) 100%);
   }
+  /* la firma se posiciona sola al pie, no la pisamos */
+  .gracias > *:not(.section-bg-video):not(.gracias-sign) { position: relative; z-index: 2; }
 
   /* === Netflix Originals === */
   .nfx-hero-slide { transition: opacity 1s ease; }
@@ -2976,7 +3064,7 @@
 <!-- ============================== S3 / Contexto ============================== -->
 <section class="ctx dense">
   <div class="slide-tag">03 · Contexto</div>
-  <h2 class="display ctx-title reveal delay-1" data-i18n="ctx_title">La atención<br><em>es finita.</em></h2>
+  <h2 class="display ctx-title reveal delay-1" data-i18n="ctx_title">Nadie está<br><em>esperando.</em></h2>
   <p class="ctx-sub reveal delay-1" data-i18n="ctx_sub">El consumidor no lee: escanea.<br>Decide en menos de dos segundos y sigue de largo.</p>
 
   <div class="ctx-grid">
@@ -2991,9 +3079,14 @@
       <p class="stat-source">GWI / DataReportal · Digital 2025</p>
     </div>
     <div class="stat reveal delay-4">
-      <div class="stat-num"><span class="counter" data-target="30.1" data-decimals="1" data-suffix="%">0</span></div>
+      <div class="stat-num"><span class="counter" data-target="30" data-decimals="0" data-suffix="%">0</span></div>
       <p class="stat-text" data-i18n="ctx_stat3">Descubre marcas nuevas en redes. Buscadores 32,4% y TV 31,2%: ya no hay un canal que gane.</p>
       <p class="stat-source">GWI / DataReportal 2026</p>
+    </div>
+    <div class="stat reveal delay-5">
+      <div class="stat-num"><span class="counter" data-target="59" data-decimals="0" data-suffix="%">0</span></div>
+      <p class="stat-text" data-i18n="ctx_stat4">De la Gen Z descubre en video corto y después mira la versión larga. No es formato contra formato: es un mismo viaje.</p>
+      <p class="stat-source">YouTube / Ipsos · 13 países</p>
     </div>
   </div>
 </section>
@@ -3246,46 +3339,49 @@
 
 <!-- ============================== S11 / Capacidades ============================== -->
 <section class="stack">
-  <video class="stack-bg-video" autoplay muted loop playsinline>
-    <source src="wtf-credenciales-slides/bg-capacidades.mp4" type="video/mp4">
-  </video>
   <div class="slide-tag">10 · Capacidades</div>
 
-  <h2 class="display stack-title reveal delay-1" data-i18n="cap_title">UNA ESTRATEGIA,<br>UNA IDEA.<br><em>ILIMITADOS CONTENIDOS.</em></h2>
-  <p class="stack-sub reveal delay-1" data-i18n="cap_sub">Cada formato nace del mismo concepto estratégico y se conecta con los demás. No son piezas sueltas, es un ecosistema donde todo se retroalimenta.</p>
+  <h2 class="display stack-title reveal delay-1" data-i18n="cap_title">ESTRATEGIA,<br>CREATIVIDAD Y ESCALA.<br><em>SIN ELEGIR ENTRE<br>LAS TRES.</em></h2>
+  <p class="stack-sub reveal delay-1" data-i18n="cap_sub">Cada formato nace del mismo concepto estratégico y se conecta con los demás. No son piezas sueltas, es un sistema donde todo se retroalimenta.</p>
 
   <div class="cap-grid">
-    <div class="cap-card reveal delay-2">
-      <div class="cap-num">01 ·</div>
-      <h4>BRAND SYSTEMS</h4>
-      <p data-i18n="cap_1">Sistemas de diseño vivos que escalan. Multi-marca, multi-mercado. La identidad crece con el negocio.</p>
-    </div>
-    <div class="cap-card reveal delay-2">
-      <div class="cap-num">02 ·</div>
-      <h4 data-i18n="cap_2_title">CAMPAÑAS CREATIVAS 360</h4>
-      <p data-i18n="cap_2">Spots, branded content, narrativa multi-shot. Video cinematográfico con calidad de producción premium a velocidad IA.</p>
-    </div>
-    <div class="cap-card reveal delay-3">
-      <div class="cap-num">03 ·</div>
-      <h4 data-i18n="cap_3_title">IMAGEN + KEY VISUALS</h4>
-      <p data-i18n="cap_3">Identidad visual, campañas gráficas, social assets, packaging. Consistencia de marca en cada pieza.</p>
-    </div>
     <div class="cap-connect reveal delay-3">
       <div class="cap-connect-line"></div>
       <span data-i18n="cap_connect">TODO CONECTADO · UN SISTEMA · UNA MARCA</span>
       <div class="cap-connect-line"></div>
     </div>
+    <div class="cap-card reveal delay-2">
+      <svg class="cap-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      <div class="cap-num">01 ·</div>
+      <h4>BRAND SYSTEMS</h4>
+      <p data-i18n="cap_1">Sistemas de diseño vivos que escalan. Multi-marca, multi-mercado. La identidad crece con el negocio.</p>
+    </div>
+    <div class="cap-card reveal delay-2">
+      <svg class="cap-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+      <div class="cap-num">02 ·</div>
+      <h4 data-i18n="cap_2_title">CAMPAÑAS 360</h4>
+      <p data-i18n="cap_2">Spots, branded content, narrativa multi-shot. Video cinematográfico con calidad de producción premium a velocidad IA.</p>
+    </div>
     <div class="cap-card reveal delay-3">
+      <svg class="cap-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <div class="cap-num">03 ·</div>
+      <h4 data-i18n="cap_3_title">KEY VISUALS</h4>
+      <p data-i18n="cap_3">Identidad visual, campañas gráficas, social assets, packaging. Consistencia de marca en cada pieza.</p>
+    </div>
+    <div class="cap-card reveal delay-3">
+      <svg class="cap-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/></svg>
       <div class="cap-num">04 ·</div>
-      <h4 data-i18n="cap_4_title">CONTENIDOS ILIMITADOS</h4>
+      <h4 data-i18n="cap_4_title">CONTENIDOS</h4>
       <p data-i18n="cap_4">UGC, talking heads, avatares, adaptaciones multi-formato. Producción a escala sin perder calidad ni voz de marca.</p>
     </div>
     <div class="cap-card reveal delay-4">
+      <svg class="cap-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
       <div class="cap-num">05 ·</div>
-      <h4 data-i18n="cap_5_title">PERFORMANCE CREATIVO</h4>
+      <h4 data-i18n="cap_5_title">PERFORMANCE</h4>
       <p data-i18n="cap_5">Variantes para A/B testing. Iteración basada en data. El contenido que mejor performa se multiplica.</p>
     </div>
     <div class="cap-card reveal delay-4">
+      <svg class="cap-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
       <div class="cap-num">06 ·</div>
       <h4>SOCIAL FIRST</h4>
       <p data-i18n="cap_6">Contenido pensado para cada plataforma. TikTok, Reels, YouTube, Stories. No es resize, es reinvención.</p>
@@ -3296,228 +3392,45 @@
 <!-- ============================== S8 / Clientes ============================== -->
 <section class="clientes dense">
   <div class="slide-tag">11 · Clientes</div>
-  <h2 class="display clientes-title reveal" data-i18n="clientes_title">NUESTROS<br><em>CLIENTES.</em></h2>
-  <p class="clientes-sub reveal delay-1" data-i18n="clientes_sub">Los que entendieron que no alcanza con una idea.</p>
-  <div class="logos-grid">
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/honda-wing.png" alt="Honda"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/honda.png" alt="Honda"></div>
-    <div class="logo-cell reveal"><img class="logo-sm" src="wtf-credenciales-slides/logos/ford.png" alt="Ford"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/peugeot.png" alt="Peugeot"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/mobil-super.png" alt="Mobil Super"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/mahle.png" alt="Mahle" style="transform:scale(1.4375)"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/motorola.png" alt="Motorola"></div>
-    <div class="logo-cell reveal"><img class="logo-sm" src="wtf-credenciales-slides/logos/lenovo.png" alt="Lenovo"></div>
-    <div class="logo-cell reveal"><img class="logo-sm" src="wtf-credenciales-slides/logos/samsung.png" alt="Samsung"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/eco-de-los-andes.png" alt="Eco de los Andes"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/nestle-waters.png" alt="Nestlé Waters"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/bayer.png" alt="Bayer"></div>
-    <div class="logo-cell reveal"><img class="logo-xs" src="wtf-credenciales-slides/logos/absolut.png" alt="Absolut"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/beefeater.png" alt="Beefeater"></div>
-    <div class="logo-cell reveal"><img class="logo-sm" src="wtf-credenciales-slides/logos/chivas.png" alt="Chivas"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/cafayate.png" alt="Cafayate"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/havana-club.png" alt="Havana Club" style="transform:scale(1.38)"></div>
-    <div class="logo-cell reveal"><img class="logo-xs" src="wtf-credenciales-slides/logos/assy.png" alt="Assy"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/quilmes.png" alt="Quilmes"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/mumm.png" alt="Mumm"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/jose-cuervo.png" alt="Jose Cuervo" style="transform:scale(1.50)"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/cinzano.png" alt="Cinzano"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/fernet-buhero-negro.png" alt="Fernet Buhero Negro" style="transform:scale(1.44)"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/alto-del-carmen.png" alt="Alto del Carmen" style="transform:scale(1.755)"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/diablo-pisco.png" alt="Diablo Pisco" style="transform:scale(1.45)"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/starter.png" alt="Starter" style="transform:scale(1.45)"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/shaq.png" alt="Shaq" style="transform:scale(1.45)"></div>
-    <div class="logo-cell reveal"><img class="logo-xs" src="wtf-credenciales-slides/logos/bear-beer.png" alt="Bear Beer"></div>
-    <div class="logo-cell reveal"><img class="logo-xs" src="wtf-credenciales-slides/logos/hacienda-la-torre.png" alt="Hacienda la Torre"></div>
-    <div class="logo-cell reveal"><img src="wtf-credenciales-slides/logos/arcor.png" alt="Arcor"></div>
-  </div>
-</section>
-
-<!-- ============================== S16 / Casos ============================== -->
-<section class="casos dense">
-  <div class="slide-tag">12 · Casos</div>
-  <div class="eyebrow reveal" data-i18n="casos_eyebrow">Portfolio activo</div>
-
-  <h2 class="display casos-title reveal delay-1" data-i18n="casos_title">CASOS<br><em>EN PRODUCCIÓN</em></h2>
-  <p class="casos-sub reveal delay-2" data-i18n="casos_sub">No hablamos de lo que podemos hacer. Mostramos lo que ya estamos haciendo.</p>
-
-  <div class="caso-grid">
-    <div class="caso-card reveal delay-3" style="display:none;">
-      <div class="caso-tag">Seguros · Argentina</div>
-      <h3>SANCOR SEGUROS</h3>
-      <div class="caso-desc" data-i18n="caso_sancor">Sistema de contenido IA-first para el seguro automotor argentino. Producción always-on de video, UGC sintético, avatares y brand content en 5 plataformas simultáneas.</div>
-      <div class="caso-metrics">
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="240" data-decimals="0" data-suffix="+">0</span></div>
-          <div class="l" data-i18n="cm_piezas">Piezas/año</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="5" data-decimals="0">0</span></div>
-          <div class="l" data-i18n="cm_plat">Plataformas</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="10" data-decimals="0" data-suffix="x">0</span></div>
-          <div class="l" data-i18n="cm_output">Más output</div>
-        </div>
-      </div>
-    </div>
-    <div class="caso-card reveal delay-4">
-      <div class="caso-tag">Automotriz · Paraguay</div>
-      <h3>GRUPO GARDEN</h3>
-      <div class="caso-desc" data-i18n="caso_garden">Sistema multi-marca para el dealer automotriz más grande de Paraguay. 12+ marcas (Toyota, Hyundai, Kia, Suzuki, Fuso, etc.) con contenido a escala manteniendo identidad individual.</div>
-      <div class="caso-metrics">
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="12" data-decimals="0" data-suffix="+">0</span></div>
-          <div class="l" data-i18n="cm_marcas">Marcas</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="500" data-decimals="0" data-suffix="+">0</span></div>
-          <div class="l" data-i18n="cm_piezas2">Piezas/año</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v">MULTI</div>
-          <div class="l">Brand system</div>
-        </div>
-      </div>
-    </div>
-    <div class="caso-card reveal delay-5">
-      <div class="caso-tag">Sport · Global</div>
-      <h3>SHAQ</h3>
-      <div class="caso-desc" data-i18n="caso_shaq">Contenido de marca para la línea de Shaquille O'Neal. Video, social content y brand assets generados con IA manteniendo la personalidad del ícono.</div>
-      <div class="caso-metrics">
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="30" data-decimals="0" data-suffix="+">0</span></div>
-          <div class="l">Piezas/mes</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="4" data-decimals="0">0</span></div>
-          <div class="l">Videos/mes</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="2" data-decimals="0">0</span></div>
-          <div class="l">UGC/mes</div>
-        </div>
-      </div>
-    </div>
-    <div class="caso-card reveal delay-5">
-      <div class="caso-tag">Sport · Global</div>
-      <h3>STARTER</h3>
-      <div class="caso-desc" data-i18n="caso_starter">Reactivación de marca icónica con sistema de contenido AI-first. Campañas, key visuals y social content para el relanzamiento en nuevos mercados.</div>
-      <div class="caso-metrics">
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="45" data-decimals="0" data-suffix="+">0</span></div>
-          <div class="l">Piezas/mes</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="6" data-decimals="0">0</span></div>
-          <div class="l">Videos/mes</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="3" data-decimals="0">0</span></div>
-          <div class="l">Mercados</div>
-        </div>
-      </div>
-    </div>
-    <div class="caso-card reveal delay-5">
-      <div class="caso-tag">Wellness · Latam</div>
-      <h3>SENSUS</h3>
-      <div class="caso-desc" data-i18n="caso_sensus">Estrategia creativa y producción de contenido para la marca de bienestar. Sistema visual, video y social content con producción IA a escala.</div>
-      <div class="caso-metrics">
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="35" data-decimals="0" data-suffix="+">0</span></div>
-          <div class="l">Piezas/mes</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="3" data-decimals="0">0</span></div>
-          <div class="l">Videos/mes</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="4" data-decimals="0">0</span></div>
-          <div class="l">Plataformas</div>
-        </div>
-      </div>
-    </div>
-    <div class="caso-card reveal delay-5">
-      <div class="caso-tag">Spirits · Chile</div>
-      <h3>PISCO DIABLO</h3>
-      <div class="caso-desc" data-i18n="caso_diablo">Sistema de contenido disruptivo para la marca de pisco. Brand content, video cinematográfico y campañas sociales con producción AI-augmented.</div>
-      <div class="caso-metrics">
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="25" data-decimals="0" data-suffix="+">0</span></div>
-          <div class="l">Piezas/mes</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="6" data-decimals="0">0</span></div>
-          <div class="l">Videos/mes</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="2" data-decimals="0">0</span></div>
-          <div class="l">Campañas/Q</div>
-        </div>
-      </div>
-    </div>
-    <div class="caso-card reveal delay-5">
-      <div class="caso-tag">Gastronomía · Argentina</div>
-      <h3>MORELLI</h3>
-      <div class="caso-desc" data-i18n="caso_morelli">Contenido premium para la marca gastronómica. Fotografía de producto, video y social content con calidad de estudio generado con IA.</div>
-      <div class="caso-metrics">
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="40" data-decimals="0" data-suffix="+">0</span></div>
-          <div class="l">Piezas/mes</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="8" data-decimals="0">0</span></div>
-          <div class="l">Videos/mes</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="5" data-decimals="0">0</span></div>
-          <div class="l">Plataformas</div>
-        </div>
-      </div>
-    </div>
-    <div class="caso-card reveal delay-5">
-      <div class="caso-tag">Lifestyle · Argentina</div>
-      <h3>HYDRATE</h3>
-      <div class="caso-desc" data-i18n="caso_hydrate">Sistema de contenido para la marca de botellas térmicas. Campañas estacionales, lifestyle content y social media con producción IA a escala.</div>
-      <div class="caso-metrics">
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="20" data-decimals="0" data-suffix="+">0</span></div>
-          <div class="l">Piezas/mes</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="3" data-decimals="0">0</span></div>
-          <div class="l">Videos/mes</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="4" data-decimals="0">0</span></div>
-          <div class="l">Campañas/año</div>
-        </div>
-      </div>
-    </div>
-    <div class="caso-card reveal delay-5">
-      <div class="caso-tag">Sport · Global</div>
-      <h3>ASOCIACIÓN MUNDIAL DE SKATE</h3>
-      <div class="caso-desc" data-i18n="caso_skate">Sistema de contenido para la federación internacional. Video de competencias, brand content y social media con producción IA para alcance global.</div>
-      <div class="caso-metrics">
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="50" data-decimals="0" data-suffix="+">0</span></div>
-          <div class="l">Piezas/mes</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="8" data-decimals="0">0</span></div>
-          <div class="l">Videos/mes</div>
-        </div>
-        <div class="caso-metric">
-          <div class="v"><span class="counter" data-target="12" data-decimals="0" data-suffix="+">0</span></div>
-          <div class="l">Países</div>
-        </div>
-      </div>
-    </div>
+  <h2 class="display clientes-title reveal" data-i18n="clientes_title">NO SON LOGOS.<br><em>SON AÑOS.</em></h2>
+  <p class="clientes-sub reveal delay-1" data-i18n="clientes_sub">Los años no se pitchean.</p>
+  <div class="logos-static reveal delay-2">
+    <div class="logo-cell" style="transition-delay:0ms"><img src="wtf-credenciales-slides/logos/honda-wing.png" alt="Honda"></div>
+    <div class="logo-cell" style="transition-delay:40ms"><img src="wtf-credenciales-slides/logos/honda.png" alt="Honda"></div>
+    <div class="logo-cell" style="transition-delay:80ms"><img class="logo-sm" src="wtf-credenciales-slides/logos/ford.png" alt="Ford"></div>
+    <div class="logo-cell" style="transition-delay:120ms"><img src="wtf-credenciales-slides/logos/peugeot.png" alt="Peugeot"></div>
+    <div class="logo-cell" style="transition-delay:160ms"><img src="wtf-credenciales-slides/logos/mobil-super.png" alt="Mobil Super"></div>
+    <div class="logo-cell" style="transition-delay:200ms"><img src="wtf-credenciales-slides/logos/mahle.png" alt="Mahle" style="transform:scale(1.4375)"></div>
+    <div class="logo-cell" style="transition-delay:240ms"><img src="wtf-credenciales-slides/logos/motorola.png" alt="Motorola"></div>
+    <div class="logo-cell" style="transition-delay:280ms"><img class="logo-sm" src="wtf-credenciales-slides/logos/lenovo.png" alt="Lenovo"></div>
+    <div class="logo-cell" style="transition-delay:320ms"><img class="logo-sm" src="wtf-credenciales-slides/logos/samsung.png" alt="Samsung"></div>
+    <div class="logo-cell" style="transition-delay:360ms"><img src="wtf-credenciales-slides/logos/eco-de-los-andes.png" alt="Eco de los Andes"></div>
+    <div class="logo-cell" style="transition-delay:400ms"><img src="wtf-credenciales-slides/logos/nestle-waters.png" alt="Nestlé Waters"></div>
+    <div class="logo-cell" style="transition-delay:440ms"><img src="wtf-credenciales-slides/logos/bayer.png" alt="Bayer"></div>
+    <div class="logo-cell" style="transition-delay:480ms"><img class="logo-xs" src="wtf-credenciales-slides/logos/absolut.png" alt="Absolut"></div>
+    <div class="logo-cell" style="transition-delay:520ms"><img src="wtf-credenciales-slides/logos/beefeater.png" alt="Beefeater"></div>
+    <div class="logo-cell" style="transition-delay:560ms"><img class="logo-sm" src="wtf-credenciales-slides/logos/chivas.png" alt="Chivas"></div>
+    <div class="logo-cell" style="transition-delay:600ms"><img src="wtf-credenciales-slides/logos/cafayate.png" alt="Cafayate"></div>
+    <div class="logo-cell" style="transition-delay:640ms"><img src="wtf-credenciales-slides/logos/havana-club.png" alt="Havana Club" style="transform:scale(1.38)"></div>
+    <div class="logo-cell" style="transition-delay:680ms"><img class="logo-xs" src="wtf-credenciales-slides/logos/assy.png" alt="Assy"></div>
+    <div class="logo-cell" style="transition-delay:720ms"><img src="wtf-credenciales-slides/logos/quilmes.png" alt="Quilmes"></div>
+    <div class="logo-cell" style="transition-delay:760ms"><img src="wtf-credenciales-slides/logos/mumm.png" alt="Mumm"></div>
+    <div class="logo-cell" style="transition-delay:800ms"><img src="wtf-credenciales-slides/logos/jose-cuervo.png" alt="Jose Cuervo" style="transform:scale(1.50)"></div>
+    <div class="logo-cell" style="transition-delay:840ms"><img src="wtf-credenciales-slides/logos/cinzano.png" alt="Cinzano"></div>
+    <div class="logo-cell" style="transition-delay:880ms"><img src="wtf-credenciales-slides/logos/fernet-buhero-negro.png" alt="Fernet Buhero Negro" style="transform:scale(1.44)"></div>
+    <div class="logo-cell" style="transition-delay:920ms"><img src="wtf-credenciales-slides/logos/alto-del-carmen.png" alt="Alto del Carmen" style="transform:scale(1.755)"></div>
+    <div class="logo-cell" style="transition-delay:960ms"><img src="wtf-credenciales-slides/logos/diablo-pisco.png" alt="Diablo Pisco" style="transform:scale(1.45)"></div>
+    <div class="logo-cell" style="transition-delay:1000ms"><img src="wtf-credenciales-slides/logos/starter.png" alt="Starter" style="transform:scale(1.45)"></div>
+    <div class="logo-cell" style="transition-delay:1040ms"><img src="wtf-credenciales-slides/logos/shaq.png" alt="Shaq" style="transform:scale(1.45)"></div>
+    <div class="logo-cell" style="transition-delay:1080ms"><img class="logo-xs" src="wtf-credenciales-slides/logos/bear-beer.png" alt="Bear Beer"></div>
+    <div class="logo-cell" style="transition-delay:1120ms"><img class="logo-xs" src="wtf-credenciales-slides/logos/hacienda-la-torre.png" alt="Hacienda la Torre"></div>
+    <div class="logo-cell" style="transition-delay:1160ms"><img src="wtf-credenciales-slides/logos/arcor.png" alt="Arcor"></div>
   </div>
 </section>
 
 <!-- ============================== S17 / Galería ============================== -->
 <section class="galeria dense">
-  <div class="slide-tag">13 · Galería</div>
+  <div class="slide-tag">12 · Galería</div>
   <div class="galeria-header">
     <h2 class="display galeria-title reveal" data-i18n="gal_title">WTF AI ENGINE<br><em>EN ACCIÓN</em></h2>
     <p class="galeria-sub reveal delay-1" data-i18n="gal_sub">Esto es lo que produce nuestro sistema operativo IA. Sin stock. Sin excusas. Contenido real generado para marcas reales.</p>
@@ -3825,8 +3738,194 @@
   <div class="project-modal-content" style="max-width:1100px;margin:0 auto;padding:60px 5vw 80px;"></div>
 </div>
 
+<!-- ============================== S16 / Casos ============================== -->
+<section class="casos dense">
+  <div class="slide-tag">14 · Casos</div>
+  <div class="eyebrow reveal" data-i18n="casos_eyebrow">Portfolio activo</div>
+
+  <h2 class="display casos-title reveal delay-1" data-i18n="casos_title">CASOS<br><em>EN PRODUCCIÓN</em></h2>
+  <p class="casos-sub reveal delay-2" data-i18n="casos_sub">No hablamos de lo que podemos hacer. Mostramos lo que ya estamos haciendo.</p>
+
+  <div class="caso-grid">
+    <div class="caso-card reveal delay-3" style="display:none;">
+      <div class="caso-tag">Seguros · Argentina</div>
+      <h3>SANCOR SEGUROS</h3>
+      <div class="caso-desc" data-i18n="caso_sancor">Sistema de contenido IA-first para el seguro automotor argentino. Producción always-on de video, UGC sintético, avatares y brand content en 5 plataformas simultáneas.</div>
+      <div class="caso-metrics">
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="240" data-decimals="0" data-suffix="+">0</span></div>
+          <div class="l" data-i18n="cm_piezas">Piezas/año</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="5" data-decimals="0">0</span></div>
+          <div class="l" data-i18n="cm_plat">Plataformas</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="10" data-decimals="0" data-suffix="x">0</span></div>
+          <div class="l" data-i18n="cm_output">Más output</div>
+        </div>
+      </div>
+    </div>
+    <div class="caso-card reveal delay-4">
+      <div class="caso-tag">Automotriz · Paraguay</div>
+      <h3>GRUPO GARDEN</h3>
+      <div class="caso-desc" data-i18n="caso_garden">Sistema multi-marca para el dealer automotriz más grande de Paraguay. 12+ marcas (Toyota, Hyundai, Kia, Suzuki, Fuso, etc.) con contenido a escala manteniendo identidad individual.</div>
+      <div class="caso-metrics">
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="12" data-decimals="0" data-suffix="+">0</span></div>
+          <div class="l" data-i18n="cm_marcas">Marcas</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="500" data-decimals="0" data-suffix="+">0</span></div>
+          <div class="l" data-i18n="cm_piezas2">Piezas/año</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v">MULTI</div>
+          <div class="l">Brand system</div>
+        </div>
+      </div>
+    </div>
+    <div class="caso-card reveal delay-5">
+      <div class="caso-tag">Sport · Global</div>
+      <h3>SHAQ</h3>
+      <div class="caso-desc" data-i18n="caso_shaq">Contenido de marca para la línea de Shaquille O'Neal. Video, social content y brand assets generados con IA manteniendo la personalidad del ícono.</div>
+      <div class="caso-metrics">
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="30" data-decimals="0" data-suffix="+">0</span></div>
+          <div class="l">Piezas/mes</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="4" data-decimals="0">0</span></div>
+          <div class="l">Videos/mes</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="2" data-decimals="0">0</span></div>
+          <div class="l">UGC/mes</div>
+        </div>
+      </div>
+    </div>
+    <div class="caso-card reveal delay-5">
+      <div class="caso-tag">Sport · Global</div>
+      <h3>STARTER</h3>
+      <div class="caso-desc" data-i18n="caso_starter">Reactivación de marca icónica con sistema de contenido AI-first. Campañas, key visuals y social content para el relanzamiento en nuevos mercados.</div>
+      <div class="caso-metrics">
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="45" data-decimals="0" data-suffix="+">0</span></div>
+          <div class="l">Piezas/mes</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="6" data-decimals="0">0</span></div>
+          <div class="l">Videos/mes</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="3" data-decimals="0">0</span></div>
+          <div class="l">Mercados</div>
+        </div>
+      </div>
+    </div>
+    <div class="caso-card reveal delay-5">
+      <div class="caso-tag">Wellness · Latam</div>
+      <h3>SENSUS</h3>
+      <div class="caso-desc" data-i18n="caso_sensus">Estrategia creativa y producción de contenido para la marca de bienestar. Sistema visual, video y social content con producción IA a escala.</div>
+      <div class="caso-metrics">
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="35" data-decimals="0" data-suffix="+">0</span></div>
+          <div class="l">Piezas/mes</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="3" data-decimals="0">0</span></div>
+          <div class="l">Videos/mes</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="4" data-decimals="0">0</span></div>
+          <div class="l">Plataformas</div>
+        </div>
+      </div>
+    </div>
+    <div class="caso-card reveal delay-5">
+      <div class="caso-tag">Spirits · Chile</div>
+      <h3>PISCO DIABLO</h3>
+      <div class="caso-desc" data-i18n="caso_diablo">Sistema de contenido disruptivo para la marca de pisco. Brand content, video cinematográfico y campañas sociales con producción AI-augmented.</div>
+      <div class="caso-metrics">
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="25" data-decimals="0" data-suffix="+">0</span></div>
+          <div class="l">Piezas/mes</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="6" data-decimals="0">0</span></div>
+          <div class="l">Videos/mes</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="2" data-decimals="0">0</span></div>
+          <div class="l">Campañas/Q</div>
+        </div>
+      </div>
+    </div>
+    <div class="caso-card reveal delay-5">
+      <div class="caso-tag">Gastronomía · Argentina</div>
+      <h3>MORELLI</h3>
+      <div class="caso-desc" data-i18n="caso_morelli">Contenido premium para la marca gastronómica. Fotografía de producto, video y social content con calidad de estudio generado con IA.</div>
+      <div class="caso-metrics">
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="40" data-decimals="0" data-suffix="+">0</span></div>
+          <div class="l">Piezas/mes</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="8" data-decimals="0">0</span></div>
+          <div class="l">Videos/mes</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="5" data-decimals="0">0</span></div>
+          <div class="l">Plataformas</div>
+        </div>
+      </div>
+    </div>
+    <div class="caso-card reveal delay-5">
+      <div class="caso-tag">Lifestyle · Argentina</div>
+      <h3>HYDRATE</h3>
+      <div class="caso-desc" data-i18n="caso_hydrate">Sistema de contenido para la marca de botellas térmicas. Campañas estacionales, lifestyle content y social media con producción IA a escala.</div>
+      <div class="caso-metrics">
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="20" data-decimals="0" data-suffix="+">0</span></div>
+          <div class="l">Piezas/mes</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="3" data-decimals="0">0</span></div>
+          <div class="l">Videos/mes</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="4" data-decimals="0">0</span></div>
+          <div class="l">Campañas/año</div>
+        </div>
+      </div>
+    </div>
+    <div class="caso-card reveal delay-5">
+      <div class="caso-tag">Sport · Global</div>
+      <h3>ASOCIACIÓN MUNDIAL DE SKATE</h3>
+      <div class="caso-desc" data-i18n="caso_skate">Sistema de contenido para la federación internacional. Video de competencias, brand content y social media con producción IA para alcance global.</div>
+      <div class="caso-metrics">
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="50" data-decimals="0" data-suffix="+">0</span></div>
+          <div class="l">Piezas/mes</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="8" data-decimals="0">0</span></div>
+          <div class="l">Videos/mes</div>
+        </div>
+        <div class="caso-metric">
+          <div class="v"><span class="counter" data-target="12" data-decimals="0" data-suffix="+">0</span></div>
+          <div class="l">Países</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============================== S16 / GRACIAS ============================== -->
 <section class="gracias">
+  <video class="section-bg-video" autoplay muted loop playsinline>
+    <source src="wtf-credenciales-slides/bg-gracias.mp4" type="video/mp4">
+  </video>
   <div class="gracias-eyebrow reveal">WTF AGENCY</div>
 
   <h2 class="gracias-display reveal delay-1" data-i18n="gracias_display">GRAC<em>IA</em>S.</h2>
@@ -3836,9 +3935,10 @@
   </p>
 
   <div class="gracias-sign reveal delay-3" data-i18n="gracias_sign">
-    WTF AGENCY · BUENOS AIRES<br>
     <a href="mailto:hello@wtf-agency.com">HELLO@WTF-AGENCY.COM</a><br>
-    BATTLE TESTED CREATIVITY · SINCE 2010
+    BATTLE TESTED CREATIVITY · SINCE 2010<br>
+    ARGENTINA · CHILE · PARAGUAY · PERÚ · USA<br>
+    WTF AGENCY
   </div>
 </section>
 
@@ -3858,8 +3958,8 @@
     'Cover', 'Brief Destroyers', 'Contexto', 'El problema',
     '#WTFRULES', 'Manifiesto', 'Quiénes somos', 'Modelo AI First',
     'WTF AI Engine', 'Capacidades',
-    'Clientes', 'Casos',
-    'Galería', 'Equipo', 'Gracias'
+    'Clientes', 'Galería',
+    'Equipo', 'Casos', 'Gracias'
   ];
 
   const hudCurr = document.getElementById('hudCurr');
@@ -4183,11 +4283,12 @@
         bd_sub: 'BATTLE TESTED CREATIVITY · SINCE 2010',
         // S3 — Contexto
         ctx_eyebrow: 'La nueva economia de la atención',
-        ctx_title: 'La atención<br><em>es finita.</em>',
+        ctx_title: 'Nadie está<br><em>esperando.</em>',
         ctx_sub: 'El consumidor no lee: escanea.<br>Decide en menos de dos segundos y sigue de largo.',
         ctx_stat1: 'Solo el 4% de los ads digitales se miran más de 2 segundos. El otro 96% ni existe.',
         ctx_stat2: 'Plataformas sociales que cada persona usa por mes. La marca compite en todas a la vez.',
         ctx_stat3: 'Descubre marcas nuevas en redes. Buscadores 32,4% y TV 31,2%: ya no hay un canal que gane.',
+        ctx_stat4: 'De la Gen Z descubre en video corto y después mira la versión larga. No es formato contra formato: es un mismo viaje.',
         // S4 — El problema
         prob_title: 'EL GAP<br><em>CREATIVO</em>',
         prob_body: 'La pieza 40 merece lo mismo que la 1.<br>Esa fue siempre la vara.<br>Pero la vara no se negocia, las horas no se estiran, y las plataformas piden contenido nuevo todos los días.<br>Ahí se rompe todo: no por falta de ideas, por falta de manos.<br><strong>Ese fue el techo durante quince años.<br>Ya no lo es.</strong>',
@@ -4203,8 +4304,9 @@
         mani_p3: '<span class="highlight">Estrategia que ordena. Creatividad con oficio.<br>Producción con velocidad. IA para multiplicar.</span>',
         mani_closer: 'Una idea no alcanza.<br><strong>Hace falta un sistema que no pare.</strong>',
         // S6 — Clientes
-        clientes_title: 'NUESTROS<br><em>CLIENTES.</em>',
-        clientes_sub: 'Los que entendieron que no alcanza con una idea.',
+        clientes_title: 'NO SON LOGOS.<br><em>SON AÑOS.</em>',
+        clientes_sub: 'Los años no se pitchean.',
+        clientes_manifiesto: 'Ninguna vino a pedir lo de siempre.<br>Se animaron a otra cosa.<br><strong>Por eso siguen acá.</strong>',
         // S7 — #WTFRULES
         wtfrules_text: 'Es momento de plantearse todo <strong>nuevamente.</strong>',
         // S8 — Quiénes somos
@@ -4257,17 +4359,17 @@
         mod_multi: 'Adaptación multi-idioma y multi-mercado instantánea',
         // S11 — Capacidades
         'cap_eyebrow': 'De la estrategia al contenido',
-        'cap_title': 'UNA ESTRATEGIA,<br>UNA IDEA.<br><em>ILIMITADOS CONTENIDOS.</em>',
-        'cap_sub': 'Cada formato nace del mismo concepto estratégico y se conecta con los demás. No son piezas sueltas, es un ecosistema donde todo se retroalimenta.',
+        'cap_title': 'ESTRATEGIA,<br>CREATIVIDAD Y ESCALA.<br><em>SIN ELEGIR ENTRE<br>LAS TRES.</em>',
+        'cap_sub': 'Cada formato nace del mismo concepto estratégico y se conecta con los demás. No son piezas sueltas, es un sistema donde todo se retroalimenta.',
         'cap_1': 'Sistemas de diseño vivos que escalan. Multi-marca, multi-mercado. La identidad crece con el negocio.',
-        'cap_2_title': 'CAMPAÑAS CREATIVAS 360',
+        'cap_2_title': 'CAMPAÑAS 360',
         'cap_2': 'Spots, branded content, narrativa multi-shot. Video cinematográfico con calidad de producción premium a velocidad IA.',
-        'cap_3_title': 'IMAGEN + KEY VISUALS',
+        'cap_3_title': 'KEY VISUALS',
         'cap_3': 'Identidad visual, campañas gráficas, social assets, packaging. Consistencia de marca en cada pieza.',
         'cap_connect': 'TODO CONECTADO · UN SISTEMA · UNA MARCA',
-        'cap_4_title': 'CONTENIDOS ILIMITADOS',
+        'cap_4_title': 'CONTENIDOS',
         'cap_4': 'UGC, talking heads, avatares, adaptaciones multi-formato. Producción a escala sin perder calidad ni voz de marca.',
-        'cap_5_title': 'PERFORMANCE CREATIVO',
+        'cap_5_title': 'PERFORMANCE',
         'cap_5': 'Variantes para A/B testing. Iteración basada en data. El contenido que mejor performa se multiplica.',
         'cap_6': 'Contenido pensado para cada plataforma. TikTok, Reels, YouTube, Stories. No es resize, es reinvención.',
         // S12 — Casos
@@ -4339,7 +4441,7 @@
         role_6: 'Pauta inteligente, A/B testing, analytics en tiempo real. Community management. El sistema que aprende.',
         // S15 — Gracias
         gracias_sub: 'Battle tested creativity. AI first. Human always.',
-        gracias_sign: 'WTF AGENCY · BUENOS AIRES<br><a href="mailto:hello@wtf-agency.com">HELLO@WTF-AGENCY.COM</a><br>BATTLE TESTED CREATIVITY · SINCE 2010',
+        gracias_sign: '<a href="mailto:hello@wtf-agency.com">HELLO@WTF-AGENCY.COM</a><br>BATTLE TESTED CREATIVITY · SINCE 2010<br>ARGENTINA · CHILE · PARAGUAY · PERÚ · USA<br>WTF AGENCY',
       },
 
       en: {
@@ -4356,11 +4458,12 @@
         bd_sub: 'BATTLE TESTED CREATIVITY · SINCE 2010',
         // S3 — Context
         ctx_eyebrow: 'The new attention economy',
-        ctx_title: 'Attention<br><em>is finite.</em>',
+        ctx_title: 'Nobody is<br><em>waiting.</em>',
         ctx_sub: 'The consumer does not read: they scan.<br>They decide in under two seconds and keep scrolling.',
         ctx_stat1: 'Only 4% of digital ads are viewed for more than 2 seconds. The other 96% might as well not exist.',
         ctx_stat2: 'Social platforms each person uses per month. Your brand competes on all of them at once.',
         ctx_stat3: 'Discover new brands on social. Search engines 32.4% and TV 31.2%: no single channel wins anymore.',
+        ctx_stat4: 'Of Gen Z discover on short video and then watch the long version. Not format versus format: one journey.',
         // S4 — The Problem
         prob_title: 'THE<br><em>CREATIVE GAP</em>',
         prob_body: 'Piece 40 deserves what piece 1 got.<br>That was always the bar.<br>But the bar is not negotiable, hours do not stretch, and the platforms want new content every day.<br>That is where it breaks. Not for lack of ideas. For lack of hands.<br><strong>That was the ceiling for fifteen years.<br>Not anymore.</strong>',
@@ -4376,8 +4479,9 @@
         mani_p3: '<span class="highlight">Strategy that organizes. Creativity with craft.<br>Production with speed. AI to multiply.</span>',
         mani_closer: 'One idea isn\'t enough.<br><strong>You need a system that never stops.</strong>',
         // S6 — Clients
-        clientes_title: 'OUR<br><em>CLIENTS.</em>',
-        clientes_sub: 'The ones who understood that one idea isn\'t enough.',
+        clientes_title: 'NOT LOGOS.<br><em>YEARS.</em>',
+        clientes_sub: 'You don\'t win years in a pitch.',
+        clientes_manifiesto: 'None of them came asking for the usual.<br>They dared to try something else.<br><strong>That is why they are still here.</strong>',
         // S7 — #WTFRULES
         wtfrules_text: 'It\'s time to rethink <strong>everything.</strong>',
         // S8 — Who We Are
@@ -4430,17 +4534,17 @@
         mod_multi: 'Instant multi-language and multi-market adaptation',
         // S11 — Capabilities
         'cap_eyebrow': 'From strategy to content',
-        'cap_title': 'ONE STRATEGY,<br>ONE IDEA.<br><em>UNLIMITED CONTENT.</em>',
-        'cap_sub': 'Every format is born from the same strategic concept and connects with the rest. Not loose pieces — an ecosystem where everything feeds back.',
+        'cap_title': 'STRATEGY,<br>CREATIVITY AND SCALE.<br><em>WITHOUT CHOOSING<br>BETWEEN THEM.</em>',
+        'cap_sub': 'Every format is born from the same strategic concept and connects with the rest. Not loose pieces — a system where everything feeds back.',
         'cap_1': 'Living design systems that scale. Multi-brand, multi-market. Identity grows with the business.',
-        'cap_2_title': 'CREATIVE CAMPAIGNS 360',
+        'cap_2_title': 'CAMPAIGNS 360',
         'cap_2': 'Spots, branded content, multi-shot narrative. Cinematic video with premium production quality at AI speed.',
-        'cap_3_title': 'IMAGE + KEY VISUALS',
+        'cap_3_title': 'KEY VISUALS',
         'cap_3': 'Visual identity, graphic campaigns, social assets, packaging. Brand consistency in every piece.',
         'cap_connect': 'ALL CONNECTED · ONE SYSTEM · ONE BRAND',
-        'cap_4_title': 'UNLIMITED CONTENT',
+        'cap_4_title': 'CONTENT',
         'cap_4': 'UGC, talking heads, avatars, multi-format adaptations. Production at scale without losing quality or brand voice.',
-        'cap_5_title': 'CREATIVE PERFORMANCE',
+        'cap_5_title': 'PERFORMANCE',
         'cap_5': 'Variants for A/B testing. Data-driven iteration. The best-performing content gets multiplied.',
         'cap_6': 'Content designed for each platform. TikTok, Reels, YouTube, Stories. Not resizing — reinvention.',
         // S12 — Cases
@@ -4512,7 +4616,7 @@
         role_6: 'Smart media buying, A/B testing, real-time analytics. Community management. The system that learns.',
         // S15 — Thanks
         gracias_sub: 'Battle tested creativity. AI first. Human always.',
-        gracias_sign: 'WTF AGENCY · BUENOS AIRES<br><a href="mailto:hello@wtf-agency.com">HELLO@WTF-AGENCY.COM</a><br>BATTLE TESTED CREATIVITY · SINCE 2010',
+        gracias_sign: '<a href="mailto:hello@wtf-agency.com">HELLO@WTF-AGENCY.COM</a><br>BATTLE TESTED CREATIVITY · SINCE 2010<br>ARGENTINA · CHILE · PARAGUAY · PERÚ · USA<br>WTF AGENCY',
       },
 
       pt: {
@@ -4529,11 +4633,12 @@
         bd_sub: 'CRIATIVIDADE TESTADA EM BATALHA · DESDE 2010',
         // S3 — Contexto
         ctx_eyebrow: 'A nova economia da atenção',
-        ctx_title: 'A atenção<br><em>é finita.</em>',
+        ctx_title: 'Ninguém está<br><em>esperando.</em>',
         ctx_sub: 'O consumidor não lê: escaneia.<br>Decide em menos de dois segundos e segue em frente.',
         ctx_stat1: 'Apenas 4% dos anúncios digitais são vistos por mais de 2 segundos. Os outros 96% simplesmente não existem.',
         ctx_stat2: 'Plataformas sociais que cada pessoa usa por mês. Sua marca compete em todas ao mesmo tempo.',
         ctx_stat3: 'Descobre marcas novas nas redes. Buscadores 32,4% e TV 31,2%: já não há um canal que ganhe.',
+        ctx_stat4: 'Da Gen Z descobre em vídeo curto e depois vê a versão longa. Não é formato contra formato: é uma mesma jornada.',
         // S4 — O problema
         prob_title: 'O GAP<br><em>CRIATIVO</em>',
         prob_body: 'A peça 40 merece o mesmo que a 1.<br>Essa sempre foi a régua.<br>Mas a régua não se negocia, as horas não se esticam, e as plataformas pedem conteúdo novo todos os dias.<br>É aí que quebra: não por falta de ideias, por falta de mãos.<br><strong>Esse foi o teto durante quinze anos.<br>Já não é.</strong>',
@@ -4549,8 +4654,9 @@
         mani_p3: '<span class="highlight">Estratégia que organiza. Criatividade com ofício.<br>Produção com velocidade. IA para multiplicar.</span>',
         mani_closer: 'Uma ideia não basta.<br><strong>É preciso um sistema que não pare.</strong>',
         // S6 — Clientes
-        clientes_title: 'NOSSOS<br><em>CLIENTES.</em>',
-        clientes_sub: 'Os que entenderam que uma ideia não basta.',
+        clientes_title: 'NÃO SÃO LOGOS.<br><em>SÃO ANOS.</em>',
+        clientes_sub: 'Anos não se ganham num pitch.',
+        clientes_manifiesto: 'Nenhuma veio pedir o de sempre.<br>Se arriscaram a outra coisa.<br><strong>Por isso seguem aqui.</strong>',
         // S7 — #WTFRULES
         wtfrules_text: 'É hora de repensar <strong>tudo.</strong>',
         // S8 — Quem somos
@@ -4603,15 +4709,15 @@
         mod_multi: 'Adaptação multi-idioma e multi-mercado instantânea',
         // S11 — Capacidades
         'cap_eyebrow': 'Da estratégia ao conteúdo',
-        'cap_title': 'UMA ESTRATÉGIA,<br>UMA IDEIA.<br><em>CONTEÚDOS ILIMITADOS.</em>',
-        'cap_sub': 'Cada formato nasce do mesmo conceito estratégico e se conecta com os demais. Não são peças soltas, é um ecossistema onde tudo se retroalimenta.',
+        'cap_title': 'ESTRATÉGIA,<br>CRIATIVIDADE E ESCALA.<br><em>SEM ESCOLHER ENTRE<br>AS TRÊS.</em>',
+        'cap_sub': 'Cada formato nasce do mesmo conceito estratégico e se conecta com os demais. Não são peças soltas, é um sistema onde tudo se retroalimenta.',
         'cap_1': 'Sistemas de design vivos que escalam. Multi-marca, multi-mercado. A identidade cresce com o negócio.',
-        'cap_2_title': 'CAMPANHAS CRIATIVAS 360',
+        'cap_2_title': 'CAMPANHAS 360',
         'cap_2': 'Spots, branded content, narrativa multi-shot. Vídeo cinematográfico com qualidade de produção premium na velocidade da IA.',
-        'cap_3_title': 'IMAGEM + KEY VISUALS',
+        'cap_3_title': 'KEY VISUALS',
         'cap_3': 'Identidade visual, campanhas gráficas, social assets, embalagens. Consistência de marca em cada peça.',
         'cap_connect': 'TUDO CONECTADO · UM SISTEMA · UMA MARCA',
-        'cap_4_title': 'CONTEÚDOS ILIMITADOS',
+        'cap_4_title': 'CONTEÚDOS',
         'cap_4': 'UGC, talking heads, avatares, adaptações multi-formato. Produção em escala sem perder qualidade nem voz de marca.',
         'cap_5_title': 'PERFORMANCE CRIATIVO',
         'cap_5': 'Variantes para A/B testing. Iteração baseada em dados. O conteúdo com melhor performance se multiplica.',
@@ -4685,7 +4791,7 @@
         role_6: 'Mídia paga inteligente, A/B testing, analytics em tempo real. Community management. O sistema que aprende.',
         // S15 — Obrigado
         gracias_sub: 'Battle tested creativity. AI first. Human always.',
-        gracias_sign: 'WTF AGENCY · BUENOS AIRES<br><a href="mailto:hello@wtf-agency.com">HELLO@WTF-AGENCY.COM</a><br>CRIATIVIDADE TESTADA EM BATALHA · DESDE 2010',
+        gracias_sign: '<a href="mailto:hello@wtf-agency.com">HELLO@WTF-AGENCY.COM</a><br>CRIATIVIDADE TESTADA EM BATALHA · DESDE 2010<br>ARGENTINA · CHILE · PARAGUAY · PERÚ · USA<br>WTF AGENCY',
       }
     };
 
@@ -5324,6 +5430,8 @@
     }, 2600);
   })();
 </script>
+
+
 
 </body>
 </html>
