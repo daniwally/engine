@@ -560,6 +560,41 @@
     border-radius: 3px;
     margin-left: 2px;
   }
+  /* Group sub-labels inside a pricing card */
+  .pricing-features li.grp {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--signal);
+    padding: 16px 0 6px;
+    border-bottom: none;
+    margin-top: 4px;
+  }
+  .pricing-features li.grp:first-child { padding-top: 0; }
+  .pricing-features li.grp::before { content: none; }
+  .pricing-sub {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--signal);
+    margin-bottom: 18px;
+  }
+  .pricing-desc strong { color: var(--bone); font-weight: 700; display: block; margin-bottom: 8px; }
+  /* Base services strip + scope conditions */
+  .base-services {
+    max-width: 1200px;
+    margin-bottom: 40px;
+    padding: 22px 26px;
+    background: rgba(30,30,38,0.4);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--bone-dim);
+  }
+  .base-services strong { color: var(--bone); font-weight: 600; }
   /* ====== PILOT SECTION ====== */
   .pilot-section { padding: 80px 7vw; border-top: 1px solid var(--line); }
   .pilot-eyebrow {
@@ -942,6 +977,16 @@
     .proof-logos { gap: 24px 32px; }
     .proof-logos img { height: 22px; }
     .pricing-grid { grid-template-columns: 1fr; }
+    /* La comparativa mantiene 2 columnas: hay que dejar que las celdas
+       se achiquen (min-width:0) o el texto largo desborda y se recorta. */
+    .split-head, .split-cell { padding-left: 14px; padding-right: 14px; min-width: 0; }
+    .split-cell.cost-final { padding-left: 14px; padding-right: 14px; }
+    .split-metric { letter-spacing: 0.08em; overflow-wrap: anywhere; }
+    .split-val, .split-tag { overflow-wrap: anywhere; }
+    .split-val .big { font-size: clamp(20px, 6.5vw, 30px); }
+    .split-insight { display: none; }
+    .process-compare { grid-template-columns: 1fr; gap: 32px; }
+    .base-services { padding: 18px 20px; font-size: 14px; }
   }
 
   /* ====== PRINT / PDF ====== */
@@ -1003,9 +1048,9 @@
   </video>
   <div class="hero-logo"><img src="wtf-credenciales-slides/logo-wtf.png" alt="WTF Agency"></div>
   <div class="hero-tag" data-i18n="hero_tag">POR QUÉ WTF</div>
-  <h1 class="hero-title" data-i18n="hero_title">MODELO TRADICIONAL<br>VS <em>WTF AI ENGINE</em></h1>
-  <p class="hero-lead" data-i18n="hero_lead">La diferencia no es solo de precio. Es de velocidad, volumen y sistema.</p>
-  <p class="hero-sub" data-i18n="hero_sub">Con 15 años de experiencia construyendo marcas en Latinoamérica y más de 200 campañas ejecutadas, WTF evolucionó su modelo creativo integrando inteligencia artificial en cada etapa del proceso. Mientras una agencia tradicional tarda semanas en entregar un set limitado de piezas, nuestro modelo AI-first produce contenido cinematográfico, Influencers y estrategia integrada en horas. La misma visión estratégica de siempre, potenciada por tecnología que multiplica la velocidad, el volumen y la calidad.</p>
+  <h1 class="hero-title" data-i18n="hero_title">ESTRATEGIA, CREATIVIDAD Y GESTIÓN.<br><em>POTENCIADAS POR IA.</em></h1>
+  <p class="hero-lead" data-i18n="hero_lead">Integramos estrategia de marca, gestión de cuentas, producción creativa y operación de redes en un mismo equipo.</p>
+  <p class="hero-sub" data-i18n="hero_sub">Planificamos, producimos, publicamos y gestionamos la comunidad, con inteligencia artificial para acelerar la ejecución y un equipo que dirige cada etapa. Quince años construyendo marcas en Latinoamérica y más de 200 campañas ejecutadas.</p>
 </div>
 
 <!-- ====== COMPARATIVA ====== -->
@@ -1131,18 +1176,63 @@
       </div>
     </div>
 
-    <!-- Row 8: Optimizacion -->
+    <!-- Row 8: Gestion de cuenta -->
     <div class="split-row">
       <div class="split-cell trad">
-        <div class="split-metric" data-i18n="r8_metric">Optimización continua</div>
-        <div class="split-val"><span class="big" data-i18n="r8_trad_val">Mensual</span></div>
-        <span class="split-tag off" data-i18n="r8_trad_tag">Reportes estáticos</span>
+        <div class="split-metric" data-i18n="r9_metric">Gestión de cuenta</div>
+        <div class="split-val"><span class="big" data-i18n="r9_trad_val">Por proyecto</span></div>
+        <span class="split-tag off" data-i18n="r9_trad_tag">Según el encargo</span>
       </div>
-      <div class="split-insight" data-i18n="r8_insight">Datos en vivo, ajustes al instante. No esperar al informe.</div>
+      <div class="split-insight" data-i18n="r9_insight">Un responsable que coordina el trabajo mes a mes.</div>
       <div class="split-cell wtf">
-        <div class="split-metric" data-i18n="r8_metric_w">Optimización continua</div>
-        <div class="split-val"><span class="big">Real-time</span></div>
-        <span class="split-tag on" data-i18n="r8_wtf_tag">Live + iteración</span>
+        <div class="split-metric" data-i18n="r9_metric_w">Gestión de cuenta</div>
+        <div class="split-val"><span class="big" data-i18n="r9_wtf_val">Asignada</span></div>
+        <span class="split-tag on" data-i18n="r9_wtf_tag">Responsable de cuenta</span>
+      </div>
+    </div>
+
+    <!-- Row 9: Publicacion -->
+    <div class="split-row">
+      <div class="split-cell trad">
+        <div class="split-metric" data-i18n="r10_metric">Publicación en canales</div>
+        <div class="split-val"><span class="big" data-i18n="r10_trad_val">Entrega</span></div>
+        <span class="split-tag off" data-i18n="r10_trad_tag">Publicás vos</span>
+      </div>
+      <div class="split-insight" data-i18n="r10_insight">Producimos y publicamos en los canales contratados.</div>
+      <div class="split-cell wtf">
+        <div class="split-metric" data-i18n="r10_metric_w">Publicación en canales</div>
+        <div class="split-val"><span class="big" data-i18n="r10_wtf_val">Gestionada</span></div>
+        <span class="split-tag on" data-i18n="r10_wtf_tag">Calendario + programación</span>
+      </div>
+    </div>
+
+    <!-- Row 10: Community -->
+    <div class="split-row">
+      <div class="split-cell trad">
+        <div class="split-metric" data-i18n="r11_metric">Community management</div>
+        <div class="split-val"><span class="big" data-i18n="r11_trad_val">Aparte</span></div>
+        <span class="split-tag off" data-i18n="r11_trad_tag">Servicio separado</span>
+      </div>
+      <div class="split-insight" data-i18n="r11_insight">Comunidad atendida dentro de una cobertura definida.</div>
+      <div class="split-cell wtf">
+        <div class="split-metric" data-i18n="r11_metric_w">Community management</div>
+        <div class="split-val"><span class="big" data-i18n="r11_wtf_val">Incluido</span></div>
+        <span class="split-tag on" data-i18n="r11_wtf_tag">Cobertura acordada</span>
+      </div>
+    </div>
+
+    <!-- Row 11: Medicion -->
+    <div class="split-row">
+      <div class="split-cell trad">
+        <div class="split-metric" data-i18n="r8_metric">Medición y optimización</div>
+        <div class="split-val"><span class="big" data-i18n="r8_trad_val">Reporte</span></div>
+        <span class="split-tag off" data-i18n="r8_trad_tag">Informe mensual</span>
+      </div>
+      <div class="split-insight" data-i18n="r8_insight">Los resultados informan la planificación del mes siguiente.</div>
+      <div class="split-cell wtf">
+        <div class="split-metric" data-i18n="r8_metric_w">Medición y optimización</div>
+        <div class="split-val"><span class="big" data-i18n="r8_wtf_val">Continua</span></div>
+        <span class="split-tag on" data-i18n="r8_wtf_tag">Análisis + ajuste</span>
       </div>
     </div>
   </div>
@@ -1196,47 +1286,61 @@
           <div class="step-detail" data-i18n="pt6_detail">Archivos, formatos, adaptaciones extra</div>
         </div>
       </div>
-      <div class="process-duration" data-i18n="proc_trad_dur">Duración total: 4-6 semanas</div>
+      <div class="process-duration" data-i18n="proc_trad_dur">Producción de una campaña: 4-6 semanas</div>
     </div>
 
     <div class="process-col ai">
-      <div class="process-col-title ai">WTF AI ENGINE</div>
+      <div class="process-col-title ai" data-i18n="proc_ai_title">PROCESO WTF</div>
       <div class="process-step">
         <div class="step-num">1</div>
         <div class="step-content">
-          <div class="step-label" data-i18n="pa1_label">Brief + IA intake</div>
-          <div class="step-detail" data-i18n="pa1_detail">Análisis automático de marca, audiencia y objetivos</div>
+          <div class="step-label" data-i18n="pa1_label">Diagnóstico y objetivos</div>
+          <div class="step-detail" data-i18n="pa1_detail">Entendemos la marca, sus audiencias y prioridades</div>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">2</div>
         <div class="step-content">
-          <div class="step-label" data-i18n="pa2_label">Estrategia generativa</div>
-          <div class="step-detail" data-i18n="pa2_detail">IA genera conceptos, copys y direcciones visuales</div>
+          <div class="step-label" data-i18n="pa2_label">Estrategia y planificación</div>
+          <div class="step-detail" data-i18n="pa2_detail">Definimos mensajes, campañas y calendario editorial</div>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">3</div>
         <div class="step-content">
-          <div class="step-label" data-i18n="pa3_label">Producción AI-first</div>
-          <div class="step-detail" data-i18n="pa3_detail">Imagenes, video, UGC y avatares generados en horas</div>
+          <div class="step-label" data-i18n="pa3_label">Producción creativa con IA</div>
+          <div class="step-detail" data-i18n="pa3_detail">Desarrollamos contenido bajo dirección estratégica y de arte</div>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">4</div>
         <div class="step-content">
-          <div class="step-label" data-i18n="pa4_label">Iteración en tiempo real</div>
-          <div class="step-detail" data-i18n="pa4_detail">Ajustes instantáneos, variantes ilimitadas, A/B nativo</div>
+          <div class="step-label" data-i18n="pa4_label">Revisión y aprobación</div>
+          <div class="step-detail" data-i18n="pa4_detail">Coordinamos devoluciones con el responsable del cliente</div>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">5</div>
         <div class="step-content">
-          <div class="step-label" data-i18n="pa5_label">Entrega multi-plataforma</div>
-          <div class="step-detail" data-i18n="pa5_detail">Contenido nativo para 5+ plataformas, listo para publicar</div>
+          <div class="step-label" data-i18n="pa5_label">Implementación y publicación</div>
+          <div class="step-detail" data-i18n="pa5_detail">Programamos y publicamos en los canales contratados</div>
         </div>
       </div>
-      <div class="process-duration" data-i18n="proc_ai_dur">Duración total: 3-5 días</div>
+      <div class="process-step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <div class="step-label" data-i18n="pa6_label">Gestión de comunidad</div>
+          <div class="step-detail" data-i18n="pa6_detail">Moderamos, respondemos y derivamos según el protocolo acordado</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">7</div>
+        <div class="step-content">
+          <div class="step-label" data-i18n="pa7_label">Análisis y optimización</div>
+          <div class="step-detail" data-i18n="pa7_detail">Revisamos resultados y ajustamos el siguiente ciclo</div>
+        </div>
+      </div>
+      <div class="process-duration" data-i18n="proc_ai_dur">Producción de una pieza o lote: días · Gestión: ciclo mensual continuo</div>
     </div>
   </div>
 </div>
@@ -1319,66 +1423,80 @@
     <span class="pricing-badge trial" data-i18n="badge_trial">Trial de 90 días con opción de salida si no hay fit</span>
     <span class="pricing-badge scarcity" data-i18n="badge_scarcity">Capacidad de onboarding limitada a 2 cuentas nuevas por mes</span>
   </div>
+  <p class="base-services" data-i18n="base_services"><strong>Todos los planes incluyen, con distinto alcance:</strong> estrategia y planificación de contenido · responsable de cuenta asignado · social media management (calendario, copy, programación y publicación) · community management · implementación del calendario aprobado en los canales contratados · producción creativa potenciada por IA · medición y recomendaciones para el período siguiente.</p>
+
   <div class="pricing-grid">
     <div class="pricing-card">
       <div class="pricing-tier">TIER 1</div>
       <div class="pricing-name">AI CONTENT<br>SYSTEM</div>
-      <div class="pricing-desc" data-i18n="t1_desc">Contenido estratégico con sistema IA. Presencia constante con calidad y velocidad.</div>
+      <div class="pricing-sub" data-i18n="t1_sub">Presencia gestionada</div>
+      <div class="pricing-desc" data-i18n="t1_desc"><strong>Tu presencia de marca, gestionada.</strong> Ordenamos la estrategia de contenido y nos ocupamos de la producción, la publicación y la gestión básica de comunidad. Un responsable de cuenta coordina el trabajo para que tu marca mantenga una presencia consistente todos los meses.</div>
       <div class="pricing-price">$4.900 <span>USD</span></div>
       <div class="pricing-period" data-i18n="pricing_period">MENSUAL · CONTRATO ANUAL</div>
       <ul class="pricing-features">
-        <li data-i18n="t1_f1">Estrategia de contenido mensual</li>
-        <li data-i18n="t1_f2">Hasta 40 piezas / mes</li>
-        <li data-i18n="t1_f3">Video IA (hasta 4 / mes)</li>
-        <li data-i18n="t1_f4">Dirección de arte IA</li>
-        <li data-i18n="t1_f5">Adaptación multi-plataforma (3)</li>
-        <li data-i18n="t1_f6">1 ronda de revisión por pieza</li>
-        <li data-i18n="t1_f7">Reporte mensual de performance</li>
-        <li data-i18n="t1_f8">Célula compartida con anchor dedicado</li>
+        <li class="grp" data-i18n="grp_ec">Estrategia y cuenta</li>
+        <li data-i18n="t1_e">Diagnóstico inicial, objetivos y plan mensual de contenido</li>
+        <li data-i18n="t1_ac">Responsable de cuenta asignado y reunión mensual</li>
+        <li class="grp" data-i18n="grp_or">Operación de redes</li>
+        <li data-i18n="t1_sm">Calendario, copy, programación y publicación en hasta 2 redes</li>
+        <li data-i18n="t1_cm">Community: moderación y respuestas en una ventana diaria hábil</li>
+        <li data-i18n="t1_im">Configuración inicial de perfiles y ejecución del calendario aprobado</li>
+        <li class="grp" data-i18n="grp_pr">Producción</li>
+        <li data-i18n="t1_pr">Hasta 40 piezas al mes y hasta 4 videos IA</li>
+        <li data-i18n="t1_ad">Adaptaciones para hasta 3 plataformas</li>
+        <li data-i18n="t1_rv">1 ronda de revisión por pieza</li>
+        <li class="grp" data-i18n="grp_md">Medición</li>
+        <li data-i18n="t1_md">Reporte mensual con próximos pasos</li>
       </ul>
     </div>
 
     <div class="pricing-card featured">
       <div class="pricing-tier">TIER 2</div>
       <div class="pricing-name">AI AGENCY<br>SCALE</div>
-      <div class="pricing-desc" data-i18n="t2_desc">El doble de capacidad. Video cinematográfico, influencers IA y estrategia integrada para marcas en crecimiento.</div>
+      <div class="pricing-sub" data-i18n="t2_sub">Gestión y crecimiento</div>
+      <div class="pricing-desc" data-i18n="t2_desc"><strong>Un equipo de agencia para acompañar tu crecimiento.</strong> Integramos estrategia, gestión de cuenta, social media, community management y producción creativa con IA. Planificamos campañas, implementamos el contenido y usamos los resultados para mejorar cada mes.</div>
       <div class="pricing-price">$6.900 <span>USD</span></div>
       <div class="pricing-period" data-i18n="pricing_period_2">MENSUAL · CONTRATO ANUAL</div>
       <ul class="pricing-features">
-        <li data-i18n="t2_f1">Estrategia + planning integrado</li>
-        <li data-i18n="t2_f2">Hasta 80 piezas / mes</li>
-        <li data-i18n="t2_f3">Video cinematográfico IA (hasta 8 / mes)</li>
-        <li data-i18n="t2_f4">Influencers + avatares IA</li>
-        <li data-i18n="t2_f5">Dirección de arte IA</li>
-        <li data-i18n="t2_f6">Adaptación multi-plataforma (5+)</li>
-        <li data-i18n="t2_f7">2 rondas de revisión por pieza</li>
-        <li data-i18n="t2_f8">Reporte mensual de performance</li>
-        <li data-i18n="t2_f9">Optimización de contenido con datos</li>
-        <li data-i18n="t2_f10">Célula compartida con anchor dedicado</li>
+        <li class="grp" data-i18n="grp_ec">Estrategia y cuenta</li>
+        <li data-i18n="t2_e">Estrategia de comunicación, campañas y revisión mensual</li>
+        <li data-i18n="t2_ac">Responsable de cuenta asignado y reuniones quincenales</li>
+        <li class="grp" data-i18n="grp_or">Operación de redes</li>
+        <li data-i18n="t2_sm">Gestión de hasta 3 redes, estrategia por canal y optimización</li>
+        <li data-i18n="t2_cm">Community: dos ventanas diarias hábiles, interacción y derivación de consultas</li>
+        <li data-i18n="t2_im">Campañas orgánicas y coordinación con el equipo de pauta del cliente, cuando corresponda</li>
+        <li class="grp" data-i18n="grp_pr">Producción</li>
+        <li data-i18n="t2_pr">Hasta 80 piezas al mes y hasta 8 videos cinematográficos IA</li>
+        <li data-i18n="t2_inf">Influencers y avatares IA</li>
+        <li data-i18n="t2_ad">Adaptaciones para 5 o más plataformas, según alcance acordado</li>
+        <li data-i18n="t2_rv">2 rondas de revisión por pieza</li>
+        <li class="grp" data-i18n="grp_md">Medición</li>
+        <li data-i18n="t2_md">Análisis mensual, pruebas y optimización de contenido</li>
       </ul>
     </div>
 
     <div class="pricing-card">
-      <div class="pricing-tier">TIER 3 · UNLIMITED</div>
+      <div class="pricing-tier">TIER 3</div>
       <div class="pricing-name">AI AGENCY<br>FULL MODEL</div>
-      <div class="pricing-desc" data-i18n="t3_desc">Todo ilimitado. Contenido, video, estrategia y producción always-on. Tu equipo creativo completo potenciado por IA.</div>
+      <div class="pricing-sub" data-i18n="t3_sub">Agencia integral</div>
+      <div class="pricing-desc" data-i18n="t3_desc"><strong>WTF como equipo integral de tu marca.</strong> Asumimos la dirección estratégica y la coordinación de la operación diaria de comunicación. Integramos planificación, creatividad, producción, gestión de redes y comunidad, con mayor capacidad y seguimiento cercano.</div>
       <div class="pricing-price">$8.900 <span>USD</span></div>
       <div class="pricing-period" data-i18n="pricing_period_3">MENSUAL · CONTRATO ANUAL</div>
       <ul class="pricing-features">
-        <li data-i18n="t3_f1">Estrategia + planning integrado</li>
-        <li data-i18n="t3_f2">Contenido <span class="unlimited">ILIMITADO</span></li>
-        <li data-i18n="t3_f3">Video cinematográfico <span class="unlimited">ILIMITADO</span></li>
-        <li data-i18n="t3_f4">Influencers + avatares IA <span class="unlimited">ILIMITADOS</span></li>
-        <li data-i18n="t3_f5">Dirección de arte IA</li>
-        <li data-i18n="t3_f6">Multi-plataforma nativo (5+)</li>
-        <li data-i18n="t3_f7">Revisiones <span class="unlimited">ILIMITADAS</span></li>
-        <li data-i18n="t3_f8">Rondas de cambios <span class="unlimited">ILIMITADAS</span></li>
-        <li data-i18n="t3_f9">Community management</li>
-        <li data-i18n="t3_f10">Estrategia de contenido mensual</li>
-        <li data-i18n="t3_f11">Copywriting + guiones</li>
-        <li data-i18n="t3_f12">Performance + optimización real-time</li>
-        <li data-i18n="t3_f13">Reportes de performance en vivo</li>
-        <li data-i18n="t3_f14">Célula full exclusiva (6 roles dedicados)</li>
+        <li class="grp" data-i18n="grp_ec">Estrategia y cuenta</li>
+        <li data-i18n="t3_e">Dirección estratégica continua y planificación trimestral</li>
+        <li data-i18n="t3_ac">Líder de cuenta y seguimiento semanal</li>
+        <li class="grp" data-i18n="grp_or">Operación de redes</li>
+        <li data-i18n="t3_sm">Gestión de hasta 5 redes y coordinación de campañas y activaciones</li>
+        <li data-i18n="t3_cm">Community: cobertura ampliada acordada, escucha y protocolo de escalamiento</li>
+        <li data-i18n="t3_im">Coordinación de contenido, canales y proveedores incluidos en el alcance</li>
+        <li class="grp" data-i18n="grp_pr">Producción</li>
+        <li data-i18n="t3_pr">Capacidad prioritaria y proyectos en paralelo, según alcance acordado</li>
+        <li data-i18n="t3_ad">Formatos nativos para las plataformas acordadas</li>
+        <li data-i18n="t3_rv">Ciclos de revisión según planificación y capacidad acordadas</li>
+        <li class="grp" data-i18n="grp_mde">Medición y equipo</li>
+        <li data-i18n="t3_md">Tablero de seguimiento y revisión periódica de resultados</li>
+        <li data-i18n="t3_team">Equipo multidisciplinario con liderazgo de cuenta y capacidad asignada según alcance</li>
       </ul>
     </div>
   </div>
@@ -1391,11 +1509,11 @@
   <div style="margin-top:90px">
     <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:16px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
     <h3 class="section-tag" style="font-size:clamp(24px,3.5vw,48px);margin-bottom:12px">WTF <strong style="font-weight:900">AI</strong> ENGINE <em>PILOT</em></h3>
-    <p style="font-size:clamp(15px,1.8vw,19px);font-weight:300;color:rgba(245,240,235,0.55);max-width:680px;line-height:1.5;margin-bottom:36px" data-i18n="pilot_intro">3 semanas para probar el sistema que cambia tu forma de comunicar. Producción de nivel global, velocidad que no creías posible. 21 piezas listas por una fracción del costo tradicional.</p>
+    <p style="font-size:clamp(15px,1.8vw,19px);font-weight:300;color:rgba(245,240,235,0.55);max-width:680px;line-height:1.5;margin-bottom:36px" data-i18n="pilot_intro">3 semanas para probar el sistema que cambia tu forma de comunicar. Producción de nivel global, velocidad que no creías posible, por una fracción del costo tradicional.</p>
     <div class="pricing-card featured" style="max-width:680px">
       <div class="pricing-tier">WTF <strong style="font-weight:700">AI</strong> ENGINE PILOT</div>
       <div class="pricing-name" data-i18n="pilot_name">PROBÁ EL SISTEMA</div>
-      <div class="pricing-desc" data-i18n="pilot_desc">Una campaña completa en 3 semanas para experimentar el modelo AI-first con tu marca. Estrategia, dirección de arte, producción con calidad de nivel internacional y 21 piezas entregadas listas para publicar.</div>
+      <div class="pricing-desc" data-i18n="pilot_desc">Una campaña completa en 3 semanas para experimentar el modelo AI-first con tu marca. Estrategia, dirección de arte y producción con calidad de nivel internacional, entregada lista para publicar.</div>
       <div class="pricing-price">$5.400 <span>USD</span></div>
       <div class="pricing-period" data-i18n="pilot_period">PAGO ÚNICO · 3 SEMANAS</div>
       <ul class="pricing-features">
@@ -1403,7 +1521,7 @@
         <li data-i18n="pi_f2">1 concepto creativo (manifiesto + claim)</li>
         <li data-i18n="pi_f3">Sistema visual definido</li>
       </ul>
-      <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--signal);margin:20px 0 8px;padding-top:14px;border-top:1px solid var(--line)" data-i18n="pi_asset_title">ASSET PACK · 21 PIEZAS PRODUCIDAS</div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--signal);margin:20px 0 8px;padding-top:14px;border-top:1px solid var(--line)" data-i18n="pi_asset_title">ASSET PACK PRODUCIDO</div>
       <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mute);margin:14px 0 4px">VIDEO</div>
       <ul class="pricing-features">
         <li data-i18n="pi_v1">1 video cinematográfico hero (30s + 15s)</li>
@@ -1425,7 +1543,7 @@
         <li data-i18n="pi_c2">Recomendación de Tier + roadmap</li>
       </ul>
       <div style="background:rgba(255,59,48,0.08);border:1px solid rgba(255,59,48,0.25);border-radius:8px;padding:16px 20px;margin-top:24px;font-size:14px;color:var(--bone);line-height:1.5" data-i18n="pilot_credit">
-        Si avanzás a Fee anual dentro de 30 días, los <strong style="color:var(--signal)">USD 6.000 se acreditan 100% al primer mes.</strong>
+        Si avanzás a un fee anual dentro de los 30 días, <strong style="color:var(--signal)">el monto abonado por el piloto se acredita al primer mes.</strong>
       </div>
       <div style="margin-top:24px">
         <a href="mailto:hello@wtf-agency.com?subject=WTF%20AI%20Engine%20Pilot%20-%20Quiero%20arrancar" class="cta-btn primary" style="display:inline-flex">
@@ -1526,9 +1644,9 @@ if (proofStrip) proofObs.observe(proofStrip);
   const translations = {
     es: {
       hero_tag: 'POR QUÉ WTF',
-      hero_title: 'MODELO TRADICIONAL<br>VS <em>WTF AI ENGINE</em>',
-      hero_lead: 'La diferencia no es solo de precio. Es de velocidad, volumen y sistema.',
-      hero_sub: 'Con 15 años de experiencia construyendo marcas en Latinoamérica y más de 200 campañas ejecutadas, WTF evolucionó su modelo creativo integrando inteligencia artificial en cada etapa del proceso. Mientras una agencia tradicional tarda semanas en entregar un set limitado de piezas, nuestro modelo AI-first produce contenido cinematográfico, Influencers y estrategia integrada en horas. La misma visión estratégica de siempre, potenciada por tecnología que multiplica la velocidad, el volumen y la calidad.',
+      hero_title: 'ESTRATEGIA, CREATIVIDAD Y GESTIÓN.<br><em>POTENCIADAS POR IA.</em>',
+      hero_lead: 'Integramos estrategia de marca, gestión de cuentas, producción creativa y operación de redes en un mismo equipo.',
+      hero_sub: 'Planificamos, producimos, publicamos y gestionamos la comunidad, con inteligencia artificial para acelerar la ejecución y un equipo que dirige cada etapa. Quince años construyendo marcas en Latinoamérica y más de 200 campañas ejecutadas.',
       comp_title: 'COMPARATIVA<br><em>DE SERVICIOS</em>',
       comp_desc: 'Lo que una agencia tradicional resuelve con equipos grandes, timings largos y presupuestos fragmentados, nosotros lo resolvemos con inteligencia artificial, velocidad y un sistema integrado que no para. Mismo nivel creativo, otra velocidad.',
       split_label_trad: 'El modelo de siempre',
@@ -1557,10 +1675,22 @@ if (proofStrip) proofObs.observe(proofStrip);
       r7_trad_val: 'Extra', r7_trad_tag: 'Fee adicional',
       r7_wtf_val: 'Integrada', r7_wtf_tag: 'Incluido',
       r7_insight: 'La estrategia no es un extra, es el motor del sistema.',
-      r8_metric: 'Optimización continua', r8_metric_w: 'Optimización continua',
-      r8_trad_val: 'Mensual', r8_trad_tag: 'Reportes estáticos',
-      r8_wtf_tag: 'Live + iteración',
-      r8_insight: 'Datos en vivo, ajustes al instante. No esperar al informe.',
+      r8_metric: 'Medición y optimización', r8_metric_w: 'Medición y optimización',
+      r8_trad_val: 'Reporte', r8_trad_tag: 'Informe mensual',
+      r8_wtf_val: 'Continua', r8_wtf_tag: 'Análisis + ajuste',
+      r8_insight: 'Los resultados informan la planificación del mes siguiente.',
+      r9_metric: 'Gestión de cuenta', r9_metric_w: 'Gestión de cuenta',
+      r9_trad_val: 'Por proyecto', r9_trad_tag: 'Según el encargo',
+      r9_wtf_val: 'Asignada', r9_wtf_tag: 'Responsable de cuenta',
+      r9_insight: 'Un responsable que coordina el trabajo mes a mes.',
+      r10_metric: 'Publicación en canales', r10_metric_w: 'Publicación en canales',
+      r10_trad_val: 'Entrega', r10_trad_tag: 'Publicás vos',
+      r10_wtf_val: 'Gestionada', r10_wtf_tag: 'Calendario + programación',
+      r10_insight: 'Producimos y publicamos en los canales contratados.',
+      r11_metric: 'Community management', r11_metric_w: 'Community management',
+      r11_trad_val: 'Aparte', r11_trad_tag: 'Servicio separado',
+      r11_wtf_val: 'Incluido', r11_wtf_tag: 'Cobertura acordada',
+      r11_insight: 'Comunidad atendida dentro de una cobertura definida.',
       proc_title: 'PROCESO<br><em>CREATIVO</em>',
       proc_trad_title: 'PROCESO TRADICIONAL',
       pt1_label: 'Brief del cliente', pt1_detail: 'Reuniones, ida y vuelta, aprobaciones internas',
@@ -1569,50 +1699,73 @@ if (proofStrip) proofObs.observe(proofStrip);
       pt4_label: 'Post-producción', pt4_detail: 'Retoque, motion graphics, adaptaciones',
       pt5_label: 'Rondas de revisión', pt5_detail: 'Cambios, re-edicion, aprobaciones finales',
       pt6_label: 'Entrega final', pt6_detail: 'Archivos, formatos, adaptaciones extra',
-      proc_trad_dur: 'Duración total: 4-6 semanas',
-      pa1_label: 'Brief + IA intake', pa1_detail: 'Análisis automático de marca, audiencia y objetivos',
-      pa2_label: 'Estrategia generativa', pa2_detail: 'IA genera conceptos, copys y direcciones visuales',
-      pa3_label: 'Producción AI-first', pa3_detail: 'Imagenes, video, UGC y avatares generados en horas',
-      pa4_label: 'Iteración en tiempo real', pa4_detail: 'Ajustes instantáneos, variantes ilimitadas, A/B nativo',
-      pa5_label: 'Entrega multi-plataforma', pa5_detail: 'Contenido nativo para 5+ plataformas, listo para publicar',
-      proc_ai_dur: 'Duración total: 3-5 días',
+      proc_trad_dur: 'Producción de una campaña: 4-6 semanas',
+      proc_ai_title: 'PROCESO WTF',
+      pa1_label: 'Diagnóstico y objetivos', pa1_detail: 'Entendemos la marca, sus audiencias y prioridades',
+      pa2_label: 'Estrategia y planificación', pa2_detail: 'Definimos mensajes, campañas y calendario editorial',
+      pa3_label: 'Producción creativa con IA', pa3_detail: 'Desarrollamos contenido bajo dirección estratégica y de arte',
+      pa4_label: 'Revisión y aprobación', pa4_detail: 'Coordinamos devoluciones con el responsable del cliente',
+      pa5_label: 'Implementación y publicación', pa5_detail: 'Programamos y publicamos en los canales contratados',
+      pa6_label: 'Gestión de comunidad', pa6_detail: 'Moderamos, respondemos y derivamos según el protocolo acordado',
+      pa7_label: 'Análisis y optimización', pa7_detail: 'Revisamos resultados y ajustamos el siguiente ciclo',
+      proc_ai_dur: 'Producción de una pieza o lote: días · Gestión: ciclo mensual continuo',
       proof_label: '+200 campañas ejecutadas para marcas como',
       proof_stat: '<strong>15 años</strong> construyendo marcas en Latinoamérica y el mundo',
       plans_title: 'PLANES<br><em>MENSUALES</em>',
       badge_trial: 'Trial de 90 días con opción de salida si no hay fit',
       badge_scarcity: 'Capacidad de onboarding limitada a 2 cuentas nuevas por mes',
-      t1_desc: 'Contenido estratégico con sistema IA. Presencia constante con calidad y velocidad.',
+      base_services: '<strong>Todos los planes incluyen, con distinto alcance:</strong> estrategia y planificación de contenido · responsable de cuenta asignado · social media management (calendario, copy, programación y publicación) · community management · implementación del calendario aprobado en los canales contratados · producción creativa potenciada por IA · medición y recomendaciones para el período siguiente.',
       pricing_period: 'MENSUAL · CONTRATO ANUAL', pricing_period_2: 'MENSUAL · CONTRATO ANUAL', pricing_period_3: 'MENSUAL · CONTRATO ANUAL',
-      t1_f1: 'Estrategia de contenido mensual', t1_f2: 'Hasta 40 piezas / mes', t1_f3: 'Video IA (hasta 4 / mes)',
-      t1_f4: 'Dirección de arte IA', t1_f5: 'Adaptación multi-plataforma (3)', t1_f6: '1 ronda de revisión por pieza',
-      t1_f7: 'Reporte mensual de performance', t1_f8: 'Célula compartida con anchor dedicado',
-      t2_desc: 'El doble de capacidad. Video cinematográfico, influencers IA y estrategia integrada para marcas en crecimiento.',
-      t2_f1: 'Estrategia + planning integrado', t2_f2: 'Hasta 80 piezas / mes', t2_f3: 'Video cinematográfico IA (hasta 8 / mes)',
-      t2_f4: 'Influencers + avatares IA', t2_f5: 'Dirección de arte IA', t2_f6: 'Adaptación multi-plataforma (5+)',
-      t2_f7: '2 rondas de revisión por pieza', t2_f8: 'Reporte mensual de performance', t2_f9: 'Optimización de contenido con datos',
-      t2_f10: 'Célula compartida con anchor dedicado',
-      t3_desc: 'Todo ilimitado. Contenido, video, estrategia y producción always-on. Tu equipo creativo completo potenciado por IA.',
-      t3_f1: 'Estrategia + planning integrado', t3_f2: 'Contenido <span class="unlimited">ILIMITADO</span>',
-      t3_f3: 'Video cinematográfico <span class="unlimited">ILIMITADO</span>', t3_f4: 'Influencers + avatares IA <span class="unlimited">ILIMITADOS</span>',
-      t3_f5: 'Dirección de arte IA', t3_f6: 'Multi-plataforma nativo (5+)',
-      t3_f7: 'Revisiones <span class="unlimited">ILIMITADAS</span>', t3_f8: 'Rondas de cambios <span class="unlimited">ILIMITADAS</span>',
-      t3_f9: 'Community management', t3_f10: 'Estrategia de contenido mensual', t3_f11: 'Copywriting + guiones',
-      t3_f12: 'Performance + optimización real-time', t3_f13: 'Reportes de performance en vivo',
-      t3_f14: 'Célula full exclusiva (6 roles dedicados)',
+      grp_ec: 'Estrategia y cuenta', grp_or: 'Operación de redes', grp_pr: 'Producción', grp_md: 'Medición', grp_mde: 'Medición y equipo',
+      t1_sub: 'Presencia gestionada',
+      t1_desc: '<strong>Tu presencia de marca, gestionada.</strong> Ordenamos la estrategia de contenido y nos ocupamos de la producción, la publicación y la gestión básica de comunidad. Un responsable de cuenta coordina el trabajo para que tu marca mantenga una presencia consistente todos los meses.',
+      t1_e: 'Diagnóstico inicial, objetivos y plan mensual de contenido',
+      t1_ac: 'Responsable de cuenta asignado y reunión mensual',
+      t1_sm: 'Calendario, copy, programación y publicación en hasta 2 redes',
+      t1_cm: 'Community: moderación y respuestas en una ventana diaria hábil',
+      t1_im: 'Configuración inicial de perfiles y ejecución del calendario aprobado',
+      t1_pr: 'Hasta 40 piezas al mes y hasta 4 videos IA',
+      t1_ad: 'Adaptaciones para hasta 3 plataformas',
+      t1_rv: '1 ronda de revisión por pieza',
+      t1_md: 'Reporte mensual con próximos pasos',
+      t2_sub: 'Gestión y crecimiento',
+      t2_desc: '<strong>Un equipo de agencia para acompañar tu crecimiento.</strong> Integramos estrategia, gestión de cuenta, social media, community management y producción creativa con IA. Planificamos campañas, implementamos el contenido y usamos los resultados para mejorar cada mes.',
+      t2_e: 'Estrategia de comunicación, campañas y revisión mensual',
+      t2_ac: 'Responsable de cuenta asignado y reuniones quincenales',
+      t2_sm: 'Gestión de hasta 3 redes, estrategia por canal y optimización',
+      t2_cm: 'Community: dos ventanas diarias hábiles, interacción y derivación de consultas',
+      t2_im: 'Campañas orgánicas y coordinación con el equipo de pauta del cliente, cuando corresponda',
+      t2_pr: 'Hasta 80 piezas al mes y hasta 8 videos cinematográficos IA',
+      t2_inf: 'Influencers y avatares IA',
+      t2_ad: 'Adaptaciones para 5 o más plataformas, según alcance acordado',
+      t2_rv: '2 rondas de revisión por pieza',
+      t2_md: 'Análisis mensual, pruebas y optimización de contenido',
+      t3_sub: 'Agencia integral',
+      t3_desc: '<strong>WTF como equipo integral de tu marca.</strong> Asumimos la dirección estratégica y la coordinación de la operación diaria de comunicación. Integramos planificación, creatividad, producción, gestión de redes y comunidad, con mayor capacidad y seguimiento cercano.',
+      t3_e: 'Dirección estratégica continua y planificación trimestral',
+      t3_ac: 'Líder de cuenta y seguimiento semanal',
+      t3_sm: 'Gestión de hasta 5 redes y coordinación de campañas y activaciones',
+      t3_cm: 'Community: cobertura ampliada acordada, escucha y protocolo de escalamiento',
+      t3_im: 'Coordinación de contenido, canales y proveedores incluidos en el alcance',
+      t3_pr: 'Capacidad prioritaria y proyectos en paralelo, según alcance acordado',
+      t3_ad: 'Formatos nativos para las plataformas acordadas',
+      t3_rv: 'Ciclos de revisión según planificación y capacidad acordadas',
+      t3_md: 'Tablero de seguimiento y revisión periódica de resultados',
+      t3_team: 'Equipo multidisciplinario con liderazgo de cuenta y capacidad asignada según alcance',
       pricing_note: '* Todos los planes incluyen acceso al WTF AI Engine OS · Precios en USD · No incluyen pauta publicitaria · IVA no incluido',
-      pilot_intro: '3 semanas para probar el sistema que cambia tu forma de comunicar. Producción de nivel global, velocidad que no creías posible. 21 piezas listas por una fracción del costo tradicional.',
+      pilot_intro: '3 semanas para probar el sistema que cambia tu forma de comunicar. Producción de nivel global, velocidad que no creías posible, por una fracción del costo tradicional.',
       pilot_name: 'PROBÁ EL SISTEMA',
-      pilot_desc: 'Una campaña completa en 3 semanas para experimentar el modelo AI-first con tu marca. Estrategia, dirección de arte, producción con calidad de nivel internacional y 21 piezas entregadas listas para publicar.',
+      pilot_desc: 'Una campaña completa en 3 semanas para experimentar el modelo AI-first con tu marca. Estrategia, dirección de arte y producción con calidad de nivel internacional, entregada lista para publicar.',
       pilot_period: 'PAGO ÚNICO · 3 SEMANAS',
       pi_f1: '2 territorios estratégicos', pi_f2: '1 concepto creativo (manifiesto + claim)', pi_f3: 'Sistema visual definido',
-      pi_asset_title: 'ASSET PACK · 21 PIEZAS PRODUCIDAS',
+      pi_asset_title: 'ASSET PACK PRODUCIDO',
       pi_v1: '1 video cinematográfico hero (30s + 15s)', pi_v2: '1 video AI secundario (15s)',
       pi_photo_title: 'FOTOGRAFÍA AI · 15 PIEZAS',
       pi_p1: '6 fotos editoriales de marca', pi_p2: '4 fotos de producto / packaging', pi_p3: '5 fotos lifestyle / personajes',
       pi_s1: 'Adaptaciones nativas (9:16, 1:1, 4:5, 16:9)',
       pi_close_title: 'CIERRE',
       pi_c1: 'Engine Demo live con tu equipo', pi_c2: 'Recomendación de Tier + roadmap',
-      pilot_credit: 'Si avanzás a Fee anual dentro de 30 días, los <strong style="color:var(--signal)">USD 6.000 se acreditan 100% al primer mes.</strong>',
+      pilot_credit: 'Si avanzás a un fee anual dentro de los 30 días, <strong style="color:var(--signal)">el monto abonado por el piloto se acredita al primer mes.</strong>',
       pilot_cta: 'Empezar el piloto',
       cta_headline: 'LISTO PARA<br><em>ESCALAR?</em>',
       cta_sub: 'Agendemos 30 minutos. Te mostramos el sistema en acción con casos reales de tu industria.',
@@ -1623,9 +1776,9 @@ if (proofStrip) proofObs.observe(proofStrip);
     },
     en: {
       hero_tag: 'WHY WTF',
-      hero_title: 'TRADITIONAL MODEL<br>VS <em>WTF AI ENGINE</em>',
-      hero_lead: 'The difference isn\'t just price. It\'s speed, volume, and system.',
-      hero_sub: 'With 15 years of experience building brands in Latin America and over 200 campaigns executed, WTF evolved its creative model by integrating artificial intelligence into every stage of the process. While a traditional agency takes weeks to deliver a limited set of pieces, our AI-first model produces cinematic content, Influencers and integrated strategy in hours. The same strategic vision as always, powered by technology that multiplies speed, volume, and quality.',
+      hero_title: 'STRATEGY, CREATIVITY AND MANAGEMENT.<br><em>POWERED BY AI.</em>',
+      hero_lead: 'We bring brand strategy, account management, creative production and social operations together in one team.',
+      hero_sub: 'We plan, produce, publish and manage the community, using artificial intelligence to speed up execution and a team that directs every stage. Fifteen years building brands in Latin America and more than 200 campaigns executed.',
       comp_title: 'SERVICE<br><em>COMPARISON</em>',
       comp_desc: 'What a traditional agency solves with large teams, long timelines and fragmented budgets, we solve with artificial intelligence, speed and an integrated system that never stops. Same creative level, different speed.',
       split_label_trad: 'The old model',
@@ -1654,10 +1807,22 @@ if (proofStrip) proofObs.observe(proofStrip);
       r7_trad_val: 'Extra', r7_trad_tag: 'Additional fee',
       r7_wtf_val: 'Integrated', r7_wtf_tag: 'Included',
       r7_insight: 'Strategy isn\'t an extra, it\'s the engine of the system.',
-      r8_metric: 'Continuous optimization', r8_metric_w: 'Continuous optimization',
-      r8_trad_val: 'Monthly', r8_trad_tag: 'Static reports',
-      r8_wtf_tag: 'Live + iteration',
-      r8_insight: 'Live data, instant adjustments. No waiting for the report.',
+      r8_metric: 'Measurement and optimization', r8_metric_w: 'Measurement and optimization',
+      r8_trad_val: 'Report', r8_trad_tag: 'Monthly report',
+      r8_wtf_val: 'Ongoing', r8_wtf_tag: 'Analysis + adjustment',
+      r8_insight: 'Results inform next month\'s planning.',
+      r9_metric: 'Account management', r9_metric_w: 'Account management',
+      r9_trad_val: 'Per project', r9_trad_tag: 'Scope by assignment',
+      r9_wtf_val: 'Assigned', r9_wtf_tag: 'Account lead',
+      r9_insight: 'One person coordinating the work month to month.',
+      r10_metric: 'Channel publishing', r10_metric_w: 'Channel publishing',
+      r10_trad_val: 'Handoff', r10_trad_tag: 'You publish',
+      r10_wtf_val: 'Managed', r10_wtf_tag: 'Calendar + scheduling',
+      r10_insight: 'We produce and publish on the contracted channels.',
+      r11_metric: 'Community management', r11_metric_w: 'Community management',
+      r11_trad_val: 'Separate', r11_trad_tag: 'Separate service',
+      r11_wtf_val: 'Included', r11_wtf_tag: 'Agreed coverage',
+      r11_insight: 'Community handled within a defined coverage.',
       proc_title: 'CREATIVE<br><em>PROCESS</em>',
       proc_trad_title: 'TRADITIONAL PROCESS',
       pt1_label: 'Client brief', pt1_detail: 'Meetings, back and forth, internal approvals',
@@ -1666,50 +1831,73 @@ if (proofStrip) proofObs.observe(proofStrip);
       pt4_label: 'Post-production', pt4_detail: 'Retouching, motion graphics, adaptations',
       pt5_label: 'Review rounds', pt5_detail: 'Changes, re-editing, final approvals',
       pt6_label: 'Final delivery', pt6_detail: 'Files, formats, extra adaptations',
-      proc_trad_dur: 'Total duration: 4-6 weeks',
-      pa1_label: 'Brief + AI intake', pa1_detail: 'Automatic brand, audience and objectives analysis',
-      pa2_label: 'Generative strategy', pa2_detail: 'AI generates concepts, copy and visual directions',
-      pa3_label: 'AI-first production', pa3_detail: 'Images, video, UGC and avatars generated in hours',
-      pa4_label: 'Real-time iteration', pa4_detail: 'Instant adjustments, unlimited variants, native A/B',
-      pa5_label: 'Multi-platform delivery', pa5_detail: 'Native content for 5+ platforms, ready to publish',
-      proc_ai_dur: 'Total duration: 3-5 days',
+      proc_trad_dur: 'Producing one campaign: 4-6 weeks',
+      proc_ai_title: 'WTF PROCESS',
+      pa1_label: 'Diagnosis and objectives', pa1_detail: 'We understand the brand, its audiences and priorities',
+      pa2_label: 'Strategy and planning', pa2_detail: 'We define messages, campaigns and editorial calendar',
+      pa3_label: 'AI-powered creative production', pa3_detail: 'We develop content under strategic and art direction',
+      pa4_label: 'Review and approval', pa4_detail: 'We coordinate feedback with the client lead',
+      pa5_label: 'Implementation and publishing', pa5_detail: 'We schedule and publish on the contracted channels',
+      pa6_label: 'Community management', pa6_detail: 'We moderate, respond and escalate per the agreed protocol',
+      pa7_label: 'Analysis and optimization', pa7_detail: 'We review results and adjust the next cycle',
+      proc_ai_dur: 'Producing a piece or batch: days · Management: ongoing monthly cycle',
       proof_label: '+200 campaigns executed for brands like',
       proof_stat: '<strong>15 years</strong> building brands in Latin America and the world',
       plans_title: 'MONTHLY<br><em>PLANS</em>',
       badge_trial: '90-day trial with exit option if there\'s no fit',
       badge_scarcity: 'Onboarding capacity limited to 2 new accounts per month',
-      t1_desc: 'Strategic content with AI system. Constant presence with quality and speed.',
+      base_services: '<strong>Every plan includes, at different scopes:</strong> content strategy and planning · assigned account lead · social media management (calendar, copy, scheduling and publishing) · community management · implementation of the approved calendar on the contracted channels · AI-powered creative production · measurement and recommendations for the next period.',
       pricing_period: 'MONTHLY · ANNUAL CONTRACT', pricing_period_2: 'MONTHLY · ANNUAL CONTRACT', pricing_period_3: 'MONTHLY · ANNUAL CONTRACT',
-      t1_f1: 'Monthly content strategy', t1_f2: 'Up to 40 pieces / month', t1_f3: 'AI Video (up to 4 / month)',
-      t1_f4: 'AI art direction', t1_f5: 'Multi-platform adaptation (3)', t1_f6: '1 review round per piece',
-      t1_f7: 'Monthly performance report', t1_f8: 'Shared cell with dedicated anchor',
-      t2_desc: 'Double the capacity. Cinematic video, AI influencers and integrated strategy for growing brands.',
-      t2_f1: 'Strategy + integrated planning', t2_f2: 'Up to 80 pieces / month', t2_f3: 'AI cinematic video (up to 8 / month)',
-      t2_f4: 'Influencers + AI avatars', t2_f5: 'AI art direction', t2_f6: 'Multi-platform adaptation (5+)',
-      t2_f7: '2 review rounds per piece', t2_f8: 'Monthly performance report', t2_f9: 'Data-driven content optimization',
-      t2_f10: 'Shared cell with dedicated anchor',
-      t3_desc: 'Everything unlimited. Content, video, strategy and always-on production. Your complete creative team powered by AI.',
-      t3_f1: 'Strategy + integrated planning', t3_f2: 'Content <span class="unlimited">UNLIMITED</span>',
-      t3_f3: 'Cinematic video <span class="unlimited">UNLIMITED</span>', t3_f4: 'Influencers + AI avatars <span class="unlimited">UNLIMITED</span>',
-      t3_f5: 'AI art direction', t3_f6: 'Native multi-platform (5+)',
-      t3_f7: 'Reviews <span class="unlimited">UNLIMITED</span>', t3_f8: 'Change rounds <span class="unlimited">UNLIMITED</span>',
-      t3_f9: 'Community management', t3_f10: 'Monthly content strategy', t3_f11: 'Copywriting + scripts',
-      t3_f12: 'Performance + real-time optimization', t3_f13: 'Live performance reports',
-      t3_f14: 'Full exclusive cell (6 dedicated roles)',
+      grp_ec: 'Strategy and account', grp_or: 'Social operations', grp_pr: 'Production', grp_md: 'Measurement', grp_mde: 'Measurement and team',
+      t1_sub: 'Managed presence',
+      t1_desc: '<strong>Your brand presence, managed.</strong> We organize the content strategy and take care of production, publishing and basic community management. An assigned account lead coordinates the work so your brand keeps a consistent presence every month.',
+      t1_e: 'Initial diagnosis, objectives and monthly content plan',
+      t1_ac: 'Assigned account lead and monthly meeting',
+      t1_sm: 'Calendar, copy, scheduling and publishing on up to 2 networks',
+      t1_cm: 'Community: moderation and replies within one daily business window',
+      t1_im: 'Initial profile setup and execution of the approved calendar',
+      t1_pr: 'Up to 40 pieces per month and up to 4 AI videos',
+      t1_ad: 'Adaptations for up to 3 platforms',
+      t1_rv: '1 review round per piece',
+      t1_md: 'Monthly report with next steps',
+      t2_sub: 'Management and growth',
+      t2_desc: '<strong>An agency team to support your growth.</strong> We bring together strategy, account management, social media, community management and AI-powered creative production. We plan campaigns, implement the content and use the results to improve every month.',
+      t2_e: 'Communication strategy, campaigns and monthly review',
+      t2_ac: 'Assigned account lead and biweekly meetings',
+      t2_sm: 'Management of up to 3 networks, per-channel strategy and optimization',
+      t2_cm: 'Community: two daily business windows, engagement and query routing',
+      t2_im: 'Organic campaigns and coordination with the client\'s media team, where applicable',
+      t2_pr: 'Up to 80 pieces per month and up to 8 AI cinematic videos',
+      t2_inf: 'AI influencers and avatars',
+      t2_ad: 'Adaptations for 5 or more platforms, per agreed scope',
+      t2_rv: '2 review rounds per piece',
+      t2_md: 'Monthly analysis, testing and content optimization',
+      t3_sub: 'Full-service agency',
+      t3_desc: '<strong>WTF as your brand\'s integral team.</strong> We take on strategic direction and coordination of day-to-day communication. We integrate planning, creative, production, social management and community, with greater capacity and close follow-up.',
+      t3_e: 'Ongoing strategic direction and quarterly planning',
+      t3_ac: 'Account lead and weekly follow-up',
+      t3_sm: 'Management of up to 5 networks and coordination of campaigns and activations',
+      t3_cm: 'Community: agreed extended coverage, listening and escalation protocol',
+      t3_im: 'Coordination of content, channels and providers included in the scope',
+      t3_pr: 'Priority capacity and parallel projects, per agreed scope',
+      t3_ad: 'Native formats for the agreed platforms',
+      t3_rv: 'Review cycles per agreed planning and capacity',
+      t3_md: 'Tracking dashboard and periodic results review',
+      t3_team: 'Multidisciplinary team with account leadership and capacity assigned per scope',
       pricing_note: '* All plans include access to WTF AI Engine OS · Prices in USD · Ad spend not included · Tax not included',
-      pilot_intro: '3 weeks to test the system that changes the way you communicate. World-class production, speed you didn\'t think was possible. 21 pieces ready for a fraction of the traditional cost.',
+      pilot_intro: '3 weeks to test the system that changes the way you communicate. World-class production, speed you didn\'t think was possible, for a fraction of the traditional cost.',
       pilot_name: 'TRY THE SYSTEM',
-      pilot_desc: 'A complete campaign in 3 weeks to experience the AI-first model with your brand. Strategy, art direction, production with international-level quality and 21 pieces delivered ready to publish.',
+      pilot_desc: 'A complete campaign in 3 weeks to experience the AI-first model with your brand. Strategy, art direction and production with international-level quality, delivered ready to publish.',
       pilot_period: 'ONE-TIME PAYMENT · 3 WEEKS',
       pi_f1: '2 strategic territories', pi_f2: '1 creative concept (manifesto + claim)', pi_f3: 'Defined visual system',
-      pi_asset_title: 'ASSET PACK · 21 PIECES PRODUCED',
+      pi_asset_title: 'ASSET PACK PRODUCED',
       pi_v1: '1 cinematic hero video (30s + 15s)', pi_v2: '1 secondary AI video (15s)',
       pi_photo_title: 'AI PHOTOGRAPHY · 15 PIECES',
       pi_p1: '6 brand editorial photos', pi_p2: '4 product / packaging photos', pi_p3: '5 lifestyle / character photos',
       pi_s1: 'Native adaptations (9:16, 1:1, 4:5, 16:9)',
       pi_close_title: 'CLOSING',
       pi_c1: 'Live Engine Demo with your team', pi_c2: 'Tier recommendation + roadmap',
-      pilot_credit: 'If you move to an annual Fee within 30 days, the <strong style="color:var(--signal)">USD 6,000 is credited 100% to the first month.</strong>',
+      pilot_credit: 'If you move to an annual fee within 30 days, <strong style="color:var(--signal)">the amount paid for the pilot is credited to the first month.</strong>',
       pilot_cta: 'Start the pilot',
       cta_headline: 'READY TO<br><em>SCALE?</em>',
       cta_sub: 'Let\'s schedule 30 minutes. We\'ll show you the system in action with real cases from your industry.',
@@ -1720,9 +1908,9 @@ if (proofStrip) proofObs.observe(proofStrip);
     },
     pt: {
       hero_tag: 'POR QUE WTF',
-      hero_title: 'MODELO TRADICIONAL<br>VS <em>WTF AI ENGINE</em>',
-      hero_lead: 'A diferença não é só de preço. É de velocidade, volume e sistema.',
-      hero_sub: 'Com 15 anos de experiência construindo marcas na América Latina e mais de 200 campanhas executadas, a WTF evoluiu seu modelo criativo integrando inteligência artificial em cada etapa do processo. Enquanto uma agência tradicional leva semanas para entregar um conjunto limitado de peças, nosso modelo AI-first produz conteúdo cinematográfico, Influencers e estratégia integrada em horas. A mesma visão estratégica de sempre, potencializada por tecnologia que multiplica a velocidade, o volume e a qualidade.',
+      hero_title: 'ESTRATÉGIA, CRIATIVIDADE E GESTÃO.<br><em>POTENCIALIZADAS POR IA.</em>',
+      hero_lead: 'Integramos estratégia de marca, gestão de contas, produção criativa e operação de redes em uma mesma equipe.',
+      hero_sub: 'Planejamos, produzimos, publicamos e gerenciamos a comunidade, com inteligência artificial para acelerar a execução e uma equipe que dirige cada etapa. Quinze anos construindo marcas na América Latina e mais de 200 campanhas executadas.',
       comp_title: 'COMPARATIVO<br><em>DE SERVIÇOS</em>',
       comp_desc: 'O que uma agência tradicional resolve com equipes grandes, prazos longos e orçamentos fragmentados, nós resolvemos com inteligência artificial, velocidade e um sistema integrado que não para. Mesmo nível criativo, outra velocidade.',
       split_label_trad: 'O modelo de sempre',
@@ -1751,10 +1939,22 @@ if (proofStrip) proofObs.observe(proofStrip);
       r7_trad_val: 'Extra', r7_trad_tag: 'Fee adicional',
       r7_wtf_val: 'Integrada', r7_wtf_tag: 'Incluído',
       r7_insight: 'A estratégia não é um extra, é o motor do sistema.',
-      r8_metric: 'Otimização contínua', r8_metric_w: 'Otimização contínua',
-      r8_trad_val: 'Mensal', r8_trad_tag: 'Relatórios estáticos',
-      r8_wtf_tag: 'Live + iteração',
-      r8_insight: 'Dados ao vivo, ajustes instantâneos. Sem esperar pelo relatório.',
+      r8_metric: 'Medição e otimização', r8_metric_w: 'Medição e otimização',
+      r8_trad_val: 'Relatório', r8_trad_tag: 'Relatório mensal',
+      r8_wtf_val: 'Contínua', r8_wtf_tag: 'Análise + ajuste',
+      r8_insight: 'Os resultados informam o planejamento do mês seguinte.',
+      r9_metric: 'Gestão de conta', r9_metric_w: 'Gestão de conta',
+      r9_trad_val: 'Por projeto', r9_trad_tag: 'Conforme o encargo',
+      r9_wtf_val: 'Atribuída', r9_wtf_tag: 'Responsável de conta',
+      r9_insight: 'Um responsável que coordena o trabalho mês a mês.',
+      r10_metric: 'Publicação nos canais', r10_metric_w: 'Publicação nos canais',
+      r10_trad_val: 'Entrega', r10_trad_tag: 'Você publica',
+      r10_wtf_val: 'Gerenciada', r10_wtf_tag: 'Calendário + agendamento',
+      r10_insight: 'Produzimos e publicamos nos canais contratados.',
+      r11_metric: 'Community management', r11_metric_w: 'Community management',
+      r11_trad_val: 'À parte', r11_trad_tag: 'Serviço separado',
+      r11_wtf_val: 'Incluído', r11_wtf_tag: 'Cobertura acordada',
+      r11_insight: 'Comunidade atendida dentro de uma cobertura definida.',
       proc_title: 'PROCESSO<br><em>CRIATIVO</em>',
       proc_trad_title: 'PROCESSO TRADICIONAL',
       pt1_label: 'Brief do cliente', pt1_detail: 'Reuniões, idas e vindas, aprovações internas',
@@ -1763,50 +1963,73 @@ if (proofStrip) proofObs.observe(proofStrip);
       pt4_label: 'Pós-produção', pt4_detail: 'Retoque, motion graphics, adaptações',
       pt5_label: 'Rodadas de revisão', pt5_detail: 'Mudanças, re-edição, aprovações finais',
       pt6_label: 'Entrega final', pt6_detail: 'Arquivos, formatos, adaptações extras',
-      proc_trad_dur: 'Duração total: 4-6 semanas',
-      pa1_label: 'Brief + IA intake', pa1_detail: 'Análise automática de marca, audiência e objetivos',
-      pa2_label: 'Estratégia generativa', pa2_detail: 'IA gera conceitos, copys e direções visuais',
-      pa3_label: 'Produção AI-first', pa3_detail: 'Imagens, vídeo, UGC e avatares gerados em horas',
-      pa4_label: 'Iteração em tempo real', pa4_detail: 'Ajustes instantâneos, variantes ilimitadas, A/B nativo',
-      pa5_label: 'Entrega multi-plataforma', pa5_detail: 'Conteúdo nativo para 5+ plataformas, pronto para publicar',
-      proc_ai_dur: 'Duração total: 3-5 dias',
+      proc_trad_dur: 'Produção de uma campanha: 4-6 semanas',
+      proc_ai_title: 'PROCESSO WTF',
+      pa1_label: 'Diagnóstico e objetivos', pa1_detail: 'Entendemos a marca, suas audiências e prioridades',
+      pa2_label: 'Estratégia e planejamento', pa2_detail: 'Definimos mensagens, campanhas e calendário editorial',
+      pa3_label: 'Produção criativa com IA', pa3_detail: 'Desenvolvemos conteúdo sob direção estratégica e de arte',
+      pa4_label: 'Revisão e aprovação', pa4_detail: 'Coordenamos devolutivas com o responsável do cliente',
+      pa5_label: 'Implementação e publicação', pa5_detail: 'Agendamos e publicamos nos canais contratados',
+      pa6_label: 'Gestão de comunidade', pa6_detail: 'Moderamos, respondemos e encaminhamos conforme o protocolo acordado',
+      pa7_label: 'Análise e otimização', pa7_detail: 'Revisamos resultados e ajustamos o ciclo seguinte',
+      proc_ai_dur: 'Produção de uma peça ou lote: dias · Gestão: ciclo mensal contínuo',
       proof_label: '+200 campanhas executadas para marcas como',
       proof_stat: '<strong>15 anos</strong> construindo marcas na América Latina e no mundo',
       plans_title: 'PLANOS<br><em>MENSAIS</em>',
       badge_trial: 'Trial de 90 dias com opção de saída se não houver fit',
       badge_scarcity: 'Capacidade de onboarding limitada a 2 contas novas por mês',
-      t1_desc: 'Conteúdo estratégico com sistema IA. Presença constante com qualidade e velocidade.',
+      base_services: '<strong>Todos os planos incluem, com alcances diferentes:</strong> estratégia e planejamento de conteúdo · responsável de conta atribuído · social media management (calendário, copy, agendamento e publicação) · community management · implementação do calendário aprovado nos canais contratados · produção criativa potencializada por IA · medição e recomendações para o período seguinte.',
       pricing_period: 'MENSAL · CONTRATO ANUAL', pricing_period_2: 'MENSAL · CONTRATO ANUAL', pricing_period_3: 'MENSAL · CONTRATO ANUAL',
-      t1_f1: 'Estratégia de conteúdo mensal', t1_f2: 'Até 40 peças / mês', t1_f3: 'Vídeo IA (até 4 / mês)',
-      t1_f4: 'Direção de arte IA', t1_f5: 'Adaptação multi-plataforma (3)', t1_f6: '1 rodada de revisão por peça',
-      t1_f7: 'Relatório mensal de performance', t1_f8: 'Célula compartilhada com anchor dedicado',
-      t2_desc: 'O dobro de capacidade. Vídeo cinematográfico, influencers IA e estratégia integrada para marcas em crescimento.',
-      t2_f1: 'Estratégia + planning integrado', t2_f2: 'Até 80 peças / mês', t2_f3: 'Vídeo cinematográfico IA (até 8 / mês)',
-      t2_f4: 'Influencers + avatares IA', t2_f5: 'Direção de arte IA', t2_f6: 'Adaptação multi-plataforma (5+)',
-      t2_f7: '2 rodadas de revisão por peça', t2_f8: 'Relatório mensal de performance', t2_f9: 'Otimização de conteúdo com dados',
-      t2_f10: 'Célula compartilhada com anchor dedicado',
-      t3_desc: 'Tudo ilimitado. Conteúdo, vídeo, estratégia e produção always-on. Sua equipe criativa completa potencializada por IA.',
-      t3_f1: 'Estratégia + planning integrado', t3_f2: 'Conteúdo <span class="unlimited">ILIMITADO</span>',
-      t3_f3: 'Vídeo cinematográfico <span class="unlimited">ILIMITADO</span>', t3_f4: 'Influencers + avatares IA <span class="unlimited">ILIMITADOS</span>',
-      t3_f5: 'Direção de arte IA', t3_f6: 'Multi-plataforma nativo (5+)',
-      t3_f7: 'Revisões <span class="unlimited">ILIMITADAS</span>', t3_f8: 'Rodadas de mudanças <span class="unlimited">ILIMITADAS</span>',
-      t3_f9: 'Community management', t3_f10: 'Estratégia de conteúdo mensal', t3_f11: 'Copywriting + roteiros',
-      t3_f12: 'Performance + otimização real-time', t3_f13: 'Relatórios de performance ao vivo',
-      t3_f14: 'Célula full exclusiva (6 roles dedicados)',
+      grp_ec: 'Estratégia e conta', grp_or: 'Operação de redes', grp_pr: 'Produção', grp_md: 'Medição', grp_mde: 'Medição e equipe',
+      t1_sub: 'Presença gerenciada',
+      t1_desc: '<strong>Sua presença de marca, gerenciada.</strong> Organizamos a estratégia de conteúdo e cuidamos da produção, da publicação e da gestão básica de comunidade. Um responsável de conta coordena o trabalho para que sua marca mantenha uma presença consistente todos os meses.',
+      t1_e: 'Diagnóstico inicial, objetivos e plano mensal de conteúdo',
+      t1_ac: 'Responsável de conta atribuído e reunião mensal',
+      t1_sm: 'Calendário, copy, agendamento e publicação em até 2 redes',
+      t1_cm: 'Community: moderação e respostas em uma janela diária útil',
+      t1_im: 'Configuração inicial de perfis e execução do calendário aprovado',
+      t1_pr: 'Até 40 peças por mês e até 4 vídeos IA',
+      t1_ad: 'Adaptações para até 3 plataformas',
+      t1_rv: '1 rodada de revisão por peça',
+      t1_md: 'Relatório mensal com próximos passos',
+      t2_sub: 'Gestão e crescimento',
+      t2_desc: '<strong>Uma equipe de agência para acompanhar seu crescimento.</strong> Integramos estratégia, gestão de conta, social media, community management e produção criativa com IA. Planejamos campanhas, implementamos o conteúdo e usamos os resultados para melhorar a cada mês.',
+      t2_e: 'Estratégia de comunicação, campanhas e revisão mensal',
+      t2_ac: 'Responsável de conta atribuído e reuniões quinzenais',
+      t2_sm: 'Gestão de até 3 redes, estratégia por canal e otimização',
+      t2_cm: 'Community: duas janelas diárias úteis, interação e encaminhamento de consultas',
+      t2_im: 'Campanhas orgânicas e coordenação com a equipe de mídia do cliente, quando aplicável',
+      t2_pr: 'Até 80 peças por mês e até 8 vídeos cinematográficos IA',
+      t2_inf: 'Influencers e avatares IA',
+      t2_ad: 'Adaptações para 5 ou mais plataformas, conforme alcance acordado',
+      t2_rv: '2 rodadas de revisão por peça',
+      t2_md: 'Análise mensal, testes e otimização de conteúdo',
+      t3_sub: 'Agência integral',
+      t3_desc: '<strong>WTF como equipe integral da sua marca.</strong> Assumimos a direção estratégica e a coordenação da operação diária de comunicação. Integramos planejamento, criatividade, produção, gestão de redes e comunidade, com maior capacidade e acompanhamento próximo.',
+      t3_e: 'Direção estratégica contínua e planejamento trimestral',
+      t3_ac: 'Líder de conta e acompanhamento semanal',
+      t3_sm: 'Gestão de até 5 redes e coordenação de campanhas e ativações',
+      t3_cm: 'Community: cobertura ampliada acordada, escuta e protocolo de escalonamento',
+      t3_im: 'Coordenação de conteúdo, canais e fornecedores incluídos no alcance',
+      t3_pr: 'Capacidade prioritária e projetos em paralelo, conforme alcance acordado',
+      t3_ad: 'Formatos nativos para as plataformas acordadas',
+      t3_rv: 'Ciclos de revisão conforme planejamento e capacidade acordados',
+      t3_md: 'Painel de acompanhamento e revisão periódica de resultados',
+      t3_team: 'Equipe multidisciplinar com liderança de conta e capacidade atribuída conforme alcance',
       pricing_note: '* Todos os planos incluem acesso ao WTF AI Engine OS · Preços em USD · Não incluem mídia paga · Impostos não incluídos',
-      pilot_intro: '3 semanas para testar o sistema que muda sua forma de comunicar. Produção de nível global, velocidade que você não achava possível. 21 peças prontas por uma fração do custo tradicional.',
+      pilot_intro: '3 semanas para testar o sistema que muda sua forma de comunicar. Produção de nível global, velocidade que você não achava possível, por uma fração do custo tradicional.',
       pilot_name: 'TESTE O SISTEMA',
-      pilot_desc: 'Uma campanha completa em 3 semanas para experimentar o modelo AI-first com sua marca. Estratégia, direção de arte, produção com qualidade de nível internacional e 21 peças entregues prontas para publicar.',
+      pilot_desc: 'Uma campanha completa em 3 semanas para experimentar o modelo AI-first com sua marca. Estratégia, direção de arte e produção com qualidade de nível internacional, entregue pronta para publicar.',
       pilot_period: 'PAGAMENTO ÚNICO · 3 SEMANAS',
       pi_f1: '2 territórios estratégicos', pi_f2: '1 conceito criativo (manifesto + claim)', pi_f3: 'Sistema visual definido',
-      pi_asset_title: 'ASSET PACK · 21 PEÇAS PRODUZIDAS',
+      pi_asset_title: 'ASSET PACK PRODUZIDO',
       pi_v1: '1 vídeo cinematográfico hero (30s + 15s)', pi_v2: '1 vídeo AI secundário (15s)',
       pi_photo_title: 'FOTOGRAFIA AI · 15 PEÇAS',
       pi_p1: '6 fotos editoriais de marca', pi_p2: '4 fotos de produto / packaging', pi_p3: '5 fotos lifestyle / personagens',
       pi_s1: 'Adaptações nativas (9:16, 1:1, 4:5, 16:9)',
       pi_close_title: 'FECHAMENTO',
       pi_c1: 'Engine Demo ao vivo com sua equipe', pi_c2: 'Recomendação de Tier + roadmap',
-      pilot_credit: 'Se avançar para Fee anual dentro de 30 dias, os <strong style="color:var(--signal)">USD 6.000 são creditados 100% ao primeiro mês.</strong>',
+      pilot_credit: 'Se avançar para um fee anual dentro de 30 dias, <strong style="color:var(--signal)">o valor pago pelo piloto é creditado ao primeiro mês.</strong>',
       pilot_cta: 'Começar o piloto',
       cta_headline: 'PRONTO PARA<br><em>ESCALAR?</em>',
       cta_sub: 'Vamos agendar 30 minutos. Mostramos o sistema em ação com casos reais da sua indústria.',
