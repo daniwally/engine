@@ -3007,6 +3007,47 @@
   .nfx-lightbox.open { display: flex !important; }
 
 
+  /* ===== S10 / Operación conectada ===== */
+  /* Mismo tratamiento de fondo que la slide 9: foto sola + velo que entra al activarse */
+  .opconn {
+    background: url('wtf-credenciales-slides/hero/caballo-duna.jpg') center/cover no-repeat;
+    padding: 60px 4vw 70px;
+    justify-content: center;
+  }
+  .opconn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(10,10,12,0.56) 0%, rgba(10,10,12,0.38) 38%, rgba(10,10,12,0.66) 100%);
+    opacity: 0;
+    transition: opacity 1.8s cubic-bezier(.2,.8,.2,1) .35s;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .opconn.active::after { opacity: 1; }
+  .opconn > * { position: relative; z-index: 2; }
+  .opconn > .slide-tag { z-index: 100; }
+  .opconn-img {
+    display: block; margin: 0 auto;
+    max-width: min(100%, 1500px);
+    max-height: calc(100vh - 150px);
+    width: auto; height: auto; object-fit: contain;
+    border-radius: 8px;
+  }
+  @media (max-width: 760px) {
+    /* El diagrama es denso: a 375px de ancho no se lee. Se deja a un tamano
+       legible y se pana en horizontal. */
+    .opconn {
+      padding: 60px 0 90px;
+      overflow-x: auto; overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      justify-content: center;
+    }
+    .opconn-img { width: 880px; max-width: none; max-height: none; margin: 0 16px; }
+    .opconn > .slide-tag { position: fixed; }
+  }
+
   /* ===== Gate de acceso ===== */
   #gate { display: none; }
   html.gated body > *:not(#gate) { display: none !important; }
@@ -3455,10 +3496,18 @@
 </section>
 
 
+<!-- ============================== S10 / Operación conectada ============================== -->
+<section class="opconn">
+  <div class="slide-tag">10 · Operación conectada</div>
+  <img class="opconn-img reveal" src="wtf-credenciales-slides/hero/operacion-conectada.png"
+       alt="WTF × Infinite Engine: una operación conectada. Contexto de marca, criterio humano y outputs conectados alrededor del Infinite Engine.">
+</section>
+
+
 
 <!-- ============================== S11 / Capacidades ============================== -->
 <section class="stack">
-  <div class="slide-tag">10 · Capacidades</div>
+  <div class="slide-tag">11 · Capacidades</div>
 
   <h2 class="display stack-title reveal delay-1" data-i18n="cap_title">ESTRATEGIA,<br>CREATIVIDAD Y ESCALA.<br><em>SIN ELEGIR ENTRE<br>LAS TRES.</em></h2>
   <p class="stack-sub reveal delay-1" data-i18n="cap_sub">Cada formato nace del mismo concepto estratégico y se conecta con los demás. No son piezas sueltas, es un sistema donde todo se retroalimenta.</p>
@@ -3510,7 +3559,7 @@
 
 <!-- ============================== S8 / Clientes ============================== -->
 <section class="clientes dense">
-  <div class="slide-tag">11 · Clientes</div>
+  <div class="slide-tag">12 · Clientes</div>
   <h2 class="display clientes-title reveal" data-i18n="clientes_title">NO SON LOGOS.<br><em>SON AÑOS.</em></h2>
   <p class="clientes-sub reveal delay-1" data-i18n="clientes_sub">Los años no se pitchean.</p>
   <div class="logos-static reveal delay-2">
@@ -3549,7 +3598,7 @@
 
 <!-- ============================== S17 / Galería ============================== -->
 <section class="galeria dense">
-  <div class="slide-tag">12 · Galería</div>
+  <div class="slide-tag">13 · Galería</div>
   <div class="galeria-hero">
     <h2 class="display galeria-title reveal" data-i18n="gal_title">WTF AGENCY<br><em>EN ACCIÓN</em></h2>
     <p class="galeria-sub reveal delay-1" data-i18n="gal_sub">Campañas completas salidas del mismo sistema. Comunicación real para marcas reales, en el aire.</p>
@@ -3635,7 +3684,7 @@
 
 <!-- ============================== SLIDE 13a / Portfolio ============================== -->
 <section class="nfx-s1 dense" style="padding:30px 4.5vw 40px;background:var(--bg-deep);overflow-y:auto;overflow-x:hidden;justify-content:flex-start;">
-  <div class="slide-tag">13 · Portfolio</div>
+  <div class="slide-tag">14 · Portfolio</div>
 
   <div class="eyebrow reveal" style="margin-top:1rem;">Brief Destroyers</div>
   <h2 class="display casos-title reveal delay-1" data-i18n="portfolio_title" style="margin-bottom:8px;font-size:clamp(40px,6vw,94px);">NUESTROS<br><em>TRABAJOS</em></h2>
@@ -3870,7 +3919,7 @@
   const slideNames = [
     'Cover', 'Brief Destroyers', 'Contexto', 'El problema',
     '#WTFRULES', 'Manifiesto', 'Quiénes somos', 'Modelo AI First',
-    'WTF AI Engine', 'Capacidades',
+    'WTF AI Engine', 'Operación conectada', 'Capacidades',
     'Clientes', 'Galería',
     'Equipo', 'Gracias'
   ];
