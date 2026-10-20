@@ -589,9 +589,20 @@
     line-height: 1.1;
     letter-spacing: 0.005em;
     color: var(--ink);
-    margin-top: auto;
-    margin-bottom: 0;
+    /* slide 8: frase + firma centradas como bloque en los dos ejes */
+    margin: auto auto 0;
+    text-align: center;
     max-width: 1300px;
+  }
+  /* slide 8: firma debajo de la frase y logo al pie, ambos centrados */
+  .modelo-firma {
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 400;
+    letter-spacing: 0.3em; text-transform: uppercase; color: #FFFFFF;
+    text-align: center; margin: 22px auto auto;
+  }
+  .modelo-logo {
+    position: absolute; left: 0; right: 0; bottom: 56px; margin: 0 auto;
+    width: 64px; height: auto;
   }
   .modelo-title em {
     font-family: 'Inter', sans-serif; font-style: normal; color: #FFFFFF;
@@ -1363,7 +1374,7 @@
     background:
       linear-gradient(90deg, rgba(10,10,12,0.72) 0%, rgba(10,10,12,0.38) 45%, transparent 78%),
       linear-gradient(180deg, rgba(10,10,12,0.35) 0%, transparent 30%, transparent 62%, rgba(10,10,12,0.78) 100%),
-      url('wtf-credenciales-slides/hero/galeria-caballo.jpg') center/cover no-repeat;
+      url('wtf-credenciales-slides/hero/galeria-casco.jpg') center/cover no-repeat;
   }
   .galeria > * { position: relative; z-index: 2; }
   .galeria > .slide-tag { z-index: 100; left: 7vw; }
@@ -2117,8 +2128,8 @@
   }
   .mani-support {
     margin-top: 52px; max-width: 780px;
-    font-size: clamp(14px, 1.15vw, 17px);
-    line-height: 1.75; color: rgba(245,240,235,0.50);
+    font-size: clamp(15px, 1.3vw, 19px);
+    line-height: 1.7; color: rgba(245,240,235,0.82);
   }
   .mani-kicker {
     margin-top: 56px;
@@ -3028,24 +3039,33 @@
   .opconn.active::after { opacity: 1; }
   .opconn > * { position: relative; z-index: 2; }
   .opconn > .slide-tag { z-index: 100; }
-  .opconn-img {
-    display: block; margin: 0 auto;
-    max-width: min(100%, 1500px);
-    max-height: calc(100vh - 150px);
-    width: auto; height: auto; object-fit: contain;
-    border-radius: 8px;
+  /* El lienzo dibuja en 1920x1080 y se escala entero dentro de la slide (contain) */
+  .opconn > canvas.iehud3 {
+    position: absolute; z-index: 2; inset: 0; margin: auto;
+    width: min(100%, calc(100vh * 16 / 9)); height: auto; aspect-ratio: 16 / 9;
+    cursor: pointer;
   }
+  .opconn > .iepaso-rs {
+    position: absolute; z-index: 6; top: 92px; right: 4vw;
+    display: flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(244,241,232,.7); background: rgba(16,16,19,.55);
+    border: 1px solid rgba(244,241,232,.25); border-radius: 999px; padding: 8px 14px; cursor: pointer;
+  }
+  .opconn > .iepaso-rs:hover { color: #fff; border-color: rgba(244,241,232,.6); }
   @media (max-width: 760px) {
-    /* El diagrama es denso: a 375px de ancho no se lee. Se deja a un tamano
-       legible y se pana en horizontal. */
+    /* denso para 375px: se deja legible y se pana en horizontal */
+    .opconn { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
+    .opconn > canvas.iehud3 { position: relative; inset: auto; margin: auto 16px; width: 880px; max-width: none; flex: 0 0 auto; }
+    .opconn > .slide-tag, .opconn > .iepaso-rs { position: fixed; }
+    /* el velo no tiene que correrse con el paneo: la slide tiene transform, asi que
+       fixed se comporta como absolute. Se pinta en el propio fondo, que no se pana. */
+    .opconn::after { display: none; }
     .opconn {
-      padding: 60px 0 90px;
-      overflow-x: auto; overflow-y: hidden;
-      -webkit-overflow-scrolling: touch;
-      justify-content: center;
+      background:
+        linear-gradient(180deg, rgba(10,10,12,0.56) 0%, rgba(10,10,12,0.38) 38%, rgba(10,10,12,0.66) 100%),
+        url('wtf-credenciales-slides/hero/caballo-duna.jpg') center/cover no-repeat;
     }
-    .opconn-img { width: 880px; max-width: none; max-height: none; margin: 0 16px; }
-    .opconn > .slide-tag { position: fixed; }
   }
 
   /* ===== Gate de acceso ===== */
@@ -3285,7 +3305,7 @@
   <div class="mani-eyebrow reveal" data-i18n="mani_eyebrow">NUESTRO MANIFIESTO</div>
 
   <div class="mani-split">
-    <div class="mani-half reveal delay-1" data-i18n="mani_left">Una idea<br><strong>NO ALCANZA.</strong></div>
+    <div class="mani-half reveal delay-1" data-i18n="mani_left">Una idea<br><strong>YA NO ALCANZA.</strong></div>
     <div class="mani-rule"></div>
     <div class="mani-half reveal delay-2" data-i18n="mani_right">Hace falta un sistema<br><strong>QUE NO PARE.</strong></div>
   </div>
@@ -3337,34 +3357,9 @@
 <section class="modelo">
   <div class="slide-tag">08 · Modelo AI First</div>
 
-  <h2 class="display modelo-title reveal delay-1" data-i18n="modelo_title">LA MÁQUINA ACELERA.<br><em>EL TALENTO DECIDE.</em></h2>
-  <p class="eyebrow reveal delay-1" data-i18n="modelo_eyebrow">15 años multiplicados, no reemplazados.</p>
-
-  <div class="modelo-grid">
-    <div class="modelo-col reveal delay-2">
-      <h3 data-i18n="modelo_q">QUÉ SIGNIFICA <strong>AI FIRST?</strong></h3>
-      <p data-i18n="modelo_p1"><strong>IA no es algo que agregamos.</strong> Es el cimiento. Cada brief, cada producción, cada distribución, cada optimización corre a través de IA. Creativos, planners, estrategas, diseñadores: todo el equipo WTF corriendo sobre nuestro sistema operativo de IA.</p>
-    </div>
-    <div class="modelo-col reveal delay-3">
-      <div class="modelo-pillars">
-        <div class="modelo-pillar">
-          <div class="step" data-i18n="mp_step1">Estrategia</div>
-          <h4 data-i18n="mp_h1">IA analiza</h4>
-          <p data-i18n="mp_p1">Research, tendencias, audiencia, competencia. En horas, no semanas.</p>
-        </div>
-        <div class="modelo-pillar">
-          <div class="step" data-i18n="mp_step2">Producción</div>
-          <h4 data-i18n="mp_h2">IA produce</h4>
-          <p data-i18n="mp_p2">Video, imagen, audio, avatares. 10x más rápido, sin sacrificar calidad.</p>
-        </div>
-        <div class="modelo-pillar">
-          <div class="step" data-i18n="mp_step3">Optimización</div>
-          <h4 data-i18n="mp_h3">IA aprende</h4>
-          <p data-i18n="mp_p3">Performance en tiempo real. Iteración automática. A/B a escala.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <h2 class="display modelo-title reveal delay-1" data-i18n="modelo_title">NO SUMAMOS IA AL PROCESO.<br><em>CAMBIAMOS EL PROCESO.</em></h2>
+  <p class="modelo-firma reveal delay-2">#WTFRULES</p>
+  <img class="modelo-logo reveal delay-3" src="wtf-credenciales-slides/logo-wtf-mark.png" alt="WTF Agency">
 </section>
 
 <!-- ============================== S12 / WTF AI Engine ============================== -->
@@ -3499,67 +3494,15 @@
 <!-- ============================== S10 / Operación conectada ============================== -->
 <section class="opconn">
   <div class="slide-tag">10 · Operación conectada</div>
-  <img class="opconn-img reveal" src="wtf-credenciales-slides/hero/operacion-conectada.png"
-       alt="WTF × Infinite Engine: una operación conectada. Contexto de marca, criterio humano y outputs conectados alrededor del Infinite Engine.">
+  <canvas class="iehud3" width="1920" height="1080" role="img" aria-label="Cómo opera Infinite Engine: siete fuentes de contexto entran al motor, el criterio humano lo dirige y salen siete tipos de trabajo. El ciclo devuelve los resultados al sistema."></canvas>
+  <button class="iepaso-rs" type="button" aria-label="Reiniciar la animación">↻ Reiniciar</button>
 </section>
 
 
-
-<!-- ============================== S11 / Capacidades ============================== -->
-<section class="stack">
-  <div class="slide-tag">11 · Capacidades</div>
-
-  <h2 class="display stack-title reveal delay-1" data-i18n="cap_title">ESTRATEGIA,<br>CREATIVIDAD Y ESCALA.<br><em>SIN ELEGIR ENTRE<br>LAS TRES.</em></h2>
-  <p class="stack-sub reveal delay-1" data-i18n="cap_sub">Cada formato nace del mismo concepto estratégico y se conecta con los demás. No son piezas sueltas, es un sistema donde todo se retroalimenta.</p>
-
-  <div class="cap-grid">
-    <div class="cap-connect reveal delay-3">
-      <div class="cap-connect-line"></div>
-      <span data-i18n="cap_connect">TODO CONECTADO · UN SISTEMA · UNA MARCA</span>
-      <div class="cap-connect-line"></div>
-    </div>
-    <div class="cap-card reveal delay-2">
-      <svg class="cap-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-      <div class="cap-num">01 ·</div>
-      <h4>BRAND SYSTEMS</h4>
-      <p data-i18n="cap_1">Sistemas de diseño vivos que escalan. Multi-marca, multi-mercado. La identidad crece con el negocio.</p>
-    </div>
-    <div class="cap-card reveal delay-2">
-      <svg class="cap-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
-      <div class="cap-num">02 ·</div>
-      <h4 data-i18n="cap_2_title">CAMPAÑAS 360</h4>
-      <p data-i18n="cap_2">Spots, branded content, narrativa multi-shot. Video cinematográfico con calidad de producción premium a velocidad IA.</p>
-    </div>
-    <div class="cap-card reveal delay-3">
-      <svg class="cap-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-      <div class="cap-num">03 ·</div>
-      <h4 data-i18n="cap_3_title">KEY VISUALS</h4>
-      <p data-i18n="cap_3">Identidad visual, campañas gráficas, social assets, packaging. Consistencia de marca en cada pieza.</p>
-    </div>
-    <div class="cap-card reveal delay-3">
-      <svg class="cap-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/></svg>
-      <div class="cap-num">04 ·</div>
-      <h4 data-i18n="cap_4_title">CONTENIDOS</h4>
-      <p data-i18n="cap_4">UGC, talking heads, avatares, adaptaciones multi-formato. Producción a escala sin perder calidad ni voz de marca.</p>
-    </div>
-    <div class="cap-card reveal delay-4">
-      <svg class="cap-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-      <div class="cap-num">05 ·</div>
-      <h4 data-i18n="cap_5_title">PERFORMANCE</h4>
-      <p data-i18n="cap_5">Variantes para A/B testing. Iteración basada en data. El contenido que mejor performa se multiplica.</p>
-    </div>
-    <div class="cap-card reveal delay-4">
-      <svg class="cap-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wtf-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-      <div class="cap-num">06 ·</div>
-      <h4>SOCIAL FIRST</h4>
-      <p data-i18n="cap_6">Contenido pensado para cada plataforma. TikTok, Reels, YouTube, Stories. No es resize, es reinvención.</p>
-    </div>
-  </div>
-</section>
 
 <!-- ============================== S8 / Clientes ============================== -->
 <section class="clientes dense">
-  <div class="slide-tag">12 · Clientes</div>
+  <div class="slide-tag">11 · Clientes</div>
   <h2 class="display clientes-title reveal" data-i18n="clientes_title">NO SON LOGOS.<br><em>SON AÑOS.</em></h2>
   <p class="clientes-sub reveal delay-1" data-i18n="clientes_sub">Los años no se pitchean.</p>
   <div class="logos-static reveal delay-2">
@@ -3598,7 +3541,7 @@
 
 <!-- ============================== S17 / Galería ============================== -->
 <section class="galeria dense">
-  <div class="slide-tag">13 · Galería</div>
+  <div class="slide-tag">12 · Galería</div>
   <div class="galeria-hero">
     <h2 class="display galeria-title reveal" data-i18n="gal_title">WTF AGENCY<br><em>EN ACCIÓN</em></h2>
     <p class="galeria-sub reveal delay-1" data-i18n="gal_sub">Campañas completas salidas del mismo sistema. Comunicación real para marcas reales, en el aire.</p>
@@ -3684,7 +3627,7 @@
 
 <!-- ============================== SLIDE 13a / Portfolio ============================== -->
 <section class="nfx-s1 dense" style="padding:30px 4.5vw 40px;background:var(--bg-deep);overflow-y:auto;overflow-x:hidden;justify-content:flex-start;">
-  <div class="slide-tag">14 · Portfolio</div>
+  <div class="slide-tag">13 · Portfolio</div>
 
   <div class="eyebrow reveal" style="margin-top:1rem;">Brief Destroyers</div>
   <h2 class="display casos-title reveal delay-1" data-i18n="portfolio_title" style="margin-bottom:8px;font-size:clamp(40px,6vw,94px);">NUESTROS<br><em>TRABAJOS</em></h2>
@@ -3919,7 +3862,7 @@
   const slideNames = [
     'Cover', 'Brief Destroyers', 'Contexto', 'El problema',
     '#WTFRULES', 'Manifiesto', 'Quiénes somos', 'Modelo AI First',
-    'WTF AI Engine', 'Operación conectada', 'Capacidades',
+    'WTF AI Engine', 'Operación conectada',
     'Clientes', 'Galería',
     'Equipo', 'Gracias'
   ];
@@ -4210,6 +4153,22 @@
   // Auto-fade hint after 6 seconds
   setTimeout(() => { if (hudHint) hudHint.classList.add('faded'); }, 6000);
 
+  /* Al refrescar, vuelve a la misma slide. Solo en local: en produccion el
+     deck tiene que abrir siempre en la portada, asi que no hace falta
+     acordarse de sacar esto antes de publicar. */
+  (() => {
+    const local = ['localhost', '127.0.0.1', '[::1]', ''].includes(location.hostname)
+      || location.hostname.endsWith('.localhost')
+      || location.protocol === 'file:';
+    if (!local) return;
+    const KEY = 'wtf-deck-slide';
+    const guardar = () => { try { sessionStorage.setItem(KEY, String(currentSlide)); } catch (e) {} };
+    const _go = goToSlide;
+    goToSlide = function (idx) { _go(idx); guardar(); };
+    const guardada = parseInt(sessionStorage.getItem(KEY) || '', 10);
+    if (!Number.isNaN(guardada) && guardada > 0 && guardada < totalSlides) goToSlide(guardada);
+  })();
+
 
 
   /* =========================================================== */
@@ -4242,7 +4201,7 @@
         prob_body: 'Nunca entregamos una pieza que<br>no pudiéramos defender.<br>Ese fue el trato,<br>y lo sostuvimos quince años.<br>Después el mundo pidió más formatos,<br>más plataformas, más piezas por semana.<br>Y menos presupuesto para hacerlas.<br>La vara no se movió. El mundo sí.<br><strong>Ese es el gap que había que cerrar.<br>Y no había equipo humano que llegara.</strong>',
         // S5 — Manifiesto
         mani_eyebrow: 'NUESTRO MANIFIESTO',
-        mani_left: 'Una idea<br><strong>NO ALCANZA.</strong>',
+        mani_left: 'Una idea<br><strong>YA NO ALCANZA.</strong>',
         mani_right: 'Hace falta un sistema<br><strong>QUE NO PARE.</strong>',
         mani_support: 'Las marcas ya no pueden depender de campañas aisladas, procesos lentos y estructuras pensadas para otro ritmo. Hoy no gana el que tiene una gran campaña: gana el que aprende más rápido. Por eso dejamos de ser una agencia creativa tradicional y pasamos a ser un sistema que piensa, produce, adapta, mueve y aprende todos los días, con la IA como sistema operativo. No reemplazamos a nadie: pusimos quince años de oficio adentro de una máquina que no se cansa. El criterio sigue siendo humano. Lo que cambió es hasta dónde llega.',
         mani_kicker: 'UNA IDEA NO ALCANZA. HACE FALTA UN SISTEMA QUE NO PARE.',
@@ -4272,7 +4231,7 @@
         pillar_5_desc: 'Escala sin perder alma. Multi-marca, multi-mercado, multi-formato. El sistema crece con vos.',
         // S9 — Modelo AI First
         modelo_tag: 'NUESTRA FILOSOFÍA',
-        modelo_title: 'LA MÁQUINA ACELERA.<br><em>EL TALENTO DECIDE.</em>',
+        modelo_title: 'NO SUMAMOS IA AL PROCESO.<br><em>CAMBIAMOS EL PROCESO.</em>',
         modelo_eyebrow: '15 años multiplicados, no reemplazados.',
         modelo_q: 'QUÉ SIGNIFICA <strong>AI FIRST?</strong>',
         modelo_p1: '<strong>IA no es algo que agregamos.</strong> Es el cimiento. Cada brief, cada producción, cada distribución, cada optimización corre a través de IA. Creativos, planners, estrategas, diseñadores: todo el equipo WTF corriendo sobre nuestro sistema operativo de IA.',
@@ -4418,7 +4377,7 @@
         prob_body: 'We never shipped a piece we<br>could not defend.<br>That was the deal,<br>and we kept it for fifteen years.<br>Then the world asked for more formats,<br>more platforms, more pieces per week.<br>And less budget to make them.<br>The bar did not move. The world did.<br><strong>That is the gap we had to close.<br>And no human team could reach it.</strong>',
         // S5 — Manifesto
         mani_eyebrow: 'OUR MANIFESTO',
-        mani_left: 'One idea<br><strong>IS NOT ENOUGH.</strong>',
+        mani_left: 'One idea<br><strong>IS NO LONGER ENOUGH.</strong>',
         mani_right: 'You need a system<br><strong>THAT NEVER STOPS.</strong>',
         mani_support: 'Brands can no longer depend on isolated campaigns, slow processes and structures built for another rhythm. Today the winner is not the one with a great campaign: it is the one who learns fastest. That is why we stopped being a traditional creative agency and became a system that thinks, produces, adapts, moves and learns every day, with AI as its operating system. We replaced no one: we put fifteen years of craft inside a machine that never tires. The judgment is still human. What changed is how far it reaches.',
         mani_kicker: 'ONE IDEA IS NOT ENOUGH. YOU NEED A SYSTEM THAT NEVER STOPS.',
@@ -4448,7 +4407,7 @@
         pillar_5_desc: 'Scale without losing soul. Multi-brand, multi-market, multi-format. The system grows with you.',
         // S9 — AI First Model
         modelo_tag: 'OUR PHILOSOPHY',
-        modelo_title: 'THE MACHINE ACCELERATES.<br><em>TALENT DECIDES.</em>',
+        modelo_title: 'WE DIDN\'T ADD AI TO THE PROCESS.<br><em>WE CHANGED THE PROCESS.</em>',
         modelo_eyebrow: '15 years multiplied, not replaced.',
         modelo_q: 'WHAT DOES <strong>AI FIRST</strong> MEAN?',
         modelo_p1: '<strong>AI is not something we added.</strong> It\'s the foundation. Every brief, every production, every distribution, every optimization runs through AI. Creatives, planners, strategists, designers: the entire WTF team running on our AI operating system.',
@@ -4594,7 +4553,7 @@
         prob_body: 'Nunca entregamos uma peça que<br>não pudéssemos defender.<br>Esse foi o trato,<br>e o sustentamos quinze anos.<br>Depois o mundo pediu mais formatos,<br>mais plataformas, mais peças por semana.<br>E menos orçamento para fazê-las.<br>A régua não se moveu. O mundo sim.<br><strong>Esse é o gap que era preciso fechar.<br>E não havia equipe humana que chegasse.</strong>',
         // S5 — Manifesto
         mani_eyebrow: 'NOSSO MANIFESTO',
-        mani_left: 'Uma ideia<br><strong>NÃO BASTA.</strong>',
+        mani_left: 'Uma ideia<br><strong>JÁ NÃO BASTA.</strong>',
         mani_right: 'É preciso um sistema<br><strong>QUE NÃO PARE.</strong>',
         mani_support: 'As marcas já não podem depender de campanhas isoladas, processos lentos e estruturas pensadas para outro ritmo. Hoje não ganha quem tem uma grande campanha: ganha quem aprende mais rápido. Por isso deixamos de ser uma agência criativa tradicional e passamos a ser um sistema que pensa, produz, adapta, move e aprende todos os dias, com a IA como sistema operacional. Não substituímos ninguém: colocamos quinze anos de ofício dentro de uma máquina que não se cansa. O critério continua humano. O que mudou é até onde ele chega.',
         mani_kicker: 'UMA IDEIA NÃO BASTA. É PRECISO UM SISTEMA QUE NÃO PARE.',
@@ -4624,7 +4583,7 @@
         pillar_5_desc: 'Escalar sem perder alma. Multi-marca, multi-mercado, multi-formato. O sistema cresce com você.',
         // S9 — Modelo AI First
         modelo_tag: 'NOSSA FILOSOFIA',
-        modelo_title: 'A MÁQUINA ACELERA.<br><em>O TALENTO DECIDE.</em>',
+        modelo_title: 'NÃO SOMAMOS IA AO PROCESSO.<br><em>MUDAMOS O PROCESSO.</em>',
         modelo_eyebrow: '15 anos multiplicados, não substituídos.',
         modelo_q: 'O QUE SIGNIFICA <strong>AI FIRST?</strong>',
         modelo_p1: '<strong>IA não é algo que adicionamos.</strong> É a base. Cada brief, cada produção, cada distribuição, cada otimização passa pela IA. Criativos, planners, estrategistas, designers: toda a equipe WTF rodando no nosso sistema operacional de IA.',
@@ -5383,5 +5342,272 @@
 
 
 
+<script>/* S10 · Operación conectada: gráfico animado paso a paso.
+   Portado del pitch de Infinite Engine (landing Infinite engine/interno/pitch-v3.html,
+   lámina 03 · Cómo opera paso a paso). Adaptado: secciones con .active, botón #navNext,
+   assets en wtf-credenciales-slides/ie-hud. */
+(() => {
+const W=1920,H=1080;
+const cv=document.querySelector('canvas.iehud3');if(!cv)return;const ctx=cv.getContext('2d');
+const slide=cv.closest('section'), BGI=slide.querySelector('img.bg'), HB='wtf-credenciales-slides/ie-hud/';
+let K=0;function backing(){const r=cv.getBoundingClientRect();const k=Math.min(2,Math.max(1,(r.width/W)*(devicePixelRatio||1)));
+ if(Math.abs(k-K)>0.05){K=k;cv.width=Math.round(W*k);cv.height=Math.round(H*k);}ctx.setTransform(K,0,0,K,0,0);}
+
+// ---------- manual: hueso, rojo único, fondo oscuro, Inter + JetBrains Mono ----------
+const ACC='#FF3B30', INK='#F4F1E8';
+const OKG='#34D27A';  // verde: los resultados que vuelven al sistema ya procesados
+const DIM='rgba(244,241,232,.55)', FAINT='rgba(244,241,232,.22)', LINE='rgba(244,241,232,.38)';
+const SANS='Inter, "Helvetica Neue", Arial, sans-serif', MONO='"JetBrains Mono", Menlo, monospace';
+
+// ---------- contenido del gráfico ----------
+const INPUTS=[
+ ['fingerprint','Memoria de marca','Identidad, tono y reglas',['tono','regla 04','claim','paleta','voz']],
+ ['dna','Criterio creativo','Experiencia y dirección creativa',['criterio','referencia','dirección','ritmo']],
+ ['target','Negocio y estrategia','Objetivos y prioridades',['objetivo Q4','prioridad','KPI','mercado']],
+ ['users','Cultura y audiencias','Contexto y mercados',['audiencia','insight','tendencia','contexto']],
+ ['box','Productos y activos','Información y materiales',['SKU 247','packshot','ficha','precio']],
+ ['bar-chart-3','Trabajo y performance','Piezas aprobadas y resultados',['CTR','pieza 112','resultado','benchmark']],
+ ['check-circle','Decisiones de la marca','Aprobaciones y feedback',['aprobado','feedback','ajuste','OK']],
+];
+const OUTPUTS=[
+ ['compass','Marca y creatividad',['Plataforma de marca','Territorios creativos','Estrategia de marca','Personajes e IP','Claims y copy']],
+ ['megaphone','Campañas',['Concepto creativo','Key visual','Spot de producto','Locución y música','Piezas de vía pública']],
+ ['edit','Social y contenido',['Reels y stories','Posts y carruseles','UGC con creadores','Motion graphics','Fotografía de producto']],
+ ['trending-up','Performance',['Ads por plataforma','Variantes por audiencia','Display en todos los tamaños','Lectura cada 48 h','Optimización de pauta']],
+ ['shopping-bag','E-commerce y trade',['Catálogo por SKU','Fotos para marketplace','Fichas de producto','Retail con precio','Piezas de punto de venta']],
+ ['users','CRM y comunicación',['Mailing','Landing pages','Micrositios','Copy en cada idioma','Decks y presentaciones']],
+ ['monitor','Medios y pauta',['Plan de medios','Pauta en Meta','Google Ads','TikTok y LinkedIn','Programática']],
+];
+const SUBF=16.5, SUBC='rgba(244,241,232,.82)';  // bajadas de la columna izquierda: mas grandes y mas claras
+const STEPS=[['lightbulb','Pensar'],['pencil','Crear'],['send','Activar'],['bar-chart-3','Aprender'],['trending-up','Escalar']];
+
+// ---------- geometría (tomada del gráfico de referencia 1920x1080) ----------
+const CX=960, CY=665, R=250;  // nube mas abajo: deja ver los cables de Criterio humano
+const LIN={icon:170,num:228,y0:285,gap:110};   // columnas mas largas: usan el aire que sobraba abajo      // izquierda
+const ROUT={icon:1506,num:1561,y0:285,gap:110};  // misma grilla que la izquierda    // derecha
+const inputs=INPUTS.map((d,i)=>({icon:d[0],t:d[1],s:d[2],tags:d[3],y:LIN.y0+i*LIN.gap,x1:474}));
+const outputs=OUTPUTS.map((d,i)=>({icon:d[0],t:d[1],s:d[2],y:ROUT.y0+i*ROUT.gap,x0:1446}));
+const STEPX=[265,580,905,1255,1590], STEPY=940;
+
+// ---------- íconos (lucide, pintados en hueso) ----------
+const ICONS={};
+async function loadIcon(name){
+ try{const r=await fetch(HB+`icons/${name}.svg`);let svg=await r.text();
+  svg=svg.replace(/currentColor/g,INK).replace(/stroke-width="[^"]*"/,'stroke-width="1.5"');
+  const img=new Image();img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);await img.decode();ICONS[name]=img;}catch(e){}
+}
+[...new Set([...INPUTS.map(d=>d[0]),...OUTPUTS.map(d=>d[0]),...STEPS.map(d=>d[0]),'user'])].forEach(loadIcon);
+(async()=>{try{const r=await fetch(HB+'icons/user.svg');let svg=await r.text();svg=svg.replace(/currentColor/g,'#141418').replace(/stroke-width="[^"]*"/,'stroke-width="1.9"');
+ const img=new Image();img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);await img.decode();ICONS['user@dark']=img;}catch(e){}})();
+function icon(name,x,y,s){const im=ICONS[name];if(im){ctx.drawImage(im,x-s/2,y-s/2,s,s);}else{ctx.strokeStyle=FAINT;ctx.lineWidth=1.5;ctx.strokeRect(x-s/2+6,y-s/2+6,s-12,s-12);}}
+const LOGO=new Image();LOGO.src=HB+'ie-apilado-hueso.svg';
+/* isotipo de WTF sobre Criterio humano: suelto, sin circulo, en blanco hueso (letras caladas) */
+let WTFM=null;{const im=new Image();im.onload=()=>{const c=document.createElement('canvas');c.width=im.naturalWidth;c.height=im.naturalHeight;
+ const x=c.getContext('2d');x.drawImage(im,0,0);x.globalCompositeOperation='source-in';x.fillStyle=INK;x.fillRect(0,0,c.width,c.height);WTFM=c;};
+ im.src='wtf-credenciales-slides/logo-wtf-mark.png';}
+
+
+// ---------- nube ----------
+const PTS=[];{const rnd=mulberry(7);
+ for(let la=1;la<70;la++){const ph=Math.PI*la/70;const n=Math.round(130*Math.sin(ph))+4;  /* ~6.000 puntos: menos que el pitch, pero mas grandes (ver s abajo) para que siga llena */
+  for(let lo=0;lo<n;lo++){const th=2*Math.PI*lo/n+rnd()*0.03;
+   PTS.push([Math.sin(ph)*Math.cos(th),Math.cos(ph),Math.sin(ph)*Math.sin(th),rnd()]);}}}
+const RIB=[];for(let i=0;i<=400;i++){const u=i/400*Math.PI*2;const ph=Math.PI/2+Math.sin(u*2)*0.9;const th=u*1.5;RIB.push([Math.sin(ph)*Math.cos(th),Math.cos(ph),Math.sin(ph)*Math.sin(th)]);}
+function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;}}
+function noise3(x,y,z){return (Math.sin(x*1.7+y*0.9)+Math.sin(y*2.1+z*1.3)+Math.sin(z*1.9+x*1.1)+Math.sin((x+y+z)*0.8))/4;}
+let morph={amp:0,next:4};
+/* BLOB: cuanto se aleja la nube de la esfera. Arranca amorfa y se ordena a medida que el grafico se arma. */
+let BLOB=1;const BLOB_POR_PASO=[1,0.75,0.5,0.3,0.15];
+function deform(p,t){const n=noise3(p[0]*2+t*0.35,p[1]*2-t*0.28,p[2]*2+t*0.31);const n2=noise3(p[0]*5-t*0.6,p[1]*5+t*0.5,p[2]*5)*0.35;
+ const lobe=noise3(p[0]*1.1+t*0.16,p[1]*1.3-t*0.13,p[2]*1.1+t*0.19);  /* lobulos grandes: rompen la circunferencia */
+ return 1+(n+n2)*(0.06+morph.amp*0.55)+lobe*BLOB*0.95;}
+
+// ---------- mouse ----------
+const M={down:false,lx:0,ly:0,vy:0,vx:0,yaw:0,pitch:0.42,hx:0,hy:0};
+function toStage(e){const r=cv.getBoundingClientRect();return [(e.clientX-r.left)/r.width*W,(e.clientY-r.top)/r.height*H];}
+cv.addEventListener('mousedown',e=>{M.down=true;[M.lx,M.ly]=toStage(e);M.vx=M.vy=0;});
+addEventListener('mouseup',()=>M.down=false);
+addEventListener('mousemove',e=>{const [x,y]=toStage(e);M.hx=(x/W-0.5);M.hy=(y/H-0.5);
+ if(M.down){M.vy=(x-M.lx)*0.008;M.vx=(y-M.ly)*0.008;M.yaw+=M.vy;M.pitch+=M.vx;M.lx=x;M.ly=y;}});
+function rot(p){const ay=M.yaw, ax=M.pitch+M.hy*0.25;let x=p[0],y=p[1],z=p[2];
+ let x1=x*Math.cos(ay)+z*Math.sin(ay), z1=-x*Math.sin(ay)+z*Math.cos(ay);
+ let y1=y*Math.cos(ax)-z1*Math.sin(ax), z2=y*Math.sin(ax)+z1*Math.cos(ax);return [x1,y1,z2];}
+
+// ---------- curvas ----------
+function bz(c,t){const [p0,p1,p2,p3]=c;const u=1-t;return [u*u*u*p0[0]+3*u*u*t*p1[0]+3*u*t*t*p2[0]+t*t*t*p3[0], u*u*u*p0[1]+3*u*u*t*p1[1]+3*u*t*t*p2[1]+t*t*t*p3[1]];}
+// entrada: desde el texto hasta ADENTRO de la nube (la data se mete)
+function curveIn(i){const a=inputs[i];const p0=[a.x1,a.y];const ang=Math.PI-(i-3)*0.19;
+ const edge=[CX+Math.cos(ang)*(R+4),CY-Math.sin(ang)*(R+4)];const inner=[CX+Math.cos(ang)*R*0.35,CY-Math.sin(ang)*R*0.35];
+ return {outer:[p0,[p0[0]+200,p0[1]],[edge[0]-150,edge[1]],edge],inner:[edge,[edge[0]+(inner[0]-edge[0])*0.5,edge[1]],[inner[0],inner[1]],inner],edge};}
+function curveOut(i){const a=outputs[i];const p3=[a.x0,a.y];const ang=(i-3)*0.17;
+ const edge=[CX+Math.cos(ang)*(R+4),CY-Math.sin(ang)*(R+4)];const inner=[CX+Math.cos(ang)*R*0.35,CY-Math.sin(ang)*R*0.35];
+ return {inner:[inner,[inner[0]+(edge[0]-inner[0])*0.5,inner[1]],[edge[0],edge[1]],edge],outer:[edge,[edge[0]+150,edge[1]],[p3[0]-200,p3[1]],p3],edge};}
+const CIN=inputs.map((_,i)=>curveIn(i)), COUT=outputs.map((_,i)=>curveOut(i));
+function strokeBz(c,color,w=1,dash=null){ctx.beginPath();ctx.moveTo(c[0][0],c[0][1]);ctx.bezierCurveTo(c[1][0],c[1][1],c[2][0],c[2][1],c[3][0],c[3][1]);ctx.strokeStyle=color;ctx.lineWidth=w;if(dash)ctx.setLineDash(dash);ctx.stroke();ctx.setLineDash([]);}
+function dot(x,y,r,color){ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill();}
+// posición sobre el recorrido completo (outer+inner) con u en 0..1
+function posIn(c,u){return u<0.78?bz(c.outer,u/0.78):bz(c.inner,(u-0.78)/0.22);}
+function posOut(c,u){return u<0.22?bz(c.inner,u/0.22):bz(c.outer,(u-0.22)/0.78);}
+
+// ---------- flujo de datos ----------
+const streams=[];{const rnd=mulberry(99);
+ inputs.forEach((a,i)=>{for(let k=0;k<14;k++)streams.push({c:i,ph:rnd(),sp:0.10+rnd()*0.08,sz:1+rnd()*1.6,off:(rnd()-0.5)*6,tag:k<3?a.tags[k%a.tags.length]:null});});
+ outputs.forEach((a,i)=>{for(let k=0;k<7;k++)streams.push({c:i,out:true,ph:rnd(),sp:0.09+rnd()*0.06,sz:1+rnd()*1.4,off:(rnd()-0.5)*5});});}
+const PCOL=['255,181,71','255,111,177','124,196,255','181,140,255','79,227,193','201,242,91','244,241,232'];  // ámbar, rosa, celeste, violeta, turquesa, lima, hueso
+const absorbed=[]; // partículas que acaban de entrar y se disuelven en la nube
+const hits=[];     // anillos en los terminales de salida
+let energy=0;      // la nube se enciende cuando recibe datos
+
+let start=null;
+// ---- paso a paso ----
+const ALLS=[...document.querySelectorAll('section')], ME=ALLS.indexOf(slide);
+let STG=0,TS=[-99,-99,-99,-99,-99],ORD=[0,1,2,3,4,5,6],NOW=0,wasOn=false,PREV=-1;const LAST=4;
+const EASE=u=>u<=0?0:u>=1?1:1-Math.pow(1-u,3);
+/* orden de armado: 1 contexto de marca, 2 logo WTF y sus items, 3 entregables, 4 retorno */
+const crA=()=>STG<2?0:EASE((NOW-TS[2])/0.7);
+const inA=i=>STG<1?0:EASE((NOW-TS[1]-i*0.16)/0.55);
+const outA=i=>STG<3?0:EASE((NOW-TS[3]-ORD.indexOf(i)*0.2)/0.55);
+const endA=()=>STG<4?0:EASE((NOW-TS[4])/0.8);
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function step(){if(STG<LAST){STG++;TS[STG]=NOW;if(STG===3)ORD=shuffle(ORD);}}
+function reset(){STG=0;TS=[-99,-99,-99,-99,-99];energy=0;BLOB=1;}
+window.__iePaso=n=>{STG=n;TS=[-99,-99,-99,-99,-99];};
+{const rb=slide.querySelector('.iepaso-rs');if(rb)rb.addEventListener('click',e=>{e.stopPropagation();reset();});}
+const FWD=['ArrowRight','ArrowDown','PageDown',' ','Enter'];
+addEventListener('keydown',e=>{if(!slide.classList.contains('active')||STG>=LAST||!FWD.includes(e.key))return;e.preventDefault();e.stopImmediatePropagation();step();},true);
+{const nb=document.getElementById('navNext');if(nb)nb.addEventListener('click',e=>{if(!slide.classList.contains('active')||STG>=LAST)return;e.stopImmediatePropagation();step();},true);}
+let wl=0;addEventListener('wheel',e=>{if(!slide.classList.contains('active')||STG>=LAST||e.deltaY<=0)return;e.preventDefault();e.stopImmediatePropagation();const n=performance.now();if(n-wl<750||Math.abs(e.deltaY)<30)return;wl=n;step();},{capture:true,passive:false});
+let dn=null;cv.addEventListener('mousedown',e=>{dn=[e.clientX,e.clientY];});
+cv.addEventListener('mouseup',e=>{const d=dn;dn=null;if(!d||Math.hypot(e.clientX-d[0],e.clientY-d[1])>6||!slide.classList.contains('active'))return;
+ if(STG<LAST)step();else{const nb=document.getElementById('navNext');if(nb)nb.click();}});
+function frame(now){
+ if(!slide.classList.contains('active')){wasOn=false;PREV=ALLS.findIndex(x=>x.classList.contains('active'));requestAnimationFrame(frame);return;}
+ if(start===null)start=now;const t=Math.max(0,(now-start)/1000);NOW=t;
+ if(!wasOn){wasOn=true;TS=[-99,-99,-99,-99,-99];STG=PREV>ME?LAST:0;BLOB=BLOB_POR_PASO[STG];}
+ const EA=endA(),CA=crA();
+ if(!M.down){M.yaw+=0.0035;M.vy*=0.95;M.vx*=0.9;M.yaw+=M.vy;M.pitch+=M.vx;}
+ M.pitch=Math.max(-1.2,Math.min(1.2,M.pitch));
+ energy*=0.96;
+ BLOB+=(BLOB_POR_PASO[STG]-BLOB)*0.025;
+
+ backing();ctx.clearRect(0,0,W,H);
+ if(BGI)BGI.style.transform=`translate(${(M.hx*-14).toFixed(1)}px,${(M.hy*-10).toFixed(1)}px) scale(1.02)`;
+
+ // ---- cabeceras y textos (layout de la referencia) ----
+ ctx.textBaseline='alphabetic';
+ /* los encabezados de columna se dibujan al final, como cards arriba de cada lista */
+ inputs.forEach((a,i)=>{const IA=inA(i);if(IA<=0)return;ctx.save();ctx.globalAlpha=IA;ctx.translate((1-IA)*-18,0);icon(a.icon,414,a.y,52);
+  txt('0'+(i+1),370,a.y-24,12,DIM,500,'right',1,MONO);
+  txt(a.t.toUpperCase(),370,a.y+6,18,INK,700,'right',0.4,SANS);
+  txt(a.s,370,a.y+30,SUBF,SUBC,400,'right',0,MONO);
+  dot(a.x1,a.y,3.2,INK);ctx.restore();});
+ outputs.forEach((a,i)=>{const OA=outA(i);if(OA<=0)return;ctx.save();ctx.globalAlpha=OA;ctx.translate((1-OA)*18,0);icon(a.icon,ROUT.icon,a.y,52);
+  txt(a.t.toUpperCase(),ROUT.num,a.y+6,18,INK,700,'left',0.4,SANS);
+  {const W=a.s,per=2.6,u=(t+i*0.41)/per,idx=Math.floor(u)%W.length,ph=u-Math.floor(u);
+   const al=ph<0.14?ph/0.14:(ph>0.86?(1-ph)/0.14:1),dy=ph<0.14?(1-ph/0.14)*6:(ph>0.86?-(ph-0.86)/0.14*6:0);
+   const word=W[idx];ctx.font=`400 ${SUBF}px ${MONO}`;const tw=ctx.measureText(word).width,x=ROUT.num,y=a.y+15+dy,h=30;
+   ctx.globalAlpha=al*OA;ctx.beginPath();ctx.roundRect(x,y,tw+36,h,15);ctx.fillStyle='rgba(16,16,19,.55)';ctx.fill();ctx.strokeStyle='rgba(244,241,232,.38)';ctx.lineWidth=1;ctx.stroke();
+   glow(x+13,y+h/2,2.6,ACC,6);txt(word,x+24,y+20.5,SUBF,INK,400,'left',0,MONO);ctx.globalAlpha=OA;}
+  dot(a.x0,a.y,3.2,INK);ctx.restore();});
+ // criterio humano
+ // criterio humano: anillo con el punto rojo del logo orbitando, título liviano y grande
+ ctx.globalAlpha=CA;if(CA>0){const iy=148,rr=46;  // centro del logo WTF; con 150px queda justo arriba de las cards
+  if(WTFM){const ls=150,lh=ls*WTFM.height/WTFM.width;ctx.drawImage(WTFM,CX-ls/2,iy-lh/2,ls,lh);}
+  const TA=STG<2?0:EASE((NOW-TS[2]-0.3)/0.5);ctx.globalAlpha=CA*TA;
+  /* tres cards blancas con letra negra, debajo del titulo */
+  const PW=['ESTRATEGIA','DIRECCIÓN CREATIVA','APROBACIÓN'],PF=`700 14px ${MONO}`,PLS=2,PPAD=18,PGAP=14,PH=32,PY=236;
+  ctx.font=PF;ctx.letterSpacing=PLS+'px';const PWW=PW.map(w=>ctx.measureText(w).width+PPAD*2);ctx.letterSpacing='0px';
+  const PTOT=PWW.reduce((a,b)=>a+b,0)+PGAP*(PW.length-1);let px=CX-PTOT/2;const WX=[];
+  PW.forEach((w,k)=>{const pw=PWW[k];ctx.beginPath();ctx.roundRect(px,PY,pw,PH,PH/2);ctx.fillStyle=INK;ctx.fill();
+   txt(w,px+pw/2,PY+PH/2+5,14,'#101013',700,'center',PLS,MONO);WX.push(px+pw/2);px+=pw+PGAP;});
+  ctx.globalAlpha=CA;
+  {/* los cables salen del pie de cada card */
+   WX.forEach((wx,k)=>{const a=Math.PI/2+(1-k)*0.34,ex=CX+Math.cos(a)*(R+6),ey=CY-Math.sin(a)*(R+6);
+    const c=[[wx,PY+PH],[wx,PY+PH+40],[ex,ey-40],[ex,ey]];const LA=STG<2?0:EASE((NOW-TS[2]-0.75-k*0.3)/0.55);if(LA<=0)return;
+    ctx.beginPath();for(let j=0;j<=30;j++){const q=bz(c,LA*j/30);j?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1]);}ctx.strokeStyle=LINE;ctx.lineWidth=2.4;ctx.stroke();
+    if(LA<1)return;dot(ex,ey,3,INK);
+    const ph=(t*0.32+k*0.33)%1;const p=bz(c,ph);glow(p[0],p[1],3.2,ACC,10);});}}ctx.globalAlpha=1;
+
+ // ---- curvas ----
+ CIN.forEach((c,i)=>{ctx.globalAlpha=inA(i);if(ctx.globalAlpha>0){strokeBz(c.outer,LINE,2.4);strokeBz(c.inner,'rgba(244,241,232,.12)',1.9,[2,4]);dot(c.edge[0],c.edge[1],3,INK);}});
+ COUT.forEach((c,i)=>{ctx.globalAlpha=outA(i);if(ctx.globalAlpha>0){strokeBz(c.outer,LINE,2.4);strokeBz(c.inner,'rgba(244,241,232,.12)',1.9,[2,4]);dot(c.edge[0],c.edge[1],3,INK);}});
+ ctx.globalAlpha=1;
+
+ // ---- partículas de datos ----
+ for(const s of streams){
+  s.ph+=s.sp/60;const SA=s.out?outA(s.c):inA(s.c);
+  if(s.ph>=1){s.ph-=1;if(SA<0.5)continue;
+   if(s.out){const c=COUT[s.c];hits.push({x:c.outer[3][0],y:c.outer[3][1],t0:t});}
+   else{const c=CIN[s.c];const p=c.inner[3];absorbed.push({x:p[0],y:p[1],vx:(Math.random()-0.5)*40,vy:(Math.random()-0.5)*40,t0:t,life:1.6+Math.random()});energy=Math.min(1,energy+0.08);}}
+  const c=s.out?COUT[s.c]:CIN[s.c];const pos=s.out?posOut:posIn;
+  const p=pos(c,s.ph);
+  if(SA<=0)continue;let alpha=SA;if(!s.out&&s.ph>0.78)alpha=SA*(1-(s.ph-0.78)/0.22*0.6);if(s.out&&s.ph<0.22)alpha=SA*(0.4+s.ph/0.22*0.6);
+  const x=p[0],y=p[1]+s.off;
+  const pc=!s.out?PCOL[s.c%PCOL.length]:'255,59,48';
+  for(let k=1;k<=4;k++){const q=pos(c,Math.max(0,s.ph-k*0.01));dot(q[0],q[1]+s.off,s.sz*(1-k*0.18),`rgba(${pc},${alpha*(0.35-k*0.07)})`);}
+  glow(x,y,s.sz,`rgba(${pc},${alpha})`,8);
+  if(s.tag&&!s.out&&s.ph>0.08&&s.ph<0.72){txt(s.tag.toUpperCase(),x+8,y-6,9,`rgba(244,241,232,${0.75*alpha})`,500,'left',1.5,MONO);}
+ }
+ for(let i=absorbed.length-1;i>=0;i--){const a=absorbed[i];const age=t-a.t0;if(age>a.life){absorbed.splice(i,1);continue;}
+  const k=age/a.life;dot(a.x+a.vx*age,a.y+a.vy*age,2.2*(1-k)+0.4,`rgba(244,241,232,${0.9*(1-k)})`);}
+ for(let i=hits.length-1;i>=0;i--){const h=hits[i];const age=t-h.t0;if(age>0.6){hits.splice(i,1);continue;}
+  ctx.strokeStyle=`rgba(255,59,48,${1-age/0.6})`;ctx.lineWidth=1.2;ctx.beginPath();ctx.arc(h.x,h.y,3+age*22,0,7);ctx.stroke();}
+
+ // ---- nube ----
+ if(t>morph.next){morph.amp=1.25;morph.next=t+7+Math.random()*7;}
+ const floor=0.62+0.1*Math.sin(t*0.35);morph.amp=floor+(morph.amp-floor)*0.988;
+ const gg=ctx.createRadialGradient(CX,CY,R*0.1,CX,CY,R*1.4);gg.addColorStop(0,`rgba(244,241,232,${0.05+energy*0.08})`);gg.addColorStop(1,'rgba(244,241,232,0)');ctx.fillStyle=gg;ctx.fillRect(CX-R*1.5,CY-R*1.5,R*3,R*3);
+ const proj=[];for(const p of PTS){const sc=(p[3]-0.5)*(0.75+0.25*Math.sin(t*0.6+p[3]*31));const m=deform(p,t)+sc*(morph.amp*0.9+BLOB*0.7);const q=rot([p[0]*m,p[1]*m,p[2]*m]);proj.push([CX+q[0]*R,CY-q[1]*R,q[2],p[3]]);}
+ proj.sort((a,b)=>a[2]-b[2]);
+ const bright=1+energy*0.8;
+ for(const q of proj){const z=(q[2]+1)/2;const a=(0.08+z*0.6)*bright;const s=1.15+z*2.1;const flick=0.75+0.25*Math.sin(t*3+q[3]*40);
+  ctx.fillStyle=`rgba(244,241,232,${Math.min(1,a*flick)})`;ctx.fillRect(q[0]-s/2,q[1]-s/2,s,s);}
+ /* sin la cinta roja que recorria la nube por dentro (pedido de Wally) */
+ // halo blanco en degrade detras del logo de IE (pedido de Wally; el manual de IE pide logo sin brillo)
+ {const hx=CX,hy=CY-10,hr=330;const hg=ctx.createRadialGradient(hx,hy,0,hx,hy,hr);
+  hg.addColorStop(0,'rgba(244,241,232,.58)');hg.addColorStop(.38,'rgba(244,241,232,.30)');hg.addColorStop(.7,'rgba(244,241,232,.10)');hg.addColorStop(1,'rgba(244,241,232,0)');
+  ctx.fillStyle=hg;ctx.beginPath();ctx.arc(hx,hy,hr,0,7);ctx.fill();}
+ // logo
+ {const lw=360,lh=lw*343.8/719;if(LOGO.complete&&LOGO.naturalWidth)ctx.drawImage(LOGO,CX-lw/2,CY-lh/2-10,lw,lh);}
+
+ // retorno externo: de los outputs a la memoria
+ ctx.globalAlpha=EA;/* retorno corrido a x=34 (antes 79): deja aire a las bajadas de 16,5px */
+ /* "Los resultados vuelven al sistema" en card blanca redondeada con letra negra; la linea corta justo en sus bordes */
+ const RT='Los resultados vuelven al sistema',RF=20,RPAD=28,RDOT=20,RH=46,fy=1040;
+ ctx.font=`600 ${RF}px ${SANS}`;const rtw=ctx.measureText(RT).width;const RW=rtw+RPAD*2+RDOT,RHW=RW/2;
+ const RY0=LIN.y0, RTOP=ROUT.y0+6*ROUT.gap+60;
+ const r2=[[1506,RTOP],[1506,1040],[34,1040],[34,RY0],[160,RY0]];poly([[1506,RTOP],[1506,1040],[CX+RHW,1040]],LINE);poly([[CX-RHW,1040],[34,1040],[34,RY0],[160,RY0]],LINE);arrowHead(166,RY0,0,INK);
+ {ctx.beginPath();ctx.roundRect(CX-RHW,fy-RH/2,RW,RH,RH/2);ctx.fillStyle=INK;ctx.fill();
+  const beat=0.7+0.3*Math.sin(t*2.2);glow(CX-RHW+RPAD+3,fy,4*beat,ACC,10);
+  txt(RT,CX-RHW+RPAD+RDOT,fy+7,RF,'#101013',600,'left',0,SANS);}
+ if(EA>0)for(let k=0;k<22;k++){const sp=0.06+(k%4)*0.012,big=k%3===0;alongPath(r2,((t*sp)+k/22)%1,p=>{if(!(p[1]>1030&&Math.abs(p[0]-CX)<RHW)){const col=p[0]<CX?OKG:ACC;glow(p[0],p[1],big?3.2:1.9,col,big?10:6);}});}  // entran rojos a la card, salen verdes
+ ctx.globalAlpha=1;
+
+ /* encabezados de columna: card blanca con letra negra, centrada sobre el bloque de items */
+ {const blockW=(list,titleX)=>{ctx.font=`700 18px ${SANS}`;ctx.letterSpacing='0.4px';let m=0;list.forEach(a=>{m=Math.max(m,ctx.measureText(a.t.toUpperCase()).width);});
+   ctx.font=`400 ${SUBF}px ${MONO}`;ctx.letterSpacing='0px';list.forEach(a=>{if(a.s&&typeof a.s==='string')m=Math.max(m,ctx.measureText(a.s).width);});return m;};
+  const LY=200;  // arriba del primer item de cada columna
+  const lw=blockW(inputs);const lcx=(370-lw+440)/2;              // de donde empieza el texto mas ancho al borde del icono
+  const rw=blockW(outputs);const rcx=(ROUT.icon-26+ROUT.num+Math.max(rw,250))/2;
+  ctx.globalAlpha=inA(0);if(ctx.globalAlpha>0)colCard('CONTEXTO DE MARCA',lcx,LY);
+  ctx.globalAlpha=outA(ORD[0]);if(ctx.globalAlpha>0)colCard('ENTREGABLES',rcx,LY);
+  ctx.globalAlpha=1;}
+
+ requestAnimationFrame(frame);
+}
+function colCard(w,cx,y){const F=15,LS=2.5,PAD=22,H=36;ctx.font=`700 ${F}px ${MONO}`;ctx.letterSpacing=LS+'px';const tw=ctx.measureText(w).width;ctx.letterSpacing='0px';
+ const cw=tw+PAD*2;ctx.beginPath();ctx.roundRect(cx-cw/2,y,cw,H,H/2);ctx.fillStyle=INK;ctx.fill();
+ txt(w,cx,y+H/2+5.5,F,'#101013',700,'center',LS,MONO);}
+// ---------- helpers ----------
+function txt(s,x,y,size,color,weight,align,ls,fam){ctx.font=`${weight} ${size}px ${fam}`;ctx.fillStyle=color;ctx.textAlign=align;ctx.letterSpacing=(ls||0)+'px';ctx.fillText(s,x,y);ctx.letterSpacing='0px';}
+function glow(x,y,r,color,blur){ctx.shadowColor=color;ctx.shadowBlur=blur*K;ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill();ctx.shadowBlur=0;}
+function arrow(x0,y0,x1,y1,color){ctx.strokeStyle=color;ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(x1,y1);ctx.stroke();arrowHead(x1,y1,0,INK);}
+function arrowHead(x,y,ang,color){ctx.save();ctx.translate(x,y);ctx.rotate(ang);ctx.strokeStyle=color;ctx.lineWidth=2.4;ctx.beginPath();ctx.moveTo(-8,-5);ctx.lineTo(0,0);ctx.lineTo(-8,5);ctx.stroke();ctx.restore();}
+function poly(p,color){ctx.strokeStyle=color;ctx.lineWidth=2.4;ctx.beginPath();p.forEach((q,i)=>i?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1]));ctx.stroke();}
+function alongPath(path,u,fn){let segs=[],tot=0;for(let i=1;i<path.length;i++){const l=Math.hypot(path[i][0]-path[i-1][0],path[i][1]-path[i-1][1]);segs.push(l);tot+=l;}
+ let d=u*tot,i=0;while(i<segs.length-1&&d>segs[i]){d-=segs[i];i++;}const a=path[i],b=path[i+1];const f=d/segs[i];fn([a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f]);}
+document.fonts.ready.then(()=>requestAnimationFrame(frame));
+})();
+</script>
 </body>
 </html>
