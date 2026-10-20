@@ -1376,6 +1376,9 @@
       linear-gradient(180deg, rgba(10,10,12,0.35) 0%, transparent 30%, transparent 62%, rgba(10,10,12,0.78) 100%),
       url('wtf-credenciales-slides/hero/galeria-casco.jpg') center/cover no-repeat;
   }
+  /* section.dense le mete padding arriba y le gana a .galeria: la foto tiene que arrancar en el borde */
+  section.galeria.dense { padding-top: 0; }
+  section.galeria > .galeria-hero { margin-top: 0; }
   .galeria > * { position: relative; z-index: 2; }
   .galeria > .slide-tag { z-index: 100; left: 7vw; }
   .galeria-header {
@@ -3018,6 +3021,25 @@
   .nfx-lightbox.open { display: flex !important; }
 
 
+  /* ===== S4 / Quiénes somos (presentación) ===== */
+  .somos {
+    --somos-foto: url('wtf-credenciales-slides/hero/somos-3.jpg');  /* casco rojo de perfil, elegida */
+    background:
+      linear-gradient(90deg, rgba(10,10,12,0.78) 0%, rgba(10,10,12,0.45) 45%, rgba(10,10,12,0.05) 80%),
+      linear-gradient(180deg, rgba(10,10,12,0.30) 0%, transparent 25%, transparent 70%, rgba(10,10,12,0.55) 100%),
+      var(--somos-foto) center/cover no-repeat, var(--bg-deep);
+    padding: 80px 7vw;
+    justify-content: center; align-items: flex-start;
+  }
+  .somos > * { position: relative; z-index: 2; }
+  .somos-logo { display: block; height: clamp(58px, 8.5vw, 124px); width: auto; margin: 4px 0 36px; }  /* 35% mas chico */
+  /* mismo estilo de titulo que la slide 2 (.display + .bd-title), mas chico */
+  .somos-txt {
+    font-size: clamp(22px, 2.9vw, 48px); line-height: 1.08;
+    max-width: 1150px; margin: 0;
+    text-shadow: none;   /* sin sombra en el texto: la legibilidad la da el velo */
+  }
+
   /* ===== S10 / Operación conectada ===== */
   /* Mismo tratamiento de fondo que la slide 9: foto sola + velo que entra al activarse */
   .opconn {
@@ -3246,9 +3268,17 @@
   </div>
 </section>
 
+<!-- ============================== S4 / Quiénes somos (presentación) ============================== -->
+<section class="somos">
+  <div class="slide-tag">03 · Quiénes somos</div>
+  <p class="eyebrow reveal" data-i18n="somos_q">¿Quiénes somos?</p>
+  <img class="somos-logo reveal delay-1" src="wtf-credenciales-slides/logo-wtf.png" alt="WTF Agency · Brief Destroyers">
+  <p class="display somos-txt reveal delay-2" data-i18n="somos_txt">Combinamos <strong>estrategia senior, creatividad, producción, data e IA</strong> para pensar, crear, mover y aprender más rápido.</p>
+</section>
+
 <!-- ============================== S3 / Contexto ============================== -->
 <section class="ctx dense">
-  <div class="slide-tag">03 · Contexto</div>
+  <div class="slide-tag">04 · Contexto</div>
   <h2 class="display ctx-title reveal delay-1" data-i18n="ctx_title">Nadie está<br><em>esperando.</em></h2>
   <p class="ctx-sub reveal delay-1" data-i18n="ctx_sub">El consumidor no lee: escanea.<br>Decide en menos de dos segundos y sigue de largo.</p>
 
@@ -3278,7 +3308,7 @@
 
 <!-- ============================== S4 / El problema ============================== -->
 <section class="problema dense">
-  <div class="slide-tag">04 · El problema</div>
+  <div class="slide-tag">05 · El problema</div>
 
   <div class="problema-left">
     <h2 class="display reveal" data-i18n="prob_title">EL GAP<br><em>CREATIVO</em></h2>
@@ -3291,7 +3321,7 @@
 
 <!-- ============================== S6 / #WTFRULES ============================== -->
 <section class="wtfrules">
-  <div class="slide-tag">05 · #WTFRULES</div>
+  <div class="slide-tag">06 · #WTFRULES</div>
   <p class="wtfrules-text reveal" data-i18n="wtfrules_text">
     Es momento de plantearse todo <strong>nuevamente.</strong>
   </p>
@@ -3300,7 +3330,7 @@
 
 <!-- ============================== S5 / Manifiesto ============================== -->
 <section class="manifiesto">
-  <div class="slide-tag">06 · Manifiesto</div>
+  <div class="slide-tag">07 · Manifiesto</div>
 
   <div class="mani-eyebrow reveal" data-i18n="mani_eyebrow">NUESTRO MANIFIESTO</div>
 
@@ -3319,7 +3349,7 @@
 
 <!-- ============================== S7 / Quiénes somos ============================== -->
 <section class="quienes">
-  <div class="slide-tag">07 · Quiénes somos</div>
+  <div class="slide-tag">08 · Quiénes somos</div>
 
   <h2 class="display quienes-h reveal delay-1" data-i18n="quienes_title"><span>NO HACEMOS<br>CAMPAÑAS.<br><em>HACEMOS<br>SISTEMAS.</em></span></h2>
   <p class="quienes-sub reveal delay-1" data-i18n="quienes_sub">Construimos nuestro propio sistema operativo. 15 años de calle, estrategia y craft creativo corriendo dentro de una máquina que no para. No automatizamos la creatividad, la armamos para escalar.</p>
@@ -3355,7 +3385,7 @@
 
 <!-- ============================== S11 / Modelo AI First ============================== -->
 <section class="modelo">
-  <div class="slide-tag">08 · Modelo AI First</div>
+  <div class="slide-tag">09 · Modelo AI First</div>
 
   <h2 class="display modelo-title reveal delay-1" data-i18n="modelo_title">NO SUMAMOS IA AL PROCESO.<br><em>CAMBIAMOS EL PROCESO.</em></h2>
   <p class="modelo-firma reveal delay-2">#WTFRULES</p>
@@ -3364,7 +3394,7 @@
 
 <!-- ============================== S12 / WTF AI Engine ============================== -->
 <section class="engine">
-  <div class="slide-tag">09 · WTF AI Engine</div>
+  <div class="slide-tag">10 · WTF AI Engine</div>
 
   <h2 class="display engine-title reveal delay-1">WTF<br><em>Infinity Engine</em><br>OS PLATFORM</h2>
   <p class="engine-sub reveal delay-2" data-i18n="engine_sub">Más de 20 herramientas de IA corriendo en un solo flujo.<br>Del brief a la escala, sin traspasos ni tiempos muertos.<br><strong>Nada sale de acá sin que un humano lo firme.</strong></p>
@@ -3493,7 +3523,7 @@
 
 <!-- ============================== S10 / Operación conectada ============================== -->
 <section class="opconn">
-  <div class="slide-tag">10 · Operación conectada</div>
+  <div class="slide-tag">11 · Operación conectada</div>
   <canvas class="iehud3" width="1920" height="1080" role="img" aria-label="Cómo opera Infinite Engine: siete fuentes de contexto entran al motor, el criterio humano lo dirige y salen siete tipos de trabajo. El ciclo devuelve los resultados al sistema."></canvas>
   <button class="iepaso-rs" type="button" aria-label="Reiniciar la animación">↻ Reiniciar</button>
 </section>
@@ -3502,7 +3532,7 @@
 
 <!-- ============================== S8 / Clientes ============================== -->
 <section class="clientes dense">
-  <div class="slide-tag">11 · Clientes</div>
+  <div class="slide-tag">12 · Clientes</div>
   <h2 class="display clientes-title reveal" data-i18n="clientes_title">NO SON LOGOS.<br><em>SON AÑOS.</em></h2>
   <p class="clientes-sub reveal delay-1" data-i18n="clientes_sub">Los años no se pitchean.</p>
   <div class="logos-static reveal delay-2">
@@ -3541,7 +3571,7 @@
 
 <!-- ============================== S17 / Galería ============================== -->
 <section class="galeria dense">
-  <div class="slide-tag">12 · Galería</div>
+  <div class="slide-tag">13 · Galería</div>
   <div class="galeria-hero">
     <h2 class="display galeria-title reveal" data-i18n="gal_title">WTF AGENCY<br><em>EN ACCIÓN</em></h2>
     <p class="galeria-sub reveal delay-1" data-i18n="gal_sub">Campañas completas salidas del mismo sistema. Comunicación real para marcas reales, en el aire.</p>
@@ -3549,85 +3579,157 @@
   </div>
 
   <div class="masonry">
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-1971.jpg" alt="Starter"><div class="masonry-overlay"><span>Starter · 1971 · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/sensus-brindis.jpg" alt="Sensus"><div class="masonry-overlay"><span>Sensus · Brindis · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-carolina.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Carolina · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/sensus-mirada.jpg" alt="Sensus"><div class="masonry-overlay"><span>Sensus · Mirada · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-actitud.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Actitud · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/sensus-cheers.jpg" alt="Sensus"><div class="masonry-overlay"><span>Sensus · Cheers · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/hydrate-locker.jpg" alt="Hydrate"><div class="masonry-overlay"><span>Hydrate · Locker · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-detail-1.jpg" alt="STARTER"><div class="masonry-overlay"><span>STARTER · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-balcon.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Lifestyle · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/sensus-pizza.jpg" alt="Sensus"><div class="masonry-overlay"><span>Sensus · Friends · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-hands.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Comunidad · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-detail-2.jpg" alt="STARTER"><div class="masonry-overlay"><span>STARTER · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-botella.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Sabor · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-hotsale.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Hot Sale · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-bluelabel.jpg" alt="Starter"><div class="masonry-overlay"><span>Starter · Blue Label · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/morelli-cocina.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>MORELLI · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-brindis.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Brindis · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/ramazzotti-10.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>RAMAZZOTTI · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-enero.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Enero · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-lifestyle.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Lifestyle · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-runner.jpg" alt="Starter"><div class="masonry-overlay"><span>Starter · Runner · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-shoe-green.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Radiate Green · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-01.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Higgsfield · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/ramazzotti-11.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>RAMAZZOTTI · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/morelli-post-13.jpg" alt="Morelli"><div class="masonry-overlay"><span>Morelli · Prego 900 · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-motivate.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Motivate · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-trucker-new.jpg" alt="Starter"><div class="masonry-overlay"><span>Starter · Trucker New · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/contenidoia-1.jpg" alt="CONTENIDOIA"><div class="masonry-overlay"><span>CONTENIDOIA · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/morelli-post-17.jpg" alt="Morelli"><div class="masonry-overlay"><span>Morelli · Nacida en el Fuego · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Video · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/ramazzotti-13.jpg" alt="RAMAZZOTTI"><div class="masonry-overlay"><span>RAMAZZOTTI · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-reel-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Reel 2 · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-net.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Concept · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-trucker.jpg" alt="Starter"><div class="masonry-overlay"><span>Starter · Trucker · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/buhero-1.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>BUHERO · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/contenidoia-13.jpg" alt="CONTENIDOIA"><div class="masonry-overlay"><span>CONTENIDOIA · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/diablo-reel-03.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Pisco Diablo · Reel 2 · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-03.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Motion · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-reel-03.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Reel 3 · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/ramazzotti-3.jpg" alt="RAMAZZOTTI"><div class="masonry-overlay"><span>RAMAZZOTTI · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-otono.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Otoño · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/starter-video-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Starter · Video · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/buhero-3.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>BUHERO · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/contenidoia-14.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>CONTENIDOIA · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/diablo-reel-04.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Pisco Diablo · Reel 3 · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-05.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Scene · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-tattoo.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Brand · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/ramazzotti-4.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>RAMAZZOTTI · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-reel-04.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Reel 4 · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-pile.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Colección · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/starter-video-09.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Starter · Lookbook · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/buhero-29.jpg" alt="BUHERO"><div class="masonry-overlay"><span>BUHERO · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/comfyui-03.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Creative · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/contenidoia-18.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>CONTENIDOIA · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-sofa.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Momentos · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-06.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · Production · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-estilo.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Estilo · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/starter-detail-4.jpg" alt="STARTER"><div class="masonry-overlay"><span>STARTER · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/ramazzotti-7.jpg" alt="RAMAZZOTTI"><div class="masonry-overlay"><span>RAMAZZOTTI · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/starter-video-03.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Starter · Campaign · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/shaq-posture.jpg" alt="SHAQ"><div class="masonry-overlay"><span>SHAQ · Posture · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/starter-video-04.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Starter · Street · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/buhero-9.jpg" alt="BUHERO"><div class="masonry-overlay"><span>BUHERO · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/comfyui-05.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>AI · ComfyUI · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/contenidoia-8.jpg" alt="CONTENIDOIA"><div class="masonry-overlay"><span>CONTENIDOIA · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-reel-05.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Reel 5 · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/higgsfield-10.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>HIGGSFIELD · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/hydrate-otono.jpg" alt="Hydrate"><div class="masonry-overlay"><span>Hydrate · Otoño · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/diablo-reel-02.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Pisco Diablo · Reel · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/ramazzotti-8.jpg" alt="RAMAZZOTTI"><div class="masonry-overlay"><span>RAMAZZOTTI · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-shot05.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Cinematic · 100% AI</span></div></div>
-    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria/diablo-red.jpg" alt="Pisco Diablo"><div class="masonry-overlay"><span>Pisco Diablo · Rosé · 100% AI</span></div></div>
-    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria/sensus-premium-ad.mp4" autoplay muted loop playsinline></video><div class="masonry-overlay"><span>Sensus · Premium Ad · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/ramazzotti-18.mp4" poster="wtf-credenciales-slides/galeria-ie/ramazzotti-18.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/brinox-02-fit-cozinha-em-ordem.webp" alt="Brinox" loading="lazy"><div class="masonry-overlay"><span>Brinox · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/diablo-botella.webp" alt="Pisco Diablo" loading="lazy"><div class="masonry-overlay"><span>Pisco Diablo · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/goliat-goli-pool-party.webp" alt="Goliat" loading="lazy"><div class="masonry-overlay"><span>Goliat · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-ramazzotti-arg-estatico-2-rama-arg.webp" alt="Ramazzotti" loading="lazy"><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/sensus-moscatel.webp" alt="Sensus" loading="lazy"><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/ramazzotti-11.mp4" poster="wtf-credenciales-slides/galeria-ie/ramazzotti-11.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/sensus-brindis.webp" alt="Sensus" loading="lazy"><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/n-starter-catalogo-starter-2026-starter-8.mp4" poster="wtf-credenciales-slides/galeria-ie/n-starter-catalogo-starter-2026-starter-8.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Starter · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/brinox-04-lixeira-sem-tocar.webp" alt="Brinox" loading="lazy"><div class="masonry-overlay"><span>Brinox · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/d-ramazzotti-cl-1-reel-trend-brillos-rama-cl.mp4" poster="wtf-credenciales-slides/galeria-ie/d-ramazzotti-cl-1-reel-trend-brillos-rama-cl.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/diablo-red.webp" alt="Pisco Diablo" loading="lazy"><div class="masonry-overlay"><span>Pisco Diablo · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/d-goliat-reel-10-goli-dia-de-la-musica.mp4" poster="wtf-credenciales-slides/galeria-ie/d-goliat-reel-10-goli-dia-de-la-musica.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Goliat · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/sensus-shot05.mp4" poster="wtf-credenciales-slides/galeria-ie/sensus-shot05.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/starter-video-09.mp4" poster="wtf-credenciales-slides/galeria-ie/starter-video-09.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Starter · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/d-goliat-reel-5-goli-presentacion.mp4" poster="wtf-credenciales-slides/galeria-ie/d-goliat-reel-5-goli-presentacion.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Goliat · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/n-starter-catalogo-starter-2026-starter-3.mp4" poster="wtf-credenciales-slides/galeria-ie/n-starter-catalogo-starter-2026-starter-3.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Starter · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-sensus-copy-of-ecommerce-1.webp" alt="Sensus" loading="lazy"><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/ramazzotti-8.webp" alt="Ramazzotti" loading="lazy"><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/shaq-97.webp" alt="SHAQ" loading="lazy"><div class="masonry-overlay"><span>SHAQ · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/goliat-goli-amigos.webp" alt="Goliat" loading="lazy"><div class="masonry-overlay"><span>Goliat · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-sensus-copy-of-podcast-1.webp" alt="Sensus" loading="lazy"><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/ramazzotti-7.webp" alt="Ramazzotti" loading="lazy"><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/goliat-goli-mar-del-plata.webp" alt="Goliat" loading="lazy"><div class="masonry-overlay"><span>Goliat · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/shaq-motivate.webp" alt="SHAQ" loading="lazy"><div class="masonry-overlay"><span>SHAQ · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/ramazzotti-9.mp4" poster="wtf-credenciales-slides/galeria-ie/ramazzotti-9.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/buhero-31.webp" alt="Buhero Negro" loading="lazy"><div class="masonry-overlay"><span>Buhero Negro · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-morelli-carrusel-magna-900-3-5.webp" alt="Morelli" loading="lazy"><div class="masonry-overlay"><span>Morelli · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/d-diablo-reel-1-concurso-pisco-diablo.mp4" poster="wtf-credenciales-slides/galeria-ie/d-diablo-reel-1-concurso-pisco-diablo.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Pisco Diablo · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/shaq-estilo.webp" alt="SHAQ" loading="lazy"><div class="masonry-overlay"><span>SHAQ · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-buhero-negro-bh9-estatica-mandelo.webp" alt="Buhero Negro" loading="lazy"><div class="masonry-overlay"><span>Buhero Negro · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-sensus-copy-of-aon14.webp" alt="Sensus" loading="lazy"><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/diablo-balcon.webp" alt="Pisco Diablo" loading="lazy"><div class="masonry-overlay"><span>Pisco Diablo · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/morelli-post-09.mp4" poster="wtf-credenciales-slides/galeria-ie/morelli-post-09.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Morelli · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-ramazzotti-arg-estatico-1-rama-arg.webp" alt="Ramazzotti" loading="lazy"><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/buhero-10.webp" alt="Buhero Negro" loading="lazy"><div class="masonry-overlay"><span>Buhero Negro · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/shaq-hands.webp" alt="SHAQ" loading="lazy"><div class="masonry-overlay"><span>SHAQ · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/sensus-shot04.mp4" poster="wtf-credenciales-slides/galeria-ie/sensus-shot04.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/goliat-goli-potrero.webp" alt="Goliat" loading="lazy"><div class="masonry-overlay"><span>Goliat · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-ramazzotti-arg-carrusel-1-1-rama-arg.webp" alt="Ramazzotti" loading="lazy"><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/sensus-pizza.webp" alt="Sensus" loading="lazy"><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-morelli-carrusel-magna-1200-2-5.webp" alt="Morelli" loading="lazy"><div class="masonry-overlay"><span>Morelli · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/ramazzotti-20.webp" alt="Ramazzotti" loading="lazy"><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-sensus-copy-of-aon20.webp" alt="Sensus" loading="lazy"><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/brinox-07-criadora.webp" alt="Brinox" loading="lazy"><div class="masonry-overlay"><span>Brinox · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-sensus-copy-of-aon12.webp" alt="Sensus" loading="lazy"><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/buhero-29.webp" alt="Buhero Negro" loading="lazy"><div class="masonry-overlay"><span>Buhero Negro · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/ramazzotti-19.webp" alt="Ramazzotti" loading="lazy"><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-morelli-estatico-1-morelli.webp" alt="Morelli" loading="lazy"><div class="masonry-overlay"><span>Morelli · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/brinox-01-smart-lava-facil.webp" alt="Brinox" loading="lazy"><div class="masonry-overlay"><span>Brinox · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/buhero-28.webp" alt="Buhero Negro" loading="lazy"><div class="masonry-overlay"><span>Buhero Negro · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-morelli-carrusel-magna-900-3-4.webp" alt="Morelli" loading="lazy"><div class="masonry-overlay"><span>Morelli · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/shaq-lifestyle.webp" alt="SHAQ" loading="lazy"><div class="masonry-overlay"><span>SHAQ · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/hydrate-locker.webp" alt="Hydrate" loading="lazy"><div class="masonry-overlay"><span>Hydrate · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/ramazzotti-3.webp" alt="Ramazzotti" loading="lazy"><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/starter-runner.webp" alt="Starter" loading="lazy"><div class="masonry-overlay"><span>Starter · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-morelli-carrusel-magna-1200-2-4.webp" alt="Morelli" loading="lazy"><div class="masonry-overlay"><span>Morelli · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-ramazzotti-arg-estatico-3-rama-arg.webp" alt="Ramazzotti" loading="lazy"><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/brinox-template-12-lifestyle-colorway.webp" alt="Brinox" loading="lazy"><div class="masonry-overlay"><span>Brinox · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-morelli-carrusel-magna-900-3-1.webp" alt="Morelli" loading="lazy"><div class="masonry-overlay"><span>Morelli · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/d-ramazzotti-cl-2-reel-rama-cl.mp4" poster="wtf-credenciales-slides/galeria-ie/d-ramazzotti-cl-2-reel-rama-cl.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-morelli-estatico-5-morelli.webp" alt="Morelli" loading="lazy"><div class="masonry-overlay"><span>Morelli · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/ramazzotti-5.webp" alt="Ramazzotti" loading="lazy"><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/brinox-09-onde-comprar.webp" alt="Brinox" loading="lazy"><div class="masonry-overlay"><span>Brinox · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/sensus-enero.mp4" poster="wtf-credenciales-slides/galeria-ie/sensus-enero.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-ramazzotti-cl-estatico-4-rama-cl.webp" alt="Ramazzotti" loading="lazy"><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/starter-1971.webp" alt="Starter" loading="lazy"><div class="masonry-overlay"><span>Starter · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-sensus-copy-of-aon19.webp" alt="Sensus" loading="lazy"><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/diablo-brindis.webp" alt="Pisco Diablo" loading="lazy"><div class="masonry-overlay"><span>Pisco Diablo · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/n-dia-spots-de-producto-boceto-formato-2607252230.mp4" poster="wtf-credenciales-slides/galeria-ie/n-dia-spots-de-producto-boceto-formato-2607252230.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>DIA · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/d-ramazzotti-arg-reel-3-ooo-rama-arg.mp4" poster="wtf-credenciales-slides/galeria-ie/d-ramazzotti-arg-reel-3-ooo-rama-arg.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/diablo-reel-02.mp4" poster="wtf-credenciales-slides/galeria-ie/diablo-reel-02.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Pisco Diablo · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-ramazzotti-arg-estatico-4-rama-arg.webp" alt="Ramazzotti" loading="lazy"><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/starter-detail-5.webp" alt="Starter" loading="lazy"><div class="masonry-overlay"><span>Starter · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/ramazzotti-16.webp" alt="Ramazzotti" loading="lazy"><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/starter-detail-1.webp" alt="Starter" loading="lazy"><div class="masonry-overlay"><span>Starter · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/buhero-9.webp" alt="Buhero Negro" loading="lazy"><div class="masonry-overlay"><span>Buhero Negro · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/brinox-03-facas-corte-limpo.webp" alt="Brinox" loading="lazy"><div class="masonry-overlay"><span>Brinox · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/shaq-radiate.webp" alt="SHAQ" loading="lazy"><div class="masonry-overlay"><span>SHAQ · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/brinox-template-35-hero-product-stat-bar.webp" alt="Brinox" loading="lazy"><div class="masonry-overlay"><span>Brinox · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/goliat-kv-final.webp" alt="Goliat" loading="lazy"><div class="masonry-overlay"><span>Goliat · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/diablo-sofa.webp" alt="Pisco Diablo" loading="lazy"><div class="masonry-overlay"><span>Pisco Diablo · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/d-sensus-copy-of-ecommerce-5.mp4" poster="wtf-credenciales-slides/galeria-ie/d-sensus-copy-of-ecommerce-5.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-diablo-estatica-4-pisco-diablo-hielo.webp" alt="Pisco Diablo" loading="lazy"><div class="masonry-overlay"><span>Pisco Diablo · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-sensus-copy-of-aon-3.webp" alt="Sensus" loading="lazy"><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/shaq-pile.webp" alt="SHAQ" loading="lazy"><div class="masonry-overlay"><span>SHAQ · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-morelli-estatico-2-morelli.webp" alt="Morelli" loading="lazy"><div class="masonry-overlay"><span>Morelli · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/diablo-actitud.webp" alt="Pisco Diablo" loading="lazy"><div class="masonry-overlay"><span>Pisco Diablo · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/goliat-kv-asado.webp" alt="Goliat" loading="lazy"><div class="masonry-overlay"><span>Goliat · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/d-ramazzotti-arg-reel-2-hibisco-rama-arg.mp4" poster="wtf-credenciales-slides/galeria-ie/d-ramazzotti-arg-reel-2-hibisco-rama-arg.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/n-dia-spots-de-producto-sopa-led-9x16-2608051200.mp4" poster="wtf-credenciales-slides/galeria-ie/n-dia-spots-de-producto-sopa-led-9x16-2608051200.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>DIA · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-buhero-negro-bh8-estatica-foto-que-no-salio.webp" alt="Buhero Negro" loading="lazy"><div class="masonry-overlay"><span>Buhero Negro · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/sensus-reel-02.mp4" poster="wtf-credenciales-slides/galeria-ie/sensus-reel-02.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/morelli-post-17.webp" alt="Morelli" loading="lazy"><div class="masonry-overlay"><span>Morelli · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/starter-trucker-new.webp" alt="Starter" loading="lazy"><div class="masonry-overlay"><span>Starter · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/goliat-goli-cctv-kiosco-final.webp" alt="Goliat" loading="lazy"><div class="masonry-overlay"><span>Goliat · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/shaq-otono.webp" alt="SHAQ" loading="lazy"><div class="masonry-overlay"><span>SHAQ · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-morelli-carrusel-magna-1200-2-1.webp" alt="Morelli" loading="lazy"><div class="masonry-overlay"><span>Morelli · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/buhero-1.mp4" poster="wtf-credenciales-slides/galeria-ie/buhero-1.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Buhero Negro · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/n-sensus-sin-ley-sensus-abril-16.webp" alt="Sensus" loading="lazy"><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/starter-bluelabel.webp" alt="Starter" loading="lazy"><div class="masonry-overlay"><span>Starter · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/d-buhero-negro-bh10-reel-flota.mp4" poster="wtf-credenciales-slides/galeria-ie/d-buhero-negro-bh10-reel-flota.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Buhero Negro · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/goliat-goli-kiosco.webp" alt="Goliat" loading="lazy"><div class="masonry-overlay"><span>Goliat · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/brinox-05-receita-pao.webp" alt="Brinox" loading="lazy"><div class="masonry-overlay"><span>Brinox · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/d-buhero-negro-bh2-reel-vidrio-transpira.mp4" poster="wtf-credenciales-slides/galeria-ie/d-buhero-negro-bh2-reel-vidrio-transpira.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Buhero Negro · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/goliat-goli-picado-nuevo.webp" alt="Goliat" loading="lazy"><div class="masonry-overlay"><span>Goliat · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/brinox-01-receita-carne.webp" alt="Brinox" loading="lazy"><div class="masonry-overlay"><span>Brinox · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/d-buhero-negro-bh1-reel-moria.mp4" poster="wtf-credenciales-slides/galeria-ie/d-buhero-negro-bh1-reel-moria.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Buhero Negro · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/d-goliat-reel-4-goli-tiembla.mp4" poster="wtf-credenciales-slides/galeria-ie/d-goliat-reel-4-goli-tiembla.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Goliat · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/brinox-template-22-flavor-story.webp" alt="Brinox" loading="lazy"><div class="masonry-overlay"><span>Brinox · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/shaq-hotsale.webp" alt="SHAQ" loading="lazy"><div class="masonry-overlay"><span>SHAQ · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-diablo-estatica-2-pisco-diablo-hielo.webp" alt="Pisco Diablo" loading="lazy"><div class="masonry-overlay"><span>Pisco Diablo · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/ramazzotti-10.mp4" poster="wtf-credenciales-slides/galeria-ie/ramazzotti-10.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-buhero-negro-bh7-estatica-cumpleanos.webp" alt="Buhero Negro" loading="lazy"><div class="masonry-overlay"><span>Buhero Negro · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/brinox-02-produto-primea.webp" alt="Brinox" loading="lazy"><div class="masonry-overlay"><span>Brinox · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/diablo-tattoo.webp" alt="Pisco Diablo" loading="lazy"><div class="masonry-overlay"><span>Pisco Diablo · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/goliat-goli-cctv-01-freezer-final.webp" alt="Goliat" loading="lazy"><div class="masonry-overlay"><span>Goliat · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/n-dia-spots-de-producto-boceto-papas-formato-2607252300.mp4" poster="wtf-credenciales-slides/galeria-ie/n-dia-spots-de-producto-boceto-papas-formato-2607252300.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>DIA · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-diablo-estatica-3-pisco-diablo-hielo.webp" alt="Pisco Diablo" loading="lazy"><div class="masonry-overlay"><span>Pisco Diablo · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/hydrate-runner.webp" alt="Hydrate" loading="lazy"><div class="masonry-overlay"><span>Hydrate · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/goliat-goli-momentos.mp4" poster="wtf-credenciales-slides/galeria-ie/goliat-goli-momentos.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Goliat · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/n-starter-catalogo-starter-2026-starter-012.mp4" poster="wtf-credenciales-slides/galeria-ie/n-starter-catalogo-starter-2026-starter-012.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Starter · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/d-morelli-storie-arquitectura.mp4" poster="wtf-credenciales-slides/galeria-ie/d-morelli-storie-arquitectura.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Morelli · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/brinox-m03-loft-cozinha.mp4" poster="wtf-credenciales-slides/galeria-ie/brinox-m03-loft-cozinha.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Brinox · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-morelli-carrusel-1-2-morelli.webp" alt="Morelli" loading="lazy"><div class="masonry-overlay"><span>Morelli · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/buhero-14.webp" alt="Buhero Negro" loading="lazy"><div class="masonry-overlay"><span>Buhero Negro · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/diablo-reel-03.mp4" poster="wtf-credenciales-slides/galeria-ie/diablo-reel-03.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Pisco Diablo · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/hydrate-otono.webp" alt="Hydrate" loading="lazy"><div class="masonry-overlay"><span>Hydrate · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/d-morelli-magna-teaser1.mp4" poster="wtf-credenciales-slides/galeria-ie/d-morelli-magna-teaser1.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Morelli · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/shaq-posture.webp" alt="SHAQ" loading="lazy"><div class="masonry-overlay"><span>SHAQ · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/ramazzotti-1.mp4" poster="wtf-credenciales-slides/galeria-ie/ramazzotti-1.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-sensus-copy-of-aon10.webp" alt="Sensus" loading="lazy"><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-ramazzotti-cl-estatico-6-rama-cl.webp" alt="Ramazzotti" loading="lazy"><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/d-sensus-copy-of-aon24.mp4" poster="wtf-credenciales-slides/galeria-ie/d-sensus-copy-of-aon24.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/brinox-04-smart-ovo.mp4" poster="wtf-credenciales-slides/galeria-ie/brinox-04-smart-ovo.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Brinox · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/d-sensus-copy-of-whatsapp-video-2026-08-21-at-23-46-49.mp4" poster="wtf-credenciales-slides/galeria-ie/d-sensus-copy-of-whatsapp-video-2026-08-21-at-23-46-49.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/n-starter-catalogo-starter-2026-starter-010.mp4" poster="wtf-credenciales-slides/galeria-ie/n-starter-catalogo-starter-2026-starter-010.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Starter · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/morelli-post-13.webp" alt="Morelli" loading="lazy"><div class="masonry-overlay"><span>Morelli · 100% AI</span></div></div>
+    <div class="masonry-item"><video src="wtf-credenciales-slides/galeria-ie/ramazzotti-4.mp4" poster="wtf-credenciales-slides/galeria-ie/ramazzotti-4.jpg" autoplay muted loop playsinline preload="none"></video><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/goliat-goli-cancha.webp" alt="Goliat" loading="lazy"><div class="masonry-overlay"><span>Goliat · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/ramazzotti-13.webp" alt="Ramazzotti" loading="lazy"><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-sensus-copy-of-aon16.webp" alt="Sensus" loading="lazy"><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/goliat-goli-fiesta-espuma.webp" alt="Goliat" loading="lazy"><div class="masonry-overlay"><span>Goliat · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-sensus-copy-of-aon23.webp" alt="Sensus" loading="lazy"><div class="masonry-overlay"><span>Sensus · 100% AI</span></div></div>
+    <div class="masonry-item"><img src="wtf-credenciales-slides/galeria-ie/d-ramazzotti-cl-estatico-5-rama-cl.webp" alt="Ramazzotti" loading="lazy"><div class="masonry-overlay"><span>Ramazzotti · 100% AI</span></div></div>
   </div>
 </section>
 
 <!-- ============================== SLIDE 13a / Portfolio ============================== -->
 <section class="nfx-s1 dense" style="padding:30px 4.5vw 40px;background:var(--bg-deep);overflow-y:auto;overflow-x:hidden;justify-content:flex-start;">
-  <div class="slide-tag">13 · Portfolio</div>
+  <div class="slide-tag">14 · Portfolio</div>
 
   <div class="eyebrow reveal" style="margin-top:1rem;">Brief Destroyers</div>
   <h2 class="display casos-title reveal delay-1" data-i18n="portfolio_title" style="margin-bottom:8px;font-size:clamp(40px,6vw,94px);">NUESTROS<br><em>TRABAJOS</em></h2>
@@ -3860,7 +3962,7 @@
 
   // Slide names for HUD
   const slideNames = [
-    'Cover', 'Brief Destroyers', 'Contexto', 'El problema',
+    'Cover', 'Brief Destroyers', 'Quiénes somos', 'Contexto', 'El problema',
     '#WTFRULES', 'Manifiesto', 'Quiénes somos', 'Modelo AI First',
     'WTF AI Engine', 'Operación conectada',
     'Clientes', 'Galería',
@@ -4177,6 +4279,8 @@
   (function() {
     const translations = {
       es: {
+        somos_q: '¿Quiénes somos?',
+        somos_txt: 'Combinamos <strong>estrategia senior, creatividad, producción, data e IA</strong> para pensar, crear, mover y aprender más rápido.',
         // S1 — Cover
         cover_left: 'WTF AGENCY<br>BATTLE TESTED CREATIVITY · SINCE 2010',
         cover_right: 'CREDENTIALS 2026<br>BUENOS AIRES, MAYO',
@@ -4353,6 +4457,8 @@
       },
 
       en: {
+        somos_q: 'Who are we?',
+        somos_txt: 'We combine <strong>senior strategy, creativity, production, data and AI</strong> to think, create, move and learn faster.',
         // S1 — Cover
         cover_left: 'WTF AGENCY<br>BATTLE TESTED CREATIVITY · SINCE 2010',
         cover_right: 'CREDENTIALS 2026<br>BUENOS AIRES, MAY',
@@ -4529,6 +4635,8 @@
       },
 
       pt: {
+        somos_q: 'Quem somos?',
+        somos_txt: 'Combinamos <strong>estratégia sênior, criatividade, produção, dados e IA</strong> para pensar, criar, mover e aprender mais rápido.',
         // S1 — Cover
         cover_left: 'WTF AGENCY<br>CRIATIVIDADE TESTADA EM BATALHA · DESDE 2010',
         cover_right: 'CREDENTIALS 2026<br>BUENOS AIRES, MAIO',
