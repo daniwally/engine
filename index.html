@@ -2057,6 +2057,9 @@
   .bd-title em {
     font-family: 'Inter', sans-serif; font-style: normal; color: #FFFFFF;
   }
+  /* slide 2 sin bajada: el titular queda centrado en el alto (relleno parejo y sin margen inferior) */
+  section.brief-destroyers { padding-top: 100px; padding-bottom: 100px; }
+  section.brief-destroyers .bd-title { margin-bottom: 0; }
   .bd-sub {
     font-size: 20px; color: var(--bone-dim);
     line-height: 1.65; max-width: 680px; margin-bottom: 40px;
@@ -2129,6 +2132,14 @@
     width: 2px; height: 132px;
     background: var(--wtf-red);
   }
+  /* S07 · paso a paso: la frase de la izquierda, al click la derecha, al click el manifiesto */
+  .manifiesto .mani-rule { transition: opacity 0.9s cubic-bezier(.2,.8,.2,1), transform 0.9s cubic-bezier(.2,.8,.2,1); transform-origin: center; }
+  section.manifiesto[data-paso="0"] .mani-split .mani-half:last-child,
+  section.manifiesto[data-paso="0"] .mani-support,
+  section.manifiesto[data-paso="0"] .mani-logo,
+  section.manifiesto[data-paso="1"] .mani-support,
+  section.manifiesto[data-paso="1"] .mani-logo { opacity: 0; transform: translateY(40px); transition-delay: 0s; }
+  section.manifiesto[data-paso="0"] .mani-rule { opacity: 0; transform: scaleY(0); }
   .mani-support {
     margin-top: 52px; max-width: 780px;
     font-size: clamp(15px, 1.3vw, 19px);
@@ -3022,6 +3033,16 @@
 
 
   /* ===== S4 / Quiénes somos (presentación) ===== */
+  /* S04 · Showreel: el video ocupa la lamina entera, sin recortar */
+  section.reel { padding: 0; background: #000; justify-content: center; align-items: center; }
+  .reel-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; cursor: pointer; }
+  .reel-sonido {
+    position: absolute; right: 32px; bottom: 28px; z-index: 3;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: rgba(255,255,255,0.85); background: rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.28); border-radius: 999px; padding: 10px 18px; cursor: pointer;
+  }
+  .reel-sonido span { color: var(--wtf-red); }
   .somos {
     --somos-foto: url('wtf-credenciales-slides/hero/somos-3.jpg');  /* casco rojo de perfil, elegida */
     background:
@@ -3035,7 +3056,7 @@
   .somos-logo { display: block; height: clamp(58px, 8.5vw, 124px); width: auto; margin: 4px 0 36px; }  /* 35% mas chico */
   /* mismo estilo de titulo que la slide 2 (.display + .bd-title), mas chico */
   .somos-txt {
-    font-size: clamp(22px, 2.9vw, 48px); line-height: 1.08;
+    font-size: clamp(22px, 2.9vw, 48px); line-height: 1.22;
     max-width: 1150px; margin: 0;
     text-shadow: none;   /* sin sombra en el texto: la legibilidad la da el velo */
   }
@@ -3262,7 +3283,6 @@
   <h2 class="display bd-title reveal delay-1" data-i18n="bd_title">
     LA CREATIVIDAD<br>ENTRENADA<br>PARA<br><em>REINTERPRETAR.</em>
   </h2>
-  <p class="lead reveal delay-2" style="margin-bottom:2rem;" data-i18n="bd_lead">Quince años rompiendo briefs. Construyendo campañas.<br>Llegando a donde el brief no llegaba.<br>Ningún junior aprendiendo con tu marca.<br>La IA no nos dio el criterio. Nos dio las horas para ejercerlo.</p>
   <div class="bd-logo reveal delay-3">
     <img src="wtf-credenciales-slides/logo-wtf.png" alt="WTF Agency" class="bd-logo-img">
   </div>
@@ -3276,9 +3296,16 @@
   <p class="display somos-txt reveal delay-2" data-i18n="somos_txt">Combinamos <strong>estrategia senior, creatividad, producción, data e IA</strong> para pensar, crear, mover y aprender más rápido.</p>
 </section>
 
+<!-- ============================== S4 / Showreel ============================== -->
+<section class="reel">
+  <div class="slide-tag">04 · Showreel</div>
+  <video class="reel-video" src="wtf-credenciales-slides/video/wtf-showreel.mp4" poster="wtf-credenciales-slides/video/wtf-showreel.jpg" playsinline preload="metadata"></video>
+  <button class="reel-sonido" type="button" aria-label="Sonido">Sonido · <span>ON</span></button>
+</section>
+
 <!-- ============================== S3 / Contexto ============================== -->
 <section class="ctx dense">
-  <div class="slide-tag">04 · Contexto</div>
+  <div class="slide-tag">05 · Contexto</div>
   <h2 class="display ctx-title reveal delay-1" data-i18n="ctx_title">Nadie está<br><em>esperando.</em></h2>
   <p class="ctx-sub reveal delay-1" data-i18n="ctx_sub">El consumidor no lee: escanea.<br>Decide en menos de dos segundos y sigue de largo.</p>
 
@@ -3308,7 +3335,7 @@
 
 <!-- ============================== S4 / El problema ============================== -->
 <section class="problema dense">
-  <div class="slide-tag">05 · El problema</div>
+  <div class="slide-tag">06 · El problema</div>
 
   <div class="problema-left">
     <h2 class="display reveal" data-i18n="prob_title">EL GAP<br><em>CREATIVO</em></h2>
@@ -3321,7 +3348,7 @@
 
 <!-- ============================== S6 / #WTFRULES ============================== -->
 <section class="wtfrules">
-  <div class="slide-tag">06 · #WTFRULES</div>
+  <div class="slide-tag">07 · #WTFRULES</div>
   <p class="wtfrules-text reveal" data-i18n="wtfrules_text">
     Es momento de plantearse todo <strong>nuevamente.</strong>
   </p>
@@ -3330,7 +3357,7 @@
 
 <!-- ============================== S5 / Manifiesto ============================== -->
 <section class="manifiesto">
-  <div class="slide-tag">07 · Manifiesto</div>
+  <div class="slide-tag">08 · Manifiesto</div>
 
   <div class="mani-eyebrow reveal" data-i18n="mani_eyebrow">NUESTRO MANIFIESTO</div>
 
@@ -3349,7 +3376,7 @@
 
 <!-- ============================== S7 / Quiénes somos ============================== -->
 <section class="quienes">
-  <div class="slide-tag">08 · Quiénes somos</div>
+  <div class="slide-tag">09 · Quiénes somos</div>
 
   <h2 class="display quienes-h reveal delay-1" data-i18n="quienes_title"><span>NO HACEMOS<br>CAMPAÑAS.<br><em>HACEMOS<br>SISTEMAS.</em></span></h2>
   <p class="quienes-sub reveal delay-1" data-i18n="quienes_sub">Construimos nuestro propio sistema operativo. 15 años de calle, estrategia y craft creativo corriendo dentro de una máquina que no para. No automatizamos la creatividad, la armamos para escalar.</p>
@@ -3385,7 +3412,7 @@
 
 <!-- ============================== S11 / Modelo AI First ============================== -->
 <section class="modelo">
-  <div class="slide-tag">09 · Modelo AI First</div>
+  <div class="slide-tag">10 · Modelo AI First</div>
 
   <h2 class="display modelo-title reveal delay-1" data-i18n="modelo_title">NO SUMAMOS IA AL PROCESO.<br><em>CAMBIAMOS EL PROCESO.</em></h2>
   <p class="modelo-firma reveal delay-2">#WTFRULES</p>
@@ -3394,7 +3421,7 @@
 
 <!-- ============================== S12 / WTF AI Engine ============================== -->
 <section class="engine">
-  <div class="slide-tag">10 · WTF AI Engine</div>
+  <div class="slide-tag">11 · WTF AI Engine</div>
 
   <h2 class="display engine-title reveal delay-1">WTF<br><em>Infinity Engine</em><br>OS PLATFORM</h2>
   <p class="engine-sub reveal delay-2" data-i18n="engine_sub">Más de 20 herramientas de IA corriendo en un solo flujo.<br>Del brief a la escala, sin traspasos ni tiempos muertos.<br><strong>Nada sale de acá sin que un humano lo firme.</strong></p>
@@ -3523,7 +3550,7 @@
 
 <!-- ============================== S10 / Operación conectada ============================== -->
 <section class="opconn">
-  <div class="slide-tag">11 · Operación conectada</div>
+  <div class="slide-tag">12 · Operación conectada</div>
   <canvas class="iehud3" width="1920" height="1080" role="img" aria-label="Cómo opera Infinite Engine: siete fuentes de contexto entran al motor, el criterio humano lo dirige y salen siete tipos de trabajo. El ciclo devuelve los resultados al sistema."></canvas>
   <button class="iepaso-rs" type="button" aria-label="Reiniciar la animación">↻ Reiniciar</button>
 </section>
@@ -3532,7 +3559,7 @@
 
 <!-- ============================== S8 / Clientes ============================== -->
 <section class="clientes dense">
-  <div class="slide-tag">12 · Clientes</div>
+  <div class="slide-tag">13 · Clientes</div>
   <h2 class="display clientes-title reveal" data-i18n="clientes_title">NO SON LOGOS.<br><em>SON AÑOS.</em></h2>
   <p class="clientes-sub reveal delay-1" data-i18n="clientes_sub">Los años no se pitchean.</p>
   <div class="logos-static reveal delay-2">
@@ -3571,7 +3598,7 @@
 
 <!-- ============================== S17 / Galería ============================== -->
 <section class="galeria dense">
-  <div class="slide-tag">13 · Galería</div>
+  <div class="slide-tag">14 · Galería</div>
   <div class="galeria-hero">
     <h2 class="display galeria-title reveal" data-i18n="gal_title">WTF AGENCY<br><em>EN ACCIÓN</em></h2>
     <p class="galeria-sub reveal delay-1" data-i18n="gal_sub">Campañas completas salidas del mismo sistema. Comunicación real para marcas reales, en el aire.</p>
@@ -3729,7 +3756,7 @@
 
 <!-- ============================== SLIDE 13a / Portfolio ============================== -->
 <section class="nfx-s1 dense" style="padding:30px 4.5vw 40px;background:var(--bg-deep);overflow-y:auto;overflow-x:hidden;justify-content:flex-start;">
-  <div class="slide-tag">14 · Portfolio</div>
+  <div class="slide-tag">15 · Portfolio</div>
 
   <div class="eyebrow reveal" style="margin-top:1rem;">Brief Destroyers</div>
   <h2 class="display casos-title reveal delay-1" data-i18n="portfolio_title" style="margin-bottom:8px;font-size:clamp(40px,6vw,94px);">NUESTROS<br><em>TRABAJOS</em></h2>
@@ -3962,7 +3989,7 @@
 
   // Slide names for HUD
   const slideNames = [
-    'Cover', 'Brief Destroyers', 'Quiénes somos', 'Contexto', 'El problema',
+    'Cover', 'Brief Destroyers', 'Quiénes somos', 'Showreel', 'Contexto', 'El problema',
     '#WTFRULES', 'Manifiesto', 'Quiénes somos', 'Modelo AI First',
     'WTF AI Engine', 'Operación conectada',
     'Clientes', 'Galería',
@@ -4289,7 +4316,7 @@
         // S2 — Brief Destroyers
         bd_eyebrow: 'WTF Agency · Filosofía',
         bd_title: 'LA CREATIVIDAD<br>ENTRENADA<br>PARA<br><em>REINTERPRETAR.</em>',
-        bd_lead: 'Quince años rompiendo briefs. Construyendo campañas.<br>Llegando a donde el brief no llegaba.<br>Ningún junior aprendiendo con tu marca.<br>La IA no nos dio el criterio. Nos dio las horas para ejercerlo.',
+        bd_lead: 'Quince años rompiendo briefs.<br>Las campañas que importan nacen de llevar cada brief más lejos.<br>Cada decisión la toma alguien que ya la tomó cien veces.<br>La IA no nos dio el criterio. Nos dio las horas para ejercerlo.',
         bd_list: '<li>· Diagnóstico antes que ejecución</li><li>· Insight antes que copy</li><li>· Sistema antes que pieza</li><li>· Velocidad sin perder criterio</li>',
         bd_sub: 'BATTLE TESTED CREATIVITY · SINCE 2010',
         // S3 — Contexto
@@ -4467,7 +4494,7 @@
         // S2 — Brief Destroyers
         bd_eyebrow: 'WTF Agency · Philosophy',
         bd_title: 'CREATIVITY<br>TRAINED<br>TO<br><em>REINTERPRET.</em>',
-        bd_lead: 'Fifteen years breaking briefs. Building campaigns.<br>Getting to where the brief never got.<br>No junior learning on your brand.<br>AI did not give us the judgment. It gave us the hours to use it.',
+        bd_lead: 'Fifteen years breaking briefs.<br>The campaigns that matter come from taking every brief further.<br>Every decision is made by someone who has made it a hundred times.<br>AI did not give us the judgment. It gave us the hours to use it.',
         bd_list: '<li>· Diagnosis before execution</li><li>· Insight before copy</li><li>· System before piece</li><li>· Speed without losing judgment</li>',
         bd_sub: 'BATTLE TESTED CREATIVITY · SINCE 2010',
         // S3 — Context
@@ -4645,7 +4672,7 @@
         // S2 — Brief Destroyers
         bd_eyebrow: 'WTF Agency · Filosofia',
         bd_title: 'A CRIATIVIDADE<br>TREINADA<br>PARA<br><em>REINTERPRETAR.</em>',
-        bd_lead: 'Quinze anos quebrando briefs. Construindo campanhas.<br>Chegando aonde o brief não chegava.<br>Nenhum júnior aprendendo na sua marca.<br>A IA não nos deu o critério. Deu as horas para exercê-lo.',
+        bd_lead: 'Quinze anos quebrando briefs.<br>As campanhas que importam nascem de levar cada brief mais longe.<br>Cada decisão é tomada por alguém que já a tomou cem vezes.<br>A IA não nos deu o critério. Deu as horas para exercê-lo.',
         bd_list: '<li>· Diagnóstico antes da execução</li><li>· Insight antes do copy</li><li>· Sistema antes da peça</li><li>· Velocidade sem perder critério</li>',
         bd_sub: 'CRIATIVIDADE TESTADA EM BATALHA · DESDE 2010',
         // S3 — Contexto
@@ -5715,6 +5742,50 @@ function poly(p,color){ctx.strokeStyle=color;ctx.lineWidth=2.4;ctx.beginPath();p
 function alongPath(path,u,fn){let segs=[],tot=0;for(let i=1;i<path.length;i++){const l=Math.hypot(path[i][0]-path[i-1][0],path[i][1]-path[i-1][1]);segs.push(l);tot+=l;}
  let d=u*tot,i=0;while(i<segs.length-1&&d>segs[i]){d-=segs[i];i++;}const a=path[i],b=path[i+1];const f=d/segs[i];fn([a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f]);}
 document.fonts.ready.then(()=>requestAnimationFrame(frame));
+})();
+</script>
+<script>/* S07 · Manifiesto paso a paso: "Una idea ya no alcanza." -> click "Hace falta un sistema
+   que no pare." -> click el manifiesto. Volviendo desde la lamina siguiente se ve completa. */
+(() => {
+const slide=document.querySelector('section.manifiesto');if(!slide)return;
+const ALLS=[...document.querySelectorAll('section')], ME=ALLS.indexOf(slide), LAST=2;
+let paso=LAST, prev=-1, wasOn=false;
+const set=n=>{paso=n;slide.dataset.paso=n;};
+const activo=()=>slide.classList.contains('active');
+function sync(){
+ const on=activo();
+ if(on&&!wasOn)set(prev>ME?LAST:0);
+ if(!on)prev=ALLS.findIndex(x=>x.classList.contains('active'));
+ wasOn=on;
+}
+new MutationObserver(sync).observe(slide,{attributes:true,attributeFilter:['class']});
+ALLS.forEach(x=>{if(x!==slide)new MutationObserver(()=>{if(!activo())prev=ALLS.findIndex(y=>y.classList.contains('active'));}).observe(x,{attributes:true,attributeFilter:['class']});});
+sync();
+const step=()=>set(paso+1);
+const FWD=['ArrowRight','ArrowDown','PageDown',' ','Enter'];
+addEventListener('keydown',e=>{if(!activo()||paso>=LAST||!FWD.includes(e.key))return;e.preventDefault();e.stopImmediatePropagation();step();},true);
+{const nb=document.getElementById('navNext');if(nb)nb.addEventListener('click',e=>{if(!activo()||paso>=LAST)return;e.stopImmediatePropagation();step();},true);}
+let wl=0;addEventListener('wheel',e=>{if(!activo()||paso>=LAST||e.deltaY<=0)return;e.preventDefault();e.stopImmediatePropagation();const n=performance.now();if(n-wl<750||Math.abs(e.deltaY)<30)return;wl=n;step();},{capture:true,passive:false});
+slide.addEventListener('click',e=>{if(e.target.closest('a,button'))return;
+ if(paso<LAST)step();else{const nb=document.getElementById('navNext');if(nb)nb.click();}});
+})();
+</script>
+<script>/* S04 · Showreel: arranca de cero con sonido al entrar, se pausa al salir.
+   Si el navegador bloquea el sonido, arranca mudo y el boton lo habilita. */
+(() => {
+const slide=document.querySelector('section.reel');if(!slide)return;
+const v=slide.querySelector('video'), b=slide.querySelector('.reel-sonido'), lbl=b.querySelector('span');
+const pinta=()=>{lbl.textContent=v.muted?'OFF':'ON';};
+let on=false;
+function sync(){
+ const a=slide.classList.contains('active');
+ if(a&&!on){v.currentTime=0;v.muted=false;const p=v.play();if(p)p.catch(()=>{v.muted=true;v.play().catch(()=>{});pinta();});pinta();}
+ if(!a&&on)v.pause();
+ on=a;
+}
+new MutationObserver(sync).observe(slide,{attributes:true,attributeFilter:['class']});sync();
+b.addEventListener('click',e=>{e.stopPropagation();v.muted=!v.muted;if(v.paused)v.play().catch(()=>{});pinta();});
+v.addEventListener('click',()=>{if(v.paused)v.play().catch(()=>{});else v.pause();});
 })();
 </script>
 </body>
