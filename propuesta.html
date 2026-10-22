@@ -590,11 +590,19 @@
     background: rgba(30,30,38,0.4);
     border: 1px solid var(--line);
     border-radius: 10px;
-    font-size: 14.5px;
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.65;
     color: var(--bone-dim);
   }
   .base-services strong { color: var(--bone); font-weight: 600; }
+  .base-services-title {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--bone);
+    letter-spacing: .02em;
+    margin-bottom: 14px;
+  }
   /* ====== PILOT SECTION ====== */
   .pilot-section { padding: 80px 7vw; border-top: 1px solid var(--line); }
   .pilot-eyebrow {
@@ -986,7 +994,8 @@
     .split-val .big { font-size: clamp(20px, 6.5vw, 30px); }
     .split-insight { display: none; }
     .process-compare { grid-template-columns: 1fr; gap: 32px; }
-    .base-services { padding: 18px 20px; font-size: 14px; }
+    .base-services { padding: 18px 20px; font-size: 15px; }
+    .base-services-title { font-size: 18px; }
   }
 
   /* ====== PRINT / PDF ====== */
@@ -1422,7 +1431,7 @@
   <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px">
     <span class="pricing-badge trial" data-i18n="badge_trial">Trial de 90 días con opción de salida si no hay fit</span>
   </div>
-  <p class="base-services" data-i18n="base_services"><strong>Todos los planes incluyen, con distinto alcance:</strong> estrategia y planificación de contenido · responsable de cuenta asignado · social media management (calendario, copy, programación y publicación) · community management · implementación del calendario aprobado en los canales contratados · producción creativa potenciada por IA · medición y recomendaciones para el período siguiente.</p>
+  <p class="base-services"><span class="base-services-title" data-i18n="base_title">Alcance</span><span data-i18n="base_services"><strong>Todos los planes incluyen, con distinto alcance:</strong> estrategia y planificación de contenido · responsable de cuenta asignado · social media management (calendario, copy, programación y publicación) · community management · implementación del calendario aprobado en los canales contratados · producción creativa potenciada por IA · medición y recomendaciones para el período siguiente.</span></p>
 
   <div class="pricing-grid">
     <div class="pricing-card">
@@ -1712,6 +1721,7 @@ if (proofStrip) proofObs.observe(proofStrip);
       proof_stat: '<strong>15 años</strong> construyendo marcas en Latinoamérica y el mundo',
       plans_title: 'PLANES<br><em>MENSUALES</em>',
       badge_trial: 'Trial de 90 días con opción de salida si no hay fit',
+      base_title: 'Alcance',
       base_services: '<strong>Todos los planes incluyen, con distinto alcance:</strong> estrategia y planificación de contenido · responsable de cuenta asignado · social media management (calendario, copy, programación y publicación) · community management · implementación del calendario aprobado en los canales contratados · producción creativa potenciada por IA · medición y recomendaciones para el período siguiente.',
       pricing_period: 'MENSUAL · CONTRATO ANUAL', pricing_period_2: 'MENSUAL · CONTRATO ANUAL', pricing_period_3: 'MENSUAL · CONTRATO ANUAL',
       grp_ec: 'Estrategia y cuenta', grp_or: 'Operación de redes', grp_pr: 'Producción', grp_md: 'Medición', grp_mde: 'Medición y equipo',
@@ -1843,6 +1853,7 @@ if (proofStrip) proofObs.observe(proofStrip);
       proof_stat: '<strong>15 years</strong> building brands in Latin America and the world',
       plans_title: 'MONTHLY<br><em>PLANS</em>',
       badge_trial: '90-day trial with exit option if there\'s no fit',
+      base_title: 'Scope',
       base_services: '<strong>Every plan includes, at different scopes:</strong> content strategy and planning · assigned account lead · social media management (calendar, copy, scheduling and publishing) · community management · implementation of the approved calendar on the contracted channels · AI-powered creative production · measurement and recommendations for the next period.',
       pricing_period: 'MONTHLY · ANNUAL CONTRACT', pricing_period_2: 'MONTHLY · ANNUAL CONTRACT', pricing_period_3: 'MONTHLY · ANNUAL CONTRACT',
       grp_ec: 'Strategy and account', grp_or: 'Social operations', grp_pr: 'Production', grp_md: 'Measurement', grp_mde: 'Measurement and team',
@@ -1974,6 +1985,7 @@ if (proofStrip) proofObs.observe(proofStrip);
       proof_stat: '<strong>15 anos</strong> construindo marcas na América Latina e no mundo',
       plans_title: 'PLANOS<br><em>MENSAIS</em>',
       badge_trial: 'Trial de 90 dias com opção de saída se não houver fit',
+      base_title: 'Alcance',
       base_services: '<strong>Todos os planos incluem, com alcances diferentes:</strong> estratégia e planejamento de conteúdo · responsável de conta atribuído · social media management (calendário, copy, agendamento e publicação) · community management · implementação do calendário aprovado nos canais contratados · produção criativa potencializada por IA · medição e recomendações para o período seguinte.',
       pricing_period: 'MENSAL · CONTRATO ANUAL', pricing_period_2: 'MENSAL · CONTRATO ANUAL', pricing_period_3: 'MENSAL · CONTRATO ANUAL',
       grp_ec: 'Estratégia e conta', grp_or: 'Operação de redes', grp_pr: 'Produção', grp_md: 'Medição', grp_mde: 'Medição e equipe',
