@@ -2072,6 +2072,8 @@
   /* slide 2 sin bajada: el titular queda centrado en el alto (relleno parejo y sin margen inferior) */
   section.brief-destroyers { padding-top: 100px; padding-bottom: 100px; }
   section.brief-destroyers .bd-title { margin-bottom: 0; }
+  .bd-since { position: relative; z-index: 2; max-width: 17em; line-height: 1.45; margin: clamp(16px, 1.8vw, 30px) 0 0; font-size: clamp(13px, 1.15vw, 19px); font-weight: 300; letter-spacing: 0.02em; color: var(--bone-dim); }
+  .bd-since strong { color: #fff; font-weight: 600; }
   .bd-sub {
     font-size: 20px; color: var(--bone-dim);
     line-height: 1.65; max-width: 680px; margin-bottom: 40px;
@@ -3397,6 +3399,7 @@
   <h2 class="display bd-title reveal delay-1" data-i18n="bd_title">
     LA CREATIVIDAD<br>ENTRENADA<br>PARA<br><em>REINTERPRETAR.</em>
   </h2>
+  <p class="bd-since reveal delay-2" data-i18n="bd_since"><strong>Desde 2010</strong> rompiendo briefs para llevar cada idea más lejos.</p>
   <div class="bd-logo reveal delay-3">
     <img src="wtf-credenciales-slides/logo-wtf.png" alt="WTF Agency" class="bd-logo-img">
   </div>
@@ -3407,7 +3410,7 @@
   <div class="slide-tag">03 · Quiénes somos</div>
   <p class="eyebrow reveal" data-i18n="somos_q">¿Quiénes somos?</p>
   <img class="somos-logo reveal delay-1" src="wtf-credenciales-slides/logo-wtf.png" alt="WTF Agency · Brief Destroyers">
-  <p class="display somos-txt reveal delay-2" data-i18n="somos_txt">Combinamos <strong>estrategia senior, creatividad, producción, data e IA</strong> para pensar, crear, mover y aprender más rápido.</p>
+  <p class="display somos-txt reveal delay-2" data-i18n="somos_txt">Combinamos <strong>estrategia senior, creatividad, producción, data e Inteligencia Artificial</strong> para pensar, crear, mover y aprender más rápido.</p>
 </section>
 
 <!-- ============================== S4 / Showreel ============================== -->
@@ -3453,7 +3456,7 @@
 
   <div class="problema-left">
     <h2 class="display reveal" data-i18n="prob_title">EL GAP<br><em>CREATIVO</em></h2>
-    <p class="reveal delay-1" data-i18n="prob_body">Nunca entregamos una pieza que<br>no pudiéramos defender.<br>Ese fue el trato,<br>y lo sostuvimos quince años.<br>Después el mundo pidió más formatos,<br>más plataformas, más piezas por semana.<br>Y menos presupuesto para hacerlas.<br>La vara no se movió. El mundo sí.<br><strong>Ese es el gap que había que cerrar.<br>Y no había equipo humano que llegara.</strong></p>
+    <p class="reveal delay-1" data-i18n="prob_body">Nunca entregamos una pieza que<br>no pudiéramos defender.<br>Ese fue el trato,<br>y lo sostuvimos quince años.<br>Después el mundo pidió más formatos,<br>más plataformas, más piezas por semana.<br>Y menos presupuesto para hacerlas.<br>La vara no se movió. El mundo sí.<br><strong>Ese es el gap que había que cerrar.<br>Lo cerramos creando un sistema propio:<br>el mismo criterio de siempre, ahora potenciado por IA.</strong></p>
   </div>
 
 
@@ -4327,7 +4330,7 @@
         pr_s1: '<b>48/72 horas</b><span>hasta salir en vivo</span>',
         pr_s2: '<b>50+ variantes</b><span>por plataforma y público</span>',
         pr_s3: '<b>48 h</b><span>entre cada aprendizaje</span>',
-        somos_txt: 'Combinamos <strong>estrategia senior, creatividad, producción, data e IA</strong> para pensar, crear, mover y aprender más rápido.',
+        somos_txt: 'Combinamos <strong>estrategia senior, creatividad, producción, data e Inteligencia Artificial</strong> para pensar, crear, mover y aprender más rápido.',
         // S1 — Cover
         cover_left: 'WTF AGENCY<br>BATTLE TESTED CREATIVITY · SINCE 2010',
         cover_right: 'CREDENTIALS 2026<br>BUENOS AIRES, MAYO',
@@ -4336,6 +4339,7 @@
         // S2 — Brief Destroyers
         bd_eyebrow: 'WTF Agency · Filosofía',
         bd_title: 'LA CREATIVIDAD<br>ENTRENADA<br>PARA<br><em>REINTERPRETAR.</em>',
+        bd_since: '<strong>Desde 2010</strong> rompiendo briefs para llevar cada idea más lejos.',
         bd_lead: 'Quince años rompiendo briefs.<br>Las campañas que importan nacen de llevar cada brief más lejos.<br>Cada decisión la toma alguien que ya la tomó cien veces.<br>La IA no nos dio el criterio. Nos dio las horas para ejercerlo.',
         bd_list: '<li>· Diagnóstico antes que ejecución</li><li>· Insight antes que copy</li><li>· Sistema antes que pieza</li><li>· Velocidad sin perder criterio</li>',
         bd_sub: 'BATTLE TESTED CREATIVITY · SINCE 2010',
@@ -4349,7 +4353,7 @@
         ctx_stat4: 'La Gen Z descubre en video corto y después mira la versión larga. No es formato vs. formato: es un mismo viaje.',
         // S4 — El problema
         prob_title: 'EL GAP<br><em>CREATIVO</em>',
-        prob_body: 'Nunca entregamos una pieza que<br>no pudiéramos defender.<br>Ese fue el trato,<br>y lo sostuvimos quince años.<br>Después el mundo pidió más formatos,<br>más plataformas, más piezas por semana.<br>Y menos presupuesto para hacerlas.<br>La vara no se movió. El mundo sí.<br><strong>Ese es el gap que había que cerrar.<br>Y no había equipo humano que llegara.</strong>',
+        prob_body: 'Nunca entregamos una pieza que<br>no pudiéramos defender.<br>Ese fue el trato,<br>y lo sostuvimos quince años.<br>Después el mundo pidió más formatos,<br>más plataformas, más piezas por semana.<br>Y menos presupuesto para hacerlas.<br>La vara no se movió. El mundo sí.<br><strong>Ese es el gap que había que cerrar.<br>Lo cerramos creando un sistema propio:<br>el mismo criterio de siempre, ahora potenciado por IA.</strong>',
         // S5 — Manifiesto
         mani_eyebrow: 'NUESTRO MANIFIESTO · #WTFRULES',
         mani_left: 'Una idea<br><strong>YA NO ALCANZA.</strong>',
@@ -4545,7 +4549,7 @@
         pr_s1: '<b>48/72 hours</b><span>to go live</span>',
         pr_s2: '<b>50+ variants</b><span>per platform and audience</span>',
         pr_s3: '<b>48 h</b><span>between each learning</span>',
-        somos_txt: 'We combine <strong>senior strategy, creativity, production, data and AI</strong> to think, create, move and learn faster.',
+        somos_txt: 'We combine <strong>senior strategy, creativity, production, data and Artificial Intelligence</strong> to think, create, move and learn faster.',
         // S1 — Cover
         cover_left: 'WTF AGENCY<br>BATTLE TESTED CREATIVITY · SINCE 2010',
         cover_right: 'CREDENTIALS 2026<br>BUENOS AIRES, MAY',
@@ -4554,6 +4558,7 @@
         // S2 — Brief Destroyers
         bd_eyebrow: 'WTF Agency · Philosophy',
         bd_title: 'CREATIVITY<br>TRAINED<br>TO<br><em>REINTERPRET.</em>',
+        bd_since: '<strong>Since 2010</strong> breaking briefs to take every idea further.',
         bd_lead: 'Fifteen years breaking briefs.<br>The campaigns that matter come from taking every brief further.<br>Every decision is made by someone who has made it a hundred times.<br>AI did not give us the judgment. It gave us the hours to use it.',
         bd_list: '<li>· Diagnosis before execution</li><li>· Insight before copy</li><li>· System before piece</li><li>· Speed without losing judgment</li>',
         bd_sub: 'BATTLE TESTED CREATIVITY · SINCE 2010',
@@ -4567,7 +4572,7 @@
         ctx_stat4: 'Of Gen Z discover on short video and then watch the long version. Not format versus format: one journey.',
         // S4 — The Problem
         prob_title: 'THE<br><em>CREATIVE GAP</em>',
-        prob_body: 'We never shipped a piece we<br>could not defend.<br>That was the deal,<br>and we kept it for fifteen years.<br>Then the world asked for more formats,<br>more platforms, more pieces per week.<br>And less budget to make them.<br>The bar did not move. The world did.<br><strong>That is the gap we had to close.<br>And no human team could reach it.</strong>',
+        prob_body: 'We never shipped a piece we<br>could not defend.<br>That was the deal,<br>and we kept it for fifteen years.<br>Then the world asked for more formats,<br>more platforms, more pieces per week.<br>And less budget to make them.<br>The bar did not move. The world did.<br><strong>That is the gap we had to close.<br>We closed it by building a system of our own:<br>the same judgment as always, now powered by AI.</strong>',
         // S5 — Manifesto
         mani_eyebrow: 'OUR MANIFESTO · #WTFRULES',
         mani_left: 'One idea<br><strong>IS NO LONGER ENOUGH.</strong>',
@@ -4763,7 +4768,7 @@
         pr_s1: '<b>48/72 horas</b><span>até entrar no ar</span>',
         pr_s2: '<b>50+ variações</b><span>por plataforma e público</span>',
         pr_s3: '<b>48 h</b><span>entre cada aprendizado</span>',
-        somos_txt: 'Combinamos <strong>estratégia sênior, criatividade, produção, dados e IA</strong> para pensar, criar, mover e aprender mais rápido.',
+        somos_txt: 'Combinamos <strong>estratégia sênior, criatividade, produção, dados e Inteligência Artificial</strong> para pensar, criar, mover e aprender mais rápido.',
         // S1 — Cover
         cover_left: 'WTF AGENCY<br>CRIATIVIDADE TESTADA EM BATALHA · DESDE 2010',
         cover_right: 'CREDENTIALS 2026<br>BUENOS AIRES, MAIO',
@@ -4772,6 +4777,7 @@
         // S2 — Brief Destroyers
         bd_eyebrow: 'WTF Agency · Filosofia',
         bd_title: 'A CRIATIVIDADE<br>TREINADA<br>PARA<br><em>REINTERPRETAR.</em>',
+        bd_since: '<strong>Desde 2010</strong> quebrando briefs para levar cada ideia mais longe.',
         bd_lead: 'Quinze anos quebrando briefs.<br>As campanhas que importam nascem de levar cada brief mais longe.<br>Cada decisão é tomada por alguém que já a tomou cem vezes.<br>A IA não nos deu o critério. Deu as horas para exercê-lo.',
         bd_list: '<li>· Diagnóstico antes da execução</li><li>· Insight antes do copy</li><li>· Sistema antes da peça</li><li>· Velocidade sem perder critério</li>',
         bd_sub: 'CRIATIVIDADE TESTADA EM BATALHA · DESDE 2010',
@@ -4785,7 +4791,7 @@
         ctx_stat4: 'Da Gen Z descobre em vídeo curto e depois vê a versão longa. Não é formato contra formato: é uma mesma jornada.',
         // S4 — O problema
         prob_title: 'O GAP<br><em>CRIATIVO</em>',
-        prob_body: 'Nunca entregamos uma peça que<br>não pudéssemos defender.<br>Esse foi o trato,<br>e o sustentamos quinze anos.<br>Depois o mundo pediu mais formatos,<br>mais plataformas, mais peças por semana.<br>E menos orçamento para fazê-las.<br>A régua não se moveu. O mundo sim.<br><strong>Esse é o gap que era preciso fechar.<br>E não havia equipe humana que chegasse.</strong>',
+        prob_body: 'Nunca entregamos uma peça que<br>não pudéssemos defender.<br>Esse foi o trato,<br>e o sustentamos quinze anos.<br>Depois o mundo pediu mais formatos,<br>mais plataformas, mais peças por semana.<br>E menos orçamento para fazê-las.<br>A régua não se moveu. O mundo sim.<br><strong>Esse é o gap que era preciso fechar.<br>Fechamos criando um sistema próprio:<br>o mesmo critério de sempre, agora potencializado por IA.</strong>',
         // S5 — Manifesto
         mani_eyebrow: 'NOSSO MANIFESTO · #WTFRULES',
         mani_left: 'Uma ideia<br><strong>JÁ NÃO BASTA.</strong>',
