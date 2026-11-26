@@ -3123,13 +3123,7 @@
 
   /* ===== Infinite Pods: portada del deck de IE. --u = 1px de la lamina original de 1920x1080 ===== */
   section.pods { --u: min(0.0520833vw, 0.0925926vh); justify-content: flex-start; align-items: stretch; padding: calc(150 * var(--u)) calc(140 * var(--u)) calc(96 * var(--u));
-    background: linear-gradient(180deg, rgba(10,10,12,.62) 0%, rgba(10,10,12,.40) 45%, rgba(10,10,12,.62) 100%), var(--pods-foto, url('wtf-credenciales-slides/hero/slide_12_1456x816.jpeg')) center/cover no-repeat, var(--bg-deep); }
-  /* selector de fondo de prueba (solo para elegir; se saca al definir la foto) */
-  section > .bgsel, section.pods > .bgsel { position: absolute; z-index: 20; top: 74px; right: 28px; display: flex; gap: 6px; padding: 6px; background: rgba(10,10,12,.78); border: 1px solid rgba(244,241,232,.22); border-radius: 10px; }
-  .bgsel button { width: 64px; height: 38px; padding: 0; border: 2px solid transparent; border-radius: 6px; background-size: cover; background-position: center; cursor: pointer; position: relative; }
-  .bgsel button.on { border-color: var(--wtf-red); }
-  .bgsel button span { position: absolute; left: 3px; bottom: 2px; font-family: var(--mono); font-size: 9px; color: #fff; background: rgba(10,10,12,.7); padding: 0 3px; border-radius: 3px; }
-  @media (max-width: 760px) { .bgsel { display: none; } }
+    background: linear-gradient(180deg, rgba(10,10,12,.62) 0%, rgba(10,10,12,.40) 45%, rgba(10,10,12,.62) 100%), url('wtf-credenciales-slides/hero/modelo-duna.jpg') center/cover no-repeat, var(--bg-deep); }
   section.pods > * { position: relative; z-index: 2; }
   section.pods .eyebrow { color: var(--wtf-red); margin-bottom: calc(26 * var(--u)); font-size: calc(16 * var(--u)); }
   section.pods .eyebrow::before { background: var(--wtf-red); }
@@ -3722,7 +3716,6 @@
 
 <!-- ============================== Infinite Pods (portada del deck de IE · 05) ============================== -->
 <section class="pods">
-  <div class="bgsel" data-sel="pods"><button type="button" data-f="wtf-credenciales-slides/hero/pods-arena.jpg" title="Arena (actual)" style="background-image:url('wtf-credenciales-slides/hero/pods-arena.jpg')"><span>1</span></button><button type="button" data-f="wtf-credenciales-slides/hero/modelo-duna.jpg" title="Duna" style="background-image:url('wtf-credenciales-slides/hero/modelo-duna.jpg')"><span>2</span></button><button type="button" data-f="wtf-credenciales-slides/hero/slide_12_1456x816.jpeg" title="Rocas" style="background-image:url('wtf-credenciales-slides/hero/slide_12_1456x816.jpeg')"><span>3</span></button><button type="button" data-f="wtf-credenciales-slides/hero/slide_06_1456x816.jpeg" title="Rampa" style="background-image:url('wtf-credenciales-slides/hero/slide_06_1456x816.jpeg')"><span>4</span></button><button type="button" data-f="wtf-credenciales-slides/bg-planes.jpg" title="Antiparras" style="background-image:url('wtf-credenciales-slides/bg-planes.jpg')"><span>5</span></button><button type="button" data-f="wtf-credenciales-slides/hero/engine_turbine.jpeg" title="Turbina" style="background-image:url('wtf-credenciales-slides/hero/engine_turbine.jpeg')"><span>6</span></button><button type="button" data-f="wtf-credenciales-slides/hero/slide_01_1688x816.jpeg" title="Skater" style="background-image:url('wtf-credenciales-slides/hero/slide_01_1688x816.jpeg')"><span>7</span></button><button type="button" data-f="wtf-credenciales-slides/hero/slide_23_1612x848.jpeg" title="Moto" style="background-image:url('wtf-credenciales-slides/hero/slide_23_1612x848.jpeg')"><span>8</span></button></div>
   <div class="slide-tag">11 · Infinite Pods</div>
   <p class="eyebrow reveal" data-i18n="pd_eyebrow">Infinite Pods</p>
   <h2 class="display pr-title reveal delay-1" data-i18n="pd_title">UN POD ES UN ÁREA DE MARKETING COMPLETA.<br><em>POR UNA SOLA SUSCRIPCIÓN.</em></h2>
@@ -6042,13 +6035,5 @@ v.addEventListener('click',()=>{if(v.paused)v.play().catch(()=>{});else v.pause(
 })();
 </script>
 <script src="/acceso/track.js" defer></script>
-<script>/* selector de fondo de prueba: cambia la foto de la lamina y recuerda la elegida en este navegador */
-document.querySelectorAll('.bgsel').forEach(sel => { if (!/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) { sel.remove(); return; }  /* publicado: sin selector, queda la foto por defecto */
-  const sec = sel.closest('section'), K = 'wtf-bgsel-' + sel.dataset.sel, bs = [...sel.querySelectorAll('button')];
-  const set = f => { sec.style.setProperty('--pods-foto', "url('" + f + "')"); bs.forEach(b => b.classList.toggle('on', b.dataset.f === f)); try { localStorage.setItem(K, f); } catch (e) {} };
-  let f0 = 'wtf-credenciales-slides/hero/slide_12_1456x816.jpeg'; try { f0 = localStorage.getItem(K) || f0; } catch (e) {}
-  set(bs.some(b => b.dataset.f === f0) ? f0 : 'wtf-credenciales-slides/hero/slide_12_1456x816.jpeg');
-  bs.forEach(b => b.addEventListener('click', e => { e.stopPropagation(); set(b.dataset.f); })); });
-</script>
 </body>
 </html>
