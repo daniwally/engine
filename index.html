@@ -2014,6 +2014,8 @@
     margin: 0 auto 56px;
     line-height: 1.35;
   }
+  .gracias-paso { position: relative; z-index: 2; margin: clamp(18px, 2.2vw, 36px) auto 0; max-width: 620px; text-align: center; font-size: clamp(14px, 1.25vw, 20px); line-height: 1.5; color: var(--bone-dim); }
+  .gracias-paso strong { color: #fff; font-weight: 600; }
   .gracias-sign {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
@@ -3121,7 +3123,13 @@
 
   /* ===== Infinite Pods: portada del deck de IE. --u = 1px de la lamina original de 1920x1080 ===== */
   section.pods { --u: min(0.0520833vw, 0.0925926vh); justify-content: flex-start; align-items: stretch; padding: calc(150 * var(--u)) calc(140 * var(--u)) calc(96 * var(--u));
-    background: linear-gradient(180deg, rgba(10,10,12,.62) 0%, rgba(10,10,12,.40) 45%, rgba(10,10,12,.62) 100%), url('wtf-credenciales-slides/hero/pods-arena.jpg') center/cover no-repeat, var(--bg-deep); }
+    background: linear-gradient(180deg, rgba(10,10,12,.62) 0%, rgba(10,10,12,.40) 45%, rgba(10,10,12,.62) 100%), var(--pods-foto, url('wtf-credenciales-slides/hero/slide_12_1456x816.jpeg')) center/cover no-repeat, var(--bg-deep); }
+  /* selector de fondo de prueba (solo para elegir; se saca al definir la foto) */
+  section > .bgsel, section.pods > .bgsel { position: absolute; z-index: 20; top: 74px; right: 28px; display: flex; gap: 6px; padding: 6px; background: rgba(10,10,12,.78); border: 1px solid rgba(244,241,232,.22); border-radius: 10px; }
+  .bgsel button { width: 64px; height: 38px; padding: 0; border: 2px solid transparent; border-radius: 6px; background-size: cover; background-position: center; cursor: pointer; position: relative; }
+  .bgsel button.on { border-color: var(--wtf-red); }
+  .bgsel button span { position: absolute; left: 3px; bottom: 2px; font-family: var(--mono); font-size: 9px; color: #fff; background: rgba(10,10,12,.7); padding: 0 3px; border-radius: 3px; }
+  @media (max-width: 760px) { .bgsel { display: none; } }
   section.pods > * { position: relative; z-index: 2; }
   section.pods .eyebrow { color: var(--wtf-red); margin-bottom: calc(26 * var(--u)); font-size: calc(16 * var(--u)); }
   section.pods .eyebrow::before { background: var(--wtf-red); }
@@ -3223,6 +3231,10 @@
     section.anio .an-ico { width: 40px; height: 40px; } section.anio .an-ico svg { width: 20px; height: 20px; }
     section.anio .remate { font-size: 10px; align-items: flex-start; }
   }
+
+  /* Quienes somos: las tres frases mandan; las capacidades van abajo, mas chicas */
+  .somos-txt strong { display: block; }
+  .somos-cap { display: block; margin-top: clamp(16px, 1.8vw, 30px); max-width: 36em; font-size: 0.54em; text-wrap: balance; line-height: 1.5; letter-spacing: 0.08em; color: rgba(255,255,255,0.82); }
 
   /* ===== S10 / Operación conectada ===== */
   /* Mismo tratamiento de fondo que la slide 9: foto sola + velo que entra al activarse */
@@ -3437,39 +3449,9 @@
 
 </section>
 
-<!-- ============================== S2 / Brief Destroyers ============================== -->
-<section class="brief-destroyers">
-  <video class="section-bg-video" autoplay muted loop playsinline>
-    <source src="wtf-credenciales-slides/bg-cta.mp4" type="video/mp4">
-  </video>
-  <div class="slide-tag">02 · Brief Destroyers</div>
-  <h2 class="display bd-title reveal delay-1" data-i18n="bd_title">
-    LA CREATIVIDAD<br>ENTRENADA<br>PARA<br><em>REINTERPRETAR.</em>
-  </h2>
-  <p class="bd-since reveal delay-2" data-i18n="bd_since"><strong>Desde 2010</strong> rompiendo briefs para llevar cada idea más lejos.</p>
-  <div class="bd-logo reveal delay-3">
-    <img src="wtf-credenciales-slides/logo-wtf.png" alt="WTF Agency" class="bd-logo-img">
-  </div>
-</section>
-
-<!-- ============================== S4 / Quiénes somos (presentación) ============================== -->
-<section class="somos">
-  <div class="slide-tag">03 · Quiénes somos</div>
-  <p class="eyebrow reveal" data-i18n="somos_q">¿Quiénes somos?</p>
-  <img class="somos-logo reveal delay-1" src="wtf-credenciales-slides/logo-wtf.png" alt="WTF Agency · Brief Destroyers">
-  <p class="display somos-txt reveal delay-2" data-i18n="somos_txt">Combinamos <strong>estrategia senior, creatividad, producción, data e Inteligencia Artificial</strong> para pensar, crear, mover y aprender más rápido.</p>
-</section>
-
-<!-- ============================== S4 / Showreel ============================== -->
-<section class="reel">
-  <div class="slide-tag">04 · Showreel</div>
-  <video class="reel-video" src="wtf-credenciales-slides/video/wtf-showreel.mp4" poster="wtf-credenciales-slides/video/wtf-showreel.jpg" playsinline preload="metadata"></video>
-  <button class="reel-sonido" type="button" aria-label="Sonido">Sonido · <span>ON</span></button>
-</section>
-
 <!-- ============================== S3 / Contexto ============================== -->
 <section class="ctx dense">
-  <div class="slide-tag">05 · Contexto</div>
+  <div class="slide-tag">02 · Contexto</div>
   <h2 class="display ctx-title reveal delay-1" data-i18n="ctx_title">Nadie está<br><em>esperando.</em></h2>
   <p class="ctx-sub reveal delay-1" data-i18n="ctx_sub">El consumidor no lee: escanea.<br>Decide en menos de dos segundos y sigue de largo.<br><strong>Por eso rearmamos la agencia para ganar esos dos segundos, todos los días.</strong></p>
 
@@ -3499,7 +3481,7 @@
 
 <!-- ============================== S4 / El problema ============================== -->
 <section class="problema dense">
-  <div class="slide-tag">06 · El problema</div>
+  <div class="slide-tag">03 · El problema</div>
 
   <div class="problema-left">
     <h2 class="display reveal" data-i18n="prob_title">EL GAP<br><em>CREATIVO</em></h2>
@@ -3510,9 +3492,32 @@
 </section>
 </section>
 
+<!-- ============================== S2 / Brief Destroyers ============================== -->
+<section class="brief-destroyers">
+  <video class="section-bg-video" autoplay muted loop playsinline>
+    <source src="wtf-credenciales-slides/bg-cta.mp4" type="video/mp4">
+  </video>
+  <div class="slide-tag">04 · Brief Destroyers</div>
+  <h2 class="display bd-title reveal delay-1" data-i18n="bd_title">
+    LA CREATIVIDAD<br>ENTRENADA<br>PARA<br><em>REINTERPRETAR.</em>
+  </h2>
+  <p class="bd-since reveal delay-2" data-i18n="bd_since"><strong>Desde 2010</strong> rompiendo briefs para llevar cada idea más lejos.</p>
+  <div class="bd-logo reveal delay-3">
+    <img src="wtf-credenciales-slides/logo-wtf.png" alt="WTF Agency" class="bd-logo-img">
+  </div>
+</section>
+
+<!-- ============================== S4 / Quiénes somos (presentación) ============================== -->
+<section class="somos">
+  <div class="slide-tag">05 · Quiénes somos</div>
+  <p class="eyebrow reveal" data-i18n="somos_q">¿Quiénes somos?</p>
+  <img class="somos-logo reveal delay-1" src="wtf-credenciales-slides/logo-wtf.png" alt="WTF Agency · Brief Destroyers">
+  <p class="display somos-txt reveal delay-2" data-i18n="somos_txt"><strong>Pensamos como una agencia.<br>Producimos como un sistema.<br>Trabajamos como parte del equipo.</strong><span class="somos-cap">Estrategia senior, creatividad, producción, data e Inteligencia Artificial para pensar, crear, mover y aprender a la velocidad que hoy demandan las marcas.</span></p>
+</section>
+
 <!-- ============================== S5 / Manifiesto ============================== -->
 <section class="manifiesto">
-  <div class="slide-tag">07 · Manifiesto</div>
+  <div class="slide-tag">06 · Manifiesto</div>
 
   <div class="mani-eyebrow reveal" data-i18n="mani_eyebrow">NUESTRO MANIFIESTO · #WTFRULES</div>
   <p class="mani-pre reveal" data-i18n="wtfrules_text">Es momento de plantearse todo <strong>nuevamente.</strong></p>
@@ -3532,7 +3537,7 @@
 
 <!-- ============================== S7 / Quiénes somos ============================== -->
 <section class="quienes">
-  <div class="slide-tag">08 · Hacemos sistemas</div>
+  <div class="slide-tag">07 · Hacemos sistemas</div>
 
   <h2 class="display quienes-h reveal delay-1" data-i18n="quienes_title"><span>NO HACEMOS<br>CAMPAÑAS.<br><em>HACEMOS<br>SISTEMAS.</em></span></h2>
   <p class="quienes-sub reveal delay-1" data-i18n="quienes_sub">Construimos nuestro propio sistema operativo. 15 años de calle, estrategia y craft creativo corriendo dentro de una máquina que no para. No automatizamos la creatividad, la armamos para escalar.</p>
@@ -3566,20 +3571,11 @@
   </div>
 </section>
 
-<!-- ============================== S11 / Modelo AI First ============================== -->
-<section class="modelo">
-  <div class="slide-tag">09 · Modelo AI First</div>
-
-  <h2 class="display modelo-title reveal delay-1" data-i18n="modelo_title">NO SUMAMOS IA AL PROCESO.<br><em>CAMBIAMOS EL PROCESO.</em></h2>
-  <p class="modelo-firma reveal delay-2">#WTFRULES</p>
-  <img class="modelo-logo reveal delay-3" src="wtf-credenciales-slides/logo-wtf-mark.png" alt="WTF Agency">
-</section>
-
 <!-- ============================== El proceso (adaptada de IE · La solución) ============================== -->
 <section class="proceso">
-  <div class="slide-tag">10 · El proceso</div>
+  <div class="slide-tag">08 · El proceso</div>
   <p class="eyebrow reveal" data-i18n="pr_eyebrow">El proceso</p>
-  <h2 class="display pr-title reveal delay-1" data-i18n="pr_title">MISMA MARCA, MISMO OBJETIVO.<br><em>OTRO PROCESO.</em></h2>
+  <h2 class="display pr-title reveal delay-1" data-i18n="pr_title">NO SUMAMOS IA AL PROCESO.<br><em>CAMBIAMOS EL PROCESO.</em></h2>
   <p class="pr-lead reveal delay-1" data-i18n="pr_lead">La misma marca, con WTF y su motor Infinite Engine: <strong>entendemos, armamos la estrategia, producimos, activamos y aprendemos de cada resultado.</strong></p>
   <div class="pr-antes reveal delay-2"><span class="t" data-i18n="pr_antes">Con el modelo de siempre</span><span data-i18n="pr_a1"><b>14 días</b> hasta salir en vivo</span><span data-i18n="pr_a2"><b>1 versión</b> para todos los canales</span><span data-i18n="pr_a3"><b>0</b> aprendizajes entre campañas</span></div>
   <div class="pr-tline reveal delay-3"><span class="pr-loop" data-i18n="pr_loop">↺ otra vuelta, sin parar</span><div class="pr-n"><span class="pr-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 12.5h-5.5l-1.8 2.8h-4.4L8 12.5H2.5"/><path d="M5.5 5.5 2.5 12.5v5.5a2 2 0 0 0 2 2h15a2 2 0 0 0 2-2v-5.5l-3-7a2 2 0 0 0-1.8-1.2H7.3a2 2 0 0 0-1.8 1.2z"/></svg></span><span class="k" data-i18n="pr_k1">Hora 0</span><h3 data-i18n="pr_h1">Brief</h3><p data-i18n="pr_p1">El motor arma el contexto completo desde la marca.</p></div><div class="pr-n"><span class="pr-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><span class="k" data-i18n="pr_k2">Hora 4</span><h3 data-i18n="pr_h2">Estrategia</h3><p data-i18n="pr_p2">Territorios, calendario y plan por canal.</p></div><div class="pr-n"><span class="pr-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 7.5l9 4.5 9-4.5z"/><path d="M3 12l9 4.5 9-4.5"/><path d="M3 16.5 12 21l9-4.5"/></svg></span><span class="k" data-i18n="pr_k3">Hora 12</span><h3 data-i18n="pr_h3">Piezas</h3><p data-i18n="pr_p3">50 o más variantes de copy, imagen y video por canal.</p></div><div class="pr-n"><span class="pr-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3 10.5 13.5"/><path d="M21 3l-6.5 18-4-7.5-7.5-4z"/></svg></span><span class="k" data-i18n="pr_k4">48 a 72 h</span><h3 data-i18n="pr_h4">En vivo</h3><p data-i18n="pr_p4">Activación en todas las plataformas.</p></div><div class="pr-n r"><span class="pr-ico r"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.3-4.4L4 8.5"/><path d="M4 4v4.5h4.5"/><path d="M4 13a8 8 0 0 0 14.3 4.4L20 15.5"/><path d="M20 20v-4.5h-4.5"/></svg></span><span class="k" data-i18n="pr_k5">Cada 48 h</span><h3 data-i18n="pr_h5">Reporte y aprendizaje</h3><p data-i18n="pr_p5">Ajustamos lo que no rinde y multiplicamos lo que funciona.</p></div></div>
@@ -3588,7 +3584,7 @@
 
 <!-- ============================== S12 / WTF y su motor Infinite Engine ============================== -->
 <section class="engine">
-  <div class="slide-tag">11 · WTF y su motor Infinite Engine</div>
+  <div class="slide-tag">09 · WTF y su motor Infinite Engine</div>
 
   <h2 class="display engine-title reveal delay-1">WTF Y SU MOTOR<br><em>Infinite Engine</em></h2>
   <p class="engine-sub reveal delay-2" data-i18n="engine_sub">Más de 20 herramientas de IA corriendo en un solo flujo.<br>Del brief a la escala, sin traspasos ni tiempos muertos.<br><strong>Nada sale de acá sin que un humano lo firme.</strong></p>
@@ -3717,7 +3713,7 @@
 
 <!-- ============================== S10 / Operación conectada ============================== -->
 <section class="opconn">
-  <div class="slide-tag">12 · Operación conectada</div>
+  <div class="slide-tag">10 · Operación conectada</div>
   <canvas class="iehud3" width="1920" height="1080" role="img" aria-label="Cómo opera Infinite Engine: siete fuentes de contexto entran al motor, el criterio humano lo dirige y salen siete tipos de trabajo. El ciclo devuelve los resultados al sistema."></canvas>
   <button class="iepaso-rs" type="button" aria-label="Reiniciar la animación">↻ Reiniciar</button>
 </section>
@@ -3726,7 +3722,8 @@
 
 <!-- ============================== Infinite Pods (portada del deck de IE · 05) ============================== -->
 <section class="pods">
-  <div class="slide-tag">13 · Infinite Pods</div>
+  <div class="bgsel" data-sel="pods"><button type="button" data-f="wtf-credenciales-slides/hero/pods-arena.jpg" title="Arena (actual)" style="background-image:url('wtf-credenciales-slides/hero/pods-arena.jpg')"><span>1</span></button><button type="button" data-f="wtf-credenciales-slides/hero/modelo-duna.jpg" title="Duna" style="background-image:url('wtf-credenciales-slides/hero/modelo-duna.jpg')"><span>2</span></button><button type="button" data-f="wtf-credenciales-slides/hero/slide_12_1456x816.jpeg" title="Rocas" style="background-image:url('wtf-credenciales-slides/hero/slide_12_1456x816.jpeg')"><span>3</span></button><button type="button" data-f="wtf-credenciales-slides/hero/slide_06_1456x816.jpeg" title="Rampa" style="background-image:url('wtf-credenciales-slides/hero/slide_06_1456x816.jpeg')"><span>4</span></button><button type="button" data-f="wtf-credenciales-slides/bg-planes.jpg" title="Antiparras" style="background-image:url('wtf-credenciales-slides/bg-planes.jpg')"><span>5</span></button><button type="button" data-f="wtf-credenciales-slides/hero/engine_turbine.jpeg" title="Turbina" style="background-image:url('wtf-credenciales-slides/hero/engine_turbine.jpeg')"><span>6</span></button><button type="button" data-f="wtf-credenciales-slides/hero/slide_01_1688x816.jpeg" title="Skater" style="background-image:url('wtf-credenciales-slides/hero/slide_01_1688x816.jpeg')"><span>7</span></button><button type="button" data-f="wtf-credenciales-slides/hero/slide_23_1612x848.jpeg" title="Moto" style="background-image:url('wtf-credenciales-slides/hero/slide_23_1612x848.jpeg')"><span>8</span></button></div>
+  <div class="slide-tag">11 · Infinite Pods</div>
   <p class="eyebrow reveal" data-i18n="pd_eyebrow">Infinite Pods</p>
   <h2 class="display pr-title reveal delay-1" data-i18n="pd_title">UN POD ES UN ÁREA DE MARKETING COMPLETA.<br><em>POR UNA SOLA SUSCRIPCIÓN.</em></h2>
   <p class="ipd-lead reveal delay-1" data-i18n="pd_lead">El motor produce, un squad senior lo dirige y la memoria de la marca los une. La marca deja de coordinar agencia, equipo interno, freelancers y herramientas: <strong>contrata un pod</strong>, en tres tamaños que crecen con ella. Cada nuevo pod suma capacidad de servicio sobre la misma plataforma, con equipos freelance y supervisión central.</p>
@@ -3736,7 +3733,7 @@
 
 <!-- ============================== Un año con tu pod (portada del deck de IE) ============================== -->
 <section class="anio">
-  <div class="slide-tag">14 · Un año con tu pod</div>
+  <div class="slide-tag">12 · Un año con tu pod</div>
   <p class="eyebrow reveal" data-i18n="an_eyebrow">Un año con tu pod</p>
   <h2 class="display pr-title reveal delay-1" data-i18n="an_title">UN AÑO CON TU POD.<br><em>CADA MES RINDE MÁS QUE EL ANTERIOR.</em></h2>
   <div class="year reveal delay-2" data-i18n="an_year"><svg class="yr3" viewBox="0 0 1640 392"><polygon class="bs f" points="8.2,342.1 1412.3,342.1 1412.3,351.5 8.2,351.5"/><polygon class="bs e" points="1412.3,293.9 1412.3,342.1 1412.3,351.5 1412.3,303.3"/><polygon class="bs t" points="8.2,293.9 1412.3,293.9 1412.3,342.1 8.2,342.1"/><polygon class="pc l" points="23.3,318.0 72.0,346.1 72.0,316.7 23.3,288.5"/><polygon class="pc r" points="120.7,318.0 72.0,346.1 72.0,316.7 120.7,288.5"/><polygon class="pc t" points="72.0,260.4 120.7,288.5 72.0,316.7 23.3,288.5"/><text class="mo" x="72.0" y="381.5">01</text><polygon class="pc l" points="139.3,318.0 188.0,346.1 188.0,301.9 139.3,273.8"/><polygon class="pc r" points="236.8,318.0 188.0,346.1 188.0,301.9 236.8,273.8"/><polygon class="pc t" points="188.0,245.6 236.8,273.8 188.0,301.9 139.3,273.8"/><text class="mo" x="188.0" y="381.5">02</text><polygon class="pc l" points="255.3,318.0 304.1,346.1 304.1,287.2 255.3,259.0"/><polygon class="pc r" points="352.8,318.0 304.1,346.1 304.1,287.2 352.8,259.0"/><polygon class="pc t" points="304.1,230.9 352.8,259.0 304.1,287.2 255.3,259.0"/><text class="mo" x="304.1" y="381.5">03</text><polygon class="pc l" points="371.4,318.0 420.1,346.1 420.1,272.4 371.4,244.3"/><polygon class="pc r" points="468.9,318.0 420.1,346.1 420.1,272.4 468.9,244.3"/><polygon class="pc t" points="420.1,216.2 468.9,244.3 420.1,272.4 371.4,244.3"/><text class="mo" x="420.1" y="381.5">04</text><polygon class="rd l" points="487.4,318.0 536.2,346.1 536.2,257.7 487.4,229.6"/><polygon class="rd r" points="584.9,318.0 536.2,346.1 536.2,257.7 584.9,229.6"/><polygon class="rd t" points="536.2,201.4 584.9,229.6 536.2,257.7 487.4,229.6"/><text class="mo" x="536.2" y="381.5">05</text><polygon class="pc l" points="603.5,318.0 652.2,346.1 652.2,243.0 603.5,214.8"/><polygon class="pc r" points="701.0,318.0 652.2,346.1 652.2,243.0 701.0,214.8"/><polygon class="pc t" points="652.2,186.7 701.0,214.8 652.2,243.0 603.5,214.8"/><text class="mo" x="652.2" y="381.5">06</text><polygon class="pc l" points="719.5,318.0 768.3,346.1 768.3,228.2 719.5,200.1"/><polygon class="pc r" points="817.0,318.0 768.3,346.1 768.3,228.2 817.0,200.1"/><polygon class="pc t" points="768.3,171.9 817.0,200.1 768.3,228.2 719.5,200.1"/><text class="mo" x="768.3" y="381.5">07</text><polygon class="pc l" points="835.6,318.0 884.3,346.1 884.3,213.5 835.6,185.3"/><polygon class="pc r" points="933.0,318.0 884.3,346.1 884.3,213.5 933.0,185.3"/><polygon class="pc t" points="884.3,157.2 933.0,185.3 884.3,213.5 835.6,185.3"/><text class="mo" x="884.3" y="381.5">08</text><polygon class="pc l" points="951.6,318.0 1000.4,346.1 1000.4,198.7 951.6,170.6"/><polygon class="pc r" points="1049.1,318.0 1000.4,346.1 1000.4,198.7 1049.1,170.6"/><polygon class="pc t" points="1000.4,142.5 1049.1,170.6 1000.4,198.7 951.6,170.6"/><text class="mo" x="1000.4" y="381.5">09</text><polygon class="rd l" points="1067.7,318.0 1116.4,346.1 1116.4,184.0 1067.7,155.9"/><polygon class="rd r" points="1165.1,318.0 1116.4,346.1 1116.4,184.0 1165.1,155.9"/><polygon class="rd t" points="1116.4,127.7 1165.1,155.9 1116.4,184.0 1067.7,155.9"/><text class="mo" x="1116.4" y="381.5">10</text><polygon class="rd l" points="1183.7,318.0 1232.4,346.1 1232.4,169.3 1183.7,141.1"/><polygon class="rd r" points="1281.2,318.0 1232.4,346.1 1232.4,169.3 1281.2,141.1"/><polygon class="rd t" points="1232.4,113.0 1281.2,141.1 1232.4,169.3 1183.7,141.1"/><text class="mo" x="1232.4" y="381.5">11</text><polygon class="rd l" points="1299.7,318.0 1348.5,346.1 1348.5,154.5 1299.7,126.4"/><polygon class="rd r" points="1397.2,318.0 1348.5,346.1 1348.5,154.5 1397.2,126.4"/><polygon class="rd t" points="1348.5,98.2 1397.2,126.4 1348.5,154.5 1299.7,126.4"/><text class="mo" x="1348.5" y="381.5">12</text><path class="mem" d="M 72.0 288.5 L 188.0 273.8 L 304.1 259.0 L 420.1 244.3 L 536.2 229.6 L 652.2 214.8 L 768.3 200.1 L 884.3 185.3 L 1000.4 170.6 L 1116.4 155.9 L 1232.4 141.1 L 1348.5 126.4"/><circle class="pulse2" r="6"><animateMotion dur="5s" repeatCount="indefinite" path="M 72.0 288.5 L 188.0 273.8 L 304.1 259.0 L 420.1 244.3 L 536.2 229.6 L 652.2 214.8 L 768.3 200.1 L 884.3 185.3 L 1000.4 170.6 L 1116.4 155.9 L 1232.4 141.1 L 1348.5 126.4"/></circle><text class="ev" x="536.2" y="199.6">Hot Sale</text><text class="ev" x="1116.4" y="125.9">Día de la Madre</text><text class="ev" x="1232.4" y="111.1">Black Friday</text><text class="ev" x="1348.5" y="96.4">Navidad</text><line class="pin" x1="304.1" y1="251.0" x2="304.1" y2="185.0"/><circle class="pinh" cx="304.1" cy="181.0" r="5"/><text class="pl" x="304.1" y="165.0">Plan Q2</text><line class="pin" x1="652.2" y1="206.8" x2="652.2" y2="140.8"/><circle class="pinh" cx="652.2" cy="136.8" r="5"/><text class="pl" x="652.2" y="120.8">Plan Q3</text><line class="pin" x1="1000.4" y1="162.6" x2="1000.4" y2="96.6"/><circle class="pinh" cx="1000.4" cy="92.6" r="5"/><text class="pl" x="1000.4" y="76.6">Plan Q4</text><line class="pin" x1="72.0" y1="276.5" x2="72.0" y2="192.5"/><circle class="st" cx="72.0" cy="288.5" r="9"/><text class="sl" x="0" y="160.5">Semana 1: diagnóstico</text><text class="sl2" x="0" y="182.5">y memoria de marca cargada</text><circle class="end" cx="1348.5" cy="126.4" r="8"/><text class="el" x="1408.5" y="120.4">Memoria de marca</text><text class="el2" x="1408.5" y="144.4">acumulada · plan del año 2</text><text class="mo l" x="0" y="381.5">MES</text><g class="lgd3" transform="translate(0,26)"><rect class="rd t" x="0" y="-12" width="16" height="16"/><text x="26" y="2">Boost en fechas fuertes</text><line class="mem" x1="250" y1="-4" x2="290" y2="-4"/><text x="300" y="2">Altura: memoria acumulada</text><circle class="pulse2" cx="560" cy="-4" r="6"/><text x="576" y="2">Lectura de pauta cada 48 h</text></g></svg></div>
@@ -3749,9 +3746,16 @@
   <div class="remate reveal delay-4" data-i18n="an_remate"><b>●</b> Suscripción anual con facturación mensual: el valor se construye en los 12 meses.</div>
 </section>
 
+<!-- ============================== S4 / Showreel ============================== -->
+<section class="reel">
+  <div class="slide-tag">13 · Showreel</div>
+  <video class="reel-video" src="wtf-credenciales-slides/video/wtf-showreel.mp4" poster="wtf-credenciales-slides/video/wtf-showreel.jpg" playsinline preload="metadata"></video>
+  <button class="reel-sonido" type="button" aria-label="Sonido">Sonido · <span>ON</span></button>
+</section>
+
 <!-- ============================== S8 / Clientes ============================== -->
 <section class="clientes dense">
-  <div class="slide-tag">15 · Clientes</div>
+  <div class="slide-tag">14 · Clientes</div>
   <h2 class="display clientes-title reveal" data-i18n="clientes_title">NO SON LOGOS.<br><em>SON AÑOS.</em></h2>
   <p class="clientes-sub reveal delay-1" data-i18n="clientes_sub">Los años no se pitchean.</p>
   <div class="logos-static reveal delay-2">
@@ -3790,7 +3794,7 @@
 
 <!-- ============================== S17 / Galería ============================== -->
 <section class="galeria">
-  <div class="slide-tag">16 · Galería</div>
+  <div class="slide-tag">15 · Galería</div>
   <div class="galeria-txt">
     <h2 class="display galeria-title reveal" data-i18n="gal_title">WTF AGENCY<br><em>EN ACCIÓN</em></h2>
     <p class="galeria-sub reveal delay-1" data-i18n="gal_sub">Campañas completas salidas del mismo sistema. Comunicación real para marcas reales, en el aire.</p>
@@ -3801,7 +3805,7 @@
 
 <!-- ============================== SLIDE 13a / Portfolio ============================== -->
 <section class="nfx-s1 dense" style="padding:30px 4.5vw 40px;background:var(--bg-deep);overflow-y:auto;overflow-x:hidden;justify-content:flex-start;">
-  <div class="slide-tag">17 · Portfolio</div>
+  <div class="slide-tag">16 · Portfolio</div>
 
   <div class="eyebrow reveal" style="margin-top:1rem;">Brief Destroyers</div>
   <h2 class="display casos-title reveal delay-1" data-i18n="portfolio_title" style="margin-bottom:8px;font-size:clamp(40px,6vw,94px);">NUESTROS<br><em>TRABAJOS</em></h2>
@@ -4013,6 +4017,8 @@
     Battle tested creativity. AI first. Human always.
   </p>
 
+  <p class="gracias-paso reveal delay-2" data-i18n="gracias_paso"><strong>Empecemos por un diagnóstico.</strong> 72 horas para cargar la memoria de la marca y arrancar.</p>
+
   <div class="gracias-sign reveal delay-3" data-i18n="gracias_sign">
     <a href="mailto:hello@wtf-agency.com">HELLO@WTF-AGENCY.COM</a><br>
     BATTLE TESTED CREATIVITY · SINCE 2010<br>
@@ -4034,10 +4040,10 @@
 
   // Slide names for HUD
   const slideNames = [
-    'Cover', 'Brief Destroyers', 'Quiénes somos', 'Showreel', 'Contexto', 'El problema',
-    'Manifiesto', 'Hacemos sistemas', 'Modelo AI First', 'El proceso',
+    'Cover', 'Contexto', 'El problema', 'Brief Destroyers', 'Quiénes somos',
+    'Manifiesto', 'Hacemos sistemas', 'El proceso',
     'WTF y su motor Infinite Engine', 'Operación conectada', 'Infinite Pods', 'Un año con tu pod',
-    'Clientes', 'Galería',
+    'Showreel', 'Clientes', 'Galería',
     'Equipo', 'Gracias'
   ];
 
@@ -4379,7 +4385,7 @@
         pd_facts: '<div><b>72 h</b><p>Para arrancar, con la memoria de la marca cargada.</p></div><div><b>1</b><p>Suscripción mensual con todo adentro: sin fees de producción ni extras.</p></div><div><b>12 meses</b><p>Con el mismo squad, que conoce la marca y no rota entre clientes.</p></div>',
         pd_eyebrow: 'Infinite Pods',
         pr_eyebrow: 'El proceso',
-        pr_title: 'MISMA MARCA, MISMO OBJETIVO.<br><em>OTRO PROCESO.</em>',
+        pr_title: 'NO SUMAMOS IA AL PROCESO.<br><em>CAMBIAMOS EL PROCESO.</em>',
         pr_lead: 'La misma marca, con WTF y su motor Infinite Engine: <strong>entendemos, armamos la estrategia, producimos, activamos y aprendemos de cada resultado.</strong>',
         pr_antes: 'Con el modelo de siempre',
         pr_a1: '<b>14 días</b> hasta salir en vivo',
@@ -4404,7 +4410,7 @@
         pr_s1: '<b>48/72 horas</b><span>hasta salir en vivo</span>',
         pr_s2: '<b>50+ variantes</b><span>por plataforma y público</span>',
         pr_s3: '<b>48 h</b><span>entre cada aprendizaje</span>',
-        somos_txt: 'Combinamos <strong>estrategia senior, creatividad, producción, data e Inteligencia Artificial</strong> para pensar, crear, mover y aprender más rápido.',
+        somos_txt: '<strong>Pensamos como una agencia.<br>Producimos como un sistema.<br>Trabajamos como parte del equipo.</strong><span class="somos-cap">Estrategia senior, creatividad, producción, data e Inteligencia Artificial para pensar, crear, mover y aprender a la velocidad que hoy demandan las marcas.</span>',
         // S1 — Cover
         cover_left: 'WTF AGENCY<br>BATTLE TESTED CREATIVITY · SINCE 2010',
         cover_right: 'CREDENTIALS 2026<br>BUENOS AIRES, MAYO',
@@ -4578,6 +4584,7 @@
         role_6: 'Pauta inteligente, A/B testing, analytics en tiempo real. Community management. El sistema que aprende.',
         // S15 — Gracias
         gracias_sub: 'Battle tested creativity. AI first. Human always.',
+        gracias_paso: '<strong>Empecemos por un diagnóstico.</strong> 72 horas para cargar la memoria de la marca y arrancar.',
         gracias_sign: '<a href="mailto:hello@wtf-agency.com">HELLO@WTF-AGENCY.COM</a><br>BATTLE TESTED CREATIVITY · SINCE 2010<br>ARGENTINA · CHILE · BRASIL · URUGUAY · PARAGUAY · BOLIVIA · ECUADOR · PERÚ · USA<br>WTF AGENCY',
       },
 
@@ -4610,7 +4617,7 @@
         pd_facts: '<div><b>72 h</b><p>To get started, with the brand\'s memory loaded.</p></div><div><b>1</b><p>Monthly subscription, everything included: no production fees or extras.</p></div><div><b>12 months</b><p>With the same squad, who knows the brand and doesn\'t rotate between clients.</p></div>',
         pd_eyebrow: 'Infinite Pods',
         pr_eyebrow: 'The process',
-        pr_title: 'SAME BRAND, SAME GOAL.<br><em>A DIFFERENT PROCESS.</em>',
+        pr_title: 'WE DIDN\'T ADD AI TO THE PROCESS.<br><em>WE CHANGED THE PROCESS.</em>',
         pr_lead: 'The same brand, with WTF and its engine, Infinite Engine: <strong>we understand, build the strategy, produce, activate and learn from every result.</strong>',
         pr_antes: 'With the usual model',
         pr_a1: '<b>14 days</b> to go live',
@@ -4635,7 +4642,7 @@
         pr_s1: '<b>48/72 hours</b><span>to go live</span>',
         pr_s2: '<b>50+ variants</b><span>per platform and audience</span>',
         pr_s3: '<b>48 h</b><span>between each learning</span>',
-        somos_txt: 'We combine <strong>senior strategy, creativity, production, data and Artificial Intelligence</strong> to think, create, move and learn faster.',
+        somos_txt: '<strong>We think like an agency.<br>We produce like a system.<br>We work as part of the team.</strong><span class="somos-cap">Senior strategy, creativity, production, data and Artificial Intelligence to think, create, move and learn at the speed brands demand today.</span>',
         // S1 — Cover
         cover_left: 'WTF AGENCY<br>BATTLE TESTED CREATIVITY · SINCE 2010',
         cover_right: 'CREDENTIALS 2026<br>BUENOS AIRES, MAY',
@@ -4809,6 +4816,7 @@
         role_6: 'Smart media buying, A/B testing, real-time analytics. Community management. The system that learns.',
         // S15 — Thanks
         gracias_sub: 'Battle tested creativity. AI first. Human always.',
+        gracias_paso: '<strong>Let\'s start with a diagnosis.</strong> 72 hours to load the brand\'s memory and get going.',
         gracias_sign: '<a href="mailto:hello@wtf-agency.com">HELLO@WTF-AGENCY.COM</a><br>BATTLE TESTED CREATIVITY · SINCE 2010<br>ARGENTINA · CHILE · BRASIL · URUGUAY · PARAGUAY · BOLIVIA · ECUADOR · PERÚ · USA<br>WTF AGENCY',
       },
 
@@ -4841,7 +4849,7 @@
         pd_facts: '<div><b>72 h</b><p>Para começar, com a memória da marca carregada.</p></div><div><b>1</b><p>Assinatura mensal com tudo incluído: sem fees de produção nem extras.</p></div><div><b>12 meses</b><p>Com o mesmo squad, que conhece a marca e não roda entre clientes.</p></div>',
         pd_eyebrow: 'Infinite Pods',
         pr_eyebrow: 'O processo',
-        pr_title: 'MESMA MARCA, MESMO OBJETIVO.<br><em>OUTRO PROCESSO.</em>',
+        pr_title: 'NÃO SOMAMOS IA AO PROCESSO.<br><em>MUDAMOS O PROCESSO.</em>',
         pr_lead: 'A mesma marca, com a WTF e seu motor Infinite Engine: <strong>entendemos, montamos a estratégia, produzimos, ativamos e aprendemos com cada resultado.</strong>',
         pr_antes: 'Com o modelo de sempre',
         pr_a1: '<b>14 dias</b> até entrar no ar',
@@ -4866,7 +4874,7 @@
         pr_s1: '<b>48/72 horas</b><span>até entrar no ar</span>',
         pr_s2: '<b>50+ variações</b><span>por plataforma e público</span>',
         pr_s3: '<b>48 h</b><span>entre cada aprendizado</span>',
-        somos_txt: 'Combinamos <strong>estratégia sênior, criatividade, produção, dados e Inteligência Artificial</strong> para pensar, criar, mover e aprender mais rápido.',
+        somos_txt: '<strong>Pensamos como uma agência.<br>Produzimos como um sistema.<br>Trabalhamos como parte do time.</strong><span class="somos-cap">Estratégia sênior, criatividade, produção, dados e Inteligência Artificial para pensar, criar, mover e aprender na velocidade que as marcas exigem hoje.</span>',
         // S1 — Cover
         cover_left: 'WTF AGENCY<br>CRIATIVIDADE TESTADA EM BATALHA · DESDE 2010',
         cover_right: 'CREDENTIALS 2026<br>BUENOS AIRES, MAIO',
@@ -5040,6 +5048,7 @@
         role_6: 'Mídia paga inteligente, A/B testing, analytics em tempo real. Community management. O sistema que aprende.',
         // S15 — Obrigado
         gracias_sub: 'Battle tested creativity. AI first. Human always.',
+        gracias_paso: '<strong>Vamos começar por um diagnóstico.</strong> 72 horas para carregar a memória da marca e começar.',
         gracias_sign: '<a href="mailto:hello@wtf-agency.com">HELLO@WTF-AGENCY.COM</a><br>CRIATIVIDADE TESTADA EM BATALHA · DESDE 2010<br>ARGENTINA · CHILE · BRASIL · URUGUAY · PARAGUAY · BOLIVIA · ECUADOR · PERÚ · USA<br>WTF AGENCY',
       }
     };
@@ -6033,5 +6042,13 @@ v.addEventListener('click',()=>{if(v.paused)v.play().catch(()=>{});else v.pause(
 })();
 </script>
 <script src="/acceso/track.js" defer></script>
+<script>/* selector de fondo de prueba: cambia la foto de la lamina y recuerda la elegida en este navegador */
+document.querySelectorAll('.bgsel').forEach(sel => { if (!/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) { sel.remove(); return; }  /* publicado: sin selector, queda la foto por defecto */
+  const sec = sel.closest('section'), K = 'wtf-bgsel-' + sel.dataset.sel, bs = [...sel.querySelectorAll('button')];
+  const set = f => { sec.style.setProperty('--pods-foto', "url('" + f + "')"); bs.forEach(b => b.classList.toggle('on', b.dataset.f === f)); try { localStorage.setItem(K, f); } catch (e) {} };
+  let f0 = 'wtf-credenciales-slides/hero/slide_12_1456x816.jpeg'; try { f0 = localStorage.getItem(K) || f0; } catch (e) {}
+  set(bs.some(b => b.dataset.f === f0) ? f0 : 'wtf-credenciales-slides/hero/slide_12_1456x816.jpeg');
+  bs.forEach(b => b.addEventListener('click', e => { e.stopPropagation(); set(b.dataset.f); })); });
+</script>
 </body>
 </html>
