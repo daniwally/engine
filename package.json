@@ -1,0 +1,8 @@
+{
+  "name": "wtf-credenciales",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@vercel/functions": "^2.2.0"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "nombre": "WTF · Credenciales",
+  "slug": "wtf-credenciales",
+  "prefijo": "WTF",
+  "url": "https://engine.wtf-agency.works",
+  "idiomas": {
+    "es": "/"
+  },
+  "color": "#FF3B30",
+  "on": "#0A0A0C",
+  "tema": "oscuro",
+  "foco": "50% 45%",
+  "contacto": "WTF",
+  "abiertos": [
+    "propuesta.html",
+    "rumikuna-presupuesto.html",
+    "brinox.html",
+    "brinox-site-thumb.jpg",
+    "pernod-ricard.html",
+    "sembrasol.html",
+    "wtf-ai-first-2026.html",
+    "wtf-propuesta-2026.html",
+    "wtf-propuesta-pipona.html",
+    "wtf-credenciales-slides"
+  ],
+  "movil": "",
+  "unidad": [
+    "lámina",
+    "láminas"
+  ],
+  "comparte": {
+    "es": "las credenciales de WTF",
+    "en": "the WTF credentials",
+    "pt": "as credenciais da WTF"
+  },
+  "barra": true,
+  "logo": "/acceso/logo.png",
+  "fondo": "/acceso/fondo.jpg",
+  "favicon": ""
+}

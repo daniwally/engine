@@ -1,0 +1,112 @@
+<!doctype html>
+<!-- capa codigo-acceso · la arma agregar_capa.py desde lib/acceso.json: para cambiarla, volver a correr el script -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0A0A0C">
+<title>WTF · Credenciales</title>
+<meta property="og:title" content="WTF · Credenciales">
+<meta property="og:description" content="Acceso con código personal.">
+<meta property="og:image" content="https://engine.wtf-agency.works/acceso/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* capa codigo-acceso · pantalla de código con la imagen, el logo y el color del proyecto (la arma agregar_capa.py) */
+  :root { --bg: #0A0A0C; --ink: #F4F1E8; --ink-rgb: 244, 241, 232; --scrim-rgb: 10, 10, 12; --accent: #FF3B30; --on-accent: #0A0A0C;
+    --mono: 'JetBrains Mono', ui-monospace, monospace; --sans: 'Inter', system-ui, sans-serif; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; background: var(--bg); }
+  body { font-family: var(--sans); font-weight: 300; color: var(--ink); -webkit-font-smoothing: antialiased; }
+  .g { position: fixed; inset: 0; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px;
+    background: radial-gradient(ellipse 80% 70% at 70% 20%, color-mix(in srgb, var(--accent) 22%, var(--bg)), var(--bg) 70%); }
+  .g > img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; z-index: 0; }
+  /* la lectura sale de un velo del fondo, nunca de sombras en el texto */
+  .g.has-bg::after { content: ""; position: absolute; inset: 0; z-index: 1;
+    background: radial-gradient(ellipse 60% 70% at 50% 55%, rgba(var(--scrim-rgb), .64), rgba(var(--scrim-rgb), .42) 60%, rgba(var(--scrim-rgb), .74)); }
+  .in { position: relative; z-index: 2; width: min(520px, 100%); display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .logo { display: block; max-width: min(72vw, 100%); height: auto; }
+  .name { font-size: 34px; font-weight: 300; letter-spacing: -.01em; }
+  .tag { margin-top: 20px; font-family: var(--mono); font-size: 12px; letter-spacing: .32em; margin-right: -.32em; text-transform: uppercase; color: rgba(var(--ink-rgb), .8); }
+  form { margin-top: 54px; width: min(380px, 100%); }
+  label { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: rgba(var(--ink-rgb), .66); margin-bottom: 12px; }
+  .row { display: flex; align-items: center; gap: 8px; height: 52px; padding: 0 6px 0 22px; border-radius: 999px; border: 1px solid rgba(var(--ink-rgb), .24);
+    background: rgba(var(--scrim-rgb), .28); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: border-color .25s, background .25s; }
+  .row:focus-within { border-color: rgba(var(--ink-rgb), .58); background: rgba(var(--scrim-rgb), .4); }
+  input { flex: 1; min-width: 0; height: 100%; padding: 0; border: 0; background: none; color: var(--ink); font-family: var(--mono); font-size: 16px; letter-spacing: .22em;
+    text-transform: uppercase; outline: none; }
+  input::placeholder { color: rgba(var(--ink-rgb), .34); }
+  button.go { flex: none; width: 40px; height: 40px; padding: 0; border-radius: 50%; border: 1px solid rgba(var(--ink-rgb), .32); background: none; color: var(--ink);
+    display: grid; place-items: center; cursor: pointer; transition: background .2s, border-color .2s, color .2s, opacity .2s; }
+  button.go svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  button.go:hover, .row:focus-within button.go { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  button.go:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  button.go:disabled { opacity: .5; cursor: default; }
+  .err { min-height: 20px; margin-top: 12px; font-size: 14px; color: #FF8A80; }
+  .note { margin-top: 18px; max-width: 380px; font-size: 13px; line-height: 1.5; color: rgba(var(--ink-rgb), .6); }
+  .lg { position: fixed; z-index: 3; top: 24px; right: 28px; display: flex; gap: 2px; font-family: var(--mono); font-size: 13px; }
+  .lg button { font: inherit; letter-spacing: .18em; color: var(--ink); background: none; border: 1px solid transparent; border-radius: 999px; min-height: 36px; padding: 5px 12px; cursor: pointer; opacity: .6; }
+  .lg button:hover { opacity: 1; }
+  .lg button.on { opacity: 1; border-color: rgba(var(--ink-rgb), .45); }
+  @media (max-width: 560px) { .name { font-size: 28px; } form { margin-top: 40px; } .tag { font-size: 10px; letter-spacing: .24em; margin-right: -.24em; } .lg { top: 14px; right: 14px; } }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<main class="g has-bg">
+  <img class="bg" src="/acceso/fondo.jpg" alt="" fetchpriority="high">
+  
+  <div class="in">
+    <img class="logo" src="/acceso/logo.png" width="218" height="110" alt="WTF · Credenciales">
+    
+    <form id="f" autocomplete="off" novalidate>
+      <label for="c" data-t="label"></label>
+      <div class="row"><input id="c" name="code" inputmode="text" autocapitalize="characters" spellcheck="false" maxlength="16" placeholder="WTF-XXXXX" required><button class="go" type="submit" data-ta="go"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+      <div class="err" id="e" role="alert" aria-live="polite"></div>
+    </form>
+    <p class="note" data-t="note"></p>
+  </div>
+</main>
+<script>
+(() => {
+  const IDIOMAS = {"es": "/"}, T = {"es": {"label": "Acceso con código", "go": "Entrar", "note": "Cada código es personal. Si no tenés uno, pedíselo a tu contacto en WTF.", "codigo": "Ese código no es válido o está pausado.", "intentos": "Demasiados intentos. Probá de nuevo en unos minutos.", "sin-base": "El acceso todavía no está habilitado.", "red": "No hay conexión. Probá de nuevo.", "og": "Acceso con código personal."}};
+  const LS = Object.keys(IDIOMAS), L0 = LS.find(l => IDIOMAS[l] === '/') || LS[0];
+  const q = new URLSearchParams(location.search);
+  let nextPath = q.get('next') || IDIOMAS[L0];
+  if (!/^\/(?!\/)/.test(nextPath) || nextPath.startsWith('/acceso')) nextPath = IDIOMAS[L0];   // solo rutas del mismo sitio
+  // el idioma de la pantalla sale de la ruta pedida (/en/ → inglés); si no dice, el del sitio
+  const fromPath = p => (LS.filter(l => IDIOMAS[l] !== '/' && p.startsWith(IDIOMAS[l])).sort((a, b) => IDIOMAS[b].length - IDIOMAS[a].length)[0]);
+  let L = fromPath(nextPath) || L0;
+  const f = document.getElementById('f'), c = document.getElementById('c'), e = document.getElementById('e'), go = f.querySelector('.go');
+  const paint = () => { document.documentElement.lang = L === 'pt' ? 'pt-BR' : L;
+    document.querySelectorAll('[data-t]').forEach(n => n.textContent = T[L][n.dataset.t]);
+    document.querySelectorAll('[data-ta]').forEach(n => n.setAttribute('aria-label', T[L][n.dataset.ta]));
+    document.querySelectorAll('.lg button').forEach(b => { b.classList.toggle('on', b.dataset.l === L); b.setAttribute('aria-pressed', b.dataset.l === L); }); };
+  document.querySelectorAll('.lg button').forEach(b => b.addEventListener('click', () => {
+    const was = L; L = b.dataset.l; paint(); e.textContent = '';
+    // el idioma elegido acá decide en qué idioma se abre el sitio
+    const a = IDIOMAS[was], z = IDIOMAS[L];
+    if (LS.some(l => IDIOMAS[l] === nextPath) || !a.endsWith('/') || !z.endsWith('/')) nextPath = z;
+    else if (nextPath.startsWith(a)) nextPath = z + nextPath.slice(a.length);
+  }));
+  c.addEventListener('input', () => { c.value = c.value.toUpperCase(); e.textContent = ''; });
+  f.addEventListener('submit', async ev => {
+    ev.preventDefault(); if (!c.value.trim()) { c.focus(); return; }
+    go.disabled = true; e.textContent = '';
+    try {
+      const r = await fetch('/api/acceso/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', body: JSON.stringify({ code: c.value, lang: L }) });
+      const j = await r.json().catch(() => ({}));
+      if (j.ok) { location.replace(nextPath + location.hash); return; }
+      e.textContent = T[L][j.error] || T[L].codigo;
+    } catch { e.textContent = T[L].red; }
+    go.disabled = false; c.select();
+  });
+  paint(); c.focus();
+})();
+</script>
+</body>
+</html>

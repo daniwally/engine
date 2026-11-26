@@ -1,4 +1,11 @@
 {
   "buildCommand": "",
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "redirects": [
+    {
+      "source": "/acceso",
+      "destination": "/acceso/",
+      "permanent": true
+    }
+  ]
 }
